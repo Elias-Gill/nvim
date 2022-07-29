@@ -150,7 +150,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
     },
     filesystem_watchers = {
         enable = false,
-        interval = 1000,
+        debounce_delay = 2000,
     },
     git = {
         enable = true,

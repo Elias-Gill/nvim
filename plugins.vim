@@ -28,7 +28,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
+" Plug 'hrsh7th/cmp-cmdline'
 Plug 'onsails/lspkind.nvim'
 "Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' } "tabnine AI autocomplete
 "Plug 'SirVer/ultisnips'
@@ -61,6 +61,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " Themes, colororschemes and customization
 Plug 'elias-gill/newshell.nvim'
+Plug 'NLKNguyen/papercolor-theme'
 
 " Pareado (){}""'' y ayudas de indentacion
 Plug 'windwp/nvim-autopairs'

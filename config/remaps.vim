@@ -25,7 +25,7 @@ nnoremap <leader>qf :q!<CR>
 nnoremap <C-p> :FzfLua files<CR>
 nnoremap <C-s> :FzfLua files cwd=~/<CR>
 nnoremap <leader>nt :NvimTreeFindFileToggle<CR>
-nnoremap <leader>rt :RnvimrToggle<CR>
+" nnoremap <leader>rt :RnvimrToggle<CR>
 
 " cicling buffers
 nnoremap <leader>[ :bprevious<CR>
@@ -65,7 +65,7 @@ nnoremap <silent>]e :Lspsaga diagnostic_jump_next<cr>
 nnoremap <silent>]t :Lspsaga show_line_diagnostics<cr>
 nnoremap <silent><leader>rr :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent>co :Lspsaga code_action<CR>
-nnoremap <silent>K :lua vim.lsp.buf.hover()<CR>
+nnoremap <silent>K :Lspsaga hover_doc<CR>
 inoremap <silent><c-p> <c-o>:Lspsaga signature_help<CR>
 nnoremap <silent><leader>lf :Lspsaga lsp_finder<CR>
 
