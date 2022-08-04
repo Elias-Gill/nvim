@@ -25,7 +25,7 @@ nnoremap <leader>qf :q!<CR>
 nnoremap <C-p> :FzfLua files<CR>
 nnoremap <C-s> :FzfLua files cwd=~/<CR>
 nnoremap <leader>nt :NvimTreeFindFileToggle<CR>
-" nnoremap <leader>rt :RnvimrToggle<CR>
+nnoremap <leader>rt :RnvimrToggle<CR>
 
 " cicling buffers
 nnoremap <leader>[ :bprevious<CR>
@@ -83,7 +83,7 @@ vnoremap K :m '<-2<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
 nnoremap <cr> o<esc>k
-nnoremap <A-cr> O<esc>
+nnoremap <C-cr> O<esc>
 
 " teclas arriba y abajo en insert mode
 inoremap <C-j> <down>
@@ -136,7 +136,7 @@ nnoremap <silent><leader>ds :lua require'dap'.terminate()<Cr>
 nnoremap <silent><leader>df :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>
 nnoremap <silent><leader>dc :lua require'dap'.run_to_cursor()<Cr>
 
-" Luasnips
+" Luasnips snippets
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
 inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
 " For changing choices in choiceNodes

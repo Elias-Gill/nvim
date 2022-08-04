@@ -1,37 +1,37 @@
 local actions = require "fzf-lua.actions"
 require'fzf-lua'.setup {
-  global_resume      = true,            
-  global_resume_query = true,           
+  global_resume      = true,
+  global_resume_query = true,
   winopts = {
-    height           = 0.85,            
-    width            = 0.80,            
-    row              = 0.35,            
-    col              = 0.50,            
+    height           = 0.85,
+    width            = 0.80,
+    row              = 0.35,
+    col              = 0.50,
     border           = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-    fullscreen       = false,          
+    fullscreen       = false,
     hl = {
-      normal         = 'Normal',       
-      border         = 'Normal',       
+      normal         = 'Normal',
+      border         = 'Normal',
 
-      cursor         = 'Cursor',       
-      cursorline     = 'CursorLine',   
-      search         = 'Search',       
+      cursor         = 'Cursor',
+      cursorline     = 'CursorLine',
+      search         = 'Search',
     },
     preview = {
-      border         = 'border',       
-      wrap           = 'nowrap',       
-      hidden         = 'nohidden',     
-      vertical       = 'up:65%',     
-      horizontal     = 'right:60%',    
-      layout         = 'vertical',         
-      flip_columns   = 120,            
-      title          = true,           
-      scrollbar      = 'float',        
-      scrolloff      = '-2',           
-      scrollchars    = {'█', '' },     
-      delay          = 100,            
+      border         = 'border',
+      wrap           = 'nowrap',
+      hidden         = 'nohidden',
+      vertical       = 'up:65%',
+      horizontal     = 'right:60%',
+      layout         = 'vertical',
+      flip_columns   = 120,
+      title          = true,
+      scrollbar      = 'float',
+      scrolloff      = '-2',
+      scrollchars    = {'█', '' },
+      delay          = 100,
 
-      winopts = {                      
+      winopts = {
         number            = true,
         relativenumber    = false,
         cursorline        = true,
@@ -152,7 +152,7 @@ require'fzf-lua'.setup {
     color_icons       = true,           -- colorize file|git icons
 
     find_opts         = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
-    rg_opts           = "--color=never --files --follow -g '!.git' -g '!go/' -g '!.pdf'",
+    rg_opts           = "--color=never --files --follow -g '!.git' -g '!go/' -g '!.class' -g '!.pdf'",
     fd_opts           = "--color=never --type f --follow --exclude .git",
     actions = {
       ["default"]     = actions.file_edit,

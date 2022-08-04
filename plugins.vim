@@ -9,6 +9,8 @@ Plug 'romainl/vim-cool'
 
 " Start page
 Plug 'mhinz/vim-startify'
+" Plug 'goolord/alpha-nvim'
+" Plug 'Shatur/neovim-session-manager'
 Plug 'dstein64/vim-startuptime'
 
 " Git inegration
@@ -53,26 +55,26 @@ Plug 'windwp/windline.nvim'
 "File search and tree
 Plug 'ibhagwan/fzf-lua'
 Plug 'kyazdani42/nvim-tree.lua'
-" Plug 'kevinhwang91/rnvimr'
+Plug 'kevinhwang91/rnvimr'
 
 " Fonts and icons
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 
-" Themes, colororschemes and customization
-Plug 'elias-gill/newshell.nvim'
+" Themes, GUI and customization
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'dstein64/nvim-scrollview', { 'branch': 'main' }
 
 " Pareado (){}""'' y ayudas de indentacion
 Plug 'windwp/nvim-autopairs'
 Plug 'b3nj5m1n/kommentary' 
+Plug 'tpope/vim-surround'
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Utilities
 Plug 'vimwiki/vimwiki'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'folke/todo-comments.nvim'
-Plug 'tpope/vim-surround'
 Plug 'szw/vim-maximizer'
 Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
 

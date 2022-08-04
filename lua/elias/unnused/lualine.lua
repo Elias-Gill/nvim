@@ -12,13 +12,13 @@ require('lualine').setup {
     lualine_b = {'branch', 'diagnostics'},
     lualine_c = {
             {
-                'filename', 
+                'filename',
                 file_status = true,
-                path = 0,           
+                path = 0,
                 shorting_target = 40,
                 symbols = {
-                    modified = '  💽',      
-                    readonly = ' [🔑]',     
+                    modified = '  💽',
+                    readonly = ' [🔑]',
                     unnamed = '[No Name]',
                 }
             }
@@ -38,7 +38,7 @@ require('lualine').setup {
   },
     tabline = {
         lualine_b = {{
-            'tabs', 
+            'tabs',
             mode = 1,
             max_length = vim.o.columns / 1, -- maximum width of tabs component
         }}
