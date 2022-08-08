@@ -67,7 +67,7 @@ nnoremap <silent><leader>rr :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent>co :Lspsaga code_action<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 inoremap <silent><c-p> <c-o>:Lspsaga signature_help<CR>
-nnoremap <silent><leader>lf :Lspsaga lsp_finder<CR>
+nnoremap <silent>gh :Lspsaga lsp_finder<CR>
 
 "cambiar pestanas
 nnoremap <leader>tn :tabnew<cr>

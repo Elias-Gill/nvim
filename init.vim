@@ -24,9 +24,8 @@ lua require('elias/lsp/debug')
 
 " utils
 lua require('elias/utils/windline') 
-" lua require('elias/utils/startpage') 
-" lua require('elias/utils/gitsigns') 
 lua require('elias/utils/various-utils') 
+" lua require('elias/utils/gitsigns') 
 " lua require('elias/utils/sniprun') 
 
 " navigation
@@ -49,25 +48,12 @@ let g:CoolTotalMatches = 0
 let g:python_highlight_all = 1
 let g:python_highlight_space_errors = 0
 
-" " ultisnips
-" let g:UltiSnipsJumpForwardTrigger = '<tab>'
-" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" let g:vimwiki_list = [{'path': '~/.local/share/vimwiki/',
+"             \ 'syntax': 'markdown', 'ext': '.md'}]
 
-let g:vimwiki_list = [{'path': '~/.local/share/vimwiki/',
-            \ 'syntax': 'markdown', 'ext': '.md'}]
-
-
-let g:indent_blankline_filetype = [ "lua", "vue", "javascript", "python", "html", "c", "vim", "java", "svelte" ]
+let g:indent_blankline_filetype = [ "lua", "vue", "python", "html", "c", "svelte" ]
 let g:indent_blankline_char_list = ['┆']
 let g:indent_blankline_context_char = '┆' 
 hi IndentBlanklineContextChar guifg=#ab9457
 
-hi Scrollview guifg=None guibg=#464646
-
-" let g:vscode_italic_comment = 0
-" let g:vscode_disable_nvimtree_bg = v:true
-" colorscheme vscode
-" hi NvimTreeFolderName guifg=#99e999
-" hi NvimTreeOpenedFolderName guifg=#99e999
-" hi NvimTreeFile
-
+" hi Scrollview guifg=None guibg=#464646

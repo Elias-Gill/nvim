@@ -9,8 +9,6 @@ Plug 'romainl/vim-cool'
 
 " Start page
 Plug 'mhinz/vim-startify'
-" Plug 'goolord/alpha-nvim'
-" Plug 'Shatur/neovim-session-manager'
 Plug 'dstein64/vim-startuptime'
 
 " Git inegration
@@ -30,11 +28,8 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
-" Plug 'hrsh7th/cmp-cmdline'
 Plug 'onsails/lspkind.nvim'
 "Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' } "tabnine AI autocomplete
-"Plug 'SirVer/ultisnips'
-"Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 " Tree sitter 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
@@ -45,7 +40,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'folke/trouble.nvim'
-Plug 'tami5/lspsaga.nvim'
+Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 Plug 'L3MON4D3/LuaSnip'
 Plug 'rafamadriz/friendly-snippets'
 
@@ -62,8 +57,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " Themes, GUI and customization
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'dstein64/nvim-scrollview', { 'branch': 'main' }
+" Plug 'dstein64/nvim-scrollview', { 'branch': 'main' }
 
 " Pareado (){}""'' y ayudas de indentacion
 Plug 'windwp/nvim-autopairs'
@@ -72,7 +66,7 @@ Plug 'tpope/vim-surround'
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Utilities
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'folke/todo-comments.nvim'
 Plug 'szw/vim-maximizer'
@@ -80,7 +74,6 @@ Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
 
 " Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 " Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
-" Plug 'puremourning/vimspector'
 
 " debuggers
 Plug 'rcarriga/nvim-dap-ui'
