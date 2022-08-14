@@ -144,4 +144,4 @@ inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
 " smap <silent><expr> <C-e> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 nnoremap <leader><leader>s :so ~/.config/nvim/lua/elias/lsp/luasnips.lua <CR>
-autocmd FileType markdown nnoremap <buffer><leader>gg :Glow<CR>
+autocmd FileType markdown nnoremap <buffer><leader>gg :Glow <CR>

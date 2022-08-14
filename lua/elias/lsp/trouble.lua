@@ -1,14 +1,14 @@
 require("trouble").setup {
     position = "bottom",
     height = 10,
-    width = 50, 
+    width = 50,
     icons = true,
     mode = "workspace_diagnostics",
     fold_open = "",
     fold_closed = "",
     group = true,
     padding = true,
-    action_keys = { 
+    action_keys = {
         close = "q",
         cancel = "<esc>",
         refresh = "r",
@@ -21,17 +21,17 @@ require("trouble").setup {
         toggle_preview = "P",
         hover = "K",
         preview = "p",
-        close_folds = {"zM", "zm"}, 
-        open_folds = {"zR", "zr"}, 
+        close_folds = {"zM", "zm"},
+        open_folds = {"zR", "zr"},
         toggle_fold = {"zA", "za"},
         previous = "k",
-        next = "j" 
+        next = "j"
     },
-    indent_lines = true, 
-    auto_open = false, 
-    auto_close = false, 
-    auto_preview = true, 
-    auto_fold = true, 
+    indent_lines = true,
+    auto_open = false,
+    auto_close = false,
+    auto_preview = true,
+    auto_fold = true,
     auto_jump = {"lsp_definitions"},
     signs = {
         error = "",
@@ -40,6 +40,6 @@ require("trouble").setup {
         information = "",
         other = "﫠"
     },
-    use_diagnostic_signs = false 
+    use_diagnostic_signs = false
 }
 

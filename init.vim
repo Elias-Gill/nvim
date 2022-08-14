@@ -48,8 +48,8 @@ let g:CoolTotalMatches = 0
 let g:python_highlight_all = 1
 let g:python_highlight_space_errors = 0
 
-" let g:vimwiki_list = [{'path': '~/.local/share/vimwiki/',
-"             \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/.local/share/vimwiki/',
+            \ 'syntax': 'markdown', 'ext': '.md'}]
 
 let g:indent_blankline_filetype = [ "lua", "vue", "python", "html", "c", "svelte" ]
 let g:indent_blankline_char_list = ['┆']

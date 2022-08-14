@@ -1,4 +1,5 @@
 local present, cmp = pcall(require, "cmp")
+
 if not present then
 	return
 end
@@ -58,7 +59,7 @@ cmp.setup({
 		}),
 	},
     -- sources
-	sources = cmp.config.sources({
+	sources = {
 		-- this also affects the order in the completion menu
 		--{ name = "ultisnips" },
         -- { name = 'cmp_tabnine' },
@@ -66,17 +67,17 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "buffer", max_item_count = 10},
-	}),
+	},
 })
 -- require("cmp_nvim_ultisnips").setup{}
 
 --[[ local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
-	max_lines = 100;
-	max_num_results = 5;
-	sort = true;
-	run_on_every_keystroke = true;
-	snippet_placeholder = 'Tab';
-	ignored_file_types = { };
-	show_prediction_strength = false;
+	max_lines = 100,
+	max_num_results = 5,
+	sort = true,
+	run_on_every_keystroke = true,
+	snippet_placeholder = '..',
+	ignored_file_types = { },
+	show_prediction_strength = false,
 }) ]]

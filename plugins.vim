@@ -29,7 +29,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'onsails/lspkind.nvim'
-"Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' } "tabnine AI autocomplete
+" Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' } "tabnine AI autocomplete
 
 " Tree sitter 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
@@ -66,7 +66,7 @@ Plug 'tpope/vim-surround'
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Utilities
-" Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'folke/todo-comments.nvim'
 Plug 'szw/vim-maximizer'
