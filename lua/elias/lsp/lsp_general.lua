@@ -41,7 +41,7 @@ vim.lsp.with(
 local saga = require 'lspsaga'
 saga.init_lsp_saga({
     code_action_lightbulb = {
-        enable = true,
+        enable = false,
         sign = true,
         enable_in_insert = true,
         sign_priority = 2,

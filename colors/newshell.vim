@@ -75,10 +75,13 @@ hi Repeat             guifg=#F92672 gui=bold
 hi Search             guifg=#000000 guibg=#FFE792
 
 " Marks
-hi SignColumn         guifg=#A6E22E guibg=#232526
 hi SpecialChar        guifg=#F92672 gui=bold
 hi SpecialComment     guifg=#7E8E91 gui=bold
 hi Special            guifg=#66D9EF guibg=bg      gui=italic
+hi LineNr             guifg=#777777 guibg=None  gui=italic
+hi SignColumn         guifg=#A6E22E guibg=None
+" hi LineNr             guifg=#465457 guibg=#232526
+" hi SignColumn         guifg=#A6E22E guibg=#232526
 
 hi Statement          guifg=#F92672 gui=bold
 hi StatusLine         guifg=#455354 guibg=fg
@@ -102,12 +105,12 @@ hi TabLineFill        guifg=#1B1D1E guibg=#1B1D1E
 hi TabLine            guibg=#1B1D1E guifg=#808080 gui=none
 hi Tab                guibg=#111111
 
-hi Comment            guifg=#75715E
+" hola que hace
+hi Comment            guifg=#75715E 
 hi CursorLine         guibg=#3E3D32
 hi CursorLineNr       guifg=#FD971F gui=none
 hi CursorColumn       guibg=#3E3D32
 hi ColorColumn        guibg=#3B3A32
-hi LineNr             guifg=#BCBCBC guibg=#3B3A32
 hi NonText            guifg=#75715E
 hi SpecialKey         guifg=#75715E
 
@@ -116,7 +119,6 @@ hi CursorLine         guibg=#293739 cterm=NONE gui=NONE
 hi CursorLineNr       guifg=#FD971F gui=NONE cterm=NONE
 hi CursorColumn       guibg=#293739
 hi ColorColumn        guibg=#232526
-hi LineNr             guifg=#465457 guibg=#232526
 hi NonText            guifg=#465457
 hi SpecialKey         guifg=#465457
 hi pythonSpaceError   guibg=NONE
