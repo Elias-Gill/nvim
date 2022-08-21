@@ -1,6 +1,4 @@
 let mapleader = " "
-" bug 
-nnoremap <C-i> <C-i> 
 
 nnoremap ;; A;<esc>
 tnoremap <esc> <c-\><c-N>
@@ -145,3 +143,6 @@ inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
 
 nnoremap <leader><leader>s :so ~/.config/nvim/lua/elias/lsp/luasnips.lua <CR>
 autocmd FileType markdown nnoremap <buffer><leader>gg :Glow <CR>
+
+" bug 
+nnoremap <C-i> <C-i>zz

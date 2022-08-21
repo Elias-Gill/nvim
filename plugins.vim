@@ -51,6 +51,8 @@ Plug 'windwp/windline.nvim'
 Plug 'ibhagwan/fzf-lua'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kevinhwang91/rnvimr'
+" Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+" Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Fonts and icons
 Plug 'ryanoasis/vim-devicons'
@@ -71,9 +73,11 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'folke/todo-comments.nvim'
 Plug 'szw/vim-maximizer'
 Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
+Plug 'lewis6991/impatient.nvim'
 
 " Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 " Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+" Plug 'mbbill/undotree'
 
 " debuggers
 Plug 'rcarriga/nvim-dap-ui'

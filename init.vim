@@ -1,4 +1,5 @@
 source ~/.config/nvim/plugins.vim
+lua require('impatient')
 
 if exists('g:neovide')
     source ~/.config/nvim/config/neovide.vim
@@ -24,6 +25,7 @@ lua require('elias/lsp/debug')
 
 " utils
 lua require('elias/utils/windline') 
+lua require('elias/utils/disable_builtins') 
 lua require('elias/utils/various-utils') 
 " lua require('elias/utils/gitsigns') 
 " lua require('elias/utils/sniprun') 
