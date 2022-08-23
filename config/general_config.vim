@@ -5,6 +5,7 @@ command Bw :wa | Bwipeout hidden
 command W :w
 
 "opciones generales
+set termguicolors
 set laststatus=3
 set winbar=%=%f%m
 " lsp
@@ -58,6 +59,10 @@ set showmatch
 set ignorecase
 set smartcase
 
+" colorscheme
+let g:newshell_background="None"
+colorscheme newshell
+
 "cursor
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
@@ -72,3 +77,26 @@ augroup readPdf
     autocmd BufWritePost *.pdf silent !until [ -e ~/PDF/% ]; do sleep 1; done
     autocmd BufWritePost *.pdf silent !mv ~/PDF/% %:p:h
 augroup END
+
+"emmet html
+let g:user_emmet_mode='i'
+autocmd FileType html,css,vue EmmetInstall
+let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key=','
+
+let g:bracey_browser_command="firefox"
+let g:CoolTotalMatches = 0
+
+"python
+let g:python_highlight_all = 1
+let g:python_highlight_space_errors = 0
+
+let g:vimwiki_list = [{'path': '~/.local/share/vimwiki/',
+            \ 'syntax': 'markdown', 'ext': '.md'}]
+
+let g:indent_blankline_filetype = ["Java", "lua", "vue", "python", "html", "c", "svelte" ]
+let g:indent_blankline_char_list = ['┆']
+let g:indent_blankline_context_char = '┆' 
+hi IndentBlanklineContextChar guifg=#ab9457
+
+" hi Scrollview guifg=None guibg=#464646

@@ -1,7 +1,7 @@
 --colorizer
-require'colorizer'.setup()
+require 'colorizer'.setup()
 --treesitter
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
     -- ts-comment settings
     --[[ context_commentstring = {
         enable = true,
@@ -9,18 +9,20 @@ require'nvim-treesitter.configs'.setup {
         css = '// %s'
     }, ]]
 
+    ensure_installed = { "c", "lua", "javascript", "go", "python", "bash", "java", "css", "json", "dockerfile" },
+
     indent = {
         enable = true,
     },
     sync_install = false,
-    ignore_install = { "javascript" },
+    ignore_install = {},
     highlight = {
         enable = true,
         disable = {},
         additional_vim_regex_highlighting = false,
     },
 }
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
     textobjects = {
         select = {
             enable = true,
