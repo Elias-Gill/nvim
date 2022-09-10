@@ -1,7 +1,9 @@
 -- ------------- PLUGINS ------------
+require("mason").setup()
 return require'packer'.startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use 'lewis6991/impatient.nvim' -- super load speed
 
     use 'nvim-lua/plenary.nvim' -- Custom libraries for neovim
     use 'ThePrimeagen/harpoon'
@@ -36,10 +38,12 @@ return require'packer'.startup(function(use)
     -- Tree sitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/nvim-treesitter-textobjects'
+    use 'nvim-treesitter/nvim-treesitter-context'
 
     -- Lsp and snippets
     use 'neovim/nvim-lspconfig'
-    use 'williamboman/nvim-lsp-installer'
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'folke/trouble.nvim'
     use({ "glepnir/lspsaga.nvim", branch = "main" })
@@ -61,6 +65,7 @@ return require'packer'.startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
 
     -- Themes, GUI and customization
+    -- use 'EdenEast/nightfox.nvim'
     -- use 'dstein64/nvim-scrollview', { 'branch': 'main' }
 
     -- Pareado (){}""'' y ayudas de indentacion
@@ -70,12 +75,13 @@ return require'packer'.startup(function(use)
     use 'lukas-reineke/indent-blankline.nvim'
 
     -- Utilities
-    use 'vimwiki/vimwiki'
+    use 'jakewvincent/mkdnflow.nvim'
     use 'norcalli/nvim-colorizer.lua'
     use 'folke/todo-comments.nvim'
-    use 'szw/vim-maximizer'
     -- use 'ellisonleao/glow.nvim', {'branch': 'main'}
-    use 'lewis6991/impatient.nvim'
+
+    use 'szw/vim-maximizer'
+    use 'beauwilliams/focus.nvim'
 
     -- use 'michaelb/sniprun', {'do': 'bash install.sh'}
     -- use 'turbio/bracey.vim', {'do': 'npm install --prefix server'}

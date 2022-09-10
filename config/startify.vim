@@ -30,4 +30,3 @@ let g:ascii = [
             \]
 
 let g:startify_custom_header = startify#center(g:ascii)
-

@@ -23,7 +23,7 @@ require'fzf-lua'.setup {
       hidden         = 'nohidden',
       vertical       = 'up:65%',
       horizontal     = 'right:60%',
-      layout         = 'vertical',
+      layout         = 'horizontal',
       flip_columns   = 120,
       title          = true,
       scrollbar      = 'float',
@@ -152,11 +152,12 @@ require'fzf-lua'.setup {
     color_icons       = true,           -- colorize file|git icons
 
     find_opts         = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
-    rg_opts           = "--color=never --files --follow -g '!.git' -g '!go/' -g '!*.class' -g '!*.pdf'",
+    rg_opts           = "--color=never --files --follow -g '!.git' -g '!go/' -g '!*.class' -g '!*.pdf' -g '!VirtualBox*'",
     fd_opts           = "--color=never --type f --follow --exclude .git",
     actions = {
       ["default"]     = actions.file_edit,
       ["ctrl-y"]      = function(selected) print(selected[1]) end,
+
     }
   },
   git = {

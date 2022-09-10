@@ -1,4 +1,4 @@
-require("todo-comments").setup { 
+require("todo-comments").setup {
     signs = true, -- show icons in the signs column
     sign_priority = 8, -- sign priority
     keywords = {
@@ -9,15 +9,15 @@ require("todo-comments").setup {
         PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE"} },
         NOTE = { icon = " ", color = "hint", alt = { "INFO", "NOTE", "HINT" } },
     },
-    merge_keywords = true, 
+    merge_keywords = true,
     highlight = {
-        before = "", 
-        keyword = "wide", 
+        before = "",
+        keyword = "wide",
         after = "fg",
-        pattern = [[.*<(KEYWORDS)\s* ]], 
-        comments_only = true, 
-        max_line_len = 400, 
-        exclude = {}, 
+        pattern = [[.*<(KEYWORDS)\s* ]],
+        comments_only = true,
+        max_line_len = 400,
+        exclude = {},
     },
     colors = {
         error = { "DiagnosticError", "ErrorMsg", "#FF1B1E" },

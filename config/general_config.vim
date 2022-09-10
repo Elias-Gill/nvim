@@ -80,8 +80,8 @@ augroup END
 
 "emmet html
 let g:user_emmet_mode='i'
-autocmd FileType html,css,vue EmmetInstall
 let g:user_emmet_install_global = 0
+autocmd FileType html,css,vue,svelte EmmetInstall
 let g:user_emmet_leader_key=','
 
 let g:bracey_browser_command="firefox"
@@ -94,7 +94,7 @@ let g:python_highlight_space_errors = 0
 let g:vimwiki_list = [{'path': '~/.local/share/vimwiki/',
             \ 'syntax': 'markdown', 'ext': '.md'}]
 
-let g:indent_blankline_filetype = ["Java", "lua", "vue", "python", "html", "c", "svelte" ]
+let g:indent_blankline_filetype = ["java", "lua", "vue", "python", "html", "c", "svelte" ]
 let g:indent_blankline_char_list = ['┆']
 let g:indent_blankline_context_char = '┆' 
 hi IndentBlanklineContextChar guifg=#ab9457
