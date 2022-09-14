@@ -4,6 +4,8 @@ command JsonParse :%!python3.9 -m json.tool
 command Bw :wa | Bwipeout hidden
 command W :w
 
+set fillchars+=diff:╱
+
 "opciones generales
 set termguicolors
 set laststatus=3

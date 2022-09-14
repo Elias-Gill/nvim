@@ -17,6 +17,7 @@ return require'packer'.startup(function(use)
 
     -- " Git inegration
     use 'tpope/vim-fugitive'
+    use 'sindrets/diffview.nvim'
     -- use 'lewis6991/gitsigns.nvim'
     -- use 'APZelos/blamer.nvim'
 

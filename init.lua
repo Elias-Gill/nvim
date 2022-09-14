@@ -5,7 +5,6 @@ require('elias/plugins')
 vim.cmd('source ~/.config/nvim/config/general_config.vim')
 vim.cmd('source ~/.config/nvim/config/remaps.vim')
 vim.cmd('source ~/.config/nvim/config/startify.vim')
-
 ---------------------------
 
 -- require 'elias/plugins'

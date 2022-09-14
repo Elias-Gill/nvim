@@ -1,9 +1,9 @@
 let mapleader = " "
 
 nnoremap ;; A;<esc>
-tnoremap <esc> <c-\><c-N>
 inoremap <C-\> <C-w>
 nnoremap U <C-r> 
+tnoremap <esc> <c-\><c-N>
 
 "harpoon
 nnoremap <silent><leader>' :lua require("harpoon.ui").nav_next()<cr>
@@ -81,12 +81,17 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-"make < > shifts keep selection
+
+" make < > shifts keep selection
 vnoremap < <gv
 vnoremap > >gv
+
 " add spaces with 'enter' on normal mode
 nnoremap <cr> o<esc>k
 nnoremap <C-cr> O<esc>
+
+" epic paste utilitie
+vnoremap <leader>p "_dP
 
 "teclas arriba y abajo en insert mode
 inoremap <C-j> <down>
