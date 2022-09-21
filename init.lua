@@ -1,4 +1,5 @@
 require('elias/packer_config')
+require("mason").setup() -- lsp installer
 require('elias/plugins')
 
 ------- archivos vimL -----

@@ -90,8 +90,9 @@ vnoremap > >gv
 nnoremap <cr> o<esc>k
 nnoremap <C-cr> O<esc>
 
-" epic paste utilitie
+" epic delete/paste utility
 vnoremap <leader>p "_dP
+vnoremap <leader>d "_dD
 
 "teclas arriba y abajo en insert mode
 inoremap <C-j> <down>

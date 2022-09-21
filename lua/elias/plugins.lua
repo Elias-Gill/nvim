@@ -1,6 +1,5 @@
 -- ------------- PLUGINS ------------
-require("mason").setup()
-return require'packer'.startup(function(use)
+return require 'packer'.startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use 'lewis6991/impatient.nvim' -- super load speed
@@ -58,8 +57,8 @@ return require'packer'.startup(function(use)
     use 'ibhagwan/fzf-lua'
     use 'kyazdani42/nvim-tree.lua'
     use 'kevinhwang91/rnvimr'
-    -- use 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-    -- use 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
+    -- use 'nvim-telescope/telescope-fzf-native.nvim'
 
     -- Fonts and icons
     use 'ryanoasis/vim-devicons'

@@ -101,9 +101,14 @@ hi Visual             guibg=#403D3D
 hi WarningMsg         guifg=#FFFFFF guibg=#333333 gui=bold
 hi WildMenu           guifg=#66D9EF guibg=#000000
 
-hi TabLineFill        guifg=#1B1D1E guibg=#1B1D1E 
 hi TabLine            guibg=#1B1D1E guifg=#808080 gui=none
 hi Tab                guibg=#111111
+
+if s:custom_tabline == 1
+    hi TabLineFill guifg=#888888 guibg=#1B1D1E 
+else
+    hi TabLineFill  guifg=#1B1D1E guibg=#1B1D1E 
+endif
 
 " hola que hace
 hi Comment            guifg=#75715E 
@@ -133,6 +138,7 @@ hi DiagnosticSignHint guifg=#00EC89
 hi LspFloatWinNormal guibg=#222222
 hi ColorColumn guibg=#555555
 hi VertSplit guifg=#808080 guibg=None gui=bold
+hi TreesitterContext guibg=#333443
 
 let g:python_highlight_space_errors=0
 
@@ -142,10 +148,4 @@ elseif s:newshell_background == "dark"
     hi Normal guibg=#111111
 elseif s:newshell_background == "medium"
     hi Normal guibg=#1f1f1f
-endif
-
-if s:custom_tabline == 1
-    hi TabLineFill guifg=#888888
-else
-    hi TabLineFill guifg=#1B1D1E
 endif
