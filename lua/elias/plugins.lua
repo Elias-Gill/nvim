@@ -78,9 +78,9 @@ return require 'packer'.startup(function(use)
 
     -- Utilities
     use 'jakewvincent/mkdnflow.nvim'
-    -- use 'norcalli/nvim-colorizer.lua'
-    use 'uga-rosa/ccc.nvim'
+    use({ "uga-rosa/ccc.nvim", branch = "0.7.2" })
     use 'folke/todo-comments.nvim'
+    -- use 'norcalli/nvim-colorizer.lua'
     -- use 'ellisonleao/glow.nvim', {'branch': 'main'}
 
     use 'szw/vim-maximizer'
