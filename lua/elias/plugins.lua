@@ -67,6 +67,8 @@ return require 'packer'.startup(function(use)
     -- Themes, GUI and customization
     -- use 'EdenEast/nightfox.nvim'
     -- use 'dstein64/nvim-scrollview', { 'branch': 'main' }
+    -- use "rebelot/kanagawa.nvim"
+    -- use "artanikin/vim-synthwave84"
 
     -- Pareado (){}""'' y ayudas de indentacion
     use 'windwp/nvim-autopairs'
@@ -76,7 +78,8 @@ return require 'packer'.startup(function(use)
 
     -- Utilities
     use 'jakewvincent/mkdnflow.nvim'
-    use 'norcalli/nvim-colorizer.lua'
+    -- use 'norcalli/nvim-colorizer.lua'
+    use 'uga-rosa/ccc.nvim'
     use 'folke/todo-comments.nvim'
     -- use 'ellisonleao/glow.nvim', {'branch': 'main'}
 

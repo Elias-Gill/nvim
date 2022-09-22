@@ -1,5 +1,5 @@
 --colorizer
-require 'colorizer'.setup()
+-- require 'colorizer'.setup()
 
 --treesitter
 require 'nvim-treesitter.configs'.setup {
