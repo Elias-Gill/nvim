@@ -14,6 +14,7 @@ require("focus").setup({
 })
 vim.cmd("FocusDisable")
 
+-- personal replace for VimWiki
 require('mkdnflow').setup({
     modules = {
         bib = true,

@@ -22,6 +22,7 @@ nnoremap <leader>qf :q!<CR>
 "busqueda de archivos
 nnoremap <C-p> :FzfLua files<CR>
 nnoremap <C-s> :FzfLua files cwd=~/<CR>
+nnoremap <C-s-p> :FzfLua<CR>
 nnoremap <leader>nt :NvimTreeFindFileToggle<CR>
 nnoremap <leader>rt :RnvimrToggle<CR>
 
@@ -66,7 +67,8 @@ nnoremap <silent>[e :Lspsaga diagnostic_jump_prev<cr>
 nnoremap <silent>]e :Lspsaga diagnostic_jump_next<cr>
 nnoremap <silent>]t :Lspsaga show_line_diagnostics<cr>
 nnoremap <silent><leader>rr :lua vim.lsp.buf.rename()<CR>
-nnoremap <silent>co :Lspsaga code_action<CR>
+nnoremap <silent>co :lua vim.lsp.buf.code_action()<CR>
+" nnoremap <silent>co :Lspsaga code_action<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 inoremap <silent><c-p> <c-o>:Lspsaga signature_help<CR>
 nnoremap <silent>gh :Lspsaga lsp_finder<CR>
@@ -97,7 +99,6 @@ vnoremap <leader>d "_dD
 "teclas arriba y abajo en insert mode
 inoremap <C-j> <down>
 inoremap <C-k> <up>
-inoremap <C-l> <right>
 
 "Moverse entre splits
 "nnoremap <silent><leader>mb :call WindowSwap#EasyWindowSwap()<CR>
@@ -120,9 +121,6 @@ nnoremap <leader>vt :Vista finder nvim_lsp <CR>
 
 "git
 nnoremap <leader>gs :G<CR>
-nnoremap <leader>1 :Gdiffsplit!<CR>
-nnoremap <leader>2 :diffget //2<CR>
-nnoremap <leader>3 :diffget //3<CR>
 
 "block the arrow keys
 nnoremap <up> <nop>
@@ -148,14 +146,15 @@ nnoremap <silent><leader>df :lua require'dap'.set_breakpoint(vim.fn.input('Break
 nnoremap <silent><leader>dc :lua require'dap'.run_to_cursor()<Cr>
 
 "Luasnips snippets
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
-inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+imap <silent><expr> <C-l> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<right>' 
+" inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
 "For changing choices in choiceNodes
-"imap <silent><expr> <C-e> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-"smap <silent><expr> <C-e> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+"imap <silent><expr> <C-> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+"smap <silent><expr> <C-> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 nnoremap <leader><leader>s :so ~/.config/nvim/lua/elias/lsp/luasnips.lua <CR>
 autocmd FileType markdown nnoremap <buffer><leader>gg :Glow <CR>
 
-"bug 
+"bug with alacritty when using C-i (does not work with tmux)
 nnoremap <C-i> <C-i>zz

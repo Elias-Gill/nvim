@@ -1,5 +1,5 @@
 require('elias/packer_config')
-require("mason").setup() -- lsp installer
+require('mason').setup() -- lsp installer
 require('elias/plugins')
 
 ------- archivos vimL -----
@@ -22,20 +22,12 @@ require('elias/lsp/debug')
 require('elias/utils/windline')
 require('elias/utils/disable_builtins')
 require('elias/utils/various-utils')
--- require('elias/utils/gitsigns')
+require('elias/utils/gitsigns')
 -- require('elias/utils/sniprun')
+-- require('elias/unnused/lualine')
 
 -- Navigation
 require('elias/navigation/treesitter')
 require('elias/navigation/todo')
 require('elias/navigation/fzf')
 require('elias/navigation/nvimtree')
-
--- IDEA A FUTURO PARA PASAR EL RESTO DE LA CONFIG
---[[ local config = {
-    termguicolors = true,
-}
-
-for key, value in pairs(config) do
-    vim.opt[key] = value
-end ]]

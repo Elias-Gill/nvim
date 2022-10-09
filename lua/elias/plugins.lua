@@ -17,8 +17,8 @@ return require 'packer'.startup(function(use)
     -- " Git inegration
     use 'tpope/vim-fugitive'
     use 'sindrets/diffview.nvim'
-    -- use 'lewis6991/gitsigns.nvim'
-    -- use 'APZelos/blamer.nvim'
+    use 'lewis6991/gitsigns.nvim'
+    use { 'almo7aya/openingh.nvim', tag = 'v1.0.1' }
 
     -- Functions tree
     use 'liuchengxu/vista.vim'
@@ -33,7 +33,7 @@ return require 'packer'.startup(function(use)
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'onsails/lspkind.nvim'
-    use({ 'tzachar/cmp-tabnine', run = './install.sh' }) -- tabline
+    -- use({ 'tzachar/cmp-tabnine', run = './install.sh' }) -- tabline
 
     -- Tree sitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -44,14 +44,15 @@ return require 'packer'.startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
-    use 'jose-elias-alvarez/null-ls.nvim'
     use 'folke/trouble.nvim'
     use({ "glepnir/lspsaga.nvim", branch = "main" })
     use 'L3MON4D3/LuaSnip'
     use 'rafamadriz/friendly-snippets'
+    -- use 'jose-elias-alvarez/null-ls.nvim'
 
     -- Tabline and status bar
     use 'windwp/windline.nvim'
+    -- use 'nvim-lualine/lualine.nvim'
 
     -- File search and tree
     use 'ibhagwan/fzf-lua'
@@ -62,13 +63,16 @@ return require 'packer'.startup(function(use)
 
     -- Fonts and icons
     use 'ryanoasis/vim-devicons'
-    use 'kyazdani42/nvim-web-devicons'
+    use 'fugalh/desert.vim'
 
     -- Themes, GUI and customization
+    use 'stevearc/dressing.nvim'
     -- use 'EdenEast/nightfox.nvim'
+    -- use 'kurkale6ka/vim-desertEX'
     -- use 'dstein64/nvim-scrollview', { 'branch': 'main' }
     -- use "rebelot/kanagawa.nvim"
     -- use "artanikin/vim-synthwave84"
+    -- use { "ellisonleao/gruvbox.nvim" }
 
     -- Pareado (){}""'' y ayudas de indentacion
     use 'windwp/nvim-autopairs'
@@ -80,6 +84,7 @@ return require 'packer'.startup(function(use)
     use 'jakewvincent/mkdnflow.nvim'
     use({ "uga-rosa/ccc.nvim", branch = "0.7.2" })
     use 'folke/todo-comments.nvim'
+
     -- use 'norcalli/nvim-colorizer.lua'
     -- use 'ellisonleao/glow.nvim', {'branch': 'main'}
 

@@ -63,10 +63,10 @@ cmp.setup({
 		-- this also affects the order in the completion menu
 		--{ name = "ultisnips" },
         -- { name = 'cmp_tabnine' },
-		{ name = "luasnip", max_item_count = 10},
-		{ name = "nvim_lsp" },
-		{ name = "path" },
-		{ name = "buffer", max_item_count = 10},
+		{ name = "luasnip", max_item_count = 5},
+		{ name = "nvim_lsp", max_item_count = 10},
+		{ name = "path", max_item_count = 3},
+		{ name = "buffer", max_item_count = 5},
 	},
 })
 -- require("cmp_nvim_ultisnips").setup{}

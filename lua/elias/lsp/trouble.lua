@@ -12,18 +12,18 @@ require("trouble").setup {
         close = "q",
         cancel = "<esc>",
         refresh = "r",
-        jump = {"<cr>", "<tab>"},
+        jump = { "<cr>", "<tab>" },
         open_split = { "<c-x>" },
         open_vsplit = { "<c-v>" },
         open_tab = { "<c-t>" },
-        jump_close = {"o"},
+        jump_close = { "o" },
         toggle_mode = "m",
         toggle_preview = "P",
         hover = "K",
         preview = "p",
-        close_folds = {"zM", "zm"},
-        open_folds = {"zR", "zr"},
-        toggle_fold = {"zA", "za"},
+        close_folds = { "zM", "zm" },
+        open_folds = { "zR", "zr" },
+        toggle_fold = { "zA", "za" },
         previous = "k",
         next = "j"
     },
@@ -32,7 +32,7 @@ require("trouble").setup {
     auto_close = false,
     auto_preview = true,
     auto_fold = true,
-    auto_jump = {"lsp_definitions"},
+    auto_jump = { "lsp_definitions" },
     signs = {
         error = "",
         warning = "",
@@ -42,4 +42,3 @@ require("trouble").setup {
     },
     use_diagnostic_signs = false
 }
-
