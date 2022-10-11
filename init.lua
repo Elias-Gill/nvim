@@ -23,6 +23,8 @@ require('elias/utils/windline')
 require('elias/utils/disable_builtins')
 require('elias/utils/various-utils')
 require('elias/utils/gitsigns')
+require('elias/utils/gui')
+require('elias/utils/wiki')
 -- require('elias/utils/sniprun')
 -- require('elias/unnused/lualine')
 

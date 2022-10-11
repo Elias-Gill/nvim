@@ -1,36 +1,35 @@
 local present, cmp = pcall(require, "cmp")
 
 if not present then
-	return
+    return
 end
 
 vim.opt.completeopt = "menuone,noselect"
 local lspkind = require('lspkind')
 
 cmp.setup({
-    -- snippets 
-	snippet = {
+    -- snippets
+    snippet = {
         expand = function(args)
-            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
             require('luasnip').lsp_expand(args.body) -- luasnip
         end,
-	},
+    },
     experimental = {
         native_menu = false,
         ghost_text = false,
     },
+
     -- lsp symbols and decorators for completation
- 	formatting = {
+    formatting = {
         matching = {
             disallow_fuzzy_matching = false
         },
         format = lspkind.cmp_format({
             mode = 'symbol_text', -- show only symbol annotations
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            maxwidth = 50,
 
-            -- The function below will be called before any actual modifications from lspkind
-            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-            before = function (entry, vim_item)
+            -- kind icons
+            before = function(entry, vim_item)
                 vim_item.kind = string.format("%s", vim_item.kind)
                 vim_item.menu = ({
                     nvim_lsp = "[LSP]",
@@ -45,39 +44,25 @@ cmp.setup({
             end
         })
     },
-    -- mappings 
-	mapping = {
+    -- mappings
+    mapping = {
         ['<C-Space>'] = cmp.mapping.complete(),
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
-		["<UP>"] = cmp.mapping.select_prev_item(),
-		["<DOWN>"] = cmp.mapping.select_next_item(),
-		["<C-e>"] = cmp.mapping.close(),
-		["<CR>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		}),
-	},
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<UP>"] = cmp.mapping.select_prev_item(),
+        ["<DOWN>"] = cmp.mapping.select_next_item(),
+        ["<C-e>"] = cmp.mapping.close(),
+        ["<CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        }),
+    },
     -- sources
-	sources = {
-		-- this also affects the order in the completion menu
-		--{ name = "ultisnips" },
-        -- { name = 'cmp_tabnine' },
-		{ name = "luasnip", max_item_count = 5},
-		{ name = "nvim_lsp", max_item_count = 10},
-		{ name = "path", max_item_count = 3},
-		{ name = "buffer", max_item_count = 5},
-	},
+    sources = {
+        -- this also affects the order in the completion menu
+        { name = "luasnip", max_item_count = 5 },
+        { name = "nvim_lsp", max_item_count = 12 },
+        { name = "path", max_item_count = 3 },
+        { name = "buffer", max_item_count = 5 },
+    },
 })
--- require("cmp_nvim_ultisnips").setup{}
-
---[[ local tabnine = require('cmp_tabnine.config')
-tabnine:setup({
-	max_lines = 100,
-	max_num_results = 5,
-	sort = true,
-	run_on_every_keystroke = true,
-	snippet_placeholder = '..',
-	ignored_file_types = { },
-	show_prediction_strength = false,
-}) ]]

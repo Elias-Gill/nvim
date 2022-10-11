@@ -78,7 +78,7 @@ hi Search             guifg=#000000 guibg=#FFE792
 hi SpecialChar        guifg=#F92672 gui=bold
 hi SpecialComment     guifg=#7E8E91 gui=bold
 hi Special            guifg=#66D9EF guibg=bg      gui=italic
-hi LineNr             guifg=#777777 guibg=None  gui=italic
+hi LineNr             guifg=#777777 guibg=None  gui=None
 hi SignColumn         guifg=#A6E22E guibg=None
 " hi LineNr             guifg=#465457 guibg=#232526
 " hi SignColumn         guifg=#A6E22E guibg=#232526

@@ -1,12 +1,3 @@
---colorizer
--- require 'colorizer'.setup()
-
-local ccc = require("ccc")
-ccc.setup({
-    highlighter = {
-        auto_enable = true
-    }
-})
 
 --treesitter
 require 'nvim-treesitter.configs'.setup {

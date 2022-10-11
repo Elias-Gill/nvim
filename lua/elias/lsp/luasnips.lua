@@ -7,9 +7,9 @@ require("luasnip.loaders.from_vscode").lazy_load() -- to load vscode-like snippe
 
 --config
 ls.config.set_config {
-    history = true, 
+    history = false,
     updateevents = "TextChanged", "TextChangedI",
-    enable_autosnippets = true,
+    enable_autosnippets = false,
     ext_opts = {
         [types.choiceNode] = {
             active = {
@@ -18,8 +18,3 @@ ls.config.set_config {
         },
     }
 }
-
---[[ local s = ls.s -- init the snippet s("trigger", {body})
-local i = ls.i -- Placeholders i(1, "placeholder")
-local t = ls.t -- static text
-local f = ls.f -- function f(func, args) ]]

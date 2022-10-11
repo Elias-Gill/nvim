@@ -3,7 +3,6 @@ set fillchars+=diff:╱
 set termguicolors
 set laststatus=3
 set winbar=%=%f%m
-"set cmdheight=0
 
 " --- lsp ---
 set diffopt+=vertical
@@ -42,7 +41,7 @@ set tw=125
 set splitbelow splitright
 
 " --- Visuales ---
-set scrolloff=3
+set scrolloff=4
 set showmode
 set showcmd
 
