@@ -1,4 +1,5 @@
 let mapleader = " "
+let g:terminal_path = getcwd()
 
 nnoremap ;; A;<esc>
 inoremap <C-\> <C-w>
@@ -21,7 +22,7 @@ nnoremap <leader>qf :q!<CR>
 
 "busqueda de archivos
 nnoremap <C-p> :FzfLua files<CR>
-nnoremap <C-s> :FzfLua files cwd=~/<CR>
+nnoremap <C-s> :exe ":FzfLua files cwd=".g:terminal_path<CR>
 nnoremap <C-s-p> :FzfLua<CR>
 nnoremap <leader>nt :NvimTreeFindFileToggle<CR>
 nnoremap <leader>rt :RnvimrToggle<CR>
@@ -70,7 +71,7 @@ nnoremap <silent><leader>rr :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent>co :lua vim.lsp.buf.code_action()<CR>
 " nnoremap <silent>co :Lspsaga code_action<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
-inoremap <silent><c-p> <c-o>:Lspsaga signature_help<CR>
+inoremap <silent><c-p> <c-o>:lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent>gh :Lspsaga lsp_finder<CR>
 
 "cambiar pestanas

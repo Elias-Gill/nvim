@@ -1,8 +1,15 @@
 " --- opciones visuales ---
 set fillchars+=diff:╱
 set termguicolors
-set laststatus=3
-set winbar=%=%f%m
+set signcolumn=yes
+
+" -- neovim 0.8 specific
+if v:version >= 800
+    set laststatus=3
+    set winbar=%=%f%m
+else 
+    set laststatus=2
+endif
 
 " --- lsp ---
 set diffopt+=vertical
@@ -46,8 +53,7 @@ set showmode
 set showcmd
 
 " --- Tabs to spaces ---
-set tabstop=4
-set softtabstop=4
+set tabstop=4 softtabstop=4
 set expandtab
 set sw=4
 

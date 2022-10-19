@@ -1,8 +1,8 @@
 -- ------------- PLUGINS ------------
 return require 'packer'.startup(function(use)
-    -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    use 'lewis6991/impatient.nvim' -- super load speed
+    -- super load speed
+    use 'lewis6991/impatient.nvim'
 
     use 'nvim-lua/plenary.nvim' -- Custom libraries for neovim
     use 'ThePrimeagen/harpoon'
@@ -67,6 +67,7 @@ return require 'packer'.startup(function(use)
 
     -- Themes, GUI and customization
     use 'stevearc/dressing.nvim'
+    use 'gruvbox-community/gruvbox'
     -- use 'EdenEast/nightfox.nvim'
     -- use 'kurkale6ka/vim-desertEX'
     -- use 'dstein64/nvim-scrollview', { 'branch': 'main' }
@@ -82,7 +83,7 @@ return require 'packer'.startup(function(use)
 
     -- Utilities
     use 'jakewvincent/mkdnflow.nvim'
-    use({ "uga-rosa/ccc.nvim", branch = "0.7.2" })
+    use({ "uga-rosa/ccc.nvim", branch = "0.7.2" }) -- colorpicker and colorizer
     use 'folke/todo-comments.nvim'
 
     -- use 'norcalli/nvim-colorizer.lua'
