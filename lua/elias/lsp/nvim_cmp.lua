@@ -14,9 +14,10 @@ cmp.setup({
             require('luasnip').lsp_expand(args.body) -- luasnip
         end,
     },
-    experimental = {
-        native_menu = false,
-        ghost_text = false,
+
+    window = {
+        -- completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     },
 
     -- lsp symbols and decorators for completation

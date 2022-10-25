@@ -38,7 +38,7 @@ return require 'packer'.startup(function(use)
     -- Tree sitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/nvim-treesitter-textobjects'
-    use 'nvim-treesitter/nvim-treesitter-context'
+    -- use 'nvim-treesitter/nvim-treesitter-context'
 
     -- Lsp and snippets
     use 'neovim/nvim-lspconfig'
@@ -52,6 +52,7 @@ return require 'packer'.startup(function(use)
 
     -- Tabline and status bar
     use 'windwp/windline.nvim'
+    use 'alvarosevilla95/luatab.nvim'    
     -- use 'nvim-lualine/lualine.nvim'
 
     -- File search and tree
@@ -64,16 +65,13 @@ return require 'packer'.startup(function(use)
     -- Fonts and icons
     use 'ryanoasis/vim-devicons'
     use 'fugalh/desert.vim'
+    use 'nvim-tree/nvim-web-devicons'
 
     -- Themes, GUI and customization
     use 'stevearc/dressing.nvim'
     use 'gruvbox-community/gruvbox'
     -- use 'EdenEast/nightfox.nvim'
-    -- use 'kurkale6ka/vim-desertEX'
     -- use 'dstein64/nvim-scrollview', { 'branch': 'main' }
-    -- use "rebelot/kanagawa.nvim"
-    -- use "artanikin/vim-synthwave84"
-    -- use { "ellisonleao/gruvbox.nvim" }
 
     -- Pareado (){}""'' y ayudas de indentacion
     use 'windwp/nvim-autopairs'

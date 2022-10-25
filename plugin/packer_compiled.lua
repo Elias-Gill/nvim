@@ -184,6 +184,11 @@ _G.packer_plugins = {
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
   },
+  ["luatab.nvim"] = {
+    loaded = true,
+    path = "/home/elias/.local/share/nvim/site/pack/packer/start/luatab.nvim",
+    url = "https://github.com/alvarosevilla95/luatab.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -244,15 +249,15 @@ _G.packer_plugins = {
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
-  ["nvim-treesitter-context"] = {
-    loaded = true,
-    path = "/home/elias/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
-  },
   ["nvim-treesitter-textobjects"] = {
     loaded = true,
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/elias/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["openingh.nvim"] = {
     loaded = true,

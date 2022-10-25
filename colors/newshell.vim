@@ -103,6 +103,7 @@ hi WildMenu           guifg=#66D9EF guibg=#000000
 
 hi TabLine            guibg=#1B1D1E guifg=#808080 gui=none
 hi Tab                guibg=#111111
+hi TabLineSel         guibg=#242424 guifg=#ffffff
 
 if s:custom_tabline == 1
     hi TabLineFill guifg=#888888 guibg=#1B1D1E 

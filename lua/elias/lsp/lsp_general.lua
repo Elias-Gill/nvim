@@ -16,13 +16,13 @@ require("mason-lspconfig").setup({
 
 -- lspconfig
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup { on_attach = on_attach }
-lspconfig.tsserver.setup { on_attach = on_attach }
-lspconfig.clangd.setup { on_attach = on_attach }
-lspconfig.bashls.setup { on_attach = on_attach }
-lspconfig.gopls.setup { on_attach = on_attach }
-lspconfig.sumneko_lua.setup { on_attach = on_attach }
-lspconfig.vimls.setup { on_attach = on_attach }
+lspconfig.pyright.setup {}
+lspconfig.tsserver.setup {}
+lspconfig.clangd.setup {}
+lspconfig.bashls.setup {}
+lspconfig.gopls.setup {}
+lspconfig.sumneko_lua.setup {}
+lspconfig.vimls.setup {}
 lspconfig.jdtls.setup {}
 -- lspconfig.svelte.setup { on_attach = on_attach }
 -- lspconfig.cssls.setup { on_attach = on_attach }

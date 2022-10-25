@@ -20,10 +20,13 @@ nnoremap <leader>wa :wa<cr>
 nnoremap <leader>qa :qa<cr>
 nnoremap <leader>qf :q!<CR>
 
-"busqueda de archivos
+"file fuzzy searching
 nnoremap <C-p> :FzfLua files<CR>
 nnoremap <C-s> :exe ":FzfLua files cwd=".g:terminal_path<CR>
 nnoremap <C-s-p> :FzfLua<CR>
+nnoremap <C-S-s> :FzfLua files cwd=~/<CR>
+
+"file managers
 nnoremap <leader>nt :NvimTreeFindFileToggle<CR>
 nnoremap <leader>rt :RnvimrToggle<CR>
 
@@ -54,10 +57,11 @@ vnoremap <leader>lp :s/
 nnoremap <leader>sb :Bracey<CR>
 
 "Buscar funciones y definiciones 
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD :lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr :FzfLua lsp_references<CR>
-nnoremap <silent>=f :lua vim.lsp.buf.format ({ async = true })<CR>
 nnoremap <silent> gi :FzfLua lsp_implementations<CR>
+nnoremap <silent>=f :lua vim.lsp.buf.format ({ async = true })<CR>
 
 "Trouble and todos comments
 nnoremap <silent><leader>to :TroubleToggle<CR>
@@ -92,6 +96,10 @@ vnoremap > >gv
 " add spaces with 'enter' on normal mode
 nnoremap <cr> o<esc>k
 nnoremap <C-cr> O<esc>
+
+augroup QuickFix
+     au FileType qf nnoremap <buffer> <Cr> <Cr>
+augroup END
 
 " epic delete/paste utility
 vnoremap <leader>p "_dP
