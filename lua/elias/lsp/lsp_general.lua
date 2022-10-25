@@ -1,19 +1,3 @@
--- lsp_installer
-require("mason").setup({
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        }
-    }
-})
-
-require("mason-lspconfig").setup({
-    automatic_installation = false,
-    ensure_installed = { "sumneko_lua", "gopls", "clangd", "tsserver", "bashls", "pyright" }
-})
-
 -- lspconfig
 local lspconfig = require('lspconfig')
 lspconfig.pyright.setup {}
@@ -24,11 +8,11 @@ lspconfig.gopls.setup {}
 lspconfig.sumneko_lua.setup {}
 lspconfig.vimls.setup {}
 lspconfig.jdtls.setup {}
--- lspconfig.svelte.setup { on_attach = on_attach }
--- lspconfig.cssls.setup { on_attach = on_attach }
--- lspconfig.vuels.setup{on_attach = on_attach}
--- lspconfig.html.setup{on_attach = on_attach}
--- lspconfig.jsonls.setup{on_attach = on_attach}
+-- lspconfig.svelte.setup {}
+-- lspconfig.cssls.setup {}
+-- lspconfig.vuels.setup{}
+-- lspconfig.html.setup{}
+-- lspconfig.jsonls.setup{}
 
 -- change lsp default icons to be better
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(

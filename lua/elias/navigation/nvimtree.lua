@@ -11,7 +11,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
     ignore_buffer_on_setup = true,
     open_on_setup = true, -- open on startup
     open_on_setup_file = true,
-    open_on_tab = true,
+    open_on_tab = false,
     sort_by = "name",
     root_dirs = {},
     prefer_startup_root = false,

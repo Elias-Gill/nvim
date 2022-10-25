@@ -1,5 +1,4 @@
 require('elias/packer_config')
-require('mason').setup()
 require('elias/plugins')
 
 ------- archivos vimL -----
@@ -13,6 +12,7 @@ vim.cmd('if exists("g:neovide") \nsource ~/.config/nvim/config/neovide.vim \n en
 require('impatient')
 
 -- buitin lsp
+require('elias/lsp/mason')
 require('elias/lsp/lsp_general')
 require('elias/lsp/nvim_cmp')
 require('elias/lsp/trouble')
@@ -27,8 +27,6 @@ require('elias/utils/various-utils')
 require('elias/utils/gitsigns')
 require('elias/utils/gui')
 require('elias/utils/wiki')
--- require('elias/utils/sniprun')
--- require('elias/unnused/lualine')
 
 -- Navigation
 require('elias/navigation/treesitter')

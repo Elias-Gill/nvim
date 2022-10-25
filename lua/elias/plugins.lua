@@ -52,7 +52,7 @@ return require 'packer'.startup(function(use)
 
     -- Tabline and status bar
     use 'windwp/windline.nvim'
-    use 'alvarosevilla95/luatab.nvim'    
+    use 'alvarosevilla95/luatab.nvim'
     -- use 'nvim-lualine/lualine.nvim'
 
     -- File search and tree

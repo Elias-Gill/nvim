@@ -1,5 +1,7 @@
 " --- opciones visuales ---
 set fillchars+=diff:╱
+set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
+set fillchars=fold:\ 
 set termguicolors
 set signcolumn=yes
 
@@ -18,8 +20,19 @@ set completeopt=menuone,noselect
 
 " --- folding ---
 set nofoldenable
-set foldexpr=nvim_treesitter#foldexpr()
 set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set foldtext=CustomFoldText()
+
+function! CustomFoldText()
+  let indentation = indent(v:foldstart - 1)
+  let foldSize = 1 + v:foldend - v:foldstart
+  let foldSizeStr = " " . foldSize . " lines "
+  let foldLevelStr = repeat("+--", v:foldlevel)
+  let expansionString = repeat(" ", indentation)
+
+  return expansionString . foldLevelStr . foldSizeStr
+endfunction
 
 " --- indentation ---
 set nolist
@@ -82,8 +95,8 @@ let &t_EI = "\<Esc>[2 q"
 " emmet html
 let g:user_emmet_mode='i'
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,vue,svelte EmmetInstall
 let g:user_emmet_leader_key=','
+autocmd FileType html,css,vue,svelte EmmetInstall
 
 " python
 let g:python_highlight_all = 1
@@ -113,4 +126,3 @@ command W :w
 " Bracey
 " let g:bracey_browser_command="firefox"
 " let g:CoolTotalMatches = 0
-

@@ -1,7 +1,7 @@
 let mapleader = " "
 let g:terminal_path = getcwd()
 
-nnoremap ;; A;<esc>
+" nnoremap ;; A;<esc>
 inoremap <C-\> <C-w>
 nnoremap U <C-r> 
 tnoremap <esc> <c-\><c-N>
@@ -19,6 +19,7 @@ nnoremap <leader>tt :wqa <cr>
 nnoremap <leader>wa :wa<cr>
 nnoremap <leader>qa :qa<cr>
 nnoremap <leader>qf :q!<CR>
+nnoremap <leader>qq :q<CR>
 
 "file fuzzy searching
 nnoremap <C-p> :FzfLua files<CR>
@@ -53,21 +54,18 @@ vnoremap <s-h> 5k
 nnoremap <leader>lp :%s/
 vnoremap <leader>lp :s/
 
-"Live Server 
-nnoremap <leader>sb :Bracey<CR>
-
-"Buscar funciones y definiciones 
+"Buscar funciones y definicione TODO  cambiar para que se active con on_attachs 
 nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gD :lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr :FzfLua lsp_references<CR>
 nnoremap <silent> gi :FzfLua lsp_implementations<CR>
-nnoremap <silent>=f :lua vim.lsp.buf.format ({ async = true })<CR>
+nnoremap <silent> =f :lua vim.lsp.buf.format ({ async = true })<CR>
 
 "Trouble and todos comments
 nnoremap <silent><leader>to :TroubleToggle<CR>
 nnoremap <silent><leader>tg :TodoTrouble<CR>
 
-"diagnostics navigation
+"diagnostics navigation TODO  cambiar para que se active con on_attach
 nnoremap <silent>[e :Lspsaga diagnostic_jump_prev<cr>
 nnoremap <silent>]e :Lspsaga diagnostic_jump_next<cr>
 nnoremap <silent>]t :Lspsaga show_line_diagnostics<cr>
@@ -80,8 +78,8 @@ nnoremap <silent>gh :Lspsaga lsp_finder<CR>
 
 "cambiar pestanas
 nnoremap <leader>tn :tabnew<cr>
-nnoremap <S-tab> gT
-nnoremap <TAB> gt
+nnoremap <S-tab> :tabprevious<cr>
+nnoremap <tab> :tabnext<cr>
 
 "utilidades
 nnoremap n nzzzv
@@ -89,19 +87,19 @@ nnoremap N Nzzzv
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" make < > shifts keep selection
+"make < > shifts keep selection
 vnoremap < <gv
 vnoremap > >gv
 
-" add spaces with 'enter' on normal mode
+"add spaces with 'enter' on normal mode
 nnoremap <cr> o<esc>k
 nnoremap <C-cr> O<esc>
-
+"normal behavior on the QuickFix list
 augroup QuickFix
      au FileType qf nnoremap <buffer> <Cr> <Cr>
 augroup END
 
-" epic delete/paste utility
+"epic delete/paste utility
 vnoremap <leader>p "_dP
 vnoremap <leader>d "_dD
 
@@ -110,7 +108,6 @@ inoremap <C-j> <down>
 inoremap <C-k> <up>
 
 "Moverse entre splits
-"nnoremap <silent><leader>mb :call WindowSwap#EasyWindowSwap()<CR>
 nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
 nnoremap <C-l> <c-w>l
@@ -118,10 +115,12 @@ nnoremap <C-h> <c-w>h
 
 "Archivos de configuracion
 nnoremap <leader>cd :cd %:h <CR>
+nnoremap <leader><leader>s :so %<cr>
 nnoremap <silent><leader>so :so $MYVIMRC<CR>
 nnoremap <silent><leader>SO :tabnew $MYVIMRC<CR>
 nnoremap <silent><leader>sm :e ~/.config/nvim/config/remaps.vim<CR>
 nnoremap <silent><leader>sp :e ~/.config/nvim/lua/elias/plugins.lua<CR>
+"abrir wiki
 nnoremap <silent><leader>ww :e ~/.local/share/vimwiki/index.md<CR>
 
 "function tree
@@ -130,6 +129,8 @@ nnoremap <leader>vt :Vista finder nvim_lsp <CR>
 
 "git
 nnoremap <leader>gs :G<CR>
+nnoremap <leader>do :DiffviewOpen<CR>
+nnoremap <leader>dO :DiffviewClose<CR>
 
 "block the arrow keys
 nnoremap <up> <nop>
@@ -156,14 +157,10 @@ nnoremap <silent><leader>dc :lua require'dap'.run_to_cursor()<Cr>
 
 "Luasnips snippets
 inoremap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
-" inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
-
-"For changing choices in choiceNodes
+"inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+" --- For changing choices in choiceNodes --- 
 "imap <silent><expr> <C-> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 "smap <silent><expr> <C-> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-
-nnoremap <leader><leader>s :so ~/.config/nvim/lua/elias/lsp/luasnips.lua <CR>
-autocmd FileType markdown nnoremap <buffer><leader>gg :Glow <CR>
 
 "bug with alacritty when using C-i (does not work with tmux)
 nnoremap <C-i> <C-i>zz
