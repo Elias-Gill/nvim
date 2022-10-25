@@ -3,6 +3,7 @@ return require 'packer'.startup(function(use)
     use 'wbthomason/packer.nvim'
     -- super load speed
     use 'lewis6991/impatient.nvim'
+    use 'gpanders/editorconfig.nvim' -- editor config like other editors
 
     use 'nvim-lua/plenary.nvim' -- Custom libraries for neovim
     use 'ThePrimeagen/harpoon'
