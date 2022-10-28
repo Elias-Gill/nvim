@@ -71,7 +71,8 @@ return require 'packer'.startup(function(use)
 
     -- Themes, GUI and customization
     use 'stevearc/dressing.nvim' -- better custom gui
-    use 'arzg/vim-colors-xcode'
+    use { "folke/zen-mode.nvim", config = require("zen-mode").setup() }
+    -- use 'arzg/vim-colors-xcode'
     -- use 'gruvbox-community/gruvbox'
     -- use 'EdenEast/nightfox.nvim'
     -- use 'dstein64/nvim-scrollview', { 'branch': 'main' }

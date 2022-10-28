@@ -56,3 +56,8 @@ saga.init_lsp_saga({
         enable = false,
     },
 })
+
+local protocol = require('vim.lsp.protocol')
+protocol.CompletionItemKind = { '', '', '', '', '', '', '', 'ﰮ', '', '', '',
+    '', '', '', '﬌', '', '', '', '', '', '', '', '', 'ﬦ', '',
+}

@@ -4,9 +4,11 @@ if not present then
     return
 end
 
+-- configuracion de vim y lspkind
 vim.opt.completeopt = "menuone,noselect"
 local lspkind = require('lspkind')
 
+-- configuracion general
 cmp.setup({
     -- snippets
     snippet = {
@@ -27,24 +29,26 @@ cmp.setup({
         },
         format = lspkind.cmp_format({
             mode = 'symbol_text', -- show only symbol annotations
-            maxwidth = 50,
+            maxwidth = 60,
 
             -- kind icons
-            before = function(entry, vim_item)
+            -- buff
+            before = function(_, vim_item)
                 vim_item.kind = string.format("%s", vim_item.kind)
-                vim_item.menu = ({
+                --[[ vim_item.menu = ({
                     nvim_lsp = "[LSP]",
                     luasnip = "[Snp]",
                     buffer = "[Buf]",
-                    nvim_lua = "[Lua]",
-                    path = "[Path]",
+                    nvim_lua = "[]",
+                    path = "[]",
                     -- cmp_tabnine = "[📠]",
 
-                })[entry.source.name]
+                })[entry.source.name] ]]
                 return vim_item
             end
         })
     },
+
     -- mappings
     mapping = {
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -55,15 +59,15 @@ cmp.setup({
         ["<C-e>"] = cmp.mapping.close(),
         ["<CR>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
+            select = false, -- selecciona automaticamente el primer elemento
         }),
     },
     -- sources
     sources = {
         -- this also affects the order in the completion menu
         { name = "luasnip", max_item_count = 5 },
-        { name = "nvim_lsp"},
-        { name = "path"},
+        { name = "nvim_lsp" },
+        { name = "path" },
         { name = "buffer", max_item_count = 5 },
     },
 })
