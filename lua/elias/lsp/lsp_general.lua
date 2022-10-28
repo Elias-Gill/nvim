@@ -10,9 +10,9 @@ lspconfig.vimls.setup {}
 lspconfig.jdtls.setup {}
 -- lspconfig.svelte.setup {}
 -- lspconfig.cssls.setup {}
--- lspconfig.vuels.setup{}
--- lspconfig.html.setup{}
--- lspconfig.jsonls.setup{}
+-- lspconfig.vuels.setup {}
+-- lspconfig.html.setup {}
+-- lspconfig.jsonls.setup {}
 
 -- change lsp default icons to be better
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
@@ -56,8 +56,3 @@ saga.init_lsp_saga({
         enable = false,
     },
 })
-
-local protocol = require('vim.lsp.protocol')
-protocol.CompletionItemKind = { '', '', '', '', '', '', '', 'ﰮ', '', '', '',
-    '', '', '', '﬌', '', '', '', '', '', '', '', '', 'ﬦ', '',
-}
