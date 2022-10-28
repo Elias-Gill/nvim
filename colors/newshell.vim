@@ -60,11 +60,12 @@ hi MoreMsg            guifg=#E6DB74
 hi Operator           guifg=#F92672
 
 " Completation menu
-hi Pmenu              guifg=#eeeeee guibg=#343434
+hi Pmenu              guifg=#eeeeee guibg=#303030
 hi PmenuSel           guibg=#1A4A68
 hi PmenuSbar          guibg=#080808 guifg=#777777
 hi PmenuThumb         guifg=#66D9EF
-hi CmpItemAbbrMatch   guifg=#66D9EF
+"hi CmpItemAbbrMatch   guifg=#66D9EF
+hi CmpItemAbbrMatch   guifg=#F8A02D
 hi CmpItemMenuDefault            guifg=#999999
 
 " Vim actions

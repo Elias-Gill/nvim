@@ -14,7 +14,7 @@ require("todo-comments").setup {
         before = "",
         keyword = "wide",
         after = "fg",
-        pattern = [[.*<(KEYWORDS)\s* ]],
+        pattern = [[.*<(KEYWORDS)\s]],
         comments_only = true,
         max_line_len = 400,
         exclude = {},
@@ -35,6 +35,6 @@ require("todo-comments").setup {
             "--line-number",
             "--column",
         },
-        pattern = [[\b(KEYWORDS) ]], -- ripgrep regex
+        pattern = [[\b(KEYWORDS)]], -- ripgrep regex
     },
 }

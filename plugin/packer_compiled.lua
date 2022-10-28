@@ -154,11 +154,6 @@ _G.packer_plugins = {
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  gruvbox = {
-    loaded = true,
-    path = "/home/elias/.local/share/nvim/site/pack/packer/start/gruvbox",
-    url = "https://github.com/gruvbox-community/gruvbox"
-  },
   harpoon = {
     loaded = true,
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -284,6 +279,11 @@ _G.packer_plugins = {
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/rnvimr",
     url = "https://github.com/kevinhwang91/rnvimr"
   },
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "/home/elias/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -298,6 +298,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
+  },
+  ["vim-colors-xcode"] = {
+    loaded = true,
+    path = "/home/elias/.local/share/nvim/site/pack/packer/start/vim-colors-xcode",
+    url = "https://github.com/arzg/vim-colors-xcode"
   },
   ["vim-cool"] = {
     loaded = true,

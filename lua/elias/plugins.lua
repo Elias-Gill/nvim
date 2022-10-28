@@ -61,7 +61,8 @@ return require 'packer'.startup(function(use)
     use 'kyazdani42/nvim-tree.lua'
     use 'kevinhwang91/rnvimr'
     use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
-    -- use 'nvim-telescope/telescope-fzf-native.nvim'
+    use { 'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
     -- Fonts and icons
     use 'ryanoasis/vim-devicons'
@@ -69,8 +70,9 @@ return require 'packer'.startup(function(use)
     use 'nvim-tree/nvim-web-devicons'
 
     -- Themes, GUI and customization
-    use 'stevearc/dressing.nvim'
-    use 'gruvbox-community/gruvbox'
+    use 'stevearc/dressing.nvim' -- better custom gui
+    use 'arzg/vim-colors-xcode'
+    -- use 'gruvbox-community/gruvbox'
     -- use 'EdenEast/nightfox.nvim'
     -- use 'dstein64/nvim-scrollview', { 'branch': 'main' }
 
@@ -81,17 +83,12 @@ return require 'packer'.startup(function(use)
     use 'lukas-reineke/indent-blankline.nvim'
 
     -- Utilities
-    use 'jakewvincent/mkdnflow.nvim'
+    use 'jakewvincent/mkdnflow.nvim' -- wiki
     use({ "uga-rosa/ccc.nvim", branch = "0.7.2" }) -- colorpicker and colorizer
     use 'folke/todo-comments.nvim'
-
-    -- use 'norcalli/nvim-colorizer.lua'
-    -- use 'ellisonleao/glow.nvim', {'branch': 'main'}
-
     use 'szw/vim-maximizer'
     use 'beauwilliams/focus.nvim'
-
-    -- use 'michaelb/sniprun', {'do': 'bash install.sh'}
+    -- use 'ellisonleao/glow.nvim', {'branch': 'main'}
     -- use 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     -- use 'mbbill/undotree'
 
@@ -100,4 +97,5 @@ return require 'packer'.startup(function(use)
     use 'mfussenegger/nvim-dap'
     use 'leoluz/nvim-dap-go'
     use 'mfussenegger/nvim-dap-python'
+    -- use 'michaelb/sniprun', {'do': 'bash install.sh'}
 end)

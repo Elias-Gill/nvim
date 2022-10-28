@@ -15,7 +15,7 @@ nnoremap <silent><leader>hu :lua require("harpoon.ui").toggle_quick_menu()<cr>
 "saving files and exit vim
 nnoremap <leader>w :w<CR>
 nnoremap <leader>wf :w!<CR>
-nnoremap <leader>tt :wqa <cr>
+nnoremap <leader>tt :Bw<cr> :qa<cr>
 nnoremap <leader>wa :wa<cr>
 nnoremap <leader>qa :qa<cr>
 nnoremap <leader>qf :q!<CR>
@@ -45,6 +45,13 @@ nnoremap w b
 vnoremap b w
 vnoremap w b
 
+"coma y punto y coma con find
+nnoremap ; ,
+nnoremap , ;
+vnoremap ; ,
+vnoremap , ;
+
+"movimiento vertical
 nnoremap <s-l> 5j
 nnoremap <s-h> 5k 
 vnoremap <s-l> 5j
@@ -82,8 +89,12 @@ nnoremap <S-tab> :tabprevious<cr>
 nnoremap <tab> :tabnext<cr>
 
 "utilidades
+" centrar
 nnoremap n nzzzv
 nnoremap N Nzzzv
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+" no perder seleccion al indentar
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
@@ -101,6 +112,7 @@ augroup END
 
 "epic delete/paste utility
 vnoremap <leader>p "_dP
+nnoremap <leader>p "_dP
 vnoremap <leader>d "_dD
 
 "teclas arriba y abajo en insert mode

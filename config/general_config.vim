@@ -64,6 +64,7 @@ set splitbelow splitright
 set scrolloff=4
 set showmode
 set showcmd
+au TextYankPost * silent! lua vim.highlight.on_yank()
 
 " --- Tabs to spaces ---
 set tabstop=4 softtabstop=4
@@ -122,6 +123,7 @@ command JsonParse :%!python3.9 -m json.tool
 " Borrar buffers sin usar
 command Bw :wa | Bwipeout hidden
 command W :w
+command Q :q
 
 " Bracey
 " let g:bracey_browser_command="firefox"

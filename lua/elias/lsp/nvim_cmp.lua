@@ -62,8 +62,8 @@ cmp.setup({
     sources = {
         -- this also affects the order in the completion menu
         { name = "luasnip", max_item_count = 5 },
-        { name = "nvim_lsp", max_item_count = 12 },
-        { name = "path", max_item_count = 3 },
+        { name = "nvim_lsp"},
+        { name = "path"},
         { name = "buffer", max_item_count = 5 },
     },
 })
