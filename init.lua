@@ -8,7 +8,6 @@ vim.cmd('source ~/.config/nvim/config/startify.vim')
 vim.cmd('if exists("g:neovide") \nsource ~/.config/nvim/config/neovide.vim \n endif')
 ---------------------------
 
--- require 'elias/plugins'
 require('impatient')
 
 -- buitin lsp
@@ -21,10 +20,8 @@ require('elias/lsp/debug')
 
 -- Utils
 require('elias/utils/windline')
-require('elias/utils/tabline')
 require('elias/utils/disable_builtins')
 require('elias/utils/various-utils')
-require('elias/utils/gitsigns')
 require('elias/utils/diffview')
 require('elias/utils/gui')
 require('elias/utils/wiki')

@@ -9,6 +9,7 @@ return require 'packer'.startup(function(use)
     use 'ThePrimeagen/harpoon'
     use 'Asheq/close-buffers.vim'
     use 'romainl/vim-cool'
+    use 'christoomey/vim-tmux-navigator'
     -- use 'ThePrimeagen/refactoring.nvim'
 
     --  Start page
@@ -18,8 +19,11 @@ return require 'packer'.startup(function(use)
     -- " Git inegration
     use 'tpope/vim-fugitive'
     use 'sindrets/diffview.nvim'
-    use 'lewis6991/gitsigns.nvim'
     use { 'almo7aya/openingh.nvim', tag = 'v1.0.1' }
+    use { 'lewis6991/gitsigns.nvim', require('gitsigns').setup {
+        signcolumn = false,
+        yadm = { enable = true },
+    } }
 
     -- Functions tree
     use 'liuchengxu/vista.vim'

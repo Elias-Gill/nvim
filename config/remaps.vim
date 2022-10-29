@@ -87,6 +87,7 @@ nnoremap <silent>gh :Lspsaga lsp_finder<CR>
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <S-tab> :tabprevious<cr>
 nnoremap <tab> :tabnext<cr>
+nnoremap <leader>zm :ZenMode<cr>
 
 "utilidades
 " centrar

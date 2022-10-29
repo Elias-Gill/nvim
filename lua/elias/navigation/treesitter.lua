@@ -37,6 +37,8 @@ require 'nvim-treesitter.configs'.setup {
                 ["ic"] = "@class.inner",
                 ["at"] = "@tag.outer",
                 ["it"] = "@tag.inner",
+                ["aP"] = "@parameter.outer",
+                ["iP"] = "@parameter.inner",
             },
         },
     },
