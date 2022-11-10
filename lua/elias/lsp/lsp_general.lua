@@ -8,7 +8,7 @@ lspconfig.gopls.setup {}
 lspconfig.sumneko_lua.setup {}
 lspconfig.vimls.setup {}
 lspconfig.jdtls.setup {}
--- lspconfig.svelte.setup {}
+lspconfig.texlab.setup {}
 -- lspconfig.cssls.setup {}
 -- lspconfig.vuels.setup {}
 -- lspconfig.html.setup {}

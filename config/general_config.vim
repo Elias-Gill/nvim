@@ -47,7 +47,8 @@ set hidden
 set mouse=a
 set mousemodel=extend
 set numberwidth=4 
-set nu
+set nu rnu
+"set nu
 set clipboard=unnamedplus
 set cursorline
 set shortmess+=c

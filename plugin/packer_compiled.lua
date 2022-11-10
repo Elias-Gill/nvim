@@ -139,11 +139,6 @@ _G.packer_plugins = {
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/focus.nvim",
     url = "https://github.com/beauwilliams/focus.nvim"
   },
-  ["friendly-snippets"] = {
-    loaded = true,
-    path = "/home/elias/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    url = "https://github.com/rafamadriz/friendly-snippets"
-  },
   ["fzf-lua"] = {
     loaded = true,
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/fzf-lua",
@@ -153,6 +148,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["gruvbox-baby"] = {
+    loaded = true,
+    path = "/home/elias/.local/share/nvim/site/pack/packer/start/gruvbox-baby",
+    url = "https://github.com/luisiacc/gruvbox-baby"
   },
   harpoon = {
     loaded = true,
@@ -289,15 +289,15 @@ _G.packer_plugins = {
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tender.vim"] = {
+    loaded = true,
+    path = "/home/elias/.local/share/nvim/site/pack/packer/start/tender.vim",
+    url = "https://github.com/jacoborus/tender.vim"
+  },
   ["todo-comments.nvim"] = {
     loaded = true,
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
-  },
-  ["trouble.nvim"] = {
-    loaded = true,
-    path = "/home/elias/.local/share/nvim/site/pack/packer/start/trouble.nvim",
-    url = "https://github.com/folke/trouble.nvim"
   },
   ["vim-cool"] = {
     loaded = true,

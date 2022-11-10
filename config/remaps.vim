@@ -22,10 +22,10 @@ nnoremap <leader>qf :q!<CR>
 nnoremap <leader>qq :q<CR>
 
 "file fuzzy searching
-nnoremap <C-p> :FzfLua files<CR>
-nnoremap <C-s> :exe ":FzfLua files cwd=".g:terminal_path<CR>
-nnoremap <C-s-p> :FzfLua<CR>
-nnoremap <C-S-s> :FzfLua files cwd=~/<CR>
+nnoremap <silent><C-p> :FzfLua files<CR>
+nnoremap <silent><C-s> :exe ":FzfLua files cwd=".g:terminal_path<CR>
+nnoremap <silent><C-s-p> :FzfLua<CR>
+nnoremap <silent><C-S-s> :FzfLua files cwd=~/<CR>
 
 "file managers
 nnoremap <leader>nt :NvimTreeFindFileToggle<CR>
@@ -45,12 +45,6 @@ nnoremap w b
 vnoremap b w
 vnoremap w b
 
-"coma y punto y coma con find
-nnoremap ; ,
-nnoremap , ;
-vnoremap ; ,
-vnoremap , ;
-
 "movimiento vertical
 nnoremap <s-l> 5j
 nnoremap <s-h> 5k 
@@ -63,7 +57,7 @@ vnoremap <leader>lp :s/
 
 "Buscar funciones y definicione TODO  cambiar para que se active con on_attachs 
 nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD :lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr :FzfLua lsp_references<CR>
 nnoremap <silent> gi :FzfLua lsp_implementations<CR>
 nnoremap <silent> =f :lua vim.lsp.buf.format ({ async = true })<CR>

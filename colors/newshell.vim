@@ -132,7 +132,7 @@ hi DiagnosticSignHint guifg=#00EC89
 
 hi LspFloatWinNormal guibg=#222222
 hi ColorColumn guibg=#555555
-hi VertSplit guifg=#808080 guibg=None gui=bold
+hi VertSplit guifg=#707070 guibg=None gui=bold
 hi TreesitterContext guibg=#333443
 
 hi LspSagaHoverBorder guifg=#555555
@@ -148,3 +148,6 @@ elseif s:newshell_background == "dark"
 elseif s:newshell_background == "medium"
     hi Normal guibg=#1f1f1f
 endif
+
+" hi NvimTreeNormal guibg=#232323
+

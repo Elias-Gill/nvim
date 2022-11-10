@@ -1,6 +1,6 @@
 require('dressing').setup({
     select = {
-        backend = { "telescope", "fzf_lua","fzf", "builtin", "nui" },
+        backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
     }
 })
 
@@ -20,3 +20,16 @@ require('luatab').setup {
         return ''
     end
 }
+
+-- modo zen para nvim
+require("zen-mode").setup {
+    window = {
+        width = 120
+    }
+}
+
+-- gruvbox config
+vim.g.gruvbox_baby_function_style = "NONE"
+vim.g.gruvbox_baby_keyword_style = "italic"
+vim.g.gruvbox_baby_telescope_theme = 1
+vim.g.gruvbox_baby_transparent_mode = 1

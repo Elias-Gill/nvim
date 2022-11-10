@@ -13,8 +13,9 @@ return require 'packer'.startup(function(use)
     -- use 'ThePrimeagen/refactoring.nvim'
 
     --  Start page
-    use 'mhinz/vim-startify'
     use 'dstein64/vim-startuptime'
+    use 'mhinz/vim-startify'
+    -- use 'echasnovski/mini.starter'
 
     -- " Git inegration
     use 'tpope/vim-fugitive'
@@ -49,11 +50,11 @@ return require 'packer'.startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
-    use 'folke/trouble.nvim'
     use({ "glepnir/lspsaga.nvim", branch = "main" })
     use 'L3MON4D3/LuaSnip'
-    use 'rafamadriz/friendly-snippets'
+    -- use 'rafamadriz/friendly-snippets'
     -- use 'jose-elias-alvarez/null-ls.nvim'
+    -- use 'folke/trouble.nvim'
 
     -- Tabline and status bar
     use 'windwp/windline.nvim'
@@ -75,9 +76,9 @@ return require 'packer'.startup(function(use)
 
     -- Themes, GUI and customization
     use 'stevearc/dressing.nvim' -- better custom gui
-    use { "folke/zen-mode.nvim", config = require("zen-mode").setup() }
-    -- use 'arzg/vim-colors-xcode'
-    -- use 'gruvbox-community/gruvbox'
+    use 'folke/zen-mode.nvim'
+    use 'jacoborus/tender.vim'
+    use 'luisiacc/gruvbox-baby'
     -- use 'EdenEast/nightfox.nvim'
     -- use 'dstein64/nvim-scrollview', { 'branch': 'main' }
 
@@ -103,4 +104,7 @@ return require 'packer'.startup(function(use)
     use 'leoluz/nvim-dap-go'
     use 'mfussenegger/nvim-dap-python'
     -- use 'michaelb/sniprun', {'do': 'bash install.sh'}
+
+    -- LaTex support
+    -- use 'lervag/vimtex'
 end)
