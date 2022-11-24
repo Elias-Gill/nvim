@@ -14,12 +14,14 @@ nnoremap <silent><leader>hu :lua require("harpoon.ui").toggle_quick_menu()<cr>
 
 "saving files and exit vim
 nnoremap <leader>w :w<CR>
-nnoremap <leader>wf :w!<CR>
-nnoremap <leader>tt :Bw<cr> :qa<cr>
+nnoremap <leader>wf :w!<CR> 
 nnoremap <leader>wa :wa<cr>
 nnoremap <leader>qa :qa<cr>
 nnoremap <leader>qf :q!<CR>
 nnoremap <leader>qq :q<CR>
+" save all buffers, format and quit
+nnoremap <leader>tt :Bw<cr> :qa<cr> 
+" nnoremap <leader>tt :autocmd BufWritePre * lua vim.lsp.buf.format()<cr> :Bw<cr> :qa<cr> 
 
 "file fuzzy searching
 nnoremap <silent><C-p> :FzfLua files<CR>
@@ -36,8 +38,8 @@ nnoremap <leader>[ :bprevious<CR>
 nnoremap <leader>] :bnext<CR>
 
 "new terminal
-noremap <leader>tv :botright vnew <Bar> :terminal<cr>
-noremap <leader>th :botright new <Bar> :terminal<cr>
+noremap <C-w>t :botright vnew <Bar> :terminal<cr>
+" noremap <leader>th :botright new <Bar> :terminal<cr>
 
 "teclas de movimiento
 nnoremap b w
@@ -63,8 +65,8 @@ nnoremap <silent> gi :FzfLua lsp_implementations<CR>
 nnoremap <silent> =f :lua vim.lsp.buf.format ({ async = true })<CR>
 
 "Trouble and todos comments
-nnoremap <silent><leader>to :TroubleToggle<CR>
-nnoremap <silent><leader>tg :TodoTrouble<CR>
+nnoremap <silent><leader>to :lua vim.diagnostic.setqflist()<CR>
+nnoremap <silent><leader>tg :TodoQuickFix<CR>
 
 "diagnostics navigation TODO  cambiar para que se active con on_attach
 nnoremap <silent>[e :Lspsaga diagnostic_jump_prev<cr>
@@ -137,7 +139,7 @@ nnoremap <leader>vt :Vista finder nvim_lsp <CR>
 "git
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>do :DiffviewOpen<CR>
-nnoremap <leader>dO :DiffviewClose<CR>
+nnoremap <leader>dp :DiffviewClose<CR>
 
 "block the arrow keys
 nnoremap <up> <nop>
@@ -171,3 +173,4 @@ inoremap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expa
 
 "bug with alacritty when using C-i (does not work with tmux)
 nnoremap <C-i> <C-i>zz
+

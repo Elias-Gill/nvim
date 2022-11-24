@@ -23,6 +23,7 @@ require("diffview").setup({
         win_config = { -- See |diffview-config-win_config|
             position = "bottom",
             width = 8,
+            height = 6,
             win_opts = {},
         },
     },
@@ -37,16 +38,17 @@ require("diffview").setup({
         },
         win_config = { -- See |diffview-config-win_config|
             position = "bottom",
-            height = 8,
+            height = 4,
+            width = 8,
             win_opts = {},
         },
     },
     keymaps = {
         disable_defaults = false, -- Disable the default keymaps
         view = {
-            ["<leader>0"] = actions.conflict_choose("ours"), -- Choose the OURS version of a conflict
+            ["<leader>1"] = actions.conflict_choose("ours"), -- Choose the OURS version of a conflict
             ["<leader>2"] = actions.conflict_choose("theirs"), -- Choose the THEIRS version of a conflict
-            ["<leader>1"] = actions.conflict_choose("base"), -- Choose the BASE version of a conflict
+            ["<leader>0"] = actions.conflict_choose("base"), -- Choose the BASE version of a conflict
             ["<leader>3"] = actions.conflict_choose("all"), -- Choose all the versions of a conflict
             ["dx"]        = actions.conflict_choose("none"), -- Delete the conflict region
         },

@@ -109,11 +109,6 @@ _G.packer_plugins = {
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["desert.vim"] = {
-    loaded = true,
-    path = "/home/elias/.local/share/nvim/site/pack/packer/start/desert.vim",
-    url = "https://github.com/fugalh/desert.vim"
-  },
   ["diffview.nvim"] = {
     loaded = true,
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/diffview.nvim",
@@ -130,14 +125,11 @@ _G.packer_plugins = {
     url = "https://github.com/gpanders/editorconfig.nvim"
   },
   ["emmet-vim"] = {
-    loaded = true,
-    path = "/home/elias/.local/share/nvim/site/pack/packer/start/emmet-vim",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/elias/.local/share/nvim/site/pack/packer/opt/emmet-vim",
     url = "https://github.com/mattn/emmet-vim"
-  },
-  ["focus.nvim"] = {
-    loaded = true,
-    path = "/home/elias/.local/share/nvim/site/pack/packer/start/focus.nvim",
-    url = "https://github.com/beauwilliams/focus.nvim"
   },
   ["fzf-lua"] = {
     loaded = true,
@@ -220,13 +212,19 @@ _G.packer_plugins = {
     url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-dap-go"] = {
-    loaded = true,
-    path = "/home/elias/.local/share/nvim/site/pack/packer/start/nvim-dap-go",
+    config = { "\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vdap-go\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/elias/.local/share/nvim/site/pack/packer/opt/nvim-dap-go",
     url = "https://github.com/leoluz/nvim-dap-go"
   },
   ["nvim-dap-python"] = {
-    loaded = true,
-    path = "/home/elias/.local/share/nvim/site/pack/packer/start/nvim-dap-python",
+    config = { "\27LJ\2\nh\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0000/home/elias/.virtualenvs/debugpy/bin/python\nsetup\15dap-python\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/elias/.local/share/nvim/site/pack/packer/opt/nvim-dap-python",
     url = "https://github.com/mfussenegger/nvim-dap-python"
   },
   ["nvim-dap-ui"] = {
@@ -357,6 +355,21 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType html ++once lua require("packer.load")({'emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'emmet-vim'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType xml ++once lua require("packer.load")({'emmet-vim'}, { ft = "xml" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescript ++once lua require("packer.load")({'emmet-vim'}, { ft = "typescript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType svelte ++once lua require("packer.load")({'emmet-vim'}, { ft = "svelte" }, _G.packer_plugins)]]
+vim.cmd [[au FileType vue ++once lua require("packer.load")({'emmet-vim'}, { ft = "vue" }, _G.packer_plugins)]]
+vim.cmd [[au FileType react ++once lua require("packer.load")({'emmet-vim'}, { ft = "react" }, _G.packer_plugins)]]
+vim.cmd [[au FileType go ++once lua require("packer.load")({'nvim-dap-go'}, { ft = "go" }, _G.packer_plugins)]]
+vim.cmd [[au FileType python ++once lua require("packer.load")({'nvim-dap-python'}, { ft = "python" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

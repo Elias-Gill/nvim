@@ -9,10 +9,10 @@ lspconfig.sumneko_lua.setup {}
 lspconfig.vimls.setup {}
 lspconfig.jdtls.setup {}
 lspconfig.texlab.setup {}
+lspconfig.jsonls.setup {}
 -- lspconfig.cssls.setup {}
 -- lspconfig.vuels.setup {}
 -- lspconfig.html.setup {}
--- lspconfig.jsonls.setup {}
 
 -- change lsp default icons to be better
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(

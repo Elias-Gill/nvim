@@ -1,10 +1,3 @@
-" --- opciones visuales ---
-set fillchars+=diff:╱
-set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
-set fillchars=fold:\ 
-set termguicolors
-set signcolumn=yes
-
 " -- neovim 0.8 specific
 if v:version >= 800
     set laststatus=3
@@ -44,15 +37,15 @@ set confirm
 set hidden
 
 " --- mouse y numeros ---
+set nu rnu
 set mouse=a
 set mousemodel=extend
 set numberwidth=4 
-set nu rnu
-"set nu
 set clipboard=unnamedplus
-set cursorline
 set shortmess+=c
+set cursorline
 set lazyredraw
+set undofile
 
 " --- wraping ---
 set wm=15
@@ -65,7 +58,13 @@ set splitbelow splitright
 set scrolloff=4
 set showmode
 set showcmd
+set termguicolors
+set signcolumn=yes
+set fillchars+=diff:╱
+set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
+set fillchars=fold:\ 
 au TextYankPost * silent! lua vim.highlight.on_yank()
+au TermOpen * setlocal nonumber norelativenumber
 
 " --- Tabs to spaces ---
 set tabstop=4 softtabstop=4

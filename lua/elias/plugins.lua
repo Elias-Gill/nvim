@@ -30,7 +30,7 @@ return require 'packer'.startup(function(use)
     use 'liuchengxu/vista.vim'
 
     -- "Super-completado html
-    use 'mattn/emmet-vim'
+    use { 'mattn/emmet-vim', opt = true, ft = { 'html', 'javascript', 'xml', 'typescript', 'svelte', 'vue', 'react' } }
 
     -- Neovim Cmp (completition engine)
     use 'saadparwaiz1/cmp_luasnip'
@@ -71,7 +71,6 @@ return require 'packer'.startup(function(use)
 
     -- Fonts and icons
     use 'ryanoasis/vim-devicons'
-    use 'fugalh/desert.vim'
     use 'nvim-tree/nvim-web-devicons'
 
     -- Themes, GUI and customization
@@ -90,19 +89,21 @@ return require 'packer'.startup(function(use)
 
     -- Utilities
     use 'jakewvincent/mkdnflow.nvim' -- wiki
-    use({ "uga-rosa/ccc.nvim", branch = "0.7.2" }) -- colorpicker and colorizer
+    use({ 'uga-rosa/ccc.nvim', branch = '0.7.2' }) -- colorpicker and colorizer
     use 'folke/todo-comments.nvim'
     use 'szw/vim-maximizer'
-    use 'beauwilliams/focus.nvim'
-    -- use 'ellisonleao/glow.nvim', {'branch': 'main'}
+    -- use 'beauwilliams/focus.nvim'
+    -- use {'ellisonleao/glow.nvim', opt = true, ft = 'markdown', branch = 'main'}
     -- use 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     -- use 'mbbill/undotree'
 
     -- debuggers
     use 'rcarriga/nvim-dap-ui'
     use 'mfussenegger/nvim-dap'
-    use 'leoluz/nvim-dap-go'
-    use 'mfussenegger/nvim-dap-python'
+    use { 'leoluz/nvim-dap-go', opt = true, ft = "go", config = function() require('dap-go').setup() end }
+    use { 'mfussenegger/nvim-dap-python', opt = true, ft = "python",
+        config = function() require('dap-python').setup("/home/elias/.virtualenvs/debugpy/bin/python") end
+    }
     -- use 'michaelb/sniprun', {'do': 'bash install.sh'}
 
     -- LaTex support

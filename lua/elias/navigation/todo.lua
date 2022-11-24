@@ -12,10 +12,9 @@ require("todo-comments").setup {
     },
     merge_keywords = true,
     highlight = {
-        before = "",
         keyword = "wide",
         after = "fg",
-        pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns
+        pattern = [[.*<(KEYWORDS)\s*]], -- pattern or table of patterns
         comments_only = true,
         max_line_len = 400,
         exclude = {},
@@ -24,7 +23,7 @@ require("todo-comments").setup {
     colors = {
         error = { "#f02020" },
         warning = { "#ffd500" },
-        info = { "#2583EB" },
+        info = { "#A0D6DB" },
         hint = { "#00ec89" },
         default = { "#8f3AED" },
         future = { "#ffdfff" },

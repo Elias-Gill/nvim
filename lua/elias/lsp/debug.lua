@@ -1,6 +1,3 @@
-require('dap-go').setup()
-require('dap-python').setup("/home/elias/.virtualenvs/debugpy/bin/python")
-
 -- UI settings
 require("dapui").setup({
     mappings = {
