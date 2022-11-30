@@ -32,20 +32,19 @@ set nolist
 set smartindent
 set autoindent
 
-" --- no molestar ---
+" --- specials & do not disturb ---
 set confirm
 set hidden
+set shortmess+=c
+set undofile
+set clipboard=unnamedplus
 
 " --- mouse y numeros ---
 set nu rnu
 set mouse=a
 set mousemodel=extend
 set numberwidth=4 
-set clipboard=unnamedplus
-set shortmess+=c
 set cursorline
-set lazyredraw
-set undofile
 
 " --- wraping ---
 set wm=15

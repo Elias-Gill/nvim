@@ -42,10 +42,10 @@ noremap <C-w>t :botright vnew <Bar> :terminal<cr>
 " noremap <leader>th :botright new <Bar> :terminal<cr>
 
 "teclas de movimiento
-nnoremap b w
 nnoremap w b
-vnoremap b w
 vnoremap w b
+"vnoremap b w
+"nnoremap b w
 
 "movimiento vertical
 nnoremap <s-l> 5j
@@ -167,9 +167,10 @@ nnoremap <silent><leader>dc :lua require'dap'.run_to_cursor()<Cr>
 "Luasnips snippets
 inoremap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
 "inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
 " --- For changing choices in choiceNodes --- 
-"imap <silent><expr> <C-> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-"smap <silent><expr> <C-> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+imap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+smap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 "bug with alacritty when using C-i (does not work with tmux)
 nnoremap <C-i> <C-i>zz

@@ -10,6 +10,8 @@ lspconfig.vimls.setup {}
 lspconfig.jdtls.setup {}
 lspconfig.texlab.setup {}
 lspconfig.jsonls.setup {}
+lspconfig.phpactor.setup {}
+lspconfig.intelephense.setup {}
 -- lspconfig.cssls.setup {}
 -- lspconfig.vuels.setup {}
 -- lspconfig.html.setup {}
