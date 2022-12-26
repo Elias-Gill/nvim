@@ -40,6 +40,7 @@ set undofile
 set clipboard=unnamedplus
 
 " --- mouse y numeros ---
+" set nu
 set nu rnu
 set mouse=a
 set mousemodel=extend
@@ -96,7 +97,6 @@ let &t_EI = "\<Esc>[2 q"
 let g:user_emmet_mode='i'
 let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key=','
-autocmd FileType html,css,vue,svelte EmmetInstall
 
 " python
 let g:python_highlight_all = 1
@@ -106,15 +106,19 @@ let g:python_highlight_space_errors = 0
 let g:indent_blankline_filetype = ["java", "lua", "vue", "python", "html", "c", "svelte" ]
 let g:indent_blankline_char_list = ['┆']
 let g:indent_blankline_context_char = '┆' 
+" undotree
+let g:undotree_WindowLayout = 3
 
-" Pseudo lector de pdf 
+" open pdf's with the default pdf viewer
+function OpenInPdf()
+    let fn = expand("%:p")
+    let bnumber = bufnr(fn)
+    execute ":execute 'normal \<c-o>'"
+    call jobstart("xdg-open " .'"'. fn .'"')
+    execute ":Bw"
+endfunction
 augroup readPdf
-    autocmd BufReadPre *.pdf set ro nowrap
-    autocmd BufReadPost *.pdf silent %!pdftotext "%" -nopgbrk -layout -q -eol unix -
-    autocmd BufWritePost *.pdf silent !rm -rf ~/PDF/%
-    autocmd BufWritePost *.pdf silent !lp -s -d pdffg "%"
-    autocmd BufWritePost *.pdf silent !until [ -e ~/PDF/% ]; do sleep 1; done
-    autocmd BufWritePost *.pdf silent !mv ~/PDF/% %:p:h
+    autocmd BufReadCmd *.pdf call OpenInPdf()
 augroup END
 
 " Parser para archivos Json desordenados

@@ -58,4 +58,14 @@ let g:indent_blankline_char_list = ['┆']
 let g:indent_blankline_context_char = '┆' 
 hi IndentBlanklineContextChar guifg=#ab9457
 
+" Pseudo lector de pdf 
+" augroup readPdf
+"     autocmd BufReadPre *.pdf set ro nowrap
+"     autocmd BufReadPost *.pdf silent %!pdftotext "%" -nopgbrk -layout -q -eol unix -
+"     autocmd BufWritePost *.pdf silent !rm -rf ~/PDF/%
+"     autocmd BufWritePost *.pdf silent !lp -s -d pdffg "%"
+"     autocmd BufWritePost *.pdf silent !until [ -e ~/PDF/% ]; do sleep 1; done
+"     autocmd BufWritePost *.pdf silent !mv ~/PDF/% %:p:h
+" augroup END
+
 " hi Scrollview guifg=None guibg=#464646

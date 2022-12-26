@@ -12,8 +12,10 @@ lspconfig.texlab.setup {}
 lspconfig.jsonls.setup {}
 lspconfig.phpactor.setup {}
 lspconfig.intelephense.setup {}
+lspconfig.omnisharp.setup {}
+lspconfig.vuels.setup {}
+lspconfig.volar.setup {}
 -- lspconfig.cssls.setup {}
--- lspconfig.vuels.setup {}
 -- lspconfig.html.setup {}
 
 -- change lsp default icons to be better

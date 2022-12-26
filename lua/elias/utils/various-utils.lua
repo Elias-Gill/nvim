@@ -11,14 +11,12 @@ ccc.setup({
         auto_enable = true
     }
 })
--- require 'colorizer'.setup()
-
 -- modo zen para nvim
-require("zen-mode").setup {
+--[[ require("zen-mode").setup {
     window = {
         width = 120
     }
-}
+} ]]
 
 -- tabline personalizada con iconos
 require('luatab').setup {

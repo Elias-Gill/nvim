@@ -30,8 +30,8 @@ nnoremap <silent><C-s-p> :FzfLua<CR>
 nnoremap <silent><C-S-s> :FzfLua files cwd=~/<CR>
 
 "file managers
-nnoremap <leader>nt :NvimTreeFindFileToggle<CR>
-nnoremap <leader>rt :RnvimrToggle<CR>
+nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
+nnoremap <silent><leader>rt :RnvimrToggle<CR>
 
 "cicling buffers
 nnoremap <leader>[ :bprevious<CR>
@@ -86,11 +86,13 @@ nnoremap <tab> :tabnext<cr>
 nnoremap <leader>zm :ZenMode<cr>
 
 "utilidades
-" centrar
+" centrar en saltos
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
+nnoremap <C-t> <C-t>zz
+nnoremap <C-o> <C-o>zz
 " no perder seleccion al indentar
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -135,6 +137,7 @@ nnoremap <silent><leader>ww :e ~/.local/share/vimwiki/index.md<CR>
 "function tree
 nnoremap <leader>vf :Vista nvim_lsp <CR>
 nnoremap <leader>vt :Vista finder nvim_lsp <CR>
+nnoremap <leader>ut :UndotreeToggle<cr>
 
 "git
 nnoremap <leader>gs :G<CR>
@@ -163,6 +166,7 @@ nnoremap <silent><leader>du :lua require'dap'.toggle_breakpoint()<Cr>
 nnoremap <silent><leader>ds :lua require'dap'.terminate()<Cr>
 nnoremap <silent><leader>df :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>
 nnoremap <silent><leader>dc :lua require'dap'.run_to_cursor()<Cr>
+nnoremap <leader>rs <Plug>RestNvim<Cr>
 
 "Luasnips snippets
 inoremap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 

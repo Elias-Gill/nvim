@@ -28,14 +28,6 @@ require("diffview").setup({
         },
     },
     file_history_panel = {
-        log_options = { -- See |diffview-config-log_options|
-            single_file = {
-                diff_merges = "combined",
-            },
-            multi_file = {
-                diff_merges = "first-parent",
-            },
-        },
         win_config = { -- See |diffview-config-win_config|
             position = "bottom",
             height = 4,

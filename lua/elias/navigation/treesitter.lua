@@ -1,4 +1,3 @@
-
 --treesitter
 require 'nvim-treesitter.configs'.setup {
     -- ts-comment settings
