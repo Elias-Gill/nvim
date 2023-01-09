@@ -23,6 +23,7 @@ require("elias/utils/windline")
 require("elias/utils/disable_builtins")
 require("elias/utils/various-utils")
 require("elias/utils/diffview")
+require("elias/utils/lsp-visuals")
 
 -- Navigation
 require("elias/navigation/treesitter")

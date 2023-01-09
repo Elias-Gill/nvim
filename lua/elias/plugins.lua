@@ -104,6 +104,7 @@ return require("packer").startup(function(use)
 
 	-- Utilities
 	use("folke/todo-comments.nvim")
+	use("jessarcher/vim-heritage")
 	use("mbbill/undotree")
 	use("szw/vim-maximizer")
 	-- wiki

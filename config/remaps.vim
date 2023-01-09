@@ -85,15 +85,14 @@ nnoremap <S-tab> :tabprevious<cr>
 nnoremap <tab> :tabnext<cr>
 nnoremap <leader>zm :ZenMode<cr>
 
-"utilidades
-" centrar en saltos
+"centrar en saltos
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap <C-t> <C-t>zz
 nnoremap <C-o> <C-o>zz
-" no perder seleccion al indentar
+"primeagen cool remap to move lines
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
@@ -178,4 +177,3 @@ smap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 
 "bug with alacritty when using C-i (does not work with tmux)
 nnoremap <C-i> <C-i>zz
-
