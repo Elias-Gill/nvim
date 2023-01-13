@@ -17,8 +17,8 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 -- lspsaga
-local saga = require("lspsaga")
-saga.init_lsp_saga({
+
+require("lspsaga").init_lsp_saga({
 	code_action_lightbulb = {
 		enable = false,
 		sign = false,

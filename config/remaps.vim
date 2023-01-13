@@ -57,7 +57,8 @@ vnoremap <s-h> 5k
 nnoremap <leader>lp :%s/
 vnoremap <leader>lp :s/
 
-"Buscar funciones y definicione TODO  cambiar para que se active con on_attachs 
+"Buscar funciones y definicione 
+"TODO  cambiar para que se active con on_attachs 
 nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr :FzfLua lsp_references<CR>
@@ -134,8 +135,7 @@ nnoremap <silent><leader>sp :e ~/.config/nvim/lua/elias/plugins.lua<CR>
 nnoremap <silent><leader>ww :e ~/.local/share/vimwiki/index.md<CR>
 
 "function tree
-nnoremap <leader>vf :Vista nvim_lsp <CR>
-nnoremap <leader>vt :Vista finder nvim_lsp <CR>
+nnoremap <silent><leader>vf :SymbolsOutline<CR>
 nnoremap <leader>ut :UndotreeToggle<cr>
 
 "git

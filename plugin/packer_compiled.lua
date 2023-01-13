@@ -205,6 +205,11 @@ _G.packer_plugins = {
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
+  ["nvim-bqf"] = {
+    loaded = true,
+    path = "/home/elias/.local/share/nvim/site/pack/packer/start/nvim-bqf",
+    url = "https://github.com/kevinhwang91/nvim-bqf"
+  },
   ["nvim-cmp"] = {
     config = { "\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23elias/lsp/nvim_cmp\frequire\0" },
     loaded = false,
@@ -259,15 +264,15 @@ _G.packer_plugins = {
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/elias/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
-  },
-  onehalf = {
-    loaded = true,
-    path = "/home/elias/.local/share/nvim/site/pack/packer/start/onehalf/vim",
-    url = "https://github.com/sonph/onehalf"
   },
   ["openingh.nvim"] = {
     loaded = true,
@@ -288,6 +293,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/rnvimr",
     url = "https://github.com/kevinhwang91/rnvimr"
+  },
+  ["symbols-outline.nvim"] = {
+    config = { "\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20symbols-outline\frequire\0" },
+    loaded = true,
+    path = "/home/elias/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -354,11 +365,6 @@ _G.packer_plugins = {
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
   },
-  ["vista.vim"] = {
-    loaded = true,
-    path = "/home/elias/.local/share/nvim/site/pack/packer/start/vista.vim",
-    url = "https://github.com/liuchengxu/vista.vim"
-  },
   ["windline.nvim"] = {
     loaded = true,
     path = "/home/elias/.local/share/nvim/site/pack/packer/start/windline.nvim",
@@ -367,10 +373,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Runtimepath customization
-time([[Runtimepath customization]], true)
-vim.o.runtimepath = vim.o.runtimepath .. ",/home/elias/.local/share/nvim/site/pack/packer/start/onehalf/vim"
-time([[Runtimepath customization]], false)
+-- Config for: symbols-outline.nvim
+time([[Config for symbols-outline.nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20symbols-outline\frequire\0", "config", "symbols-outline.nvim")
+time([[Config for symbols-outline.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
@@ -379,13 +385,13 @@ vim.cmd [[au FileType python ++once lua require("packer.load")({'nvim-dap-python
 vim.cmd [[au FileType html ++once lua require("packer.load")({'emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
 vim.cmd [[au FileType css ++once lua require("packer.load")({'emmet-vim'}, { ft = "css" }, _G.packer_plugins)]]
 vim.cmd [[au FileType svelte ++once lua require("packer.load")({'emmet-vim'}, { ft = "svelte" }, _G.packer_plugins)]]
-vim.cmd [[au FileType go ++once lua require("packer.load")({'nvim-dap-go'}, { ft = "go" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'emmet-vim'}, { ft = "javascript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'emmet-vim'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType vue ++once lua require("packer.load")({'emmet-vim'}, { ft = "vue" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescript ++once lua require("packer.load")({'emmet-vim'}, { ft = "typescript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'emmet-vim'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'mkdnflow.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'emmet-vim'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType go ++once lua require("packer.load")({'nvim-dap-go'}, { ft = "go" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)

@@ -26,12 +26,17 @@ return require("packer").startup(function(use)
 		"lewis6991/gitsigns.nvim",
 		require("gitsigns").setup({
 			signcolumn = false,
-			yadm = { enable = true },
 		}),
 	})
 
 	-- Functions tree
-	use("liuchengxu/vista.vim")
+	use({
+		"simrat39/symbols-outline.nvim",
+		config = function()
+			require("symbols-outline").setup()
+		end,
+	})
+	-- use("liuchengxu/vista.vim")
 
 	-- "Super-completado html
 	use({
@@ -44,7 +49,8 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Neovim Cmp (completition engine)
+	-- Neovim Cmp (completition engine) and snippets
+	use("L3MON4D3/LuaSnip")
 	use({
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -65,13 +71,13 @@ return require("packer").startup(function(use)
 	-- Tree sitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-textobjects")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
-	-- Lsp and snippets
+	-- Lsp configs
 	use("neovim/nvim-lspconfig")
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
-	use({ "glepnir/lspsaga.nvim", branch = "main" })
-	use("L3MON4D3/LuaSnip")
+	use({ "glepnir/lspsaga.nvim", branch = "version_2.2" })
 	use("jose-elias-alvarez/null-ls.nvim")
 	-- use 'folke/trouble.nvim'
 
@@ -96,13 +102,23 @@ return require("packer").startup(function(use)
 	-- Themes, GUI and customization
 	use("stevearc/dressing.nvim") -- better custom gui
 
-	-- Pareado (){}""'' y ayudas de indentacion
+	-- Pareado (){}""'', comentarios y ayudas de indentacion
 	use("windwp/nvim-autopairs")
-	use("b3nj5m1n/kommentary")
 	use("tpope/vim-surround")
 	use("lukas-reineke/indent-blankline.nvim")
+	use({
+		"b3nj5m1n/kommentary",
+		config = require("kommentary.config").configure_language("vue", {
+			single_line_comment_string = "auto",
+			multi_line_comment_strings = "auto",
+			hook_function = function()
+				require("ts_context_commentstring.internal").update_commentstring()
+			end,
+		}),
+	})
 
 	-- Utilities
+	use("kevinhwang91/nvim-bqf")
 	use("folke/todo-comments.nvim")
 	use("jessarcher/vim-heritage")
 	use("mbbill/undotree")
@@ -138,16 +154,15 @@ return require("packer").startup(function(use)
 			require("dap-python").setup("/home/elias/.virtualenvs/debugpy/bin/python")
 		end,
 	})
-
-	-- use 'rest-nvim/rest.nvim'
-	-- use 'michaelb/sniprun', {'do': 'bash install.sh'}
-	-- use 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
-	-- use 'beauwilliams/focus.nvim'
-	-- use {'ellisonleao/glow.nvim', opt = true, ft = 'markdown', branch = 'main'}
-	-- use 'tamton-aquib/duck.nvim'
-	-- use 'folke/zen-mode.nvim'
-	-- use 'EdenEast/nightfox.nvim'
-
-	-- LaTex support
-	-- use {'lervag/vimtex', opt = true, ft = "tex", config = vim.cmd('source ~/.config/nvim/config/latex.vim')}
 end)
+-- use 'rest-nvim/rest.nvim'
+-- use 'michaelb/sniprun', {'do': 'bash install.sh'}
+-- use 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+-- use 'beauwilliams/focus.nvim'
+-- use {'ellisonleao/glow.nvim', opt = true, ft = 'markdown', branch = 'main'}
+-- use 'tamton-aquib/duck.nvim'
+-- use 'folke/zen-mode.nvim'
+-- use 'EdenEast/nightfox.nvim'
+
+-- LaTex support
+-- use {'lervag/vimtex', opt = true, ft = "tex", config = vim.cmd('source ~/.config/nvim/config/latex.vim')}

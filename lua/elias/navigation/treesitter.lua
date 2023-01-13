@@ -37,13 +37,13 @@ require("nvim-treesitter.configs").setup({
 			},
 		},
 	},
-	-- ts-comment settings
-	--[[ context_commentstring = {
+	-- change comment style for embeded languages
+	context_commentstring = {
         enable = true,
         enable_autocmd = false,
-        css = '// %s'
-    }, ]]
+    },
 })
+return
 
 -- sticky context
 --[[ require 'treesitter-context'.setup {
