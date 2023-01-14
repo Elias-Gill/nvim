@@ -137,6 +137,7 @@ hi TreesitterContext guibg=#333443
 
 hi LspSagaHoverBorder guifg=#555555
 hi NormalFloat guibg=#222222
+hi @variable guifg=#eeeeee
 hi IndentBlanklineContextChar guifg=#ab9457
 
 let g:python_highlight_space_errors=0
