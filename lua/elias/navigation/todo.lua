@@ -18,7 +18,7 @@ require("todo-comments").setup {
         comments_only = true,
         max_line_len = 400,
         exclude = {},
-        multiline = false, -- enable multine todo comments
+        multiline = true, -- enable multine todo comments
     },
     colors = {
         error = { "#f02020" },

@@ -1,7 +1,4 @@
-require("impatient")
-require("elias/packer_config")
 require("elias/plugins")
--- require("elias/plugins_lazy")
 
 ------- archivos vimL -----
 vim.cmd("source ~/.config/nvim/config/general_config.vim")
@@ -10,13 +7,12 @@ vim.cmd("source ~/.config/nvim/config/startify.vim")
 -- vim.cmd('if exists("g:neovide") \nsource ~/.config/nvim/config/neovide.vim \n endif')
 ---------------------------
 
--- buitin lsp
+--buitin lsp
 require("elias/lsp/mason")
 require("elias/lsp/lsp_general")
 require("elias/lsp/luasnips")
 require("elias/lsp/debug")
 require("elias/lsp/null_ls")
--- require("elias/lsp/nvim_cmp")
 
 -- Utils
 require("elias/utils/windline")

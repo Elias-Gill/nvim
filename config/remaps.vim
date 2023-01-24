@@ -57,8 +57,7 @@ vnoremap <s-h> 5k
 nnoremap <leader>lp :%s/
 vnoremap <leader>lp :s/
 
-"Buscar funciones y definicione 
-"TODO  cambiar para que se active con on_attachs 
+"Buscar funciones y definiciones 
 nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr :FzfLua lsp_references<CR>
@@ -104,9 +103,12 @@ vnoremap > >gv
 "add spaces with 'enter' on normal mode
 nnoremap <cr> o<esc>k
 nnoremap <C-cr> O<esc>
-"normal behavior on the QuickFix list
+
+"remaps for the QuickFix list
 augroup QuickFix
      au FileType qf nnoremap <buffer> <Cr> <Cr>
+     au FileType qf nnoremap <buffer> q :q<cr>
+     au FileType qf nnoremap <buffer> <esc> :q<cr>
 augroup END
 
 "epic delete/paste utility

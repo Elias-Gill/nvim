@@ -17,24 +17,8 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
--- lspsaga
-require("lspsaga").init_lsp_saga({
-	code_action_lightbulb = {
-		enable = false,
-		sign = false,
-		enable_in_insert = false,
-		sign_priority = 2,
-		virtual_text = false,
-	},
-	symbol_in_winbar = {
-		enable = false,
-	},
-})
-return
-
---[[ para el futuro
 require("lspsaga").setup({
-	code_action_lightbulb = {
+	lightbulb = {
 		enable = false,
 		sign = false,
 		enable_in_insert = false,
@@ -48,7 +32,7 @@ require("lspsaga").setup({
 		-- currently only round theme
 		theme = "round",
 		-- border type can be single,double,rounded,solid,shadow.
-		border = "solid",
+		border = "single",
 		winblend = 0,
 		expand = "",
 		collapse = "",
@@ -74,4 +58,19 @@ require("lspsaga").setup({
 		},
 		kind = {},
 	},
-}) ]]
+})
+return
+--[[ OLD LSPSAGA CONFIG
+require("lspsaga").setup({
+	code_action_lightbulb = {
+		enable = false,
+		sign = false,
+		enable_in_insert = false,
+		sign_priority = 2,
+		virtual_text = false,
+	},
+	symbol_in_winbar = {
+		enable = false,
+	},
+})
+return ]]

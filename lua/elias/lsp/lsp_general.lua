@@ -9,8 +9,11 @@ lspconfig.vimls.setup({})
 lspconfig.jsonls.setup({})
 lspconfig.omnisharp.setup({})
 lspconfig.volar.setup({
-	on_atach = require("null-ls").disable({ "prettier" }),
+	on_atach = function()
+		require("null-ls").disable({ "prettier" })
+	end,
 })
+
 -- lspconfig.cssls.setup {}
 -- lspconfig.html.setup {}
 -- lspconfig.clangd.setup({})

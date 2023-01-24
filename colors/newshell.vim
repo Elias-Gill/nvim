@@ -135,7 +135,7 @@ hi ColorColumn guibg=#555555
 hi VertSplit guifg=#707070 guibg=None gui=bold
 hi TreesitterContext guibg=#333443
 
-hi LspSagaHoverBorder guifg=#555555
+hi SagaBorder guifg=#666666 guibg=#222222
 hi NormalFloat guibg=#222222
 hi @variable guifg=#eeeeee
 hi IndentBlanklineContextChar guifg=#ab9457
