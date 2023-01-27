@@ -1,9 +1,10 @@
+local opOnSetup = false
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 	hijack_cursor = true,
-	ignore_buffer_on_setup = true, -- open on startup
-	open_on_setup = true, -- open on startup
-	open_on_setup_file = true, -- open on startup
+	ignore_buffer_on_setup = opOnSetup, -- open on startup
+	open_on_setup = opOnSetup, -- open on startup
+	open_on_setup_file = opOnSetup, -- open on startup
 	open_on_tab = false,
 	sync_root_with_cwd = true,
 	reload_on_bufenter = true,

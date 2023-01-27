@@ -104,13 +104,6 @@ vnoremap > >gv
 nnoremap <cr> o<esc>k
 nnoremap <C-cr> O<esc>
 
-"remaps for the QuickFix list
-augroup QuickFix
-     au FileType qf nnoremap <buffer> <Cr> <Cr>
-     au FileType qf nnoremap <buffer> q :q<cr>
-     au FileType qf nnoremap <buffer> <esc> :q<cr>
-augroup END
-
 "epic delete/paste utility
 vnoremap <leader>p "_dP
 nnoremap <leader>p "_dP
@@ -121,10 +114,10 @@ inoremap <C-j> <down>
 inoremap <C-k> <up>
 
 "Moverse entre splits
-nnoremap <C-j> <c-w>j
-nnoremap <C-k> <c-w>k
-nnoremap <C-l> <c-w>l
-nnoremap <C-h> <c-w>h
+nnoremap <silent><C-j> :TmuxNavigateDown<cr>
+nnoremap <silent><C-k> :TmuxNavigateUp<cr>
+nnoremap <silent><C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent><C-l> :TmuxNavigateRight<cr>
 
 "Archivos de configuracion
 nnoremap <leader>cd :cd %:h <CR>
