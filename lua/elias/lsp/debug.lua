@@ -8,7 +8,6 @@ require("dapui").setup({
         repl = "r",
         toggle = "t",
     },
-
     layouts = {
         {
             elements = {
@@ -22,7 +21,6 @@ require("dapui").setup({
         },
         -- puedo agregar  mas tablas aca para agregar otros elementos
     },
-
     expand_lines = false,
     windows = { indent = 3 },
 })
@@ -40,29 +38,26 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
 end
-dap.defaults.fallback.terminal_win_cmd = '9split new'
+dap.defaults.fallback.terminal_win_cmd = "9split new"
 
-
--- C/C++/Rust Debugger (lldb)
-dap.adapters.lldb = {
-    type = 'executable',
-    command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
-    name = 'lldb'
-}
-dap.configurations.cpp = {
-    {
-        name = 'Launch',
-        type = 'lldb',
-        request = 'launch',
-        program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        cwd = '${workspaceFolder}',
-        stopOnEntry = true,
-        args = {},
-    },
-}
-
--- If you want to use this for Rust and C, add something like this:
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
+-- hightligts and symbols
+vim.highlight.create("DapBreakpoint", { ctermbg = 0, guifg = "#d33939", guibg = "#27384d" }, false)
+vim.highlight.create("DapLogPoint", { ctermbg = 0, guifg = "#61f0ef", guibg = "#27384d" }, false)
+vim.highlight.create("DapStopped", { ctermbg = 0, guifg = "#3fc379", guibg = "#27384d" }, false)
+vim.fn.sign_define(
+    "DapBreakpoint",
+    { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+)
+vim.fn.sign_define(
+    "DapBreakpointCondition",
+    { text = "ﳁ", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+)
+vim.fn.sign_define(
+    "DapBreakpointRejected",
+    { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+)
+vim.fn.sign_define(
+    "DapLogPoint",
+    { text = "", texthl = "DapLogPoint", linehl = "DapLogPoint", numhl = "DapLogPoint" }
+)
+vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" })

@@ -1,4 +1,4 @@
-local opOnSetup = false
+local opOnSetup = true
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 	hijack_cursor = true,

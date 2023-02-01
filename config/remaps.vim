@@ -108,6 +108,7 @@ nnoremap <C-cr> O<esc>
 vnoremap <leader>p "_dP
 nnoremap <leader>p "_dP
 vnoremap <leader>d "_dD
+nnoremap x "_x
 
 "teclas arriba y abajo en insert mode
 inoremap <C-j> <down>
