@@ -48,10 +48,10 @@ vnoremap w b
 "nnoremap b w
 
 "movimiento vertical
-nnoremap <s-l> 5j
-nnoremap <s-h> 5k 
-vnoremap <s-l> 5j
-vnoremap <s-h> 5k 
+nnoremap <s-l> 5jzz
+nnoremap <s-h> 5kzz
+vnoremap <s-l> 5jzz
+vnoremap <s-h> 5kzz
 
 "renombrar buffer usar arg y argdo para refactor completo
 nnoremap <leader>lp :%s/
@@ -154,14 +154,13 @@ nnoremap <leader>mt :MaximizerToggle<cr>
 nnoremap <leader>ft :FocusToggle<cr>
 
 "Debug
-nnoremap <silent><F7> :lua require'dap'.step_into()<cr>
+nnoremap <silent><leader>db :DapContinue<Cr>
+nnoremap <silent><F7> :lua require'dapstep_into()<cr>
 nnoremap <silent><F6> :lua require'dap'.step_over()<cr>
-nnoremap <silent><leader>db :lua require'dap'.continue()<Cr>
 nnoremap <silent><leader>du :lua require'dap'.toggle_breakpoint()<Cr>
 nnoremap <silent><leader>ds :lua require'dap'.terminate()<Cr>
 nnoremap <silent><leader>df :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>
 nnoremap <silent><leader>dc :lua require'dap'.run_to_cursor()<Cr>
-nnoremap <leader>rs <Plug>RestNvim<Cr>
 
 "Luasnips snippets
 inoremap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 

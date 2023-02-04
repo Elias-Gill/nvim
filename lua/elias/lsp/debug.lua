@@ -41,9 +41,9 @@ end
 dap.defaults.fallback.terminal_win_cmd = "9split new"
 
 -- hightligts and symbols
-vim.highlight.create("DapBreakpoint", { ctermbg = 0, guifg = "#d33939", guibg = "#27384d" }, false)
-vim.highlight.create("DapLogPoint", { ctermbg = 0, guifg = "#61f0ef", guibg = "#27384d" }, false)
-vim.highlight.create("DapStopped", { ctermbg = 0, guifg = "#3fc379", guibg = "#27384d" }, false)
+vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "#d33939", bg = "#27384d" })
+vim.api.nvim_set_hl(0, "DapLogPoint", { fg = "#61f0ef", bg = "#27384d" })
+vim.api.nvim_set_hl(0, "DapStopped", { fg = "#3fc379", bg = "#27384d" })
 vim.fn.sign_define(
     "DapBreakpoint",
     { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }

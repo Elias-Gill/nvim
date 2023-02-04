@@ -2,9 +2,6 @@ local opOnSetup = true
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 	hijack_cursor = true,
-	ignore_buffer_on_setup = opOnSetup, -- open on startup
-	open_on_setup = opOnSetup, -- open on startup
-	open_on_setup_file = opOnSetup, -- open on startup
 	open_on_tab = false,
 	sync_root_with_cwd = true,
 	reload_on_bufenter = true,
@@ -101,3 +98,18 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
 	nested = true,
 })
+
+-- open on setup
+if opOnSetup then
+	vim.api.nvim_create_autocmd({ "VimEnter" }, {
+		callback = function()
+			require("nvim-tree.api").tree.toggle({
+				path = nil,
+				current_window = false,
+				find_file = false,
+				update_root = false,
+				focus = false,
+			})
+		end,
+	})
+end

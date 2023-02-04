@@ -69,18 +69,18 @@ cmp.setup({
 	sources = {
 		-- this also affects the order in the completion menu
 		{ name = "luasnip", max_item_count = 5 },
+		{ name = "path", max_item_count = 2 },
 		{ name = "nvim_lsp" },
-		{ name = "path" },
 		{ name = "buffer", max_item_count = 5 },
 	},
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+-- Use cmdline & path source for ':'
 cmp.setup.cmdline(":", {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
 		{ name = "path" },
 	}, {
-		{ name = "cmdline" },
+		{ name = "cmdline", max_item_count = 5 },
 	}),
 })
