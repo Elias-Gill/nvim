@@ -11,7 +11,7 @@ require('telescope').setup {
                 ["<esc>"] = "close"
             }
         },
-        file_ignore_patterns = { '.git', 'go/', '.class', '.pdf', 'VirtualBox', 'node_modules' },
+        file_ignore_patterns = { '.git', 'go/', '*.class', 'VirtualBox/', 'node_modules/' },
     },
     -- configuracion de los pickers
     pickers = {

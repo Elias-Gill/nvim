@@ -12,13 +12,14 @@ require("todo-comments").setup {
     },
     merge_keywords = true,
     highlight = {
-        keyword = "wide",
+        keyword = "wide_fg",
         after = "fg",
+        before = "fg",
         pattern = [[.*<(KEYWORDS)\s*]], -- pattern or table of patterns
         comments_only = true,
         max_line_len = 400,
         exclude = {},
-        multiline = true, -- enable multine todo comments
+        multiline = false, -- enable multine todo comments
     },
     colors = {
         error = { "#f02020" },

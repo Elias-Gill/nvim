@@ -130,11 +130,10 @@ require("lazy").setup({
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
+		tag = "0.1.1",
 		dependencies = {
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
-		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 	},
 
 	-- Fonts and icons
@@ -174,7 +173,7 @@ require("lazy").setup({
 	},
 
 	-- Utilities
-	{ "kevinhwang91/nvim-bqf", event = "QuickFixCmdPre" }, -- quickfixList
+	{ "kevinhwang91/nvim-bqf" }, -- quickfixList
 	{
 		"folke/todo-comments.nvim",
 		event = "BufAdd",
@@ -225,5 +224,9 @@ require("lazy").setup({
 				end,
 			},
 		},
+	},
+}, {
+	ui = {
+		border = "single",
 	},
 })
