@@ -31,6 +31,7 @@ require("lazy").setup({
 
 	-- " Git inegration
 	"tpope/vim-fugitive",
+	{ "almo7aya/openingh.nvim", tag = "v1.0.1", cmd = { "OpenInGHFile", "OpenInGHRepo" } },
 	{
 		"sindrets/diffview.nvim",
 		cmd = "DiffviewOpen",
@@ -38,7 +39,6 @@ require("lazy").setup({
 			require("elias/utils/diffview")
 		end,
 	},
-	{ "almo7aya/openingh.nvim", tag = "v1.0.1", cmd = { "OpenInGHFile", "OpenInGHRepo" } },
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -160,14 +160,13 @@ require("lazy").setup({
 	"tpope/vim-surround",
 	"lukas-reineke/indent-blankline.nvim",
 	{
-		"b3nj5m1n/kommentary",
+		"numToStr/Comment.nvim",
 		config = function()
-			require("kommentary.config").configure_language("vue", {
-				single_line_comment_string = "auto",
-				multi_line_comment_strings = "auto",
-				hook_function = function()
-					require("ts_context_commentstring.internal").update_commentstring()
-				end,
+			require("Comment").setup({
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+				mappings = {
+					extra = false,
+				},
 			})
 		end,
 	},
@@ -187,10 +186,15 @@ require("lazy").setup({
 	-- wiki
 	{
 		"jakewvincent/mkdnflow.nvim",
-		ft = "markdown",
-		dependencies = { "ellisonleao/glow.nvim", branch = "main" },
+		ft = { "markdown" },
+		dependencies = {
+			"ellisonleao/glow.nvim",
+			branch = "main",
+			config = function()
+				require("glow").setup({})
+			end,
+		},
 		config = function()
-			require("glow").setup({})
 			require("elias/utils/wiki")
 		end,
 	},

@@ -7,6 +7,7 @@ lspconfig.gopls.setup({})
 lspconfig.sumneko_lua.setup({})
 lspconfig.vimls.setup({})
 lspconfig.jsonls.setup({})
+lspconfig.svelte.setup({})
 lspconfig.omnisharp.setup({})
 lspconfig.volar.setup({
 	on_atach = function()

@@ -10,7 +10,7 @@ null_ls.setup({
         -- formaters -- 
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.deno_fmt,
-		-- null_ls.builtins.formatting.prettier,
+		-- null_ls.builtins.formatting.deno_fmt,
+		null_ls.builtins.formatting.prettier,
 	},
 })

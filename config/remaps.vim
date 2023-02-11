@@ -58,8 +58,8 @@ nnoremap <leader>lp :%s/
 vnoremap <leader>lp :s/
 
 "Buscar funciones y definiciones 
-nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>zz
+nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>zz
 nnoremap <silent> gr :FzfLua lsp_references<CR>
 nnoremap <silent> gi :FzfLua lsp_implementations<CR>
 nnoremap <silent> =f :lua vim.lsp.buf.format ({ async = true })<CR>
