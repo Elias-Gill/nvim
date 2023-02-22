@@ -140,6 +140,9 @@ hi NormalFloat guibg=#222222
 hi @variable guifg=#eeeeee
 hi IndentBlanklineContextChar guifg=#ab9457
 
+hi mkdLineBreak guibg=none
+hi Conceal guibg=none
+
 let g:python_highlight_space_errors=0
 
 if s:newshell_background == "None"

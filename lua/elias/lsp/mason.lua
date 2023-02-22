@@ -14,5 +14,5 @@ mason.setup({
 })
 require("mason-lspconfig").setup({
 	automatic_installation = false,
-	ensure_installed = { "sumneko_lua", "gopls", "clangd", "tsserver", "bashls", "pyright", "vimls" },
+	ensure_installed = { "lua_ls", "gopls", "clangd", "tsserver", "bashls", "pyright", "vimls" },
 })

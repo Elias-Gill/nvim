@@ -1,6 +1,6 @@
 local present, cmp = pcall(require, "cmp")
 if not present then
-	return
+    return
 end
 
 -- configuracion de vim y lspkind
@@ -13,32 +13,30 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- configuracion general
 cmp.setup({
-	-- snippets
-	snippet = {
-		expand = function(args)
-			require("luasnip").lsp_expand(args.body) -- luasnip
-		end,
-	},
+    -- snippets
+    snippet = {
+        expand = function(args)
+            require("luasnip").lsp_expand(args.body) -- luasnip
+        end,
+    },
+    window = {
+        -- completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
+    -- lsp symbols and decorators for completation
+    formatting = {
+        matching = {
+            disallow_fuzzy_matching = false,
+        },
+        format = lspkind.cmp_format({
+            mode = "symbol_text", -- show only symbol annotations
+            maxwidth = 60,
 
-	window = {
-		-- completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
-	},
-
-	-- lsp symbols and decorators for completation
-	formatting = {
-		matching = {
-			disallow_fuzzy_matching = false,
-		},
-		format = lspkind.cmp_format({
-			mode = "symbol_text", -- show only symbol annotations
-			maxwidth = 60,
-
-			-- kind icons
-			-- buff
-			before = function(_, vim_item)
-				vim_item.kind = string.format("%s", vim_item.kind)
-				--[[ vim_item.menu = ({
+            -- kind icons
+            -- buff
+            before = function(_, vim_item)
+                vim_item.kind = string.format("%s", vim_item.kind)
+                --[[ vim_item.menu = ({
                     nvim_lsp = "[LSP]",
                     luasnip = "[Snp]",
                     buffer = "[Buf]",
@@ -47,40 +45,39 @@ cmp.setup({
                     -- cmp_tabnine = "[📠]",
 
                 })[entry.source.name] ]]
-				return vim_item
-			end,
-		}),
-	},
-
-	-- mappings
-	mapping = {
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
-		["<UP>"] = cmp.mapping.select_prev_item(),
-		["<DOWN>"] = cmp.mapping.select_next_item(),
-		["<C-e>"] = cmp.mapping.close(),
-		["<CR>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = false, -- selecciona automaticamente el primer elemento
-		}),
-	},
-	-- sources
-	sources = {
-		-- this also affects the order in the completion menu
-		{ name = "luasnip", max_item_count = 5 },
-		{ name = "path", max_item_count = 2 },
-		{ name = "nvim_lsp" },
-		{ name = "buffer", max_item_count = 5 },
-	},
+                return vim_item
+            end,
+        }),
+    },
+    -- mappings
+    mapping = {
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<UP>"] = cmp.mapping.select_prev_item(),
+        ["<DOWN>"] = cmp.mapping.select_next_item(),
+        ["<C-e>"] = cmp.mapping.close(),
+        ["<CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = false, -- selecciona automaticamente el primer elemento
+        }),
+    },
+    -- sources
+    sources = {
+        -- this also affects the order in the completion menu
+        { name = "luasnip", max_item_count = 5 },
+        { name = "path",    max_item_count = 2 },
+        { name = "nvim_lsp" },
+        { name = "buffer",  max_item_count = 5 },
+    },
 })
 
 -- Use cmdline & path source for ':'
 cmp.setup.cmdline(":", {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources({
-		{ name = "path" },
-	}, {
-		{ name = "cmdline", max_item_count = 5 },
-	}),
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = "path" },
+    }, {
+        { name = "cmdline", max_item_count = 5 },
+    }),
 })

@@ -47,11 +47,12 @@ vnoremap w b
 "vnoremap b w
 "nnoremap b w
 
+" INFO: tenes que dejar de usar esta cosa
 "movimiento vertical
-nnoremap <s-l> 5jzz
-nnoremap <s-h> 5kzz
-vnoremap <s-l> 5jzz
-vnoremap <s-h> 5kzz
+" nnoremap <s-l> 5jzz
+" nnoremap <s-h> 5kzz
+" vnoremap <s-l> 5jzz
+" vnoremap <s-h> 5kzz
 
 "renombrar buffer usar arg y argdo para refactor completo
 nnoremap <leader>lp :%s/
@@ -76,7 +77,7 @@ nnoremap <silent><leader>rr :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent>co :lua vim.lsp.buf.code_action()<CR>
 " nnoremap <silent>co :Lspsaga code_action<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
-inoremap <silent><c-p> <c-o>:lua vim.lsp.buf.signature_help()<CR>
+" inoremap <silent><c-p> <c-o>:lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent>gh :Lspsaga lsp_finder<CR>
 
 "cambiar pestanas

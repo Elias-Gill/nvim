@@ -4,7 +4,7 @@ lspconfig.pyright.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.bashls.setup({})
 lspconfig.gopls.setup({})
-lspconfig.sumneko_lua.setup({})
+lspconfig.lua_ls.setup({})
 lspconfig.vimls.setup({})
 lspconfig.jsonls.setup({})
 lspconfig.svelte.setup({})
@@ -15,8 +15,8 @@ lspconfig.volar.setup({
 	end,
 })
 
--- lspconfig.cssls.setup {}
 -- lspconfig.html.setup {}
+-- lspconfig.cssls.setup {}
 -- lspconfig.clangd.setup({})
 -- lspconfig.phpactor.setup({})
 -- lspconfig.intelephense.setup({})
