@@ -5,6 +5,7 @@ end
 -- lsp_installer
 mason.setup({
 	ui = {
+        border = "single",
 		icons = {
 			server_installed = "✓",
 			server_pending = "➜",

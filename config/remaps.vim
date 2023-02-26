@@ -47,8 +47,10 @@ vnoremap w b
 "vnoremap b w
 "nnoremap b w
 
+" movimiento vertical
+" nnoremap <c-d> 10jzz
+" nnoremap <c-u> 10jzz
 " INFO: tenes que dejar de usar esta cosa
-"movimiento vertical
 " nnoremap <s-l> 5jzz
 " nnoremap <s-h> 5kzz
 " vnoremap <s-l> 5jzz
@@ -69,7 +71,7 @@ nnoremap <silent> =f :lua vim.lsp.buf.format ({ async = true })<CR>
 nnoremap <silent><leader>to :lua vim.diagnostic.setqflist()<CR>
 nnoremap <silent><leader>tg :TodoQuickFix<CR>
 
-"diagnostics navigation TODO  cambiar para que se active con on_attach
+"diagnostics navigation INFO: cambiar para que se active con on_attach
 nnoremap <silent>[e :Lspsaga diagnostic_jump_prev<cr>
 nnoremap <silent>]e :Lspsaga diagnostic_jump_next<cr>
 nnoremap <silent>]t :Lspsaga show_line_diagnostics<cr>
@@ -89,10 +91,11 @@ nnoremap <leader>zm :ZenMode<cr>
 "centrar en saltos
 nnoremap n nzzzv
 nnoremap N Nzzzv
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
+nnoremap <C-d> zz<C-d>
+nnoremap <C-u> zz<C-u>
 nnoremap <C-t> <C-t>zz
 nnoremap <C-o> <C-o>zz
+
 "primeagen cool remap to move lines
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
