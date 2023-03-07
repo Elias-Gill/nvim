@@ -1,6 +1,8 @@
 ------- configuracion general -----
+require("elias/utils/disable_builtins")
 vim.cmd("source ~/.config/nvim/config/general_config.vim")
 vim.cmd("source ~/.config/nvim/config/remaps.vim")
+
 -- ------------- LAZY -----------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -15,7 +17,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup('elias/plugins', { ui = { border = "single"}})
+
 ----------- Utils -------------
 vim.cmd("source ~/.config/nvim/config/startify.vim")
 require("elias/utils/windline")
-require("elias/utils/disable_builtins")
