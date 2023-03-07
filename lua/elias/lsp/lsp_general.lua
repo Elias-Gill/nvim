@@ -21,4 +21,4 @@ lspconfig.volar.setup({
 -- lspconfig.phpactor.setup({})
 -- lspconfig.intelephense.setup({})
 -- lspconfig.texlab.setup({})
--- lspconfig.jdtls.setup({})
+lspconfig.jdtls.setup({})

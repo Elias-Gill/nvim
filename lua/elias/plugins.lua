@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- ------------- PLUGINS ------------
 require("lazy").setup({
+    "goolord/nvim-colorscheme-convert",
     -- editor config like other editors
     { "gpanders/editorconfig.nvim", event = "BufAdd" },
 
@@ -73,6 +74,12 @@ require("lazy").setup({
     { "ray-x/lsp_signature.nvim", config = function()
         require("elias.lsp.signature")
     end },
+    -- free copilot
+    { "Exafunction/codeium.vim",
+        cmd = "Codeium",
+        config = function()
+            vim.cmd('source /home/elias/.config/nvim/config/codeium.vim')
+        end },
     -- Neovim Cmp (completition engine) and snippets
     {
         "hrsh7th/nvim-cmp",
@@ -146,6 +153,7 @@ require("lazy").setup({
 
     -- Themes, GUI and customization
     "stevearc/dressing.nvim", -- better custom gui
+    "folke/tokyonight.nvim",
     {
         "rcarriga/nvim-notify",
         config = function()
@@ -207,6 +215,8 @@ require("lazy").setup({
 
     -- colorpicker and colorizer
     "uga-rosa/ccc.nvim",
+    -- open urls in browser
+    { "dhruvasagar/vim-open-url", cmd = "OpenURLFind" },
 
     -- debuggers
     {

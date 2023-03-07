@@ -1,4 +1,8 @@
 require("todo-comments").setup {
+    gui_style = {
+        fg = "ITALIC",
+        bg = "ITALIC",
+    },
     signs = true, -- show icons in the signs column
     sign_priority = 8, -- sign priority
     keywords = {
@@ -14,7 +18,7 @@ require("todo-comments").setup {
     highlight = {
         keyword = "wide_fg",
         after = "fg",
-        before = "fg",
+        before = "",
         pattern = [[.*<(KEYWORDS)\s*]], -- pattern or table of patterns
         comments_only = true,
         max_line_len = 400,
@@ -33,6 +37,7 @@ require("todo-comments").setup {
         pattern = [[\b(KEYWORDS)]], -- ripgrep regex
     },
 }
+return
 -- TODO  aslkdjalskdalskdj
 -- INFO  aslkdjalskdj
 -- WARN  alskdalskdj

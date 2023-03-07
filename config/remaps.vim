@@ -91,8 +91,8 @@ nnoremap <leader>zm :ZenMode<cr>
 "centrar en saltos
 nnoremap n nzzzv
 nnoremap N Nzzzv
-nnoremap <C-d> zz<C-d>
-nnoremap <C-u> zz<C-u>
+nnoremap <C-d> zz<C-d>zz
+nnoremap <C-u> zz<C-u>zz
 nnoremap <C-t> <C-t>zz
 nnoremap <C-o> <C-o>zz
 
@@ -128,7 +128,7 @@ nnoremap <silent><C-l> :TmuxNavigateRight<cr>
 nnoremap <leader>cd :cd %:h <CR>
 nnoremap <leader><leader>s :so %<cr>
 nnoremap <silent><leader>so :so $MYVIMRC<CR>
-nnoremap <silent><leader>SO :tabnew $MYVIMRC<CR>
+nnoremap <silent><leader>SO :e $MYVIMRC<CR>
 nnoremap <silent><leader>sm :e ~/.config/nvim/config/remaps.vim<CR>
 nnoremap <silent><leader>sp :e ~/.config/nvim/lua/elias/plugins.lua<CR>
 "abrir wiki
