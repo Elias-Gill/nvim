@@ -42,19 +42,14 @@ noremap <C-w>t :botright vnew <Bar> :terminal<cr>
 " noremap <leader>th :botright new <Bar> :terminal<cr>
 
 "teclas de movimiento
-nnoremap w b
-vnoremap w b
-"vnoremap b w
-"nnoremap b w
+" INFO: tenes que dejar de usar esta cosa
+"nnoremap w b
+"vnoremap w b
 
+" INFO: tenes que dejar de usar esta cosa
 " movimiento vertical
 " nnoremap <c-d> 10jzz
 " nnoremap <c-u> 10jzz
-" INFO: tenes que dejar de usar esta cosa
-" nnoremap <s-l> 5jzz
-" nnoremap <s-h> 5kzz
-" vnoremap <s-l> 5jzz
-" vnoremap <s-h> 5kzz
 
 "renombrar buffer usar arg y argdo para refactor completo
 nnoremap <leader>lp :%s/

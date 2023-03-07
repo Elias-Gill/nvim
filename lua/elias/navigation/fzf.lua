@@ -63,15 +63,6 @@ require("fzf-lua").setup({
         find_opts    = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
         rg_opts      = "--color=never --files --follow -g '!.git' -g '!go/' -g '!*.class' -g '!facultad' -g '!VirtualBox*' -g '!node_modules*'",
         fd_opts      = "--color=never --type f --follow --exclude .git --exclude *.class --exclude facultad/ --exclude node_modules/ --exclude go/",
-        actions      = {
-            ["default"] = actions.file_edit,
-            ["ctrl-y"] = function(selected)
-                print(selected[1])
-            end,
-            ["esc"] = function(selected)
-                print(selected[1])
-            end,
-        },
     },
     grep = {
         rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512 -g '!.git' -g '!go/' -g '!*.class' -g '!facultad' -g '!VirtualBox*' -g '!node_modules*'",
