@@ -125,7 +125,7 @@ nnoremap <leader><leader>s :so %<cr>
 nnoremap <silent><leader>so :so $MYVIMRC<CR>
 nnoremap <silent><leader>SO :e $MYVIMRC<CR>
 nnoremap <silent><leader>sm :e ~/.config/nvim/config/remaps.vim<CR>
-nnoremap <silent><leader>sp :e ~/.config/nvim/lua/elias/plugins.lua<CR>
+nnoremap <silent><leader>sp :e ~/.config/nvim/lua/elias/plugins/init.lua<CR>
 "abrir wiki
 nnoremap <silent><leader>ww :e ~/.local/share/vimwiki/index.md<CR>
 
