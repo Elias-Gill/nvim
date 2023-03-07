@@ -14,11 +14,11 @@ lspconfig.volar.setup({
 		require("null-ls").disable({ "prettier" })
 	end,
 })
-
+return
 -- lspconfig.html.setup {}
 -- lspconfig.cssls.setup {}
 -- lspconfig.clangd.setup({})
 -- lspconfig.phpactor.setup({})
 -- lspconfig.intelephense.setup({})
 -- lspconfig.texlab.setup({})
-lspconfig.jdtls.setup({})
+-- lspconfig.jdtls.setup({})

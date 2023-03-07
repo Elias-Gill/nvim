@@ -1,16 +1,21 @@
-------- archivos vimL -----
+------- configuracion general -----
 vim.cmd("source ~/.config/nvim/config/general_config.vim")
 vim.cmd("source ~/.config/nvim/config/remaps.vim")
-require("elias/lazy")
+-- ------------- LAZY -----------
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup('elias/plugins', { ui = { border = "single"}})
+----------- Utils -------------
 vim.cmd("source ~/.config/nvim/config/startify.vim")
----------------------------
-
---buitin lsp
-require("elias/lsp/mason")
-require("elias/lsp/lsp_general")
-require("elias/lsp/luasnips")
-require("elias/lsp/null_ls")
-
--- Utils
 require("elias/utils/windline")
 require("elias/utils/disable_builtins")

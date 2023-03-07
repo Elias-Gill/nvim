@@ -1,7 +1,13 @@
 return {
     -- Lsp configs
     { "neovim/nvim-lspconfig",
-        config = function() require("elias/utils/lsp-visuals") end,
+        config = function()
+            require("elias.lsp.mason")
+            require("elias.lsp.luasnips")
+            require("elias.lsp.lsp_general")
+            require("elias.lsp.null_ls")
+            require("elias.lsp.lsp-visuals")
+        end,
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
