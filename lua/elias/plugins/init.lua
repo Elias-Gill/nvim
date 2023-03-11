@@ -11,7 +11,7 @@ return {
 
     --  Start page
     { "dstein64/vim-startuptime", cmd = "StartupTime" },
-    "mhinz/vim-startify",
+    { "mhinz/vim-startify",       config = function() vim.cmd("source ~/.config/nvim/config/startify.vim") end },
 
     -- "Super-completado html
     {
@@ -32,9 +32,10 @@ return {
         end },
 
     -- Tabline and status bar
-    "windwp/windline.nvim",
+    { "windwp/windline.nvim", config = function() require("elias/utils/windline") end },
     {
         "alvarosevilla95/luatab.nvim",
+        event = "TabNew",
         config = function()
             -- tabline personalizada con iconos
             require("luatab").setup({
@@ -52,7 +53,7 @@ return {
     },
 
     -- File tree
-    { "kevinhwang91/rnvimr",      cmd = "RnvimrToggle" },
+    { "kevinhwang91/rnvimr",  cmd = "RnvimrToggle" },
     {
         "antosha417/nvim-lsp-file-operations",
         event = "InsertLeave",
@@ -80,7 +81,7 @@ return {
         config = function()
             require("sweetie").setup({
                 palette = {
-                    dark = {bg = "none"},
+                    dark = { bg = "none" },
                 },
             })
         end
@@ -104,9 +105,10 @@ return {
         })
     end
     },
-    --comentarios 
+    --comentarios
     {
         "numToStr/Comment.nvim",
+        event = "InsertEnter",
         config = function()
             require("Comment").setup({
                 pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
@@ -120,9 +122,9 @@ return {
     "jessarcher/vim-heritage", -- make parent directories
     "romainl/vim-cool", -- find highlighter
     { "kevinhwang91/nvim-bqf" }, -- better quickfixList
-    { "mbbill/undotree",      cmd = "UndotreeToggle" },
-    { "szw/vim-maximizer",    cmd = "MaximizerToggle" },
-    { "Asheq/close-buffers.vim",    cmd = "Bwipeout" },
+    { "mbbill/undotree",          cmd = "UndotreeToggle" },
+    { "szw/vim-maximizer",        cmd = "MaximizerToggle" },
+    { "Asheq/close-buffers.vim",  cmd = "Bwipeout" },
     { "dhruvasagar/vim-open-url", cmd = "OpenURLFind" }, -- open urls in browser
     { -- colorpicker and colorizer
         "uga-rosa/ccc.nvim",
