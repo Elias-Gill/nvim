@@ -50,7 +50,7 @@ local function mkdConfig()
 end
 
 return {
-    -- wiki
+    -- lazy config
     {
         "jakewvincent/mkdnflow.nvim",
         ft = { "markdown" },

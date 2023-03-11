@@ -13,7 +13,6 @@ nnoremap <silent><leader>hh :lua require("harpoon.mark").add_file()<cr>
 nnoremap <silent><leader>hu :lua require("harpoon.ui").toggle_quick_menu()<cr>
 
 "saving files and exit vim
-nnoremap <leader>w :w<CR>
 nnoremap <leader>wf :w!<CR> 
 nnoremap <leader>wa :wa<cr>
 nnoremap <leader>qa :qa<cr>
@@ -121,11 +120,12 @@ nnoremap <silent><C-l> :TmuxNavigateRight<cr>
 
 "Archivos de configuracion
 nnoremap <leader>cd :cd %:h <CR>
-nnoremap <leader><leader>s :so %<cr>
-nnoremap <silent><leader>so :so $MYVIMRC<CR>
-nnoremap <silent><leader>SO :e $MYVIMRC<CR>
+nnoremap <silent><leader>SO :e ~/.config/nvim/lua/elias/indice.lua<CR>
 nnoremap <silent><leader>sm :e ~/.config/nvim/config/remaps.vim<CR>
 nnoremap <silent><leader>sp :e ~/.config/nvim/lua/elias/plugins/init.lua<CR>
+nnoremap <silent><leader>sO :e $MYVIMRC<CR>
+nnoremap <silent><leader>so :so $MYVIMRC<CR>
+
 "abrir wiki
 nnoremap <silent><leader>ww :e ~/.local/share/vimwiki/index.md<CR>
 

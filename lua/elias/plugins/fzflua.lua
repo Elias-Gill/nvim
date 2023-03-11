@@ -58,10 +58,10 @@ return {
                     -- "contain", "forced_cover", "cover"
                 },
                 prompt       = "Files❯ ",
-                multiprocess = true, -- run command in a separate process
-                git_icons    = true, -- show git icons?
-                file_icons   = true, -- show file icons?
-                color_icons  = true, -- colorize file|git icons
+                multiprocess = true,
+                git_icons    = false,
+                file_icons   = true,
+                color_icons  = true,
 
                 find_opts    = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
                 rg_opts      = "--color=never --files --follow -g '!.git' -g '!go/' -g '!*.class' -g '!facultad' -g '!VirtualBox*' -g '!node_modules*'",

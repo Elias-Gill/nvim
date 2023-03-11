@@ -8,13 +8,15 @@ lspconfig.lua_ls.setup({})
 lspconfig.vimls.setup({})
 lspconfig.jsonls.setup({})
 lspconfig.svelte.setup({})
-lspconfig.omnisharp.setup({})
-lspconfig.volar.setup({
-	on_atach = function()
-		require("null-ls").disable({ "prettier" })
-	end,
-})
+lspconfig.rust_analyzer.setup({})
 return
+
+-- lspconfig.omnisharp.setup({})
+-- lspconfig.volar.setup({
+-- 	on_atach = function()
+-- 		require("null-ls").disable({ "prettier" })
+-- 	end,
+-- })
 -- lspconfig.html.setup {}
 -- lspconfig.cssls.setup {}
 -- lspconfig.clangd.setup({})

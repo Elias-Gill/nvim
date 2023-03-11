@@ -4,7 +4,7 @@ return {
         config = function()
             require("elias.lsp.mason")
             require("elias.lsp.luasnips")
-            require("elias.lsp.lsp_general")
+            require("elias.lsp.lsp_servers")
             require("elias.lsp.null_ls")
             require("elias.lsp.lsp-visuals")
         end,

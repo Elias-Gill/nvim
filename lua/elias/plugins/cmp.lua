@@ -67,7 +67,7 @@ local function cmpConfig()
         sources = {
             -- this also affects the order in the completion menu
             { name = "luasnip", max_item_count = 5 },
-            { name = "path",    max_item_count = 2 },
+            { name = "path",    max_item_count = 5 },
             { name = "nvim_lsp" },
             { name = "buffer",  max_item_count = 5 },
         },
@@ -79,7 +79,7 @@ local function cmpConfig()
         sources = cmp.config.sources({
             { name = "path" },
         }, {
-            { name = "cmdline", max_item_count = 5 },
+            { name = "cmdline" },
         }),
     })
 end

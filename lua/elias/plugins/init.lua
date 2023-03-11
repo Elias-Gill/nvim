@@ -1,14 +1,11 @@
 -- general plugins without further customization
 return {
-    "goolord/nvim-colorscheme-convert",
     -- editor config like other editors
+    "nvim-lua/plenary.nvim",
     { "gpanders/editorconfig.nvim", event = "BufAdd" },
 
-    -- Custom libraries for neovim
-    "nvim-lua/plenary.nvim",
+    -- coconut oil navigation
     { "ThePrimeagen/harpoon",       event = "BufAdd" },
-    { "Asheq/close-buffers.vim",    cmd = "Bwipeout" },
-    "romainl/vim-cool",
     "christoomey/vim-tmux-navigator",
     -- use 'ThePrimeagen/refactoring.nvim'
 
@@ -47,14 +44,14 @@ return {
                 modified = function(bufnr)
                     return vim.fn.getbufvar(bufnr, "&modified") == 1 and "+ " or ""
                 end,
-                windowCount = function(index)
+                windowCount = function()
                     return ""
                 end,
             })
         end
     },
 
-    -- File search and tree
+    -- File tree
     { "kevinhwang91/rnvimr",      cmd = "RnvimrToggle" },
     {
         "antosha417/nvim-lsp-file-operations",
@@ -67,10 +64,8 @@ return {
     -- Fonts and icons
     "ryanoasis/vim-devicons",
     "nvim-tree/nvim-web-devicons",
-
-    -- Themes, GUI and customization
-    {
-        "stevearc/dressing.nvim", -- better custom gui
+    { -- better custom gui
+        "stevearc/dressing.nvim",
         config = function()
             require("dressing").setup({
                 select = {
@@ -80,7 +75,18 @@ return {
         end
     },
 
-    -- Pareado (){}""'', comentarios y ayudas de indentacion
+    -- colorschemes
+    { "NTBBloodbath/sweetie.nvim",
+        config = function()
+            require("sweetie").setup({
+                palette = {
+                    dark = {bg = "none"},
+                },
+            })
+        end
+    },
+
+    -- Pareado (){}""''
     "tpope/vim-surround",
     {
         "windwp/nvim-autopairs",
@@ -90,6 +96,7 @@ return {
             })
         end,
     },
+    --ayudas de indentacion
     { "lukas-reineke/indent-blankline.nvim", config = function()
         require("indent_blankline").setup({
             show_current_context = true,
@@ -97,6 +104,7 @@ return {
         })
     end
     },
+    --comentarios 
     {
         "numToStr/Comment.nvim",
         config = function()
@@ -108,15 +116,15 @@ return {
             })
         end,
     },
-
     -- Utilities
     "jessarcher/vim-heritage", -- make parent directories
+    "romainl/vim-cool", -- find highlighter
     { "kevinhwang91/nvim-bqf" }, -- better quickfixList
     { "mbbill/undotree",      cmd = "UndotreeToggle" },
     { "szw/vim-maximizer",    cmd = "MaximizerToggle" },
-
-    -- colorpicker and colorizer
-    {
+    { "Asheq/close-buffers.vim",    cmd = "Bwipeout" },
+    { "dhruvasagar/vim-open-url", cmd = "OpenURLFind" }, -- open urls in browser
+    { -- colorpicker and colorizer
         "uga-rosa/ccc.nvim",
         config = function()
             local ccc = require("ccc")
@@ -127,6 +135,4 @@ return {
             })
         end
     },
-    -- open urls in browser
-    { "dhruvasagar/vim-open-url", cmd = "OpenURLFind" },
 }
