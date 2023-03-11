@@ -76,17 +76,6 @@ return {
         end
     },
 
-    -- colorschemes
-    { "NTBBloodbath/sweetie.nvim",
-        config = function()
-            require("sweetie").setup({
-                palette = {
-                    dark = { bg = "none" },
-                },
-            })
-        end
-    },
-
     -- Pareado (){}""''
     "tpope/vim-surround",
     {

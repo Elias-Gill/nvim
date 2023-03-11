@@ -45,7 +45,6 @@
   "playground": { "branch": "master", "commit": "4044b53c4d4fcd7a78eae20b8627f78ce7dc6f56" },
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
   "rnvimr": { "branch": "main", "commit": "5edff6189cb0f4fae77ee751de5109a8f87cb9c7" },
-  "sweetie.nvim": { "branch": "master", "commit": "7518ba8ef06262d75a7fd1d1741f7b19497017c9" },
   "symbols-outline.nvim": { "branch": "master", "commit": "512791925d57a61c545bc303356e8a8f7869763c" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "580b6c48651cabb63455e97d7e131ed557b8c7e2" },
   "telescope.nvim": { "branch": "master", "commit": "c1a2af0af69e80e14e6b226d3957a064cd080805" },
