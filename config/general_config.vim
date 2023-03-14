@@ -1,7 +1,8 @@
 " -- neovim 0.8 specific
-if v:version >= 800
+if has('nvim')
     set laststatus=3
     set winbar=%=%f%m
+    au TextYankPost * silent! lua vim.highlight.on_yank()
 else 
     set laststatus=2
 endif
@@ -16,7 +17,6 @@ set nofoldenable
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set foldtext=CustomFoldText()
-
 function! CustomFoldText()
   let indentation = indent(v:foldstart - 1)
   let linetext = substitute(getline(v:foldstart),"^ *","",0)
@@ -24,7 +24,6 @@ function! CustomFoldText()
   let foldSizeStr = " " . foldSize . " lines "
   let foldLevelStr = repeat("+--", v:foldlevel)
   let expansionString = repeat(" ", indentation)
-
   return expansionString . foldLevelStr . linetext . foldSizeStr
 endfunction
 
@@ -68,7 +67,6 @@ set signcolumn=yes
 set fillchars+=diff:╱
 set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
 set fillchars=fold:\ 
-au TextYankPost * silent! lua vim.highlight.on_yank()
 au TermOpen * setlocal nonumber norelativenumber
 
 " --- Tabs to spaces ---
@@ -110,8 +108,8 @@ let g:python_highlight_space_errors = 0
 " undotree
 let g:undotree_WindowLayout = 3
 
-" open pdf's with the default pdf viewer
-function OpenInPdf()
+" open non plain files with the default application
+function XdgOpen()
     let fn = expand("%:p")
     let bnumber = bufnr(fn)
     execute ":execute 'normal \<c-o>'"
@@ -119,7 +117,10 @@ function OpenInPdf()
     execute ":Bw"
 endfunction
 augroup readPdf
-    autocmd BufReadCmd *.pdf call OpenInPdf()
+    autocmd BufReadCmd *.pdf call XdgOpen()
+    autocmd BufReadCmd *.jpg call XdgOpen()
+    autocmd BufReadCmd *.png call XdgOpen()
+    autocmd BufReadCmd *.mp3 call XdgOpen()
 augroup END
 
 " Parser para archivos Json desordenados

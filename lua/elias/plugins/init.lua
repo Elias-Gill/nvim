@@ -78,6 +78,7 @@ return {
 
     -- Pareado (){}""''
     "tpope/vim-surround",
+    "tpope/vim-repeat",
     {
         "windwp/nvim-autopairs",
         config = function()

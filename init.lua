@@ -1,7 +1,7 @@
 ------- configuracion general -----
 require("elias/utils/disable_builtins")
-vim.cmd("source ~/.config/nvim/config/general_config.vim")
 vim.cmd("source ~/.config/nvim/config/remaps.vim")
+vim.cmd("source ~/.config/nvim/config/general_config.vim")
 
 --------------- LAZY -----------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
