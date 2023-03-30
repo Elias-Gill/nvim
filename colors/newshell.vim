@@ -106,6 +106,10 @@ hi TabLine            guibg=#1B1D1E guifg=#808080 gui=none
 hi Tab                guibg=#111111
 hi TabLineSel         guibg=#242424 guifg=#ffffff
 
+hi ColorColumn guibg=#555555
+hi VertSplit guifg=#707070 guibg=None gui=bold
+hi Conceal guibg=none
+
 if s:custom_tabline == 1
     hi TabLineFill guifg=#888888 guibg=#1B1D1E 
 else
@@ -129,29 +133,23 @@ hi DiagnosticHint guifg=#00EC89
 hi DiagnosticError guifg=#F02020
 hi DiagnosticWarn guifg=#FFD500
 hi DiagnosticSignHint guifg=#00EC89
-
 hi LspFloatWinNormal guibg=#222222
-hi ColorColumn guibg=#555555
-hi VertSplit guifg=#707070 guibg=None gui=bold
 hi TreesitterContext guibg=#333443
-
-hi SagaBorder guifg=#666666 guibg=#222222
-hi NormalFloat guibg=#222222
 hi @variable guifg=#eeeeee
-hi IndentBlanklineContextChar guifg=#ab9457
-
-hi mkdLineBreak guibg=none
-hi Conceal guibg=none
 
 let g:python_highlight_space_errors=0
-
 if s:newshell_background == "None"
     hi Normal guibg=NONE
 elseif s:newshell_background == "dark"
-    hi Normal guibg=#111111
-elseif s:newshell_background == "medium"
     hi Normal guibg=#1f1f1f
+elseif s:newshell_background == "medium"
+    hi Normal guibg=#2f2f2f
 endif
 
+" plugins
+hi mkdLineBreak guibg=none
+hi BqfPreviewBorder guifg=#666666
+hi NormalFloat guibg=#222222
+hi IndentBlanklineContextChar guifg=#ab9457
+hi SagaBorder guifg=#666666 guibg=#222222
 " hi NvimTreeNormal guibg=#232323
-

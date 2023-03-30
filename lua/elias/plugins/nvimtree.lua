@@ -100,7 +100,7 @@ return {
 
         -- autoclose on quit
         vim.api.nvim_create_autocmd("BufEnter", {
-            command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
+            command = "if winnr('$') == 1 && bufname() =~ 'NvimTree_' . tabpagenr() | quit | endif",
             nested = true,
         })
 
@@ -109,10 +109,6 @@ return {
             vim.api.nvim_create_autocmd({ "VimEnter" }, {
                 callback = function()
                     require("nvim-tree.api").tree.toggle({
-                        path = nil,
-                        current_window = false,
-                        find_file = false,
-                        update_root = false,
                         focus = false,
                     })
                 end,

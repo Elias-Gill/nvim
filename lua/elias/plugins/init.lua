@@ -3,33 +3,19 @@ return {
     -- editor config like other editors
     "nvim-lua/plenary.nvim",
     { "gpanders/editorconfig.nvim", event = "BufAdd" },
-
-    -- coconut oil navigation
-    { "ThePrimeagen/harpoon",       event = "BufAdd" },
-    "christoomey/vim-tmux-navigator",
     -- use 'ThePrimeagen/refactoring.nvim'
-
-    --  Start page
-    { "dstein64/vim-startuptime", cmd = "StartupTime" },
-    { "mhinz/vim-startify",       config = function() vim.cmd("source ~/.config/nvim/config/startify.vim") end },
-
-    -- "Super-completado html
-    {
-        "mattn/emmet-vim",
-        ft = { "html", "css", "svelte", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact" },
-        config = function()
-            vim.api.nvim_command(
-                [[autocmd FileType svelte,html,css,javascript,javascriptreact,vue,typescript,typescriptreact EmmetInstall]]
-            )
-        end,
-    },
 
     -- free copilot
     { "Exafunction/codeium.vim",
         cmd = "Codeium",
         config = function()
             vim.cmd('source /home/elias/.config/nvim/config/codeium.vim')
-        end },
+        end
+    },
+
+    --  Start page
+    { "dstein64/vim-startuptime", cmd = "StartupTime" },
+    { "mhinz/vim-startify",       config = function() vim.cmd("source ~/.config/nvim/config/startify.vim") end },
 
     -- Tabline and status bar
     { "windwp/windline.nvim", config = function() require("elias/utils/windline") end },
@@ -52,7 +38,10 @@ return {
         end
     },
 
-    -- File tree
+    -- coconut oil navigation
+    { "ThePrimeagen/harpoon",       event = "BufAdd" },
+    "christoomey/vim-tmux-navigator",
+    -- File explorers
     { "kevinhwang91/rnvimr",  cmd = "RnvimrToggle" },
     {
         "antosha417/nvim-lsp-file-operations",
@@ -76,9 +65,18 @@ return {
         end
     },
 
+    -- "Super-completado html
+    {
+        "mattn/emmet-vim",
+        ft = { "html", "css", "svelte", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact" },
+        config = function()
+            vim.api.nvim_command(
+                [[autocmd FileType svelte,html,css,javascript,javascriptreact,vue,typescript,typescriptreact EmmetInstall]]
+            )
+        end,
+    },
     -- Pareado (){}""''
     "tpope/vim-surround",
-    "tpope/vim-repeat",
     {
         "windwp/nvim-autopairs",
         config = function()
@@ -91,14 +89,12 @@ return {
     { "lukas-reineke/indent-blankline.nvim", config = function()
         require("indent_blankline").setup({
             show_current_context = true,
-            -- show_current_context_start = true,
         })
     end
     },
     --comentarios
     {
         "numToStr/Comment.nvim",
-        event = "InsertEnter",
         config = function()
             require("Comment").setup({
                 pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
@@ -108,14 +104,13 @@ return {
             })
         end,
     },
+
     -- Utilities
-    "jessarcher/vim-heritage", -- make parent directories
-    "romainl/vim-cool", -- find highlighter
-    { "kevinhwang91/nvim-bqf" }, -- better quickfixList
-    { "mbbill/undotree",          cmd = "UndotreeToggle" },
-    { "szw/vim-maximizer",        cmd = "MaximizerToggle" },
-    { "Asheq/close-buffers.vim",  cmd = "Bwipeout" },
-    { "dhruvasagar/vim-open-url", cmd = "OpenURLFind" }, -- open urls in browser
+    { "kevinhwang91/nvim-bqf",   ft = "qf" }, -- better quickfixList
+    { "mbbill/undotree",         cmd = "UndotreeToggle" },
+    { "szw/vim-maximizer",       cmd = "MaximizerToggle" },
+    { "Asheq/close-buffers.vim", cmd = "Bwipeout" },
+    { "josa42/nvim-gx",          keys = { "gx", "<cmd>lua require('gx').gx()" } }, -- open urls
     { -- colorpicker and colorizer
         "uga-rosa/ccc.nvim",
         config = function()

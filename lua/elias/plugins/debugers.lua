@@ -72,6 +72,7 @@ return {
         cmd = "DapContinue",
         dependencies = {
             "rcarriga/nvim-dap-ui",
+
             -- golang
             {
                 "leoluz/nvim-dap-go",

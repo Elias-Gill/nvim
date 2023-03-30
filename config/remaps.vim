@@ -24,8 +24,8 @@ nnoremap <leader>tt :Bw<cr> :qa<cr>
 
 "file fuzzy searching
 nnoremap <silent><C-p> :FzfLua files<CR>
-nnoremap <silent><C-s> :exe ":FzfLua files cwd=".g:terminal_path<CR>
-nnoremap <silent><C-s-p> :FzfLua<CR>
+nnoremap <silent><C-f> :exe ":FzfLua files cwd=".g:terminal_path<CR>
+nnoremap <silent><C-s> :FzfLua<CR>
 nnoremap <silent><C-S-s> :FzfLua files cwd=~/<CR>
 
 "file managers
