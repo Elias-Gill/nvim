@@ -3,7 +3,6 @@ return {
     { "neovim/nvim-lspconfig",
         config = function()
             require("elias.lsp.mason")
-            require("elias.lsp.luasnips")
             require("elias.lsp.lsp_servers")
             require("elias.lsp.null_ls")
             require("elias.lsp.lsp-visuals")
@@ -11,7 +10,7 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "jose-elias-alvarez/null-ls.nvim",
+            "jose-elias-alvarez/null-ls.nvim"
             -- 'folke/trouble.nvim'
         }
     },
