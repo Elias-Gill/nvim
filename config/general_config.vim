@@ -89,7 +89,7 @@ set smartcase
 
 " colorscheme
 let g:newshell_background="None"
-colorscheme newshell
+" colorscheme newshell
 
 " cursor
 let &t_SI = "\<Esc>[6 q"
@@ -109,6 +109,13 @@ let g:python_highlight_space_errors = 0
 let g:undotree_WindowLayout = 3
 
 " open non plain files with the default application
+augroup binFiles
+    autocmd BufReadCmd *.pdf call XdgOpen()
+    autocmd BufReadCmd *.jpg call XdgOpen()
+    autocmd BufReadCmd *.png call XdgOpen()
+    autocmd BufReadCmd *.mp3 call XdgOpen()
+    autocmd BufReadCmd *.mp4 call XdgOpen()
+augroup END
 function XdgOpen()
     let fn = expand("%:p")
     let bnumber = bufnr(fn)
@@ -116,12 +123,6 @@ function XdgOpen()
     call jobstart("xdg-open " .'"'. fn .'"')
     execute ":Bw"
 endfunction
-augroup readPdf
-    autocmd BufReadCmd *.pdf call XdgOpen()
-    autocmd BufReadCmd *.jpg call XdgOpen()
-    autocmd BufReadCmd *.png call XdgOpen()
-    autocmd BufReadCmd *.mp3 call XdgOpen()
-augroup END
 
 " Parser para archivos Json desordenados
 command JsonParse :%!python3.9 -m json.tool

@@ -1,5 +1,6 @@
 return {
     "ibhagwan/fzf-lua",
+    cmd = "FzfLua",
     config = function()
         local actions = require("fzf-lua.actions")
         require("fzf-lua").setup({

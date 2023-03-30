@@ -11,7 +11,6 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "glepnir/lspsaga.nvim",
             "jose-elias-alvarez/null-ls.nvim",
             -- 'folke/trouble.nvim'
         }

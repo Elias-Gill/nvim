@@ -14,11 +14,11 @@ return {
     },
 
     --  Start page
-    { "dstein64/vim-startuptime", cmd = "StartupTime" },
-    { "mhinz/vim-startify",       config = function() vim.cmd("source ~/.config/nvim/config/startify.vim") end },
+    { "dstein64/vim-startuptime",   cmd = "StartupTime" },
+    { "mhinz/vim-startify",         config = function() vim.cmd("source ~/.config/nvim/config/startify.vim") end },
 
     -- Tabline and status bar
-    { "windwp/windline.nvim", config = function() require("elias/utils/windline") end },
+    { "windwp/windline.nvim",       config = function() require("elias/utils/windline") end },
     {
         "alvarosevilla95/luatab.nvim",
         event = "TabNew",
@@ -39,7 +39,7 @@ return {
     },
 
     -- coconut oil navigation
-    { "ThePrimeagen/harpoon",       event = "BufAdd" },
+    { "ThePrimeagen/harpoon", event = "BufAdd" },
     "christoomey/vim-tmux-navigator",
     -- File explorers
     { "kevinhwang91/rnvimr",  cmd = "RnvimrToggle" },
@@ -51,6 +51,15 @@ return {
         end,
     },
 
+    -- colorschemes
+    { "catppuccin/nvim", name = "catppuccin", config = function()
+        require("catppuccin").setup({
+            flavour = "mocha", -- latte, frappe, macchiato, mocha
+            transparent_background = true,
+            no_italic = false, -- Force no italic
+        })
+        vim.cmd.colorscheme "catppuccin"
+    end },
     -- Fonts and icons
     "ryanoasis/vim-devicons",
     "nvim-tree/nvim-web-devicons",
