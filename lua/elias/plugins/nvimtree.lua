@@ -1,8 +1,9 @@
 return {
     "kyazdani42/nvim-tree.lua",
+    event = "BufAdd",
+    cmd = "NvimTreeFindFileToggle",
     -- Navigation
     config = function()
-        local opOnSetup = true
         local tree_cb = require("nvim-tree.config").nvim_tree_callback
         require("nvim-tree").setup({
             -- BEGIN_DEFAULT_OPTS
@@ -104,15 +105,8 @@ return {
             nested = true,
         })
 
-        -- open on setup
-        if opOnSetup then
-            vim.api.nvim_create_autocmd({ "VimEnter" }, {
-                callback = function()
-                    require("nvim-tree.api").tree.toggle({
-                        focus = false,
-                    })
-                end,
-            })
-        end
+        require("nvim-tree.api").tree.toggle({
+            focus = false,
+        })
     end
 }

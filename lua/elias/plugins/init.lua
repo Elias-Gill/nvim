@@ -15,7 +15,7 @@ return {
 
     --  Start page
     { "dstein64/vim-startuptime",   cmd = "StartupTime" },
-    { "mhinz/vim-startify",         config = function() vim.cmd("source ~/.config/nvim/config/startify.vim") end },
+    -- { "mhinz/vim-startify",         config = function() vim.cmd("source ~/.config/nvim/config/startify.vim") end },
 
     -- Tabline and status bar
     { "windwp/windline.nvim",       config = function() require("elias/utils/windline") end },

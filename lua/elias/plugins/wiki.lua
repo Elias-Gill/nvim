@@ -29,7 +29,7 @@ local function mkdConfig()
         silent = false,
         links = {
             style = "markdown",
-            conceal = false,
+            conceal = true,
             implicit_extension = nil,
             transform_implicit = false,
         },
