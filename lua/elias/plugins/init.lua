@@ -56,10 +56,15 @@ return {
         require("catppuccin").setup({
             flavour = "mocha", -- latte, frappe, macchiato, mocha
             transparent_background = true,
-            no_italic = false, -- Force no italic
+            custom_highlights = function(colors)
+                return {
+                    ["NvimTreeCursorLine"] = { bg = "#323232", style = { "italic" } },
+                }
+            end
         })
         vim.cmd.colorscheme "catppuccin"
     end },
+
     -- Fonts and icons
     "ryanoasis/vim-devicons",
     "nvim-tree/nvim-web-devicons",
@@ -115,8 +120,8 @@ return {
     },
 
     -- Utilities
-    { "kevinhwang91/nvim-bqf",   ft = "qf" }, -- better quickfixList
-    { "mbbill/undotree",         cmd = "UndotreeToggle" },
+    { "kevinhwang91/nvim-bqf", ft = "qf" }, -- better quickfixList
+    { "mbbill/undotree",       cmd = "UndotreeToggle" },
     { "szw/vim-maximizer",       cmd = "MaximizerToggle" },
     { "Asheq/close-buffers.vim", cmd = "Bwipeout" },
     { "josa42/nvim-gx",          keys = { "gx", "<cmd>lua require('gx').gx()" } }, -- open urls

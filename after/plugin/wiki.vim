@@ -1,7 +1,7 @@
-function! BreakHabitsWindow() abort
+function! WikiWindow() abort
     " Define the size of the floating window
-    let width = 160
-    let height = 35
+    let width = 120
+    let height = 25
 
     " Create the scratch buffer displayed in the floating window
     let buf = nvim_create_buf(v:false, v:true)
@@ -17,14 +17,12 @@ function! BreakHabitsWindow() abort
                 \ 'row': (ui.height/2) - (height/2),
                 \ 'anchor': 'NW',
                 \ 'style': 'minimal',
+                \ 'border': 'single',
                 \ }
     let win = nvim_open_win(buf, 1, opts)
 endfunction
 
-function! OpenMail() abort
-    call BreakHabitsWindow()
-    execute(":term neomutt")
-    execute(":normal i")
+function! OpenWiki() abort
+    call WikiWindow()
+    execute(":e ~/.local/share/vimwiki/index.md")
 endfunction
-
-nnoremap <leader>9 :call OpenMail()<cr>

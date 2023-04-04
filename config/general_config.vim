@@ -42,14 +42,15 @@ set hidden
 set shortmess+=c
 set undofile
 set clipboard=unnamedplus
+set cmdheight=1
 
 " --- mouse y numeros ---
-" set nu
 set nu rnu
 set mouse=a
 set mousemodel=extend
 set numberwidth=4 
 set cursorline
+" set nu
 
 " --- wraping ---
 set wm=15
@@ -115,6 +116,8 @@ augroup binFiles
     autocmd BufReadCmd *.png call XdgOpen()
     autocmd BufReadCmd *.mp3 call XdgOpen()
     autocmd BufReadCmd *.mp4 call XdgOpen()
+    autocmd BufReadCmd *.xls call XdgOpen()
+    autocmd BufReadCmd *.xlsx call XdgOpen()
 augroup END
 function XdgOpen()
     let fn = expand("%:p")
@@ -130,7 +133,3 @@ command JsonParse :%!python3.9 -m json.tool
 command Bw :wa | Bwipeout hidden
 command W :w
 command Q :q
-
-" Bracey
-" let g:bracey_browser_command="firefox"
-" let g:CoolTotalMatches = 0

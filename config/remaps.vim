@@ -40,16 +40,6 @@ nnoremap <leader>] :bnext<CR>
 noremap <C-w>t :botright vnew <Bar> :terminal<cr>
 " noremap <leader>th :botright new <Bar> :terminal<cr>
 
-"teclas de movimiento
-" INFO: tenes que dejar de usar esta cosa
-"nnoremap w b
-"vnoremap w b
-
-" INFO: tenes que dejar de usar esta cosa
-" movimiento vertical
-" nnoremap <c-d> 10jzz
-" nnoremap <c-u> 10jzz
-
 "renombrar buffer usar arg y argdo para refactor completo
 nnoremap <leader>lp :%s/
 vnoremap <leader>lp :s/
@@ -118,6 +108,10 @@ nnoremap <silent><C-k> :TmuxNavigateUp<cr>
 nnoremap <silent><C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent><C-l> :TmuxNavigateRight<cr>
 
+"Crear splits unificado con Tmux
+nnoremap <silent><C-w>\ :vsplit<cr>
+nnoremap <silent><C-w>- :split<cr>
+
 "Archivos de configuracion
 nnoremap <leader>cd :cd %:h <CR>
 nnoremap <silent><leader>SO :e ~/.config/nvim/lua/elias/indice.lua<CR>
@@ -127,7 +121,7 @@ nnoremap <silent><leader>sO :e $MYVIMRC<CR>
 nnoremap <silent><leader>so :so $MYVIMRC<CR>
 
 "abrir wiki
-nnoremap <silent><leader>ww :e ~/.local/share/vimwiki/index.md<CR>
+nnoremap <silent><leader>ww :call OpenWiki()<cr>
 
 "function tree
 nnoremap <silent><leader>vf :SymbolsOutline<CR>

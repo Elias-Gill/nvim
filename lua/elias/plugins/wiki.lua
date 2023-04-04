@@ -55,12 +55,6 @@ return {
         "jakewvincent/mkdnflow.nvim",
         ft = { "markdown" },
         dependencies = {
-            { "ellisonleao/glow.nvim",
-                branch = "main",
-                config = function()
-                    require("glow").setup({})
-                end,
-            },
             'prurigro/vim-markdown-concealed'
         },
         config = mkdConfig
