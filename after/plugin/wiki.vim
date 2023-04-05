@@ -1,7 +1,7 @@
 function! WikiWindow() abort
     " Define the size of the floating window
-    let width = 120
-    let height = 25
+    let width = 80
+    let height = 20
 
     " Create the scratch buffer displayed in the floating window
     let buf = nvim_create_buf(v:false, v:true)

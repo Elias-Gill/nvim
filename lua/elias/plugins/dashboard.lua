@@ -31,7 +31,10 @@ return {
                 packages = { enable = true }, -- show how many plugins neovim loaded
                 project = { enable = true, limit = 2, action = 'Telescope find_files cwd=' },
                 mru = { limit = 6 },
-                shortcut = { { desc = "New file", group = 'WLmagenta_black', key = 'i', action = preguntar }, },
+                shortcut = { 
+                    { desc = "New file", group = 'WLmagenta_black', key = 'i', action = preguntar },
+                    { desc = "Quit", group = 'WLred_black', key = 'q', action = "q" },
+                },
             }
         })
     end,
