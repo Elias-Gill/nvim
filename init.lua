@@ -1,5 +1,5 @@
 ------- configuracion general -----
-require("elias/utils/disable_builtins")
+require("elias/disable_builtins")
 vim.cmd("source ~/.config/nvim/config/remaps.vim")
 vim.cmd("source ~/.config/nvim/config/general_config.vim")
 
