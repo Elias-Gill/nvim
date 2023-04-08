@@ -17,27 +17,6 @@ return {
     { "dstein64/vim-startuptime",   cmd = "StartupTime" },
     -- { "mhinz/vim-startify",         config = function() vim.cmd("source ~/.config/nvim/config/startify.vim") end },
 
-    -- Tabline and status bar
-    { "windwp/windline.nvim",       config = function() require("elias/utils/windline") end },
-    {
-        "alvarosevilla95/luatab.nvim",
-        event = "TabNew",
-        config = function()
-            -- tabline personalizada con iconos
-            require("luatab").setup({
-                separator = function()
-                    return ""
-                end,
-                modified = function(bufnr)
-                    return vim.fn.getbufvar(bufnr, "&modified") == 1 and "+ " or ""
-                end,
-                windowCount = function()
-                    return ""
-                end,
-            })
-        end
-    },
-
     -- coconut oil navigation
     { "ThePrimeagen/harpoon", event = "BufAdd" },
     "christoomey/vim-tmux-navigator",

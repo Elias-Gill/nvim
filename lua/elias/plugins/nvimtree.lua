@@ -1,13 +1,12 @@
 return {
     "kyazdani42/nvim-tree.lua",
-    event = "BufAdd",
-    cmd = "NvimTreeFindFileToggle",
     -- Navigation
     config = function()
         local tree_cb = require("nvim-tree.config").nvim_tree_callback
         require("nvim-tree").setup({
             -- BEGIN_DEFAULT_OPTS
             hijack_cursor = true,
+            hijack_netrw = true,
             open_on_tab = false,
             sync_root_with_cwd = true,
             reload_on_bufenter = true,
@@ -105,8 +104,18 @@ return {
             nested = true,
         })
 
-        require("nvim-tree.api").tree.toggle({
-            focus = false,
-        })
+        -- Open on setup
+        local function open_nvim_tree(data)
+            local real_file = vim.fn.filereadable(data.file) == 1
+            local is_open = require('nvim-tree.view').is_visible()
+            if real_file and not is_open then
+                require("nvim-tree.api").tree.toggle({ focus = false, find_file = true, })
+                vim.api.nvim_del_augroup_by_name("AbrirTree")
+            end
+        end
+
+        local group_id = vim.api.nvim_create_augroup("AbrirTree", { clear = true })
+        vim.api.nvim_create_autocmd({ "BufWinEnter", "BufAdd", },
+            { callback = open_nvim_tree, group = group_id })
     end
 }
