@@ -12,13 +12,18 @@ nnoremap <silent><leader>; :lua require("harpoon.ui").nav_prev()<cr>
 nnoremap <silent><leader>hh :lua require("harpoon.mark").add_file()<cr>
 nnoremap <silent><leader>hu :lua require("harpoon.ui").toggle_quick_menu()<cr>
 
+"git worktree
+nnoremap <silent><leader>gn :lua require("git-worktree").create_worktree("feat-69", "master", "origin")<cr>
+nnoremap <silent><leader>g[ :lua require("git-worktree").switch_worktree("feat-69")<cr>
+nnoremap <silent><leader>g] :lua require("git-worktree").delete_worktree("feat-69")<cr>
+
 "saving files and exit vim
 nnoremap <leader>wf :w!<CR> 
 nnoremap <leader>wa :wa<cr>
 nnoremap <leader>qa :qa<cr>
 nnoremap <leader>qf :q!<CR>
 nnoremap <leader>qq :q<CR>
-" save all buffers, format and quit
+"save all buffers, format and quit
 nnoremap <leader>tt :Bw<cr> :qa<cr> 
 " nnoremap <leader>tt :autocmd BufWritePre * lua vim.lsp.buf.format()<cr> :Bw<cr> :qa<cr> 
 

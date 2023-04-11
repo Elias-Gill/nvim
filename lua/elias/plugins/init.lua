@@ -18,10 +18,14 @@ return {
     -- { "mhinz/vim-startify",         config = function() vim.cmd("source ~/.config/nvim/config/startify.vim") end },
 
     -- coconut oil navigation
-    { "ThePrimeagen/harpoon", event = "BufAdd" },
+    { "ThePrimeagen/harpoon",       event = "BufAdd" },
     "christoomey/vim-tmux-navigator",
+    { 'ThePrimeagen/git-worktree.nvim', config = function()
+        require("git-worktree").setup({})
+    end },
+
     -- File explorers
-    { "kevinhwang91/rnvimr",  cmd = "RnvimrToggle" },
+    { "kevinhwang91/rnvimr",     cmd = "RnvimrToggle" },
     {
         "antosha417/nvim-lsp-file-operations",
         event = "InsertLeave",
@@ -99,8 +103,8 @@ return {
     },
 
     -- Utilities
-    { "kevinhwang91/nvim-bqf", ft = "qf" }, -- better quickfixList
-    { "mbbill/undotree",       cmd = "UndotreeToggle" },
+    { "kevinhwang91/nvim-bqf",   ft = "qf" }, -- better quickfixList
+    { "mbbill/undotree",         cmd = "UndotreeToggle" },
     { "szw/vim-maximizer",       cmd = "MaximizerToggle" },
     { "Asheq/close-buffers.vim", cmd = "Bwipeout" },
     { "josa42/nvim-gx",          keys = { "gx", "<cmd>lua require('gx').gx()" } }, -- open urls
