@@ -20,9 +20,9 @@ return {
     -- coconut oil navigation
     { "ThePrimeagen/harpoon",       event = "BufAdd" },
     "christoomey/vim-tmux-navigator",
-    { 'ThePrimeagen/git-worktree.nvim', config = function()
-        require("git-worktree").setup({})
-    end },
+    -- { 'ThePrimeagen/git-worktree.nvim', config = function()
+    --     require("git-worktree").setup({})
+    -- end },
 
     -- File explorers
     { "kevinhwang91/rnvimr",     cmd = "RnvimrToggle" },

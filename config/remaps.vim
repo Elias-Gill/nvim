@@ -13,9 +13,8 @@ nnoremap <silent><leader>hh :lua require("harpoon.mark").add_file()<cr>
 nnoremap <silent><leader>hu :lua require("harpoon.ui").toggle_quick_menu()<cr>
 
 "git worktree
-nnoremap <silent><leader>gn :lua require("git-worktree").create_worktree("feat-69", "master", "origin")<cr>
-nnoremap <silent><leader>g[ :lua require("git-worktree").switch_worktree("feat-69")<cr>
-nnoremap <silent><leader>g] :lua require("git-worktree").delete_worktree("feat-69")<cr>
+" nnoremap <silent><leader>gd :lua require('telescope').extensions.git_worktree.git_worktrees()<cr>
+" nnoremap <silent><leader>gn :lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>
 
 "saving files and exit vim
 nnoremap <leader>wf :w!<CR> 
