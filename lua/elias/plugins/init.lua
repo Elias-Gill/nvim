@@ -1,12 +1,12 @@
 -- general plugins without further customization
 return {
-    -- editor config like other editors
     "nvim-lua/plenary.nvim",
+    -- editor config like other editors
     { "gpanders/editorconfig.nvim", event = "BufAdd" },
-    -- use 'ThePrimeagen/refactoring.nvim'
 
     -- free copilot
-    { "Exafunction/codeium.vim",
+    {
+        "Exafunction/codeium.vim",
         cmd = "Codeium",
         config = function()
             vim.cmd('source /home/elias/.config/nvim/config/codeium.vim')
@@ -20,38 +20,37 @@ return {
     -- coconut oil navigation
     { "ThePrimeagen/harpoon",       event = "BufAdd" },
     "christoomey/vim-tmux-navigator",
+    -- use 'ThePrimeagen/refactoring.nvim'
     -- { 'ThePrimeagen/git-worktree.nvim', config = function()
     --     require("git-worktree").setup({})
     -- end },
 
     -- File explorers
     { "kevinhwang91/rnvimr",     cmd = "RnvimrToggle" },
-    {
-        "antosha417/nvim-lsp-file-operations",
-        event = "InsertLeave",
-        config = function()
-            require("lsp-file-operations").setup()
-        end,
-    },
 
     -- colorschemes
-    { "catppuccin/nvim", name = "catppuccin", config = function()
-        require("catppuccin").setup({
-            flavour = "mocha", -- latte, frappe, macchiato, mocha
-            transparent_background = true,
-            custom_highlights = function(colors)
-                return {
-                    ["NvimTreeCursorLine"] = { bg = "#323232", style = { "italic" } },
-                }
-            end
-        })
-        vim.cmd.colorscheme "catppuccin"
-    end },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        config = function()
+            require("catppuccin").setup({
+                flavour = "mocha", -- latte, frappe, macchiato, mocha
+                transparent_background = true,
+                custom_highlights = function(colors)
+                    return {
+                        ["NvimTreeCursorLine"] = { bg = "#323232", style = { "italic" } },
+                    }
+                end
+            })
+            vim.cmd.colorscheme "catppuccin"
+        end
+    },
 
     -- Fonts and icons
     "ryanoasis/vim-devicons",
     "nvim-tree/nvim-web-devicons",
-    { -- better custom gui
+    {
+        -- better custom gui
         "stevearc/dressing.nvim",
         config = function()
             require("dressing").setup({
@@ -83,11 +82,13 @@ return {
         end,
     },
     --ayudas de indentacion
-    { "lukas-reineke/indent-blankline.nvim", config = function()
-        require("indent_blankline").setup({
-            show_current_context = true,
-        })
-    end
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function()
+            require("indent_blankline").setup({
+                show_current_context = true,
+            })
+        end
     },
     --comentarios
     {
@@ -108,15 +109,11 @@ return {
     { "szw/vim-maximizer",       cmd = "MaximizerToggle" },
     { "Asheq/close-buffers.vim", cmd = "Bwipeout" },
     { "josa42/nvim-gx",          keys = { "gx", "<cmd>lua require('gx').gx()" } }, -- open urls
-    { -- colorpicker and colorizer
-        "uga-rosa/ccc.nvim",
+    {
+        'norcalli/nvim-colorizer.lua',
         config = function()
-            local ccc = require("ccc")
-            ccc.setup({
-                highlighter = {
-                    auto_enable = true,
-                },
-            })
+            require 'colorizer'.setup()
         end
-    },
+    }
+    -- "uga-rosa/ccc.nvim",
 }

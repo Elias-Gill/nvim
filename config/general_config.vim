@@ -87,6 +87,8 @@ set incsearch
 set showmatch
 set ignorecase
 set smartcase
+" help tags on a new tab
+cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
 
 " colorscheme
 let g:newshell_background="None"

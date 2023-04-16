@@ -32,7 +32,6 @@ local function cmpConfig()
             format = lspkind.cmp_format({
                 mode = "symbol_text", -- show only symbol annotations
                 maxwidth = 60,
-
                 -- kind icons
                 -- buff
                 before = function(_, vim_item)

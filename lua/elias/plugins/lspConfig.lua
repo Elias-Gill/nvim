@@ -1,12 +1,15 @@
 return {
     -- Lsp configs
-    { "neovim/nvim-lspconfig",
+    {
+        "neovim/nvim-lspconfig",
         config = function()
             require("elias.lsp.lsp_servers")
             require("elias.lsp.lsp-visuals")
         end,
         dependencies = {
-            { "jose-elias-alvarez/null-ls.nvim",
+            -- 'folke/neodev.nvim', -- lua api. Activate once
+            {
+                "jose-elias-alvarez/null-ls.nvim",
                 config = function()
                     local null_ls = require("null-ls")
                     null_ls.setup({

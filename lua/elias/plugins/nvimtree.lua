@@ -2,7 +2,13 @@ return {
     "kyazdani42/nvim-tree.lua",
     event = { "BufAdd", "FileReadPost" },
     cmd = "NvimTreeFindFileToggle",
-    -- Navigation
+    dependencies = {
+        "antosha417/nvim-lsp-file-operations",
+        event = "InsertLeave",
+        config = function()
+            require("lsp-file-operations").setup()
+        end,
+    },
     config = function()
         local tree_cb = require("nvim-tree.config").nvim_tree_callback
         require("nvim-tree").setup({

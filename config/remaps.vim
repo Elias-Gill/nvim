@@ -51,24 +51,22 @@ vnoremap <leader>lp :s/
 "Buscar funciones y definiciones 
 nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>zz
 nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>zz
-nnoremap <silent> gr :FzfLua lsp_references<CR>
+nnoremap <silent> gr :Telescope lsp_references<CR>
 nnoremap <silent> gi :FzfLua lsp_implementations<CR>
+nnoremap <silent>K :Lspsaga hover_doc<CR>
+nnoremap <silent>co :lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent><leader>rr :lua vim.lsp.buf.rename()<CR>
+"more lsp actions
+nnoremap <silent>gh :Lspsaga lsp_finder<CR>
 nnoremap <silent> =f :lua vim.lsp.buf.format ({ async = true })<CR>
 
-"Trouble and todos comments
+"Diagnostics
 nnoremap <silent><leader>to :lua vim.diagnostic.setqflist()<CR>
-nnoremap <silent><leader>tg :TodoQuickFix<CR>
-
-"diagnostics navigation INFO: cambiar para que se active con on_attach
 nnoremap <silent>[e :Lspsaga diagnostic_jump_prev<cr>
 nnoremap <silent>]e :Lspsaga diagnostic_jump_next<cr>
 nnoremap <silent>]t :Lspsaga show_line_diagnostics<cr>
-nnoremap <silent><leader>rr :lua vim.lsp.buf.rename()<CR>
-nnoremap <silent>co :lua vim.lsp.buf.code_action()<CR>
-" nnoremap <silent>co :Lspsaga code_action<CR>
-nnoremap <silent>K :Lspsaga hover_doc<CR>
-" inoremap <silent><c-p> <c-o>:lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent>gh :Lspsaga lsp_finder<CR>
+"todo comments
+nnoremap <silent><leader>tg :TodoQuickFix<CR>
 
 "cambiar pestanas
 nnoremap <leader>tn :tabnew<cr>
@@ -101,6 +99,10 @@ vnoremap <leader>p "_dP
 nnoremap <leader>p "_dP
 vnoremap <leader>d "_dD
 nnoremap x "_x
+
+"increments a decrements
+nnoremap + <C-a>
+nnoremap - <C-x>
 
 "teclas arriba y abajo en insert mode
 inoremap <C-j> <down>

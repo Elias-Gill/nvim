@@ -18,10 +18,11 @@ return {
         })
         require("mason-lspconfig").setup({
             automatic_installation = false,
-            ensure_installed = { "lua_ls", "gopls", "clangd", "tsserver", "bashls", "pyright", "vimls" },
+            ensure_installed = { "lua_ls", "bashls", "vimls" },
         })
     end,
     cmd = "Mason",
+    event = "BufAdd",
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
     }
