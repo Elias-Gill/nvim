@@ -1,2 +1,2 @@
 set conceallevel=2
-nnoremap <buffer>q :q<cr>
+nnoremap <buffer>q :wq<cr>

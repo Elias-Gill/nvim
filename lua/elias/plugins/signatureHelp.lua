@@ -11,7 +11,8 @@ return {
                 hint_enable = true,
                 hint_prefix = "🐼 ",
                 hint_scheme = "String",
-                hi_parameter = "LspSignatureActiveParameter",
+                -- hi_parameter = "LspSignatureActiveParameter",
+                hi_parameter = "IncSearch",
                 handler_opts = {
                     border = "single" -- double, rounded, single, shadow, none, or a table of borders
                 },

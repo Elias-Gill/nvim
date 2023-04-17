@@ -49,7 +49,7 @@ return {
                 ["marker"] = { "fg", "TelescopeSelectionCaret" },
                 ["header"] = { "fg", "TelescopeTitle" },
             },
-            fzf_opts   = { ["--layout"] = "default",["--marker"] = "+" },
+            fzf_opts   = { ["--layout"] = "default",["--marker"] = "+", ["--algo"] = "v1" },
             -- provider setup
             files      = {
                 previewer   = {
