@@ -64,7 +64,7 @@ return {
                 file_icons  = true,
                 color_icons = true,
                 rg_opts     =
-                "--color=never --files --follow -g '!.git' -g '!go/' -g '!*.class' -g '!facultad' -g '!VirtualBox*' -g '!node_modules*'",
+                "--color=never --files --follow -g '!.git' -g '!go/' -g '!*.class' -g '!Escritorio' -g '!facultad' -g '!VirtualBox*' -g '!node_modules*'",
                 fd_opts     =
                 "--color=never --type f --follow --exclude .git --exclude *.class --exclude facultad/ --exclude node_modules/ --exclude go/",
             },

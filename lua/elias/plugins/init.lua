@@ -13,10 +13,6 @@ return {
         end
     },
 
-    --  Start page
-    { "dstein64/vim-startuptime",   cmd = "StartupTime" },
-    -- { "mhinz/vim-startify",         config = function() vim.cmd("source ~/.config/nvim/config/startify.vim") end },
-
     -- coconut oil navigation
     { "ThePrimeagen/harpoon",       event = "BufAdd" },
     "christoomey/vim-tmux-navigator",

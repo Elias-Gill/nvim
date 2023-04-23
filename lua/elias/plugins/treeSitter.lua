@@ -15,7 +15,7 @@ local function tsConfig()
             enable = true,
             keymaps = {
                 init_selection = '<c-space>',
-                node_incremental = '=',
+                node_incremental = '+',
                 node_decremental = '-',
             },
         },

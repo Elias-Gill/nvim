@@ -21,8 +21,7 @@ return {
             ensure_installed = { "lua_ls", "bashls", "vimls" },
         })
     end,
-    cmd = "Mason",
-    event = "BufAdd",
+    event = "VimEnter",
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
     }
