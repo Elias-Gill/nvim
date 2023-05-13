@@ -31,10 +31,10 @@ endfunction
 set nolist
 set smartindent
 set autoindent
-let g:indent_blankline_filetype_exclude = ["startify", "vim", "markdown", "txt"]
+let g:indent_blankline_filetype_exclude = ["dashboard", "startify", "vim", "markdown", "txt"]
 let g:indent_blankline_char_list = ['┆']
 let g:indent_blankline_context_char = '┆' 
-" let g:indent_blankline_filetype = ["java", "lua", "vue", "python", "html", "c", "svelte" ]
+let g:indent_blankline_use_treesitter = v:true
 
 " --- specials & do not disturb ---
 set confirm
@@ -53,7 +53,6 @@ set cursorline
 " set nu
 
 " --- wraping ---
-set wm=15
 set wrap linebreak
 set colorcolumn=125
 set tw=125
@@ -117,7 +116,7 @@ augroup binFiles
     autocmd BufReadCmd *.jpg call XdgOpen()
     autocmd BufReadCmd *.png call XdgOpen()
     autocmd BufReadCmd *.mp3 call XdgOpen()
-    autocmd BufReadCmd *.mp4 call XdgOpen()
+    autocmd BufReadCmd *.mp4 all XdgOpen()
     autocmd BufReadCmd *.xls call XdgOpen()
     autocmd BufReadCmd *.xlsx call XdgOpen()
 augroup END

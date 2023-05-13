@@ -1,0 +1,23 @@
+{
+    "New Title": {
+        "prefix": "tl",
+        "body": [
+            ".TL",
+            "$0"
+        ]
+    },
+    "New Paragraph": {
+        "prefix": "np",
+        "body": [
+            ".PL",
+            "$0"
+        ]
+    },
+    "New Heading": {
+        "prefix": "nh",
+        "body": [
+            ".NH",
+            "$0"
+        ]
+    }
+}

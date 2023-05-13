@@ -1,5 +1,6 @@
 return {
     "williamboman/mason.nvim",
+    event = "VimEnter",
     config = function()
         local status_ok, mason = pcall(require, "mason")
         if not status_ok then
@@ -21,8 +22,7 @@ return {
             ensure_installed = { "lua_ls", "bashls", "vimls" },
         })
     end,
-    event = "VimEnter",
     dependencies = {
-        "williamboman/mason-lspconfig.nvim",
+        { "williamboman/mason-lspconfig.nvim", event = "VimEnter"},
     }
 }

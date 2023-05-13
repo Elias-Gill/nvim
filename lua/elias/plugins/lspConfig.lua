@@ -2,6 +2,7 @@ return {
     -- Lsp configs
     {
         "neovim/nvim-lspconfig",
+        event = "VimEnter",
         config = function()
             require("elias.lsp.lsp_servers")
             require("elias.lsp.lsp-visuals")
@@ -10,6 +11,7 @@ return {
             -- 'folke/neodev.nvim', -- lua api. Activate once
             {
                 "jose-elias-alvarez/null-ls.nvim",
+                event = "VimEnter",
                 config = function()
                     local null_ls = require("null-ls")
                     null_ls.setup({

@@ -14,7 +14,10 @@ return {
     },
 
     -- coconut oil navigation
-    { "ThePrimeagen/harpoon",       event = "BufAdd" },
+    {
+        "ThePrimeagen/harpoon",
+        event = "BufAdd",
+    },
     "christoomey/vim-tmux-navigator",
     -- use 'ThePrimeagen/refactoring.nvim'
     -- { 'ThePrimeagen/git-worktree.nvim', config = function()
@@ -22,7 +25,7 @@ return {
     -- end },
 
     -- File explorers
-    { "kevinhwang91/rnvimr",     cmd = "RnvimrToggle" },
+    { "kevinhwang91/rnvimr",        cmd = "RnvimrToggle" },
 
     -- colorschemes
     {
@@ -48,6 +51,7 @@ return {
     {
         -- better custom gui
         "stevearc/dressing.nvim",
+        lazy = true,
         config = function()
             require("dressing").setup({
                 select = {
@@ -68,9 +72,10 @@ return {
         end,
     },
     -- Pareado (){}""''
-    "tpope/vim-surround",
+    {"tpope/vim-surround", event = "InsertEnter"},
     {
         "windwp/nvim-autopairs",
+        event = "InsertEnter",
         config = function()
             require("nvim-autopairs").setup({
                 enable_check_bracket_line = false,
@@ -111,5 +116,4 @@ return {
             require 'colorizer'.setup()
         end
     }
-    -- "uga-rosa/ccc.nvim",
 }

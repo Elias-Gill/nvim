@@ -1,27 +1,41 @@
 -- lspconfig
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local lspconfig = require("lspconfig")
-lspconfig.pyright.setup({ capabilities = capabilities })
-lspconfig.tsserver.setup({ capabilities = capabilities })
-lspconfig.bashls.setup({ capabilities = capabilities })
-lspconfig.gopls.setup({ capabilities = capabilities })
-lspconfig.lua_ls.setup({ capabilities = capabilities })
-lspconfig.vimls.setup({ capabilities = capabilities })
-lspconfig.jsonls.setup({ capabilities = capabilities })
-lspconfig.svelte.setup({ capabilities = capabilities })
-lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-return
 
--- lspconfig.omnisharp.setup({})
+local servers = {
+    { "pyright" },
+    { "tsserver" },
+    { "bashls" },
+    { "gopls" },
+    { "lua_ls" },
+    { "vimls" },
+    { "jsonls" },
+    { "svelte" },
+    { "rust_analyzer" },
+    { "sqlls" },
+-- { "omnisharp" }
+-- { "html" }
+-- { "cssls" }
+-- { "clangd" }
+-- { "phpactor" }
+-- { "intelephense" }
+-- { "texlab" }
+-- { "jdtls" }
+}
+
+local function configurar_servers()
+    for _, table in pairs(servers) do
+        if type(table.config) ~= "table" then
+            table.config = {}
+        end
+        table.config.capabilities = capabilities
+        lspconfig[table[1]].setup(table.config)
+    end
+end
+configurar_servers()
+
 -- lspconfig.volar.setup({
 -- 	on_atach = function()
 -- 		require("null-ls").disable({ "prettier" })
 -- 	end,
 -- })
--- lspconfig.html.setup {}
--- lspconfig.cssls.setup {}
--- lspconfig.clangd.setup({})
--- lspconfig.phpactor.setup({})
--- lspconfig.intelephense.setup({})
--- lspconfig.texlab.setup({})
--- lspconfig.jdtls.setup({})
