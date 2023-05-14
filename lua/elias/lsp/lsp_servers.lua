@@ -12,15 +12,20 @@ local servers = {
     { "jsonls" },
     { "svelte" },
     { "rust_analyzer" },
-    { "sqlls" },
--- { "omnisharp" }
--- { "html" }
--- { "cssls" }
--- { "clangd" }
--- { "phpactor" }
--- { "intelephense" }
--- { "texlab" }
--- { "jdtls" }
+    { "sqlls", config = { filetypes = { "sql", "plsql" } } },
+    -- { "omnisharp" }
+    -- { "html" }
+    -- { "cssls" }
+    -- { "clangd" }
+    -- { "phpactor" }
+    -- { "intelephense" }
+    -- { "texlab" }
+    -- { "jdtls" }
+    -- { "volar", config = {
+        -- 	on_atach = function()
+        -- 		require("null-ls").disable({ "prettier" })
+        -- 	end,
+    -- } }
 }
 
 local function configurar_servers()
@@ -33,9 +38,3 @@ local function configurar_servers()
     end
 end
 configurar_servers()
-
--- lspconfig.volar.setup({
--- 	on_atach = function()
--- 		require("null-ls").disable({ "prettier" })
--- 	end,
--- })
