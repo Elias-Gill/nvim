@@ -12,7 +12,27 @@ local servers = {
     { "jsonls" },
     { "svelte" },
     { "rust_analyzer" },
-    { "sqlls", config = { filetypes = { "sql", "plsql" } } },
+    {
+        "sqlls",
+        config = {
+            filetypes = { "sql", "plsql" },
+            settings = {
+                sqlLanguageServer = {
+                    lint = {
+                        rules = {
+                            ["align-column-to-the-first"] = "off",
+                            ["column-new-line"] = "off",
+                            ["linebreak-after-clause-keyword"] = "off",
+                            ["reserved-word-case"] = "off",
+                            ["space-surrounding-operators"] = "off",
+                            ["where-clause-new-line"] = "off",
+                            ["align-where-clause-to-the-first"] = "off",
+                        },
+                    }
+                }
+            }
+        }
+    }
     -- { "omnisharp" }
     -- { "html" }
     -- { "cssls" }
@@ -22,9 +42,9 @@ local servers = {
     -- { "texlab" }
     -- { "jdtls" }
     -- { "volar", config = {
-        -- 	on_atach = function()
-        -- 		require("null-ls").disable({ "prettier" })
-        -- 	end,
+    -- 	on_atach = function()
+    -- 		require("null-ls").disable({ "prettier" })
+    -- 	end,
     -- } }
 }
 
