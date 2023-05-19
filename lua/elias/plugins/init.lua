@@ -48,18 +48,6 @@ return {
     -- Fonts and icons
     "ryanoasis/vim-devicons",
     "nvim-tree/nvim-web-devicons",
-    {
-        -- better custom gui
-        "stevearc/dressing.nvim",
-        lazy = true,
-        config = function()
-            require("dressing").setup({
-                select = {
-                    backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
-                },
-            })
-        end
-    },
 
     -- "Super-completado html
     {

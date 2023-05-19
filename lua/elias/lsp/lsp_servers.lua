@@ -9,9 +9,9 @@ local servers = {
     { "gopls" },
     { "lua_ls" },
     { "vimls" },
-    { "jsonls" },
     { "svelte" },
     { "rust_analyzer" },
+    { "jsonls", config = { filetypes = { "json" } } },
     {
         "sqlls",
         config = {
