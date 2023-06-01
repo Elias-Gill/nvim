@@ -90,11 +90,11 @@ return {
         },
     },
     -- ts playground
-    {
-        "nvim-treesitter/playground",
-        cmd = "TSPlaygroundToggle",
-        config = function()
-            require("nvim-treesitter.configs").setup({})
-        end,
-    },
+    -- {
+    --     "nvim-treesitter/playground",
+    --     cmd = "TSPlaygroundToggle",
+    --     config = function()
+    --         require("nvim-treesitter.configs").setup({})
+    --     end,
+    -- },
 }

@@ -82,6 +82,9 @@ nnoremap <C-u> zz<C-u>zz
 nnoremap <C-t> <C-t>zz
 nnoremap <C-o> <C-o>zz
 
+nnoremap <C-y> <C-e>
+nnoremap <C-b> <C-y>
+
 "primeagen cool remap to move lines
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -166,8 +169,8 @@ inoremap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expa
 "inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
 
 " --- For changing choices in choiceNodes --- 
-imap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-smap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+inoremap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+snoremap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 "bug with alacritty when using C-i (does not work with tmux)
 nnoremap <C-i> <C-i>zz

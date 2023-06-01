@@ -34,7 +34,6 @@ local function on_attach(bufnr)
     vim.keymap.set('n', 'q', api.tree.close, opts('Close'))
     vim.keymap.set('n', 'r', api.fs.rename, opts('Rename'))
     vim.keymap.set('n', '<C-r>', api.tree.reload, opts('Refresh'))
-    vim.keymap.set('n', '/', api.tree.search_node, opts('Search'))
     vim.keymap.set('n', 'W', api.tree.collapse_all, opts('Collapse'))
     vim.keymap.set('n', '<2-LeftMouse>', api.node.open.edit, opts('Open'))
     vim.keymap.set('n', '<2-RightMouse>', api.tree.change_root_to_node, opts('CD'))
@@ -42,11 +41,11 @@ end
 
 return {
     "kyazdani42/nvim-tree.lua",
-    event = { "BufAdd", "FileReadPost" },
+    event = { "UIEnter" },
     cmd = "NvimTreeFindFileToggle",
     dependencies = {
         "antosha417/nvim-lsp-file-operations",
-        event = "InsertLeave",
+        event = "FileReadPre",
         config = function()
             require("lsp-file-operations").setup()
         end,
@@ -129,15 +128,18 @@ return {
         -- Open on setup
         local function open_nvim_tree(data)
             local real_file = vim.fn.filereadable(data.file) == 1
+            local new_file = vim.fn.argc() > 0
             local is_open = require('nvim-tree.view').is_visible()
-            if real_file and not is_open then
-                require("nvim-tree.api").tree.toggle({ focus = false, find_file = true, })
-                vim.api.nvim_del_augroup_by_name("AbrirTree")
+            if real_file or new_file then
+                if not is_open then
+                    require('nvim-tree.api').tree.toggle({ focus = false, find_file = true, })
+                    vim.api.nvim_del_augroup_by_name("AbrirTree")
+                end
             end
         end
 
         local group_id = vim.api.nvim_create_augroup("AbrirTree", { clear = true })
-        vim.api.nvim_create_autocmd({ "BufWinEnter", "BufAdd", },
+        vim.api.nvim_create_autocmd({ "UIEnter", "BufAdd" },
             { callback = open_nvim_tree, group = group_id })
     end
 }

@@ -1,8 +1,8 @@
 -- general plugins without further customization
 return {
     "nvim-lua/plenary.nvim",
-    -- editor config like other editors
-    { "gpanders/editorconfig.nvim", event = "BufAdd" },
+    -- editor config like other editors (teoricamente innecesario)
+    -- { "gpanders/editorconfig.nvim", event = "BufAdd" },
 
     -- free copilot
     {
@@ -25,12 +25,13 @@ return {
     -- end },
 
     -- File explorers
-    { "kevinhwang91/rnvimr",        cmd = "RnvimrToggle" },
+    { "kevinhwang91/rnvimr", cmd = "RnvimrToggle" },
 
     -- colorschemes
     {
         "catppuccin/nvim",
         name = "catppuccin",
+        event = "UIEnter",
         config = function()
             require("catppuccin").setup({
                 flavour = "mocha", -- latte, frappe, macchiato, mocha
@@ -38,10 +39,11 @@ return {
                 custom_highlights = function(colors)
                     return {
                         ["NvimTreeCursorLine"] = { bg = "#323232", style = { "italic" } },
+                        ["CursorLine"] = { bg = "#343434" },
                     }
                 end
             })
-            vim.cmd.colorscheme "catppuccin"
+            vim.cmd.colorscheme("catppuccin")
         end
     },
 
@@ -60,7 +62,7 @@ return {
         end,
     },
     -- Pareado (){}""''
-    {"tpope/vim-surround", event = "InsertEnter"},
+    { "tpope/vim-surround",  event = { "InsertEnter", "BufEnter" } },
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
@@ -73,6 +75,7 @@ return {
     --ayudas de indentacion
     {
         "lukas-reineke/indent-blankline.nvim",
+        event = "UIEnter",
         config = function()
             require("indent_blankline").setup({
                 show_current_context = true,
@@ -82,6 +85,7 @@ return {
     --comentarios
     {
         "numToStr/Comment.nvim",
+        event = "BufEnter",
         config = function()
             require("Comment").setup({
                 pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
@@ -100,8 +104,9 @@ return {
     { "josa42/nvim-gx",          keys = { "gx", "<cmd>lua require('gx').gx()" } }, -- open urls
     {
         'norcalli/nvim-colorizer.lua',
+        event = { "BufEnter", "BufAdd" },
         config = function()
-            require 'colorizer'.setup()
+            require('colorizer').setup()
         end
     }
 }

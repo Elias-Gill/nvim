@@ -1,6 +1,6 @@
 return {
     "williamboman/mason.nvim",
-    event = "VimEnter",
+    event = "UIEnter",
     config = function()
         local status_ok, mason = pcall(require, "mason")
         if not status_ok then
@@ -23,6 +23,6 @@ return {
         })
     end,
     dependencies = {
-        { "williamboman/mason-lspconfig.nvim", event = "VimEnter"},
+        { "williamboman/mason-lspconfig.nvim", event = "UIEnter"},
     }
 }

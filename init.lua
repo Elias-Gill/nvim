@@ -1,3 +1,4 @@
+vim.loader.enable() -- como con lazy
 ------- configuracion general -----
 require("elias/disable_builtins")
 vim.cmd("source ~/.config/nvim/config/remaps.vim")
@@ -17,3 +18,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup('elias/plugins', { ui = { border = "single"}})
+-- builtin editor config support
+vim.g.editorconfig = true
