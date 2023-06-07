@@ -1,16 +1,8 @@
 " -- neovim 0.8 specific
-if has('nvim')
-    set laststatus=3
-    set winbar=%=%f%m
-    au TextYankPost * silent! lua vim.highlight.on_yank()
-else 
-    set laststatus=2
-endif
-
-" --- lsp ---
-set diffopt+=vertical
-let g:python3_host_prog = '/bin/python3.10'
-set completeopt=menuone,noselect
+set laststatus=3
+set winbar=%=%f%m
+au TextYankPost * silent! lua vim.highlight.on_yank()
+set laststatus=2
 
 " --- folding ---
 set nofoldenable
@@ -28,6 +20,7 @@ function! CustomFoldText()
 endfunction
 
 " --- indentation ---
+set diffopt+=vertical
 set nolist
 set smartindent
 set autoindent
@@ -59,6 +52,7 @@ set tw=125
 set splitbelow splitright
 
 " --- Visuales ---
+set completeopt=menuone,noselect
 set scrolloff=4
 set showmode
 set showcmd
@@ -68,6 +62,11 @@ set fillchars+=diff:╱
 set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
 set fillchars=fold:\ 
 au TermOpen * setlocal nonumber norelativenumber
+
+" cursor
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
 
 " --- Tabs to spaces ---
 set tabstop=4 softtabstop=4
@@ -86,37 +85,31 @@ set incsearch
 set showmatch
 set ignorecase
 set smartcase
-" help tags on a new tab
-cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
 
 " colorscheme
 let g:newshell_background="None"
 " colorscheme newshell
-
-" cursor
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
 
 " emmet html
 let g:user_emmet_mode='i'
 let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key=','
 
-" python
-let g:python_highlight_all = 1
-let g:python_highlight_space_errors = 0
-
 " undotree
 let g:undotree_WindowLayout = 3
 
-" open non plain files with the default application
+" python
+let g:python_highlight_all = 1
+let g:python_highlight_space_errors = 0
+let g:python3_host_prog = '/bin/python3.10'
+
+" open binary files with the default application
 augroup binFiles
     autocmd BufReadCmd *.pdf call XdgOpen()
     autocmd BufReadCmd *.jpg call XdgOpen()
     autocmd BufReadCmd *.png call XdgOpen()
     autocmd BufReadCmd *.mp3 call XdgOpen()
-    autocmd BufReadCmd *.mp4 all XdgOpen()
+    autocmd BufReadCmd *.mp4 call XdgOpen()
     autocmd BufReadCmd *.xls call XdgOpen()
     autocmd BufReadCmd *.xlsx call XdgOpen()
 augroup END
@@ -128,8 +121,6 @@ function XdgOpen()
     execute ":Bw"
 endfunction
 
-" Parser para archivos Json desordenados
-command JsonParse :%!python3.9 -m json.tool
 " Borrar buffers sin usar
 command Bw :wa | Bwipeout hidden
 command W :w

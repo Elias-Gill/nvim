@@ -81,7 +81,7 @@ return {
     -- Tree sitter
     {
         "nvim-treesitter/nvim-treesitter",
-        event = "VimEnter",
+        event = "UIEnter",
         config = tsConfig,
         build = ":TSUpdate",
         dependencies = {

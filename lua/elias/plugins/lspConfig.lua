@@ -2,7 +2,7 @@ return {
     -- Lsp configs
     {
         "neovim/nvim-lspconfig",
-        event = "UIEnter",
+        event = "VeryLazy",
         config = function()
             require("elias.lsp.lsp_servers")
             require("elias.lsp.lsp-visuals")
@@ -10,7 +10,7 @@ return {
         dependencies = {
             {
                 "jose-elias-alvarez/null-ls.nvim",
-                event = "UIEnter",
+                event = "VeryLazy",
                 config = function()
                     local null_ls = require("null-ls")
                     null_ls.setup({

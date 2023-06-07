@@ -41,8 +41,8 @@ end
 
 return {
     "kyazdani42/nvim-tree.lua",
-    event = { "UIEnter" },
-    cmd = "NvimTreeFindFileToggle",
+    event = "UIEnter",
+    -- cmd = "NvimTreeFindFileToggle",
     dependencies = {
         "antosha417/nvim-lsp-file-operations",
         event = "FileReadPre",

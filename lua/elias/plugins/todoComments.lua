@@ -1,6 +1,6 @@
 return {
     "folke/todo-comments.nvim",
-    event = "BufAdd",
+    event = {"BufAdd","BufEnter"},
     config = function()
         require("todo-comments").setup {
             gui_style = {

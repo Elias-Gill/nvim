@@ -41,8 +41,8 @@ nnoremap <leader>[ :bprevious<CR>
 nnoremap <leader>] :bnext<CR>
 
 "new terminal
-noremap <C-w>t :botright vnew <Bar> :terminal<cr>
-" noremap <leader>th :botright new <Bar> :terminal<cr>
+" noremap <C-w>t :botright vnew <Bar> :terminal<cr>
+nnoremap <leader>th :botright new <Bar> :terminal<cr>
 
 "renombrar buffer usar arg y argdo para refactor completo
 nnoremap <leader>lp :%s/
@@ -51,7 +51,7 @@ vnoremap <leader>lp :s/
 "Buscar funciones y definiciones 
 nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>zz
 nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>zz
-nnoremap <silent> gr :Telescope lsp_references<CR>
+nnoremap <silent> gr :FzfLua lsp_references<CR>
 nnoremap <silent> gi :FzfLua lsp_implementations<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 nnoremap <silent>co :lua vim.lsp.buf.code_action()<CR>
@@ -123,7 +123,7 @@ nnoremap <silent><C-w>- :split<cr>
 
 "Archivos de configuracion
 nnoremap <leader>cd :cd %:h <CR>
-nnoremap <silent><leader>SO :e ~/.config/nvim/lua/elias/indice.lua<CR>
+nnoremap <silent><leader>SO :e ~/.config/nvim/init.lua<CR>
 nnoremap <silent><leader>sm :e ~/.config/nvim/config/remaps.vim<CR>
 nnoremap <silent><leader>sp :e ~/.config/nvim/lua/elias/plugins/init.lua<CR>
 nnoremap <silent><leader>sO :e $MYVIMRC<CR>
@@ -139,7 +139,7 @@ nnoremap <leader>ut :UndotreeToggle<cr>
 "git
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>do :DiffviewOpen<CR>
-nnoremap <leader>dp :DiffviewClose<CR>
+nnoremap <leader>dO :DiffviewClose<CR>
 
 "block the arrow keys
 nnoremap <up> <nop>
