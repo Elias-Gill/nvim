@@ -1,8 +1,6 @@
 -- general plugins without further customization
 return {
     "nvim-lua/plenary.nvim",
-    -- editor config like other editors (teoricamente innecesario)
-    -- { "gpanders/editorconfig.nvim", event = "BufAdd" },
 
     -- free copilot
     {

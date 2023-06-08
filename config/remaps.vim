@@ -24,7 +24,6 @@ nnoremap <leader>qf :q!<CR>
 nnoremap <leader>qq :q<CR>
 "save all buffers, format and quit
 nnoremap <leader>tt :Bw<cr> :qa<cr> 
-" nnoremap <leader>tt :autocmd BufWritePre * lua vim.lsp.buf.format()<cr> :Bw<cr> :qa<cr> 
 
 "file fuzzy searching
 nnoremap <silent><C-p> :FzfLua files<CR>
@@ -39,10 +38,6 @@ nnoremap <silent><leader>rt :RnvimrToggle<CR>
 "cicling buffers
 nnoremap <leader>[ :bprevious<CR>
 nnoremap <leader>] :bnext<CR>
-
-"new terminal
-" noremap <C-w>t :botright vnew <Bar> :terminal<cr>
-nnoremap <leader>th :botright new <Bar> :terminal<cr>
 
 "renombrar buffer usar arg y argdo para refactor completo
 nnoremap <leader>lp :%s/
@@ -72,7 +67,6 @@ nnoremap <silent><leader>tg :TodoQuickFix<CR>
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <S-tab> :tabprevious<cr>
 nnoremap <tab> :tabnext<cr>
-nnoremap <leader>zm :ZenMode<cr>
 
 "centrar en saltos
 nnoremap n nzzzv
@@ -81,7 +75,7 @@ nnoremap <C-d> zz<C-d>zz
 nnoremap <C-u> zz<C-u>zz
 nnoremap <C-t> <C-t>zz
 nnoremap <C-o> <C-o>zz
-
+" scroll
 nnoremap <C-y> <C-e>
 nnoremap <C-b> <C-y>
 
@@ -102,6 +96,9 @@ vnoremap <leader>p "_dP
 nnoremap <leader>p "_dP
 vnoremap <leader>d "_dD
 nnoremap x "_x
+"copy and paste with center and indent
+vnoremap y ygv<esc>
+nnoremap p p=`]
 
 "increments a decrements
 nnoremap + <C-a>

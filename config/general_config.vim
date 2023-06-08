@@ -1,9 +1,3 @@
-" -- neovim 0.8 specific
-set laststatus=3
-set winbar=%=%f%m
-au TextYankPost * silent! lua vim.highlight.on_yank()
-set laststatus=2
-
 " --- folding ---
 set nofoldenable
 set foldmethod=expr
@@ -46,22 +40,26 @@ set cursorline
 " set nu
 
 " --- wraping ---
+set tw=125
 set wrap linebreak
 set colorcolumn=125
-set tw=125
 set splitbelow splitright
+set splitkeep=screen
 
 " --- Visuales ---
-set completeopt=menuone,noselect
-set scrolloff=4
-set showmode
 set showcmd
+set showmode
+set scrolloff=4
+set laststatus=3
+set winbar=%=%f%m
 set termguicolors
 set signcolumn=yes
-set fillchars+=diff:╱
-set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
 set fillchars=fold:\ 
+set fillchars+=diff:╱
+set completeopt=menuone,noselect
+set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
 au TermOpen * setlocal nonumber norelativenumber
+au TextYankPost * silent! lua vim.highlight.on_yank()
 
 " cursor
 let &t_SI = "\<Esc>[6 q"
