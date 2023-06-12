@@ -1,13 +1,12 @@
 return {
-    -- signature help
     { "ray-x/lsp_signature.nvim",
-        event = "InsertEnter",
+        event = "VeryLazy",
         config = function()
             require('lsp_signature').setup({
-                bind = true,
+                bind = false,
                 floating_window = false,
-                floating_window_above_cur_line = true,
-                noice = true, -- render markdown
+                floating_window_above_cur_line = false,
+                noice = false, -- render markdown
                 hint_enable = true,
                 hint_prefix = "🐼 ",
                 hint_scheme = "String",

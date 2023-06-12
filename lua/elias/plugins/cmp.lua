@@ -65,10 +65,10 @@ local function cmpConfig()
         -- sources
         sources = {
             -- this also affects the order in the completion menu
-            { name = "luasnip", max_item_count = 5 },
-            { name = "path",    max_item_count = 5 },
+            { name = "luasnip",                max_item_count = 5 },
+            { name = "path",                   max_item_count = 5 },
             { name = "nvim_lsp" },
-            { name = "buffer",  max_item_count = 5 },
+            { name = "buffer",                 max_item_count = 5 },
         },
     })
 
@@ -95,7 +95,7 @@ return {
             "hrsh7th/cmp-cmdline",
             "onsails/lspkind.nvim",
             "saadparwaiz1/cmp_luasnip",
-            "L3MON4D3/LuaSnip"
+            "L3MON4D3/LuaSnip",
             -- {'tzachar/cmp-tabnine', build = './install.sh'}
         },
         config = function()

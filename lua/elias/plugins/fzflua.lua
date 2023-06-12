@@ -7,15 +7,6 @@ return {
                 "fzf-native",
                 fzf_opts  = { ["--algo"] = "v1" },
                 -- provider setup
-                previewer = {
-                    builtin = {
-                        extensions      = {
-                            ["png"] = { "ueberzug" },
-                            ["jpg"] = { "ueberzug" },
-                        },
-                        ueberzug_scaler = "fit_contain",
-                    }
-                },
                 files     = {
                     rg_opts =
                     "--color=never --files --follow -g '!.git' -g '!go/' -g '!*.class' -g '!Escritorio*' -g '!facultad' -g '!VirtualBox*' -g '!node_modules*'",

@@ -101,7 +101,7 @@ return {
     { "Asheq/close-buffers.vim", cmd = "Bwipeout" },
     { "josa42/nvim-gx",          keys = { "gx", "<cmd>lua require('gx').gx()" } }, -- open urls
     {
-        'norcalli/nvim-colorizer.lua',
+        'NvChad/nvim-colorizer.lua',
         event = { "BufEnter", "BufAdd" },
         config = function()
             require('colorizer').setup()
