@@ -1,43 +1,40 @@
 return {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
-    cmd = "Telescope",
-    dependencies = {
-        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    },
-    config = function()
-        -- TELESCOPICK JOHNSON --
-        require('telescope').setup {
-            defaults = {
-                -- Default configuration for telescope goes here:
-                -- config_key = value,
-                mappings = {
-                    i = {
-                        ["<C-h>"] = "which_key",
-                        ["<C-k>"] = "move_selection_previous",
-                        ["<C-j>"] = "move_selection_next",
-                        ["<esc>"] = "close"
-                    }
-                },
-                file_ignore_patterns = { '.git', 'go/', '*.class', 'VirtualBox/', 'node_modules/' },
-            },
-            -- configuracion de los pickers
-            pickers = {
-                --
-            },
+	"nvim-telescope/telescope.nvim",
+	tag = "0.1.1",
+	cmd = "Telescope",
+	dependencies = {
+		{ "nvim-telescope/telescope-ui-select.nvim" }
+	},
+	config = function()
+		-- TELESCOPICK JOHNSON --
+		require('telescope').setup {
+			defaults = {
+				-- Default configuration for telescope goes here:
+				-- config_key = value,
+				mappings = {
+					i = {
+						["<C-h>"] = "which_key",
+						["<C-k>"] = "move_selection_previous",
+						["<C-j>"] = "move_selection_next",
+						["<esc>"] = "close"
+					}
+				},
+				file_ignore_patterns = { '.git', 'go/', '*.class', 'VirtualBox/', 'node_modules/' },
+			},
+			-- configuracion de los pickers
+			pickers = {
+				--
+			},
 
-            -- extensiones de telescope
-            extensions = {
-                -- require("telescope").load_extension('harpoon')
-                fzf = {
-                    fuzzy = true, -- false will only do exact matching
-                    override_generic_sorter = true, -- override the generic sorter
-                    override_file_sorter = true, -- override the file sorter
-                    case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-                }
-            }
-        }
-        require('telescope').load_extension('fzf')
-        -- require("telescope").load_extension("git_worktree")
-    end
+			-- extensiones de telescope
+			extensions = {
+				-- require("telescope").load_extension('harpoon')
+				["ui-select"] = {
+					require("telescope.themes").get_cursor({})
+				}
+			}
+		}
+		require("telescope").load_extension("ui-select")
+		-- require("telescope").load_extension("git_worktree")
+	end
 }
