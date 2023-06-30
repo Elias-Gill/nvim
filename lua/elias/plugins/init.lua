@@ -95,11 +95,12 @@ return {
     },
 
     -- Utilities
-    { "kevinhwang91/nvim-bqf",   ft = "qf" }, -- better quickfixList
-    { "mbbill/undotree",         cmd = "UndotreeToggle" },
-    { "szw/vim-maximizer",       cmd = "MaximizerToggle" },
-    { "Asheq/close-buffers.vim", cmd = "Bwipeout" },
-    { "josa42/nvim-gx",          keys = { "gx", "<cmd>lua require('gx').gx()" } }, -- open urls
+    { "kevinhwang91/nvim-bqf", ft = "qf" }, -- better quickfixList
+    { "mbbill/undotree",       cmd = "UndotreeToggle" },
+    { "roblillack/vim-bufferlist", keys = { { "<leader>bl", "<cmd>call BufferList()<cr>" } } },
+    { "szw/vim-maximizer",         cmd = "MaximizerToggle" },
+    { "Asheq/close-buffers.vim",   cmd = "Bwipeout" },
+    { "josa42/nvim-gx",            keys = { { "gx", "<cmd>lua require('gx').gx()" } } }, -- open urls
     {
         'NvChad/nvim-colorizer.lua',
         event = { "BufEnter", "BufAdd" },
