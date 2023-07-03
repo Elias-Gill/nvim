@@ -88,8 +88,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 "add spaces with 'enter' on normal mode
-nnoremap <cr> o<esc>k
-nnoremap <C-cr> O<esc>
+" nnoremap <cr> o<esc>k
+" nnoremap <C-cr> O<esc>
 
 "epic delete/paste utility
 vnoremap <leader>p "_dP
