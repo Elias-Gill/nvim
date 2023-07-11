@@ -73,7 +73,7 @@ return {
                             renamed = "➜",
                             untracked = "👀",
                             deleted = "",
-                            ignored = "◌",
+                            ignored = "? ",
                         },
                     },
                 },
@@ -95,7 +95,7 @@ return {
             },
             git = {
                 enable = true,
-                ignore = true,
+                ignore = false,
                 timeout = 3000,
             },
             actions = {

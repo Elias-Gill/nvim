@@ -1,20 +1,31 @@
--- lspconfig
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-local lspconfig = require("lspconfig")
+local function configurar_server(server)
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local lspconfig = require("lspconfig")
+    lspconfig[server].setup({ capabilities = capabilities })
+end
 
-local servers = {
-    { "pyright" },
-    { "tsserver" },
-    { "bashls" },
-    { "gopls" },
-    { "lua_ls" },
-    { "vimls" },
-    { "svelte" },
-    { "rust_analyzer" },
-    { "jsonls", config = { filetypes = { "json" } } },
-    {
-        "sqlls",
-        config = {
+require("mason-lspconfig").setup_handlers {
+    function(server_name) -- default handler
+        configurar_server(server_name)
+    end,
+
+    -- Dedicated handlers for specific servers.
+    ["jsonls"] = function()
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        local lspconfig = require("lspconfig")
+        lspconfig["jsonls"].setup({ capabilities = capabilities })
+    end,
+
+    ["volar"] = function()
+        require("null-ls").disable({ "prettier" })
+        configurar_server("volar")
+    end,
+
+    ["sqlls"] = function()
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        local lspconfig = require("lspconfig")
+        lspconfig["sqlls"].setup({
+            capabilities = capabilities,
             filetypes = { "sql", "plsql" },
             settings = {
                 sqlLanguageServer = {
@@ -31,30 +42,6 @@ local servers = {
                     }
                 }
             }
-        }
-    }
-    -- { "omnisharp" }
-    -- { "html" }
-    -- { "cssls" }
-    -- { "clangd" }
-    -- { "phpactor" }
-    -- { "intelephense" }
-    -- { "texlab" }
-    -- { "jdtls" }
-    -- { "volar", config = {
-    -- 	on_atach = function()
-    -- 		require("null-ls").disable({ "prettier" })
-    -- 	end,
-    -- } }
-}
-
-local function configurar_servers()
-    for _, table in pairs(servers) do
-        if type(table.config) ~= "table" then
-            table.config = {}
-        end
-        table.config.capabilities = capabilities
-        lspconfig[table[1]].setup(table.config)
+        })
     end
-end
-configurar_servers()
+}
