@@ -21,6 +21,7 @@ return {
             automatic_installation = false,
             ensure_installed = { "lua_ls", "bashls", "vimls" },
         })
+        require("elias.lsp.lsp_servers")
     end,
     dependencies = {
         { "williamboman/mason-lspconfig.nvim", event = "UIEnter"},

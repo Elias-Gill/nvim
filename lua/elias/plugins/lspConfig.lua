@@ -4,7 +4,6 @@ return {
         "neovim/nvim-lspconfig",
         event = "VeryLazy",
         config = function()
-            require("elias.lsp.lsp_servers")
             require("elias.lsp.lsp-visuals")
         end,
         dependencies = {
