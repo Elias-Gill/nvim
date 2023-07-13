@@ -43,5 +43,9 @@ require("mason-lspconfig").setup_handlers {
                 }
             }
         })
+    end,
+    ["vtsls"] = function()
+        require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+        require("lspconfig").vtsls.setup({ --[[ your custom server config here ]] })
     end
 }

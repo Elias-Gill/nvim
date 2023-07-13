@@ -7,7 +7,16 @@ return {
             require("elias.lsp.lsp-visuals")
         end,
         dependencies = {
-            {
+            --'folke/neodev.nvim', -- lua api. Activate once
+            { -- better typescript lsp
+                "yioneko/nvim-vtsls",
+                config = function()
+                    require('vtsls').config({
+                        refactor_auto_rename = true,
+                    })
+                end
+            },
+            { -- external commands like linters, formatters, etc
                 "jose-elias-alvarez/null-ls.nvim",
                 event = "VeryLazy",
                 config = function()
@@ -30,8 +39,7 @@ return {
     },
 }
 
--- -- 'folke/neodev.nvim', -- lua api. Activate once
--- {
+-- { -- fancy symbols tree
 -- "DNLHC/glance.nvim",
 --             config = function()
 --                 require('glance').setup({
