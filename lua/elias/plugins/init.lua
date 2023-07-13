@@ -52,7 +52,7 @@ return {
     -- "Super-completado html
     {
         "mattn/emmet-vim",
-        ft = { "html", "css", "svelte", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact" },
+        ft = { "html", "css", "svelte", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact", "astro" },
         config = function()
             vim.api.nvim_command(
                 [[autocmd FileType svelte,html,css,javascript,javascriptreact,vue,typescript,typescriptreact EmmetInstall]]
