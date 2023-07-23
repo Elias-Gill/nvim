@@ -28,7 +28,7 @@ set confirm
 set hidden
 set shortmess+=c
 set undofile
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set cmdheight=1
 
 " --- mouse y numeros ---

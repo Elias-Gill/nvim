@@ -8,7 +8,7 @@ local function tsConfig()
         highlight = {
             enable = true,
             disable = {},
-            additional_vim_regex_highlighting = false,
+            additional_vim_regex_highlighting = {"markdown"},
         },
         -- select incrementaly
         incremental_selection = {

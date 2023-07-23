@@ -55,7 +55,7 @@ return {
         ft = { "html", "css", "svelte", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact", "astro" },
         config = function()
             vim.api.nvim_command(
-                [[autocmd FileType svelte,html,css,javascript,javascriptreact,vue,typescript,typescriptreact EmmetInstall]]
+                [[autocmd FileType svelte,html,css,javascript,javascriptreact,vue,typescript,typescriptreact,astro EmmetInstall]]
             )
         end,
     },

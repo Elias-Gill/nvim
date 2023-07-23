@@ -47,7 +47,7 @@ local function dapConfig()
     vim.api.nvim_set_hl(0, "DapStopped", { fg = "#3fc379", bg = "#27384d" })
     vim.fn.sign_define(
         "DapBreakpoint",
-        { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+        { text = "🚩", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
     )
     vim.fn.sign_define(
         "DapBreakpointCondition",
