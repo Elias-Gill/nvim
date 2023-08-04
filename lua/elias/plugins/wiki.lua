@@ -27,6 +27,9 @@ local function mkdConfig()
             find_in_root = false,
         },
         silent = false,
+        lists = {
+            conceal = true
+        },
         links = {
             style = "markdown",
             conceal = true,
@@ -55,7 +58,7 @@ return {
         "jakewvincent/mkdnflow.nvim",
         ft = { "markdown" },
         dependencies = {
-            'prurigro/vim-markdown-concealed'
+            'elias-gill/vim-markdown-concealed'
         },
         config = mkdConfig
     },

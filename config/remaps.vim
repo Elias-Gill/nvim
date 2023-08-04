@@ -154,7 +154,7 @@ nnoremap <leader>ft :FocusToggle<cr>
 
 "Debug
 nnoremap <silent><leader>db :DapContinue<Cr>
-nnoremap <silent><F7> :lua require'dapstep_into()<cr>
+nnoremap <silent><F7> :lua require'dap'.step_into()<cr>
 nnoremap <silent><F6> :lua require'dap'.step_over()<cr>
 nnoremap <silent><leader>du :lua require'dap'.toggle_breakpoint()<Cr>
 nnoremap <silent><leader>ds :lua require'dap'.terminate()<Cr>

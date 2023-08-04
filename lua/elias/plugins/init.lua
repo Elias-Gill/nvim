@@ -95,8 +95,8 @@ return {
     },
 
     -- Utilities
-    { "kevinhwang91/nvim-bqf", ft = "qf" }, -- better quickfixList
-    { "mbbill/undotree",       cmd = "UndotreeToggle" },
+    { "kevinhwang91/nvim-bqf",     ft = "qf" }, -- better quickfixList
+    { "mbbill/undotree",           cmd = "UndotreeToggle" },
     { "roblillack/vim-bufferlist", keys = { { "<leader>bl", "<cmd>call BufferList()<cr>" } } },
     { "szw/vim-maximizer",         cmd = "MaximizerToggle" },
     { "Asheq/close-buffers.vim",   cmd = "Bwipeout" },

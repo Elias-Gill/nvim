@@ -4,7 +4,6 @@ local function config()
             -- Can be 'left', 'right', or 'center'
             title_pos = "center",
             -- These are passed to nvim_open_win
-            anchor = "SW",
             border = "single",
             win_options = {
                 winblend = 10, --transparency (0-100)
