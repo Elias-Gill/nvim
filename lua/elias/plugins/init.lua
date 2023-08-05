@@ -7,7 +7,7 @@ return {
         "Exafunction/codeium.vim",
         cmd = "Codeium",
         config = function()
-            vim.cmd('source /home/elias/.config/nvim/config/codeium.vim')
+            vim.cmd('source $HOME/.config/nvim/config/codeium.vim')
         end
     },
 

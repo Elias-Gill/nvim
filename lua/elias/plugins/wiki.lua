@@ -58,7 +58,20 @@ return {
         "jakewvincent/mkdnflow.nvim",
         ft = { "markdown" },
         dependencies = {
-            'elias-gill/vim-markdown-concealed'
+            'elias-gill/vim-markdown-concealed',
+            {
+                'ellisonleao/glow.nvim',
+                cmd = "Glow",
+                config = function()
+                    require('glow').setup({
+                        border = "single",
+                        style = "dark",
+                        pager = false,
+                        width_ratio = 0.7,
+                        height_ratio = 0.7,
+                    })
+                end
+            },
         },
         config = mkdConfig
     },
