@@ -30,6 +30,7 @@ nnoremap <silent><C-p> :FzfLua files<CR>
 nnoremap <silent><C-f> :exe ":FzfLua files cwd=".g:terminal_path<CR>
 nnoremap <silent><C-s> :FzfLua<CR>
 nnoremap <silent><C-S-s> :FzfLua files cwd=~/<CR>
+" inoremap <c-x><c-f> <cmd>lua require("fzf-lua").complete_path()<cr>
 
 "file managers
 nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
@@ -44,8 +45,8 @@ nnoremap <leader>lp :%s/
 vnoremap <leader>lp :s/
 
 "Buscar funciones y definiciones 
-nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>zz
-nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>zz
+nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr :FzfLua lsp_references<CR>
 nnoremap <silent> gi :FzfLua lsp_implementations<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
@@ -57,6 +58,7 @@ nnoremap <silent> =f :lua vim.lsp.buf.format ({ async = true })<CR>
 
 "Diagnostics
 nnoremap <silent><leader>to :lua vim.diagnostic.setqflist()<CR>
+nnoremap <silent><leader>tO :lua vim.diagnostic.setloclist()<CR>
 nnoremap <silent>[e :Lspsaga diagnostic_jump_prev<cr>
 nnoremap <silent>]e :Lspsaga diagnostic_jump_next<cr>
 nnoremap <silent>]t :Lspsaga show_line_diagnostics<cr>
@@ -71,10 +73,11 @@ nnoremap <tab> :tabnext<cr>
 "centrar en saltos
 nnoremap n nzzzv
 nnoremap N Nzzzv
-nnoremap <C-d> zz<C-d>zz
-nnoremap <C-u> zz<C-u>zz
 nnoremap <C-t> <C-t>zz
 nnoremap <C-o> <C-o>zz
+" nnoremap <C-d> zz<C-d>zz
+" nnoremap <C-u> zz<C-u>zz
+
 " scroll
 nnoremap <C-y> <C-e>
 nnoremap <C-b> <C-y>

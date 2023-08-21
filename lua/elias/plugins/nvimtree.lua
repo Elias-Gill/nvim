@@ -51,10 +51,12 @@ return {
         require("nvim-tree").setup({
             -- BEGIN_DEFAULT_OPTS
             hijack_cursor = true,
-            hijack_netrw = true,
+            disable_netrw = false,
+            hijack_netrw = false,
             open_on_tab = false,
             sync_root_with_cwd = true,
             reload_on_bufenter = true,
+            auto_reload_on_write = true,
             respect_buf_cwd = false,
             view = {
                 width = 32,

@@ -1,5 +1,6 @@
 setlocal conceallevel=2
 setlocal linebreak
+setlocal wrap
 setlocal tw=0
 
 nnoremap <buffer>k gk

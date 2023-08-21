@@ -1,5 +1,7 @@
+-- experimental 
 vim.loader.enable() -- lazy load everything
 vim.g.editorconfig = true -- builtin editor config support
+
 ------- configuracion general -----
 require("elias/disable_builtins")
 vim.cmd("source ~/.config/nvim/config/remaps.vim")
