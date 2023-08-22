@@ -46,6 +46,7 @@ vnoremap <leader>lp :s/
 
 "Buscar funciones y definiciones 
 nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gqr :lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr :FzfLua lsp_references<CR>
 nnoremap <silent> gi :FzfLua lsp_implementations<CR>
@@ -131,6 +132,7 @@ nnoremap <silent><leader>so :so $MYVIMRC<CR>
 
 "abrir wiki
 nnoremap <silent><leader>ww :call OpenWiki()<cr>
+nnoremap <silent><leader>wo :e ~/.local/share/vimwiki/index.md<cr>
 
 "function tree
 nnoremap <silent><leader>vf :SymbolsOutline<CR>
