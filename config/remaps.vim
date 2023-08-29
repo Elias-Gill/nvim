@@ -132,7 +132,7 @@ nnoremap <silent><leader>so :so $MYVIMRC<CR>
 
 "abrir wiki
 nnoremap <silent><leader>ww :call OpenWiki()<cr>
-nnoremap <silent><leader>wo :e ~/.local/share/vimwiki/index.md<cr>
+nnoremap <silent><leader>wo :e ~/.config/nvim/wiki/index.md<cr>
 
 "function tree
 nnoremap <silent><leader>vf :SymbolsOutline<CR>
