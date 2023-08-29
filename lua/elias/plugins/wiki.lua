@@ -23,7 +23,7 @@ local function mkdConfig()
         },
         wrap = false,
         bib = {
-            default_path = "~/.local/share/vimwiki/",
+            default_path = "~/.config/nvim/wiki/",
             find_in_root = false,
         },
         silent = false,
