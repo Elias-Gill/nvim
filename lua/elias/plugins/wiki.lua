@@ -23,7 +23,7 @@ local function mkdConfig()
         },
         wrap = false,
         bib = {
-            default_path = "~/.config/nvim/wiki/",
+            default_path = "~/Documentos/wiki/",
             find_in_root = false,
         },
         silent = false,

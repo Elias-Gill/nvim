@@ -1,7 +1,7 @@
 local function tsConfig()
     --treesitter
     require("nvim-treesitter.configs").setup({
-        ensure_installed = { "markdown", "markdown_inline", "lua", "javascript", "go", "bash" },
+        ensure_installed = { "markdown", "vimdoc", "markdown_inline", "lua", "javascript", "go", "bash" },
         sync_install = false,
         ignore_install = {},
         indent = { enable = true, disable = { 'python' } },
