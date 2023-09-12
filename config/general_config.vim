@@ -137,13 +137,13 @@ let g:netrw_banner = 0
 " Mappings
 augroup netrw_mappings
     autocmd!
-    autocmd filetype netrw noremap <silent><buffer> <C-l> <Nop>
-    autocmd filetype netrw noremap <silent><buffer> <C-l> :wincmd l<cr>
+    autocmd filetype netrw noremap <silent><buffer> <C-r> <Nop>
+    autocmd filetype netrw noremap <silent><buffer> <C-r> <C-l>
+
+    " autocmd filetype netrw noremap <silent><buffer> <C-l> <Nop>
+    autocmd filetype netrw nnoremap <silent><buffer> <C-l> :wincmd l<cr>
 
     autocmd filetype netrw noremap <silent><buffer> a <Nop>
-
-    autocmd filetype netrw noremap <silent><buffer> <C-r> <Nop>
-    autocmd FileType netrw nmap <buffer> <silent> <C-r> <Plug>NetrwRefresh
 augroup END
 
 lua << EOF
