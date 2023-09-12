@@ -123,3 +123,31 @@ endfunction
 command Bw :wa | Bwipeout hidden
 command W :w
 command Q :q
+
+" -- netrw options --
+" File browsing options
+let g:netrw_liststyle = 3
+let g:netrw_keepdir = 1
+let g:netrw_hide = 1  
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 22
+let g:netrw_banner = 0
+
+" Mappings
+augroup netrw_mappings
+    autocmd!
+    autocmd filetype netrw noremap <silent><buffer> <C-l> <Nop>
+    autocmd filetype netrw noremap <silent><buffer> <C-l> :wincmd l<cr>
+
+    autocmd filetype netrw noremap <silent><buffer> a <Nop>
+
+    autocmd filetype netrw noremap <silent><buffer> <C-r> <Nop>
+    autocmd FileType netrw nmap <buffer> <silent> <C-r> <Plug>NetrwRefresh
+augroup END
+
+lua << EOF
+vim.api.nvim_create_autocmd("BufEnter", {
+    command = "if winnr('$') == 1 && &filetype =~ 'netrw' | quit | endif",
+    nested = true,
+})
+EOF

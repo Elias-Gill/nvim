@@ -33,8 +33,9 @@ nnoremap <silent><C-S-s> :FzfLua files cwd=~/<CR>
 " inoremap <c-x><c-f> <cmd>lua require("fzf-lua").complete_path()<cr>
 
 "file managers
-nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
+nnoremap <silent><leader>nt :Lexplore<CR>
 nnoremap <silent><leader>rt :RnvimrToggle<CR>
+" nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
 
 "cicling buffers
 nnoremap <leader>[ :bprevious<CR>
@@ -132,7 +133,7 @@ nnoremap <silent><leader>so :so $MYVIMRC<CR>
 
 "abrir wiki
 nnoremap <silent><leader>ww :call OpenWiki()<cr>
-nnoremap <silent><leader>wo :e ~/.config/nvim/wiki/index.md<cr>
+nnoremap <silent><leader>wo :e ~/Documentos/wiki/index.md<cr>
 
 "function tree
 nnoremap <silent><leader>vf :SymbolsOutline<CR>

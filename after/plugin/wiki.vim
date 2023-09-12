@@ -24,5 +24,5 @@ endfunction
 
 function! OpenWiki() abort
     call WikiWindow()
-    execute(":e ~/.config/nvim/wiki/index.md")
+    execute(":e ~/Documentos/wiki/index.md")
 endfunction

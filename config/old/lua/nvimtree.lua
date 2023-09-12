@@ -40,13 +40,6 @@ return {
     "kyazdani42/nvim-tree.lua",
     event = "UIEnter",
     -- cmd = "NvimTreeFindFileToggle",
-    dependencies = {
-        "antosha417/nvim-lsp-file-operations",
-        event = "FileReadPre",
-        config = function()
-            require("lsp-file-operations").setup()
-        end,
-    },
     config = function()
         require("nvim-tree").setup({
             -- BEGIN_DEFAULT_OPTS
@@ -125,20 +118,6 @@ return {
         })
 
         -- Open on setup
-        local function open_nvim_tree(data)
-            local real_file = vim.fn.filereadable(data.file) == 1
-            local new_file = vim.fn.argc() > 0
-            local is_open = require('nvim-tree.view').is_visible()
-            if real_file or new_file then
-                if not is_open then
-                    require('nvim-tree.api').tree.toggle({ focus = false, find_file = true, })
-                    vim.api.nvim_del_augroup_by_name("AbrirTree")
-                end
-            end
-        end
-
-        local group_id = vim.api.nvim_create_augroup("AbrirTree", { clear = true })
-        vim.api.nvim_create_autocmd({ "UIEnter", "BufAdd" },
-            { callback = open_nvim_tree, group = group_id })
+        require('nvim-tree.api').tree.toggle({ focus = false, find_file = true, })
     end
 }

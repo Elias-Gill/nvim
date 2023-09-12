@@ -1,6 +1,0 @@
-- [X] Desglozar el polinomio 
-- [ ] dd
-- [X] Crear a partir de string
-- [X] Sumar polinomio
-- [X] Multiplicar 
-- [ ] Derivar
