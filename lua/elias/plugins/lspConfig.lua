@@ -7,7 +7,9 @@ return {
             require("elias.lsp.lsp-visuals")
         end,
         dependencies = {
-            --'folke/neodev.nvim', -- lua api. Activate once
+            -- for fancy symbols tree use "DNLHC/glance.nvim"
+            -- for super html completition use emmet-lsp-server
+
             { -- better typescript lsp
                 "yioneko/nvim-vtsls",
                 config = function()
@@ -38,16 +40,3 @@ return {
         }
     },
 }
-
--- { -- fancy symbols tree
--- "DNLHC/glance.nvim",
---             config = function()
---                 require('glance').setup({
---                     border = {
---                         enable = true, -- Show window borders. Only horizontal borders allowed
---                         top_char = '―',
---                         bottom_char = '―',
---                     },
---                 })
---             end,
---         },

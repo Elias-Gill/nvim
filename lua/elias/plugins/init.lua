@@ -16,18 +16,16 @@ return {
     },
 
     -- coconut oil navigation
-    {
-        "ThePrimeagen/harpoon",
-        event = "BufAdd",
-    },
+    { "ThePrimeagen/harpoon", event = "BufAdd" },
     "christoomey/vim-tmux-navigator",
     -- use 'ThePrimeagen/refactoring.nvim'
     -- { 'ThePrimeagen/git-worktree.nvim', config = function()
     --     require("git-worktree").setup({})
     -- end },
 
-    -- File explorers
-    { "kevinhwang91/rnvimr",       cmd = "RnvimrToggle" },
+    -------------
+    -- VISUALS --
+    -------------
 
     -- colorschemes
     {
@@ -53,7 +51,7 @@ return {
             require("catppuccin").setup({
                 flavour = "mocha", -- latte, frappe, macchiato, mocha
                 transparent_background = true,
-                custom_highlights = function(colors)
+                custom_highlights = function(_)
                     return {
                         ["NvimTreeCursorLine"] = { bg = "#323232", style = { "italic" } },
                         ["CursorLine"] = { bg = "#343434" },
@@ -68,28 +66,48 @@ return {
     "ryanoasis/vim-devicons",
     "nvim-tree/nvim-web-devicons",
 
-    -- Utilities
-    { "kevinhwang91/nvim-bqf",     ft = "qf" }, -- better quickfixList
+    ----------------------
+    --     Utilities    --
+    ----------------------
+    { "kevinhwang91/rnvimr",       cmd = "RnvimrToggle" },                                      -- ranger file manager integration
+    { "kevinhwang91/nvim-bqf",     ft = "qf" },                                                 -- better quickfixList
     { "tpope/vim-repeat",          event = "InsertEnter" },
-    { "mbbill/undotree",           cmd = "UndotreeToggle" },
-    { "roblillack/vim-bufferlist", keys = { { "<leader>bl", "<cmd>call BufferList()<cr>" } } },
-    { "tpope/vim-surround",        event = { "InsertEnter", "BufEnter" } },
-    { "szw/vim-maximizer",         cmd = "MaximizerToggle" },
-    { "Asheq/close-buffers.vim",   cmd = "Bwipeout" },
-    { "josa42/nvim-gx",            keys = { { "gx", "<cmd>lua require('gx').gx()" } } }, -- open urls
+    { "roblillack/vim-bufferlist", keys = { { "<leader>bl", "<cmd>call BufferList()<cr>" } } }, -- list my buffers
+    { "tpope/vim-surround",        event = { "InsertEnter", "BufEnter" } },                     -- surround
+    { "szw/vim-maximizer",         cmd = "MaximizerToggle" },                                   -- maximizer
+    { "josa42/nvim-gx",            keys = { { "gx", "<cmd>lua require('gx').gx()" } } },        -- open urls
+
+    -- cleaning buffers
+    {
+        "kazhala/close-buffers.nvim",
+        cmd = "Bwipeout",
+        config = function()
+            require('close_buffers').setup()
+        end
+    },
+    -- undotree
+    {
+        "mbbill/undotree",
+        cmd = "UndotreeToggle",
+        config = function()
+            vim.g.undotree_WindowLayout = 3
+        end
+    },
+    -- zen mode
     {
         "folke/zen-mode.nvim",
         opts = {
             window = {
                 options = {
-                    signcolumn = "no",      -- disable signcolumn
-                    number = false,         -- disable number column
-                    relativenumber = false, -- disable relative numbers
+                    signcolumn = "no",
+                    number = false,
+                    relativenumber = false,
                 },
             },
         },
         cmd = "ZenMode"
     },
+    -- colorizer
     {
         'NvChad/nvim-colorizer.lua',
         event = { "BufEnter", "BufAdd" },
@@ -98,16 +116,6 @@ return {
         end
     },
 
-    -- "Super-completado html
-    {
-        "mattn/emmet-vim",
-        ft = { "html", "css", "svelte", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact", "astro" },
-        config = function()
-            vim.api.nvim_command(
-                [[autocmd FileType svelte,html,css,javascript,javascriptreact,vue,typescript,typescriptreact,astro EmmetInstall]]
-            )
-        end,
-    },
     -- Pareado (){}""''
     {
         "windwp/nvim-autopairs",
@@ -125,6 +133,10 @@ return {
         config = function()
             require("indent_blankline").setup({
                 show_current_context = true,
+                filetype_exclude = { "dashboard", "startify", "vim", "markdown", "txt" },
+                char_list = { '┆' },
+                context_char = '┆',
+                use_treesitter = true
             })
         end
     },
@@ -133,8 +145,10 @@ return {
         "numToStr/Comment.nvim",
         event = "BufEnter",
         config = function()
+            ---@diagnostic disable-next-line: missing-fields
             require("Comment").setup({
                 pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+                ---@diagnostic disable-next-line: missing-fields
                 mappings = {
                     extra = false,
                 },
