@@ -28,16 +28,16 @@ set confirm
 set hidden
 set shortmess+=c
 set undofile
+set jumpoptions=stack
 set clipboard+=unnamedplus
 set cmdheight=1
 
-" --- mouse y numeros ---
+" --- mouse ands line numbers ---
 set nu rnu
 set mouse=a
 set mousemodel=extend
 set numberwidth=4 
 set cursorline
-" set nu
 
 " --- wraping ---
 set tw=125
@@ -46,7 +46,7 @@ set colorcolumn=125
 set splitbelow splitright
 set splitkeep=screen
 
-" --- Visuales ---
+" --- Visuals ---
 set showcmd
 set showmode
 set scrolloff=4
@@ -77,12 +77,12 @@ set backspace=indent,eol,start
 set encoding=utf-8
 
 " --- search settings ---
-set matchpairs+=<:>
 set hlsearch
 set incsearch
 set showmatch
 set ignorecase
 set smartcase
+" set matchpairs+=<:>
 
 " colorscheme
 let g:newshell_background="None"
@@ -124,31 +124,35 @@ command Bw :wa | Bwipeout hidden
 command W :w
 command Q :q
 
-" -- netrw options --
+"  ----------------------
+" |     netrw options    |
+"  ----------------------
 " File browsing options
-let g:netrw_liststyle = 3
-let g:netrw_keepdir = 1
-let g:netrw_hide = 1  
-let g:netrw_list_hide = '^\.'
-let g:netrw_browse_split = 4
-let g:netrw_winsize = 22
-let g:netrw_banner = 0
-
-" Mappings
-augroup netrw_mappings
-    autocmd!
-    autocmd filetype netrw noremap <silent><buffer> <C-r> <Nop>
-    autocmd filetype netrw noremap <silent><buffer> <C-r> <C-l>
-
-    " autocmd filetype netrw noremap <silent><buffer> <C-l> <Nop>
-    autocmd filetype netrw nnoremap <silent><buffer> <C-l> :wincmd l<cr>
-
-    autocmd filetype netrw noremap <silent><buffer> a <Nop>
-augroup END
-
-lua << EOF
-vim.api.nvim_create_autocmd("BufEnter", {
-    command = "if winnr('$') == 1 && &filetype =~ 'netrw' | quit | endif",
-    nested = true,
-})
-EOF
+" let g:netrw_liststyle = 3
+" let g:netrw_keepdir = 0
+" let g:netrw_hide = 1  
+" let g:netrw_list_hide = '^\.'
+" let g:netrw_browse_split = 0
+" let g:netrw_winsize = 20
+" let g:netrw_banner = 0
+"
+" " Mappings
+" augroup netrw_mappings
+"     autocmd!
+"     autocmd filetype netrw noremap <silent><buffer> <C-r> <Nop>
+"     autocmd filetype netrw noremap <silent><buffer> <C-r> <C-l>
+"
+"     " autocmd filetype netrw noremap <silent><buffer> <C-l> <Nop>
+"     autocmd filetype netrw nnoremap <silent><buffer> <C-l> :wincmd l<cr>
+"
+"     autocmd filetype netrw noremap <silent><buffer> a <Nop>
+"     autocmd filetype netrw nnoremap <silent><buffer> q :q<cr>
+" augroup END
+"
+" " Auto-close on exit
+" lua << EOF
+" vim.api.nvim_create_autocmd("BufEnter", {
+"     command = "if winnr('$') == 1 && &filetype =~ 'netrw' | quit | endif",
+"     nested = true,
+" })
+" EOF

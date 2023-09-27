@@ -27,9 +27,24 @@ return {
     -- end },
 
     -- File explorers
-    { "kevinhwang91/rnvimr", cmd = "RnvimrToggle" },
+    { "kevinhwang91/rnvimr",       cmd = "RnvimrToggle" },
 
     -- colorschemes
+    {
+        'projekt0n/caret.nvim',
+        lazy = true,
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            require('caret').setup({
+                options = {
+                    transparent = true,
+                },
+                groups = {
+                    ["SignColumn"] = { bg = "none" },
+                },
+            })
+        end,
+    },
     {
         "catppuccin/nvim",
         name = "catppuccin",
@@ -53,6 +68,36 @@ return {
     "ryanoasis/vim-devicons",
     "nvim-tree/nvim-web-devicons",
 
+    -- Utilities
+    { "kevinhwang91/nvim-bqf",     ft = "qf" }, -- better quickfixList
+    { "tpope/vim-repeat",          event = "InsertEnter" },
+    { "mbbill/undotree",           cmd = "UndotreeToggle" },
+    { "roblillack/vim-bufferlist", keys = { { "<leader>bl", "<cmd>call BufferList()<cr>" } } },
+    { "tpope/vim-surround",        event = { "InsertEnter", "BufEnter" } },
+    { "szw/vim-maximizer",         cmd = "MaximizerToggle" },
+    { "Asheq/close-buffers.vim",   cmd = "Bwipeout" },
+    { "josa42/nvim-gx",            keys = { { "gx", "<cmd>lua require('gx').gx()" } } }, -- open urls
+    {
+        "folke/zen-mode.nvim",
+        opts = {
+            window = {
+                options = {
+                    signcolumn = "no",      -- disable signcolumn
+                    number = false,         -- disable number column
+                    relativenumber = false, -- disable relative numbers
+                },
+            },
+        },
+        cmd = "ZenMode"
+    },
+    {
+        'NvChad/nvim-colorizer.lua',
+        event = { "BufEnter", "BufAdd" },
+        config = function()
+            require('colorizer').setup()
+        end
+    },
+
     -- "Super-completado html
     {
         "mattn/emmet-vim",
@@ -64,7 +109,6 @@ return {
         end,
     },
     -- Pareado (){}""''
-    { "tpope/vim-surround",  event = { "InsertEnter", "BufEnter" } },
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
@@ -77,7 +121,7 @@ return {
     --ayudas de indentacion
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = "VeryLazy",
+        event = "UIEnter",
         config = function()
             require("indent_blankline").setup({
                 show_current_context = true,
@@ -96,20 +140,5 @@ return {
                 },
             })
         end,
-    },
-
-    -- Utilities
-    { "kevinhwang91/nvim-bqf",     ft = "qf" }, -- better quickfixList
-    { "mbbill/undotree",           cmd = "UndotreeToggle" },
-    { "roblillack/vim-bufferlist", keys = { { "<leader>bl", "<cmd>call BufferList()<cr>" } } },
-    { "szw/vim-maximizer",         cmd = "MaximizerToggle" },
-    { "Asheq/close-buffers.vim",   cmd = "Bwipeout" },
-    { "josa42/nvim-gx",            keys = { { "gx", "<cmd>lua require('gx').gx()" } } }, -- open urls
-    {
-        'NvChad/nvim-colorizer.lua',
-        event = { "BufEnter", "BufAdd" },
-        config = function()
-            require('colorizer').setup()
-        end
     },
 }

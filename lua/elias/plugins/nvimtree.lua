@@ -44,11 +44,11 @@ return {
         require("nvim-tree").setup({
             -- BEGIN_DEFAULT_OPTS
             hijack_cursor = true,
-            disable_netrw = false,
-            hijack_netrw = false,
+            disable_netrw = true,
+            hijack_netrw = true,
             open_on_tab = false,
             sync_root_with_cwd = true,
-            reload_on_bufenter = true,
+            reload_on_bufenter = false,
             auto_reload_on_write = true,
             respect_buf_cwd = false,
             view = {
@@ -89,7 +89,7 @@ return {
                 debounce_delay = 2000,
             },
             git = {
-                enable = true,
+                enable = false,
                 ignore = false,
                 timeout = 3000,
             },

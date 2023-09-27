@@ -1,10 +1,10 @@
 let mapleader = " "
 let g:terminal_path = getcwd()
 
-" nnoremap ;; A;<esc>
 inoremap <C-\> <C-w>
 nnoremap U <C-r> 
 tnoremap <esc> <c-\><c-N>
+" nnoremap ;; A;<esc>
 
 "harpoon
 nnoremap <silent><leader>' :lua require("harpoon.ui").nav_next()<cr>
@@ -33,9 +33,9 @@ nnoremap <silent><C-S-s> :FzfLua files cwd=~/<CR>
 " inoremap <c-x><c-f> <cmd>lua require("fzf-lua").complete_path()<cr>
 
 "file managers
-nnoremap <silent><leader>nt :Lexplore<CR>
 nnoremap <silent><leader>rt :RnvimrToggle<CR>
-" nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
+nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
+" nnoremap <silent><leader>nt :Lexplore<CR>
 
 "cicling buffers
 nnoremap <leader>[ :bprevious<CR>
@@ -51,12 +51,13 @@ nnoremap <silent> gqr :lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr :FzfLua lsp_references<CR>
 nnoremap <silent> gi :FzfLua lsp_implementations<CR>
-nnoremap <silent>K :Lspsaga hover_doc<CR>
+nnoremap <silent>K :lua vim.lsp.buf.hover()<CR>
 nnoremap <silent>co :lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent><leader>rr :lua vim.lsp.buf.rename()<CR>
 "more lsp actions
 nnoremap <silent>gh :Lspsaga lsp_finder<CR>
 nnoremap <silent> =f :lua vim.lsp.buf.format ({ async = true })<CR>
+" nnoremap <silent>K :Lspsaga hover_doc<CR>
 
 "Diagnostics
 nnoremap <silent><leader>to :lua vim.diagnostic.setqflist()<CR>
@@ -69,6 +70,7 @@ nnoremap <silent><leader>tg :TodoQuickFix<CR>
 
 "cambiar pestanas
 nnoremap <leader>tn :tabnew<cr>
+nnoremap <C-9> <C-i><cr>
 nnoremap <S-tab> :tabprevious<cr>
 nnoremap <tab> :tabnext<cr>
 

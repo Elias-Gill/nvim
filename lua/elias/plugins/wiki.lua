@@ -4,7 +4,7 @@ local function mkdConfig()
         modules = {
             bib = true,
             buffers = true,
-            conceal = true,
+            conceal = false,
             cursor = true,
             folds = true,
             links = true,
