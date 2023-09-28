@@ -3,18 +3,12 @@ let g:terminal_path = getcwd()
 
 inoremap <C-\> <C-w>
 nnoremap U <C-r> 
-tnoremap <esc> <c-\><c-N>
-" nnoremap ;; A;<esc>
 
 "harpoon
 nnoremap <silent><leader>' :lua require("harpoon.ui").nav_next()<cr>
 nnoremap <silent><leader>; :lua require("harpoon.ui").nav_prev()<cr>
 nnoremap <silent><leader>hh :lua require("harpoon.mark").add_file()<cr>
 nnoremap <silent><leader>hu :lua require("harpoon.ui").toggle_quick_menu()<cr>
-
-"git worktree
-" nnoremap <silent><leader>gd :lua require('telescope').extensions.git_worktree.git_worktrees()<cr>
-" nnoremap <silent><leader>gn :lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>
 
 "saving files and exit vim
 nnoremap <leader>wf :w!<CR> 
@@ -30,12 +24,10 @@ nnoremap <silent><C-p> :FzfLua files<CR>
 nnoremap <silent><C-f> :exe ":FzfLua files cwd=".g:terminal_path<CR>
 nnoremap <silent><C-s> :FzfLua<CR>
 nnoremap <silent><C-S-s> :FzfLua files cwd=~/<CR>
-" inoremap <c-x><c-f> <cmd>lua require("fzf-lua").complete_path()<cr>
 
 "file managers
 nnoremap <silent><leader>rt :RnvimrToggle<CR>
 nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
-" nnoremap <silent><leader>nt :Lexplore<CR>
 
 "cicling buffers
 nnoremap <leader>[ :bprevious<CR>
@@ -57,7 +49,6 @@ nnoremap <silent><leader>rr :lua vim.lsp.buf.rename()<CR>
 "more lsp actions
 nnoremap <silent>gh :Lspsaga lsp_finder<CR>
 nnoremap <silent> =f :lua vim.lsp.buf.format ({ async = true })<CR>
-" nnoremap <silent>K :Lspsaga hover_doc<CR>
 
 "Diagnostics
 nnoremap <silent><leader>to :lua vim.diagnostic.setqflist()<CR>
@@ -79,8 +70,8 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap <C-t> <C-t>zz
 nnoremap <C-o> <C-o>zz
-" nnoremap <C-d> zz<C-d>zz
-" nnoremap <C-u> zz<C-u>zz
+"bug with alacritty when using C-i (does not work with tmux)
+nnoremap <C-i> <C-i>zz
 
 " scroll
 nnoremap <C-y> <C-e>
@@ -93,10 +84,6 @@ vnoremap K :m '<-2<CR>gv=gv
 "make < > shifts keep selection
 vnoremap < <gv
 vnoremap > >gv
-
-"add spaces with 'enter' on normal mode
-" nnoremap <cr> o<esc>k
-" nnoremap <C-cr> O<esc>
 
 "epic delete/paste utility
 vnoremap <leader>p "_dP
@@ -127,10 +114,9 @@ nnoremap <silent><C-w>- :split<cr>
 
 "Archivos de configuracion
 nnoremap <leader>cd :cd %:h <CR>
-nnoremap <silent><leader>SO :e ~/.config/nvim/init.lua<CR>
-nnoremap <silent><leader>sm :e ~/.config/nvim/config/remaps.vim<CR>
-nnoremap <silent><leader>sp :e ~/.config/nvim/lua/elias/plugins/init.lua<CR>
-nnoremap <silent><leader>sO :e $MYVIMRC<CR>
+nnoremap <silent><leader>sm :e $XGD_CONFIG_HOME/nvim/after/plugin/remaps.vim<CR>
+nnoremap <silent><leader>sp :e $XGD_CONFIG_HOME/nvim/lua/elias/plugins/init.lua<CR>
+nnoremap <silent><leader>SO :e $MYVIMRC<CR>
 nnoremap <silent><leader>so :so $MYVIMRC<CR>
 
 "abrir wiki
@@ -156,9 +142,8 @@ nnoremap <silent><up> :resize +5<CR>
 nnoremap <silent><down> :resize -5<CR>
 nnoremap <silent><left> :vertical resize -5<CR>
 nnoremap <silent><right> :vertical resize +5<CR>
-"maximizer and focus
+"maximizer
 nnoremap <leader>mt :MaximizerToggle<cr>
-nnoremap <leader>ft :FocusToggle<cr>
 
 "Debug
 nnoremap <silent><leader>db :DapContinue<Cr>
@@ -171,11 +156,7 @@ nnoremap <silent><leader>dc :lua require'dap'.run_to_cursor()<Cr>
 
 "Luasnips snippets
 inoremap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
-"inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
 
 " --- For changing choices in choiceNodes --- 
 inoremap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 snoremap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-
-"bug with alacritty when using C-i (does not work with tmux)
-nnoremap <C-i> <C-i>zz

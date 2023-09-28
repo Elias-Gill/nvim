@@ -1,0 +1,83 @@
+-- NEOVIM only
+vim.cmd([[
+au TermOpen * setlocal nonumber norelativenumber
+au TextYankPost * silent! lua vim.highlight.on_yank()
+]])
+vim.o.laststatus = 3
+vim.o.winbar = "%=%f%m"
+
+--- indentation ---
+vim.opt.list = false
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+
+--- specials & do not disturb ---
+vim.opt.confirm = true
+vim.opt.hidden = true
+vim.opt.undofile = true
+vim.opt.jumpoptions = "stack"
+vim.opt.cmdheight = 1
+
+--- mouse ands line numbers ---
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.mouse = "a"
+vim.opt.mousemodel = "extend"
+vim.opt.numberwidth = 4
+vim.o.cursorline = true
+
+--- wraping ---
+vim.o.tw = 125
+vim.o.wrap = true
+vim.o.linebreak = true
+vim.o.colorcolumn = "125"
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.splitkeep = "screen"
+
+--- Visuals ---
+vim.o.showcmd = true
+vim.o.showmode = true
+vim.o.scrolloff = 4
+vim.o.termguicolors = true
+vim.o.signcolumn = "yes"
+
+--- Tabs to spaces ---
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
+vim.o.sw = 4
+
+--- search settings ---
+vim.o.hlsearch = true
+vim.o.incsearch = true
+vim.o.showmatch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- python
+vim.g.python_highlight_all = 1
+vim.g.python_highlight_space_errors = 0
+
+-- Cosas que no me animo a cambiar
+vim.cmd([[
+set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
+set diffopt+=vertical
+set shortmess+=c
+set clipboard+=unnamedplus
+
+set fillchars=fold:.
+set fillchars+=diff:╱
+set completeopt=menuone,noselect
+
+" Borrar buffers sin usar
+command Bw :wa | Bwipeout hidden
+command W :w
+command Q :q
+
+"-- cursor
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
+]])
+

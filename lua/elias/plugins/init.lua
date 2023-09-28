@@ -16,17 +16,10 @@ return {
     },
 
     -- coconut oil navigation
-    { "ThePrimeagen/harpoon", event = "BufAdd" },
+    { "ThePrimeagen/harpoon",                           event = "BufAdd" },
     "christoomey/vim-tmux-navigator",
-    -- use 'ThePrimeagen/refactoring.nvim'
-    -- { 'ThePrimeagen/git-worktree.nvim', config = function()
-    --     require("git-worktree").setup({})
-    -- end },
 
-    -------------
     -- VISUALS --
-    -------------
-
     -- colorschemes
     {
         'projekt0n/caret.nvim',
@@ -66,16 +59,14 @@ return {
     "ryanoasis/vim-devicons",
     "nvim-tree/nvim-web-devicons",
 
-    ----------------------
     --     Utilities    --
-    ----------------------
-    { "kevinhwang91/rnvimr",       cmd = "RnvimrToggle" },                                      -- ranger file manager integration
-    { "kevinhwang91/nvim-bqf",     ft = "qf" },                                                 -- better quickfixList
-    { "tpope/vim-repeat",          event = "InsertEnter" },
-    { "roblillack/vim-bufferlist", keys = { { "<leader>bl", "<cmd>call BufferList()<cr>" } } }, -- list my buffers
-    { "tpope/vim-surround",        event = { "InsertEnter", "BufEnter" } },                     -- surround
-    { "szw/vim-maximizer",         cmd = "MaximizerToggle" },                                   -- maximizer
-    { "josa42/nvim-gx",            keys = { { "gx", "<cmd>lua require('gx').gx()" } } },        -- open urls
+    { "kevinhwang91/rnvimr",                            cmd = "RnvimrToggle" },                 -- ranger file manager integration
+    { "kevinhwang91/nvim-bqf",                          ft = "qf" },                            -- better quickfixList
+    { "tpope/vim-repeat",                               event = "InsertEnter" },
+    { "roblillack/vim-bufferlist",                      keys = { { "<leader>bl", "<cmd>call BufferList()<cr>" } } }, -- list my buffers
+    { "tpope/vim-surround",                             event = { "InsertEnter", "BufEnter" } }, -- surround
+    { "szw/vim-maximizer",                              cmd = "MaximizerToggle" },              -- maximizer
+    { "josa42/nvim-gx",                                 keys = { { "gx", "<cmd>lua require('gx').gx()" } } }, -- open urls
 
     -- cleaning buffers
     {
