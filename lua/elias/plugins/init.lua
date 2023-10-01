@@ -123,11 +123,13 @@ return {
         main = "ibl",
         event = "UIEnter",
         opts = {
-            show_current_context = true,
-            filetype_exclude = { "dashboard", "startify", "vim", "markdown", "txt" },
-            char_list = { '┆' },
-            context_char = '┆',
-            use_treesitter = true
+            indent = { char = "┆" },
+            scope = {
+                show_current_context = true,
+                show_start = false,
+                show_end = false,
+            },
+            exclude = { filetypes = { "dashboard", "vim", "markdown", "txt" } }
         }
     },
     --comentarios
