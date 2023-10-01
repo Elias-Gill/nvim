@@ -22,21 +22,6 @@ return {
     -- VISUALS --
     -- colorschemes
     {
-        'projekt0n/caret.nvim',
-        lazy = true,
-        priority = 1000, -- make sure to load this before all the other start plugins
-        config = function()
-            require('caret').setup({
-                options = {
-                    transparent = true,
-                },
-                groups = {
-                    ["SignColumn"] = { bg = "none" },
-                },
-            })
-        end,
-    },
-    {
         "catppuccin/nvim",
         name = "catppuccin",
         event = "UIEnter",
@@ -48,6 +33,7 @@ return {
                     return {
                         ["NvimTreeCursorLine"] = { bg = "#323232", style = { "italic" } },
                         ["CursorLine"] = { bg = "#343434" },
+                        ["@ibl.scope.char.1"] = { fg = "#eeeeee" }
                     }
                 end
             })
