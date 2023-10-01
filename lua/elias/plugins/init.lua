@@ -16,7 +16,7 @@ return {
     },
 
     -- coconut oil navigation
-    { "ThePrimeagen/harpoon",                           event = "BufAdd" },
+    { "ThePrimeagen/harpoon",      event = "BufAdd" },
     "christoomey/vim-tmux-navigator",
 
     -- VISUALS --
@@ -60,13 +60,13 @@ return {
     "nvim-tree/nvim-web-devicons",
 
     --     Utilities    --
-    { "kevinhwang91/rnvimr",                            cmd = "RnvimrToggle" },                 -- ranger file manager integration
-    { "kevinhwang91/nvim-bqf",                          ft = "qf" },                            -- better quickfixList
-    { "tpope/vim-repeat",                               event = "InsertEnter" },
-    { "roblillack/vim-bufferlist",                      keys = { { "<leader>bl", "<cmd>call BufferList()<cr>" } } }, -- list my buffers
-    { "tpope/vim-surround",                             event = { "InsertEnter", "BufEnter" } }, -- surround
-    { "szw/vim-maximizer",                              cmd = "MaximizerToggle" },              -- maximizer
-    { "josa42/nvim-gx",                                 keys = { { "gx", "<cmd>lua require('gx').gx()" } } }, -- open urls
+    { "kevinhwang91/rnvimr",       cmd = "RnvimrToggle" },                                      -- ranger file manager integration
+    { "kevinhwang91/nvim-bqf",     ft = "qf" },                                                 -- better quickfixList
+    { "tpope/vim-repeat",          event = "InsertEnter" },
+    { "roblillack/vim-bufferlist", keys = { { "<leader>bl", "<cmd>call BufferList()<cr>" } } }, -- list my buffers
+    { "tpope/vim-surround",        event = { "InsertEnter", "BufEnter" } },                     -- surround
+    { "szw/vim-maximizer",         cmd = "MaximizerToggle" },                                   -- maximizer
+    { "josa42/nvim-gx",            keys = { { "gx", "<cmd>lua require('gx').gx()" } } },        -- open urls
 
     -- cleaning buffers
     {
@@ -120,16 +120,15 @@ return {
     --ayudas de indentacion
     {
         "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
         event = "UIEnter",
-        config = function()
-            require("indent_blankline").setup({
-                show_current_context = true,
-                filetype_exclude = { "dashboard", "startify", "vim", "markdown", "txt" },
-                char_list = { '┆' },
-                context_char = '┆',
-                use_treesitter = true
-            })
-        end
+        opts = {
+            show_current_context = true,
+            filetype_exclude = { "dashboard", "startify", "vim", "markdown", "txt" },
+            char_list = { '┆' },
+            context_char = '┆',
+            use_treesitter = true
+        }
     },
     --comentarios
     {
