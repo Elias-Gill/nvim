@@ -1,10 +1,13 @@
--- NEOVIM only
+-- cosas que no me animo a cambiar
 vim.cmd([[
 au TermOpen * setlocal nonumber norelativenumber
 au TextYankPost * silent! lua vim.highlight.on_yank()
+au QuickFixCmdPost *grep* cwindow
 ]])
-vim.o.laststatus = 3
-vim.o.winbar = "%=%f%m"
+
+--- grep command ---
+vim.o.grepprg = 'rg --vimgrep'
+vim.o.grepformat = '%f:%l:%c:%m,%f|%l col %c|%m'
 
 --- indentation ---
 vim.opt.list = false
@@ -41,6 +44,8 @@ vim.o.showmode = true
 vim.o.scrolloff = 4
 vim.o.termguicolors = true
 vim.o.signcolumn = "yes"
+vim.o.laststatus = 3
+vim.o.winbar = "%=%f%m"
 
 --- Tabs to spaces ---
 vim.o.tabstop = 4

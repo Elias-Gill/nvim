@@ -37,25 +37,6 @@ nnoremap <leader>] :bnext<CR>
 nnoremap <leader>lp :%s/
 vnoremap <leader>lp :s/
 
-"Buscar funciones y definiciones 
-nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gqr :lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gr :FzfLua lsp_references<CR>
-nnoremap <silent> gi :FzfLua lsp_implementations<CR>
-nnoremap <silent>K :lua vim.lsp.buf.hover()<CR>
-nnoremap <silent>co :lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent><leader>rr :lua vim.lsp.buf.rename()<CR>
-"more lsp actions
-nnoremap <silent>gh :Lspsaga lsp_finder<CR>
-nnoremap <silent> =f :lua vim.lsp.buf.format ({ async = true })<CR>
-
-"Diagnostics
-nnoremap <silent><leader>to :lua vim.diagnostic.setqflist()<CR>
-nnoremap <silent><leader>tO :lua vim.diagnostic.setloclist()<CR>
-nnoremap <silent>[e :Lspsaga diagnostic_jump_prev<cr>
-nnoremap <silent>]e :Lspsaga diagnostic_jump_next<cr>
-nnoremap <silent>]t :Lspsaga show_line_diagnostics<cr>
 "todo comments
 nnoremap <silent><leader>tg :TodoQuickFix<CR>
 

@@ -65,10 +65,10 @@ local function cmpConfig()
         -- sources
         sources = {
             -- this also affects the order in the completion menu
-            { name = "luasnip",                max_item_count = 5 },
-            { name = "path",                   max_item_count = 5 },
+            { name = "luasnip", max_item_count = 5 },
+            { name = "path",    max_item_count = 5 },
             { name = "nvim_lsp" },
-            { name = "buffer",                 max_item_count = 5 },
+            { name = "buffer",  max_item_count = 5 },
         },
     })
 
@@ -99,7 +99,23 @@ return {
             -- {'tzachar/cmp-tabnine', build = './install.sh'}
         },
         config = function()
-            require("elias.lsp.luasnips")
+            require("luasnip.loaders.from_vscode").lazy_load() -- to load vscode-like snippets from plugins
+            -- require'luasnip'.filetype_extend("ruby", {"rails"})
+
+            --config
+            local types = require("luasnip.util.types")
+            require("luasnip").config.set_config {
+                history = false,
+                updateevents = "TextChanged", "TextChangedI",
+                enable_autosnippets = false,
+                ext_opts = {
+                    [types.choiceNode] = {
+                        active = {
+                            virt_text = { { "☞", "Comment" } },
+                        },
+                    },
+                }
+            }
             cmpConfig()
         end
     }
