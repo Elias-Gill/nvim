@@ -44,8 +44,8 @@ return {
         require("nvim-tree").setup({
             -- BEGIN_DEFAULT_OPTS
             hijack_cursor = true,
-            disable_netrw = true,
-            hijack_netrw = true,
+            disable_netrw = false,
+            hijack_netrw = false,
             open_on_tab = false,
             sync_root_with_cwd = true,
             reload_on_bufenter = false,
