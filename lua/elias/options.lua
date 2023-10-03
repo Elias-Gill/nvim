@@ -38,6 +38,12 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.splitkeep = "screen"
 
+--- folding ---
+vim.o.foldenable = false
+vim.o.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+
 --- Visuals ---
 vim.o.showcmd = true
 vim.o.showmode = true

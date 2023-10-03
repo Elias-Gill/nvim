@@ -5,7 +5,6 @@ vim.g.editorconfig = true -- builtin editor config support
 ------- configuracion general -----
 require("elias/disable_builtins")
 require("elias/options")
-require("elias/folds")
 -- ~/.config/nvim/after/plugin/remaps.vim  <- remaps file
 
 --------------- LAZY -----------
