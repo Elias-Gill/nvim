@@ -1,5 +1,5 @@
 return {
-    "ibhagwan/fzf-lua",
+    "elias-gill/fzf-lua",
     cmd = "FzfLua",
     config = function()
         require "fzf-lua".setup(

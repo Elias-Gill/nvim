@@ -16,7 +16,13 @@ return {
     },
 
     -- coconut oil navigation
-    { "ThePrimeagen/harpoon",      event = "BufAdd" },
+    {
+        "MeanderingProgrammer/harpoon-core.nvim",
+        config = function()
+            require('harpoon-core').setup({})
+        end,
+        event = "BufAdd"
+    },
     "christoomey/vim-tmux-navigator",
 
     -- VISUALS --
@@ -57,7 +63,7 @@ return {
     -- cleaning buffers
     {
         "kazhala/close-buffers.nvim",
-        cmd = "Bwipeout",
+        cmd = "BWipeout",
         config = function()
             require('close_buffers').setup()
         end
@@ -111,7 +117,6 @@ return {
         opts = {
             indent = { char = "┆" },
             scope = {
-                show_current_context = true,
                 show_start = false,
                 show_end = false,
             },

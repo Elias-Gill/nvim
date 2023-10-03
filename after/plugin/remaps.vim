@@ -5,10 +5,10 @@ inoremap <C-\> <C-w>
 nnoremap U <C-r> 
 
 "harpoon
-nnoremap <silent><leader>' :lua require("harpoon.ui").nav_next()<cr>
-nnoremap <silent><leader>; :lua require("harpoon.ui").nav_prev()<cr>
-nnoremap <silent><leader>hh :lua require("harpoon.mark").add_file()<cr>
-nnoremap <silent><leader>hu :lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <silent><leader>' :lua require("harpoon-core.ui").nav_next()<cr>
+nnoremap <silent><leader>; :lua require("harpoon-core.ui").nav_prev()<cr>
+nnoremap <silent><leader>hh :lua require("harpoon-core.mark").add_file()<cr>
+nnoremap <silent><leader>hu :lua require("harpoon-core.ui").toggle_quick_menu()<cr>
 
 "saving files and exit vim
 nnoremap <leader>wf :w!<CR> 
@@ -30,8 +30,8 @@ nnoremap <silent><leader>rt :RnvimrToggle<CR>
 nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
 
 "cicling buffers
-nnoremap <leader>[ :bprevious<CR>
-nnoremap <leader>] :bnext<CR>
+nnoremap [b :bprevious<CR>
+nnoremap ]b :bnext<CR>
 
 "renombrar buffer usar arg y argdo para refactor completo
 nnoremap <leader>lp :%s/
@@ -39,12 +39,12 @@ vnoremap <leader>lp :s/
 
 "todo comments
 nnoremap <silent><leader>tg :TodoQuickFix<CR>
+nnoremap <silent><leader>co :copen<CR>
 
 "cambiar pestanas
 nnoremap <leader>tn :tabnew<cr>
-nnoremap <C-9> <C-i><cr>
-nnoremap <S-tab> :tabprevious<cr>
-nnoremap <tab> :tabnext<cr>
+nnoremap <leader>[ :tabprevious<cr>
+nnoremap <leader>] :tabnext<cr>
 
 "centrar en saltos
 nnoremap n nzzzv

@@ -76,7 +76,7 @@ set fillchars+=diff:╱
 set completeopt=menuone,noselect
 
 " Borrar buffers sin usar
-command Bw :wa | Bwipeout hidden
+command Bw :wa | BWipeout hidden
 command W :w
 command Q :q
 
