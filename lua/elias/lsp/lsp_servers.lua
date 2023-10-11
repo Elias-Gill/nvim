@@ -17,14 +17,17 @@ local on_attach = function(_, bufnr)
     -- Diagnostics
     nmap('<leader>to', vim.diagnostic.setqflist, 'Proyect diagnostics')
     nmap('<leader>tO', vim.diagnostic.setloclist, 'Local buffer diagnostics')
-    nmap('[e', "<cmd>Lspsaga diagnostic_jump_prev<cr>", 'Jump previous diagnostic')
-    nmap(']e', "<cmd>Lspsaga diagnostic_jump_next<cr>", 'Jump to next diagnostic')
-    nmap(']t', "<cmd>Lspsaga show_line_diagnostics<cr>", 'Line diagnostics')
+    nmap('[e', vim.diagnostic.goto_prev, 'Jump to next diagnostic')
+    nmap(']e', vim.diagnostic.goto_next, 'Jump to next diagnostic')
+    nmap(']t', vim.diagnostic.open_float, 'Line diagnostics')
+
+    -- nmap('[e', "<cmd>Lspsaga diagnostic_jump_prev<cr>", 'Jump previous diagnostic')
+    -- nmap(']e', "<cmd>Lspsaga diagnostic_jump_next<cr>", 'Jump to next diagnostic')
+    -- nmap(']t', "<cmd>Lspsaga show_line_diagnostics<cr>", 'Line diagnostics')
 
     -- Actions
     nmap('<leader>rr', vim.lsp.buf.rename, '[R]e[n]ame')
     nmap('co', vim.lsp.buf.code_action, '[C]ode [A]ction')
-    nmap('=f', vim.lsp.buf.format, 'Formatting')
 
     nmap('gr', require('fzf-lua').lsp_references, '[G]oto [R]eferences') -- fzf references
     nmap('gi', require('fzf-lua').lsp_implementations, '[G]oto [I]mplementation')

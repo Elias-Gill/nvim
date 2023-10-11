@@ -18,12 +18,13 @@ nnoremap <leader>qf :q!<CR>
 nnoremap <leader>qq :q<CR>
 "save all buffers, format and quit
 nnoremap <leader>tt :Bw<cr> :qa<cr> 
+nnoremap <silent>=f :lua vim.lsp.buf.format()<cr>
 
 "file fuzzy searching
 nnoremap <silent><C-p> :FzfLua files<CR>
+nnoremap <silent><leader>f :FzfLua live_grep<CR>
 nnoremap <silent><C-f> :exe ":FzfLua files cwd=".g:terminal_path<CR>
 nnoremap <silent><C-s> :FzfLua<CR>
-nnoremap <silent><C-S-s> :FzfLua files cwd=~/<CR>
 
 "file managers
 nnoremap <silent><leader>rt :RnvimrToggle<CR>
@@ -40,6 +41,7 @@ vnoremap <leader>lp :s/
 "todo comments
 nnoremap <silent><leader>tg :TodoQuickFix<CR>
 nnoremap <silent><leader>co :copen<CR>
+nnoremap <silent><leader>lo :copen<CR>
 
 "cambiar pestanas
 nnoremap <leader>tn :tabnew<cr>
