@@ -18,7 +18,6 @@ nnoremap <leader>qf :q!<CR>
 nnoremap <leader>qq :q<CR>
 "save all buffers, format and quit
 nnoremap <leader>tt :Bw<cr> :qa<cr> 
-nnoremap <silent>=f :lua vim.lsp.buf.format()<cr>
 
 "file fuzzy searching
 nnoremap <silent><C-p> :FzfLua files<CR>
@@ -27,7 +26,7 @@ nnoremap <silent><C-f> :exe ":FzfLua files cwd=".g:terminal_path<CR>
 nnoremap <silent><C-s> :FzfLua<CR>
 
 "file managers
-nnoremap <silent><leader>rt :RnvimrToggle<CR>
+nnoremap <silent><leader>rt :Yazi<CR>
 nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
 
 "cicling buffers

@@ -52,7 +52,7 @@ return {
     "nvim-tree/nvim-web-devicons",
 
     --     Utilities    --
-    { "kevinhwang91/rnvimr",       cmd = "RnvimrToggle" },                                      -- ranger file manager integration
+    { "DreamMaoMao/yazi.nvim",     cmd = "Yazi" },
     { "kevinhwang91/nvim-bqf",     ft = "qf" },                                                 -- better quickfixList
     { "tpope/vim-repeat",          event = "InsertEnter" },
     { "roblillack/vim-bufferlist", keys = { { "<leader>bl", "<cmd>call BufferList()<cr>" } } }, -- list my buffers
@@ -113,7 +113,7 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
-        event = "UIEnter",
+        event = "BufAdd",
         opts = {
             indent = { char = "┆" },
             scope = {
