@@ -1,5 +1,11 @@
 -- cosas que no me animo a cambiar
 vim.cmd([[
+" emmet configuration
+let g:user_emmet_mode='i'
+let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key=','
+
+" good looking yank
 au TermOpen * setlocal nonumber norelativenumber
 au TextYankPost * silent! lua vim.highlight.on_yank()
 au QuickFixCmdPost *grep* cwindow

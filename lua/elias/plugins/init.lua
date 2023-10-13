@@ -138,4 +138,15 @@ return {
             })
         end,
     },
+    --emmet
+    {
+        "mattn/emmet-vim",
+        ft = { "html", "css", "svelte", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact", "astro" },
+        config = function()
+            vim.cmd(
+                [[
+                execute 'EmmetInstall'
+                autocmd FileType svelte,html,css,javascript,javascriptreact,vue,typescript,typescriptreact,astro EmmetInstall]])
+        end
+    },
 }
