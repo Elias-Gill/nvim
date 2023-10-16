@@ -1,17 +1,18 @@
 return {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
     cmd = "Telescope",
     dependencies = {
         "nvim-telescope/telescope-ui-select.nvim",
-        "nvim-telescope/telescope-media-files.nvim"
+        {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            build =
+                'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+        }
     },
     config = function()
         -- TELESCOPICK JOHNSON --
         require('telescope').setup {
             defaults = {
-                -- Default configuration for telescope goes here:
-                -- config_key = value,
                 mappings = {
                     i = {
                         ["<C-h>"] = "which_key",
@@ -22,22 +23,22 @@ return {
                 },
                 file_ignore_patterns = { '.git', 'go/', '*.class', 'VirtualBox/', 'node_modules/' },
             },
-            -- configuracion de los pickers
-            pickers = { },
 
             -- extensiones de telescope
             extensions = {
-                -- require("telescope").load_extension('harpoon')
                 ["ui-select"] = {
                     require("telescope.themes").get_cursor({})
                 },
-                media_files = {
-                    filetypes = {"png", "webp", "jpg", "jpeg", "jpg_"},
+                fzf = {
+                    fuzzy = true,                    -- false will only do exact matching
+                    override_generic_sorter = true,  -- override the generic sorter
+                    override_file_sorter = true,     -- override the file sorter
+                    case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                    -- the default case_mode is "smart_case"
                 }
             }
         }
         require("telescope").load_extension("ui-select")
-        require('telescope').load_extension('media_files')
-        -- require("telescope").load_extension("git_worktree")
+        require("telescope").load_extension("fzf")
     end
 }

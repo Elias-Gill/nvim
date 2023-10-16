@@ -24,5 +24,7 @@ return {
                     "--column --line-number --no-heading --color=always --smart-case --max-columns=512 -g '!.git' -g '!go/' -g '!*.class' -g '!facultad' -g '!VirtualBox*' -g '!node_modules*'"
                 },
             })
-    end
+
+        -- require "fzf-lua".register_ui_select()
+    end,
 }

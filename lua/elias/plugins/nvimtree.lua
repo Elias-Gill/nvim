@@ -50,15 +50,17 @@ return {
             sync_root_with_cwd = true,
             reload_on_bufenter = false,
             auto_reload_on_write = true,
-            respect_buf_cwd = false,
+            respect_buf_cwd = true,
+            update_focused_file = {
+                enable = true,
+                update_root = true,
+            },
             view = {
                 width = 32,
                 signcolumn = "no",
             },
             renderer = {
-                indent_markers = {
-                    enable = false,
-                },
+                indent_markers = { enable = false },
                 icons = {
                     glyphs = {
                         git = {
@@ -74,25 +76,9 @@ return {
                 },
                 special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
             },
-            update_focused_file = {
-                enable = true,
-                update_root = true,
-                ignore_list = {},
-            },
-            filters = {
-                dotfiles = true,
-                custom = {},
-                exclude = {},
-            },
-            filesystem_watchers = {
-                enable = false,
-                debounce_delay = 2000,
-            },
-            git = {
-                enable = false,
-                ignore = false,
-                timeout = 3000,
-            },
+            filters = { dotfiles = true, },
+            filesystem_watchers = { enable = false },
+            git = { enable = false }, -- PERFORMANCE issues
             actions = {
                 use_system_clipboard = true,
                 change_dir = {
@@ -111,12 +97,12 @@ return {
             -- mappings
             on_attach = on_attach,
         })
+
         -- autoclose on quit
         vim.api.nvim_create_autocmd("BufEnter", {
             command = "if winnr('$') == 1 && bufname() =~ 'NvimTree_' . tabpagenr() | quit | endif",
             nested = true,
         })
-
         -- Open on setup
         require('nvim-tree.api').tree.toggle({ focus = false, find_file = true, })
     end
