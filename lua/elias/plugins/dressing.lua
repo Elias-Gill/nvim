@@ -12,7 +12,7 @@ local function config()
         },
         select = {
             -- Priority list of preferred vim.select implementations
-            backend = { "telescope", "fzf_lua", "builtin", "nui" },
+            backend = { "builtin", "nui" },
             -- Options for built-in selector
             builtin = {
                 border = "single",

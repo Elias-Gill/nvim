@@ -55,7 +55,6 @@ return {
     { "DreamMaoMao/yazi.nvim",     cmd = "Yazi" },
     { "kevinhwang91/nvim-bqf",     ft = "qf" },                                                 -- better quickfixList
     { "tpope/vim-repeat",          event = "InsertEnter" },
-    { "roblillack/vim-bufferlist", keys = { { "<leader>bl", "<cmd>call BufferList()<cr>" } } }, -- list my buffers
     { "tpope/vim-surround",        event = { "InsertEnter", "BufEnter" } },                     -- surround
     { "szw/vim-maximizer",         cmd = "MaximizerToggle" },                                   -- maximizer
     { "josa42/nvim-gx",            keys = { { "gx", "<cmd>lua require('gx').gx()" } } },        -- open urls

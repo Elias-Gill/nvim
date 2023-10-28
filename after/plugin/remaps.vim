@@ -40,12 +40,12 @@ vnoremap <leader>lp :s/
 "todo comments
 nnoremap <silent><leader>tg :TodoQuickFix<CR>
 nnoremap <silent><leader>co :copen<CR>
-nnoremap <silent><leader>lo :copen<CR>
+nnoremap <silent><leader>lo :lopen<CR>
 
 "cambiar pestanas
 nnoremap <leader>tn :tabnew<cr>
-nnoremap <leader>[ :tabprevious<cr>
-nnoremap <leader>] :tabnext<cr>
+nnoremap t[ :tabprevious<cr>
+nnoremap t] :tabnext<cr>
 
 "centrar en saltos
 nnoremap n nzzzv

@@ -63,6 +63,6 @@ return {
             })
         end,
     },
-    "tpope/vim-fugitive",
+    -- "tpope/vim-fugitive",
     { "almo7aya/openingh.nvim", tag = "v1.0.1", cmd = { "OpenInGHFile", "OpenInGHRepo" } },
 }
