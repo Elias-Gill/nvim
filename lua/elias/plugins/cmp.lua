@@ -65,10 +65,10 @@ local function cmpConfig()
         -- sources
         sources = {
             -- this also affects the order in the completion menu
-            { name = "luasnip", max_item_count = 5 },
-            { name = "path",    max_item_count = 5 },
-            { name = "nvim_lsp" },
-            { name = "buffer",  max_item_count = 5 },
+            { name = "luasnip",  max_item_count = 5 },
+            { name = "path",     max_item_count = 5 },
+            { name = "nvim_lsp", max_item_count = 25 },
+            { name = "buffer",   max_item_count = 5 },
         },
     })
 
