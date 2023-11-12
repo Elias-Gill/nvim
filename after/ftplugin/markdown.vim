@@ -2,6 +2,7 @@ setlocal conceallevel=2
 setlocal linebreak
 setlocal wrap
 setlocal tw=0
+setlocal spell spelllang=es
 
 nnoremap <buffer>k gk
 nnoremap <buffer>j gj

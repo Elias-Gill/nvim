@@ -48,7 +48,6 @@ return {
     },
 
     -- Fonts and icons
-    "ryanoasis/vim-devicons",
     "nvim-tree/nvim-web-devicons",
 
     --     Utilities    --
@@ -76,19 +75,8 @@ return {
         end
     },
     -- zen mode
-    {
-        "folke/zen-mode.nvim",
-        opts = {
-            window = {
-                options = {
-                    signcolumn = "no",
-                    number = false,
-                    relativenumber = false,
-                },
-            },
-        },
-        cmd = "ZenMode"
-    },
+    -- "folke/zen-mode.nvim",
+
     -- colorizer
     {
         'NvChad/nvim-colorizer.lua',
