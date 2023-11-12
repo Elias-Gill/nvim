@@ -87,7 +87,7 @@ return {
     -- Neovim Cmp (completition engine) and snippets
     {
         "hrsh7th/nvim-cmp",
-        event = "ModeChanged",
+        event = "VeryLazy",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
