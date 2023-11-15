@@ -24,6 +24,6 @@ return {
         require("elias.lsp.lsp_servers")
     end,
     dependencies = {
-        { "williamboman/mason-lspconfig.nvim", event = "UIEnter"},
+        "williamboman/mason-lspconfig.nvim",
     }
 }
