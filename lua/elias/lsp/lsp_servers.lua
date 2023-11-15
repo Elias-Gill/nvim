@@ -12,6 +12,7 @@ local on_attach = function(_, bufnr)
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
     nmap('gy', vim.lsp.buf.type_definition, 'Type [D]efinition')
     nmap('gR', vim.lsp.buf.references, 'Quick fix references') -- quickfix referecnes
+    nmap('gI', vim.lsp.buf.implementations, 'Quick fix references') -- quickfix referecnes
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
 
     -- Diagnostics
@@ -21,16 +22,12 @@ local on_attach = function(_, bufnr)
     nmap(']e', vim.diagnostic.goto_next, 'Jump to next diagnostic')
     nmap(']t', vim.diagnostic.open_float, 'Line diagnostics')
 
-    -- nmap('[e', "<cmd>Lspsaga diagnostic_jump_prev<cr>", 'Jump previous diagnostic')
-    -- nmap(']e', "<cmd>Lspsaga diagnostic_jump_next<cr>", 'Jump to next diagnostic')
-    -- nmap(']t', "<cmd>Lspsaga show_line_diagnostics<cr>", 'Line diagnostics')
-
     -- Actions
     nmap('<leader>rr', vim.lsp.buf.rename, '[R]e[n]ame')
     nmap('co', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-    nmap('gr', require('fzf-lua').lsp_references, '[G]oto [R]eferences') -- fzf references
-    nmap('gi', require('fzf-lua').lsp_implementations, '[G]oto [I]mplementation')
+    nmap('gr', "<cmd>References<cr>", '[G]oto [R]eferences') -- fzf references
+    nmap('gi', "<cmd>Implementations<cr>", '[G]oto [I]mplementation')
 end
 
 local function configurar_server(server)

@@ -20,10 +20,16 @@ nnoremap <leader>qq :q<CR>
 nnoremap <leader>tt :Bw<cr> :qa<cr> 
 
 "file fuzzy searching
-nnoremap <silent><C-p> :FzfLua files<CR>
-nnoremap <silent><leader>f :FzfLua live_grep<CR>
-nnoremap <silent><C-f> :exe ":FzfLua files cwd=".g:terminal_path<CR>
-nnoremap <silent><C-s> :FzfLua<CR>
+" nnoremap <silent><C-p> :FzfLua files<CR>
+" nnoremap <silent><leader>f :FzfLua live_grep<CR>
+" nnoremap <silent><C-f> :exe ":FzfLua files cwd=".g:terminal_path<CR>
+" nnoremap <silent><C-s> :FzfLua<CR>
+
+"file fuzzy searching
+nnoremap <silent><C-p> :Files<CR>
+nnoremap <silent><leader>f :RG<CR>
+nnoremap <silent><C-f> :exe ":Files ".g:terminal_path<CR>
+nnoremap <silent>of :History<cr>
 
 "file managers
 nnoremap <silent><leader>rt :Yazi<CR>

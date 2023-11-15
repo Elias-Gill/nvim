@@ -24,6 +24,17 @@ return {
         event = "BufAdd"
     },
     "christoomey/vim-tmux-navigator",
+    {
+        "junegunn/fzf.vim",
+        cmd = { "Files", "References", "Implementations", "History", "RG" },
+        dependencies = {
+            {
+                "junegunn/fzf",
+                build = "./install --all"
+            },
+            'gfanto/fzf-lsp.nvim'
+        }
+    },
 
     -- VISUALS --
     -- colorschemes
@@ -51,12 +62,12 @@ return {
     "nvim-tree/nvim-web-devicons",
 
     --     Utilities    --
-    { "DreamMaoMao/yazi.nvim",     cmd = "Yazi" },
-    { "kevinhwang91/nvim-bqf",     ft = "qf" },                                                 -- better quickfixList
-    { "tpope/vim-repeat",          event = "InsertEnter" },
-    { "tpope/vim-surround",        event = { "InsertEnter", "BufEnter" } },                     -- surround
-    { "szw/vim-maximizer",         cmd = "MaximizerToggle" },                                   -- maximizer
-    { "josa42/nvim-gx",            keys = { { "gx", "<cmd>lua require('gx').gx()" } } },        -- open urls
+    { "DreamMaoMao/yazi.nvim", cmd = "Yazi" },
+    { "kevinhwang91/nvim-bqf", ft = "qf" },                                          -- better quickfixList
+    { "tpope/vim-repeat",      event = "InsertEnter" },
+    { "tpope/vim-surround",    event = { "InsertEnter", "BufEnter" } },              -- surround
+    { "szw/vim-maximizer",     cmd = "MaximizerToggle" },                            -- maximizer
+    { "josa42/nvim-gx",        keys = { { "gx", "<cmd>lua require('gx').gx()" } } }, -- open urls
 
     -- cleaning buffers
     {
