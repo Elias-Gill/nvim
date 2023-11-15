@@ -12,7 +12,7 @@ local on_attach = function(_, bufnr)
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
     nmap('gy', vim.lsp.buf.type_definition, 'Type [D]efinition')
     nmap('gR', vim.lsp.buf.references, 'Quick fix references') -- quickfix referecnes
-    nmap('gI', vim.lsp.buf.implementations, 'Quick fix references') -- quickfix referecnes
+    nmap('gI', vim.lsp.buf.implementation, 'Quick fix implementations') -- quickfix implementations
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
 
     -- Diagnostics
