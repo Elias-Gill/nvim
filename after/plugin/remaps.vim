@@ -29,7 +29,7 @@ nnoremap <leader>tt :Bw<cr> :qa<cr>
 nnoremap <silent><C-p> :Files<CR>
 nnoremap <silent><leader>f :RG<CR>
 nnoremap <silent><C-f> :exe ":Files ".g:terminal_path<CR>
-nnoremap <silent>of :History<cr>
+nnoremap <silent><leader>of :History<cr>
 
 "file managers
 nnoremap <silent><leader>rt :Yazi<CR>

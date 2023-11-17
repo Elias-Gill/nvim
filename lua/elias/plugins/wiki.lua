@@ -2,16 +2,16 @@ local function mkdConfig()
     -- personal replace for VimWiki
     require("mkdnflow").setup({
         modules = {
-            bib = true,
             buffers = true,
-            conceal = false,
-            cursor = true,
+            tables = true,
             folds = true,
             links = true,
             lists = true,
-            maps = true,
             paths = true,
-            tables = true,
+            maps = true, -- keymaps
+            conceal = false,
+            cursor = false,
+            bib = false,
         },
         filetypes = { markdown = true },
         create_dirs = true,
@@ -22,11 +22,7 @@ local function mkdConfig()
             nvim_wd_heel = false,
         },
         wrap = false,
-        bib = {
-            default_path = "~/Documentos/wiki/",
-            find_in_root = false,
-        },
-        silent = false,
+        silent = true,
         lists = {
             conceal = true
         },
@@ -34,6 +30,7 @@ local function mkdConfig()
             style = "markdown",
             conceal = true,
             implicit_extension = nil,
+            transform_explicit = false,
             transform_implicit = false,
         },
         to_do = {
