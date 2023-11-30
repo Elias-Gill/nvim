@@ -10,7 +10,10 @@ return {
             astro = { 'eslint_d', },
             svelte = { 'eslint_d', },
             vue = { 'eslint_d', },
-            lua = { 'luacheck', }
+            lua = { 'luacheck', },
+            golang = { 'golangcilint', },
+            go = { 'golangcilint', },
+            git = { 'gitlint', },
         }
 
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
