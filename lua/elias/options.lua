@@ -36,7 +36,7 @@ vim.opt.numberwidth = 4
 vim.o.cursorline = true
 
 --- wraping ---
-vim.o.tw = 100
+vim.o.tw = 110
 vim.o.wrap = true
 vim.o.linebreak = true
 vim.o.colorcolumn = "80"
@@ -59,6 +59,7 @@ vim.o.signcolumn = "yes"
 vim.o.laststatus = 3
 vim.o.winbar = "%=%f%m"
 vim.o.showbreak = "| "
+vim.o.background = "dark"
 
 --- Tabs to spaces ---
 vim.o.tabstop = 4

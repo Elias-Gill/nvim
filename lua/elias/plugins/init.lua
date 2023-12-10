@@ -17,11 +17,15 @@ return {
 
     -- coconut oil navigation
     {
-        "MeanderingProgrammer/harpoon-core.nvim",
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
         config = function()
-            require('harpoon-core').setup({})
-        end,
-        event = "BufAdd"
+            local harpoon = require("harpoon")
+
+            -- REQUIRED
+            harpoon:setup()
+            -- REQUIRED
+        end
     },
     "christoomey/vim-tmux-navigator",
     {
@@ -43,6 +47,7 @@ return {
         name = "catppuccin",
         priority = 1000,
         config = function()
+            vim.o.background = "dark"
             require("catppuccin").setup({
                 flavour = "mocha", -- latte, frappe, macchiato, mocha
                 dim_inactive = {
