@@ -28,6 +28,7 @@ nnoremap <leader>tt :Bw<cr> :qa<cr>
 "file fuzzy searching
 nnoremap <silent><C-p> :Files<CR>
 nnoremap <silent><leader>f :RG<CR>
+vnoremap <silent><leader>f y:RG <c-r>"<CR>
 nnoremap <silent><C-f> :exe ":Files ".g:terminal_path<CR>
 nnoremap <silent><leader>of :History<cr>
 

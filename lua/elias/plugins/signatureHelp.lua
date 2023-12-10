@@ -12,7 +12,7 @@ return {
                 -- hint_prefix = "🐼 ",
                 -- hint_scheme = "String",
                 hint_enable = false,
-                doc_lines = 2,
+                doc_lines = 0,
 
                 -- hi_parameter = "LspSignatureActiveParameter",
                 hi_parameter = "IncSearch",
@@ -27,7 +27,7 @@ return {
                     return vim.fn.winwidth(0)
                 end,
                 floating_window_off_y = function()
-                    return vim.fn.winheight(0)
+                    return vim.fn.winheight(0)-1
                 end
             })
         end

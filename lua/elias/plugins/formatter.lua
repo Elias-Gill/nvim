@@ -10,7 +10,7 @@ return {
             function()
                 require("conform").format({ async = true, lsp_fallback = true })
             end,
-            mode = {"n", "v"},
+            mode = { "n", "v" },
             desc = "Format buffer",
         },
     },
@@ -24,6 +24,8 @@ return {
             sh = { "shfmt" },
             -- Use a sub-list to run only the first available formatter
             javascript = { { "prettierd", "prettier" } },
+            typescript = { { "prettierd", "prettier" } },
+            javascriptreact = { { "prettierd", "prettier" } },
             astro = { { "prettierd", "prettier" } },
         }
     },

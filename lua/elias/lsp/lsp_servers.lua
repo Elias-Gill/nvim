@@ -11,7 +11,7 @@ local on_attach = function(_, bufnr)
     nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
     nmap('gy', vim.lsp.buf.type_definition, 'Type [D]efinition')
-    nmap('gR', vim.lsp.buf.references, 'Quick fix references') -- quickfix referecnes
+    nmap('gR', vim.lsp.buf.references, 'Quick fix references')          -- quickfix referecnes
     nmap('gI', vim.lsp.buf.implementation, 'Quick fix implementations') -- quickfix implementations
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
 
@@ -30,12 +30,13 @@ local on_attach = function(_, bufnr)
     nmap('gi', "<cmd>Implementations<cr>", '[G]oto [I]mplementation')
 end
 
-local function configurar_server(server)
+local function configurar_server(server, settings)
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     local lspconfig = require("lspconfig")
     lspconfig[server].setup({
         capabilities = capabilities,
-        on_attach = on_attach
+        on_attach = on_attach,
+        settings = settings
     })
 end
 
@@ -47,6 +48,13 @@ require("mason-lspconfig").setup_handlers {
     ["volar"] = function()
         require("null-ls").disable({ "prettier" })
         configurar_server("volar")
+    end,
+
+    ["jdtls"] = function()
+        local settings = {
+            signatureHelp = { enabled = true },
+        }
+        configurar_server("jdtls", settings)
     end,
 
     ["sqlls"] = function()

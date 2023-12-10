@@ -56,7 +56,7 @@ return {
         cmd = "DiffviewOpen",
         config = diffviewConfig
     },
-    -- "tpope/vim-fugitive",
+    { "tpope/vim-fugitive", cmd = "G" },
     -- "lewis6991/gitsigns.nvim",
     -- "almo7aya/openingh.nvim",
 }

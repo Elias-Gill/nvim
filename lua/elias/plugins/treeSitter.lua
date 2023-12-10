@@ -1,4 +1,7 @@
 local function tsConfig()
+    vim.g.skip_ts_context_commentstring_module = true
+    require('ts_context_commentstring').setup({})
+
     --treesitter
     require("nvim-treesitter.configs").setup({
         ensure_installed = { "yaml", "json", "toml", "markdown", "vimdoc", "markdown_inline", "lua", "javascript", "go",
@@ -70,11 +73,6 @@ local function tsConfig()
                 ['<leader>A'] = '@parameter.inner',
             },
         },
-        -- change comment style for embeded languages
-        context_commentstring = {
-            enable = true,
-            enable_autocmd = false,
-        },
     })
 end
 
@@ -90,12 +88,4 @@ return {
             "JoosepAlviste/nvim-ts-context-commentstring",
         },
     },
-    -- ts playground
-    -- {
-    --     "nvim-treesitter/playground",
-    --     cmd = "TSPlaygroundToggle",
-    --     config = function()
-    --         require("nvim-treesitter.configs").setup({})
-    --     end,
-    -- },
 }

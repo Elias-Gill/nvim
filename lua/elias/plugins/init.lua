@@ -26,7 +26,7 @@ return {
     "christoomey/vim-tmux-navigator",
     {
         "junegunn/fzf.vim",
-        cmd = { "Files", "References", "Implementations", "History", "RG" },
+        cmd = { "Files", "References", "Implementations", "History", "RG", "Helptags" },
         dependencies = {
             {
                 "junegunn/fzf",
@@ -45,10 +45,14 @@ return {
         config = function()
             require("catppuccin").setup({
                 flavour = "mocha", -- latte, frappe, macchiato, mocha
+                dim_inactive = {
+                    enabled = false,
+                },
                 transparent_background = true,
                 custom_highlights = function(_)
                     return {
                         ["NvimTreeCursorLine"] = { bg = "#323232", style = { "italic" } },
+                        ["WinBarNC"] = { bg = "NONE" },
                         ["CursorLine"] = { bg = "#343434" },
                         ["@ibl.scope.char.1"] = { fg = "#eeeeee" }
                     }
