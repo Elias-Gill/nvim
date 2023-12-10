@@ -1,12 +1,12 @@
 return {
-    -- Lsp configs
-    {
-        "neovim/nvim-lspconfig",
-        event = "VeryLazy",
-        config = function()
-            require("elias.lsp.lsp-visuals")
-        end,
-    },
+	-- Lsp configs
+	{
+		"neovim/nvim-lspconfig",
+		event = "VeryLazy",
+		config = function()
+			require("elias.lsp.lsp-visuals")
+		end,
+	},
 }
 
 --[[ dependencies = {

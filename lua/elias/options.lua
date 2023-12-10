@@ -12,8 +12,8 @@ au QuickFixCmdPost *grep* cwindow
 ]])
 
 --- grep command ---
-vim.o.grepprg = 'rg --vimgrep'
-vim.o.grepformat = '%f:%l:%c:%m,%f|%l col %c|%m'
+vim.o.grepprg = "rg --vimgrep"
+vim.o.grepformat = "%f:%l:%c:%m,%f|%l col %c|%m"
 
 --- indentation ---
 vim.opt.list = false
@@ -99,4 +99,3 @@ let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 ]])
-

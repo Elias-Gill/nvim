@@ -4,17 +4,6 @@ let g:terminal_path = getcwd()
 inoremap <C-\> <C-w>
 nnoremap U <C-r> 
 
-"harpoon
-" nnoremap <silent><leader>' :lua require("harpoon-core.ui").nav_next()<cr>
-" nnoremap <silent><leader>; :lua require("harpoon-core.ui").nav_prev()<cr>
-" nnoremap <silent><leader>hh :lua require("harpoon-core.mark").add_file()<cr>
-" nnoremap <silent><leader>hu :lua require("harpoon-core.ui").toggle_quick_menu()<cr>
-
-nnoremap <silent><leader>hh :lua require("harpoon"):list():append()<cr>
-nnoremap <silent><leader>hu :lua require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())<cr>
-nnoremap <silent><leader>' :lua require("harpoon"):list():next()<cr>
-nnoremap <silent><leader>; :lua require("harpoon"):list():prev()<cr>
-
 "saving files and exit vim
 nnoremap <leader>wf :w!<CR> 
 nnoremap <leader>wa :wa<cr>
