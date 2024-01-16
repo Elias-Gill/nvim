@@ -108,6 +108,8 @@ return {
 				history = false,
 				updateevents = "TextChanged",
 				"TextChangedI",
+				delete_check_events = "TextChanged",
+				region_check_events = "CursorMoved",
 				enable_autosnippets = false,
 				ext_opts = {
 					[types.choiceNode] = {
