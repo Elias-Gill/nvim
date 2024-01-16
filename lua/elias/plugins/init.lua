@@ -15,23 +15,7 @@ return {
 		end,
 	},
 
-	-- coconut oil navigation
-	{
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		event = "BufAdd",
-		config = function()
-			local harpoon = require("harpoon")
-			-- REQUIRED
-			harpoon:setup()
-			vim.cmd([[
-                nnoremap <silent><leader>hh :lua require("harpoon"):list():append()<cr>
-                nnoremap <silent><leader>hu :lua require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())<cr>
-                nnoremap <silent><leader>' :lua require("harpoon"):list():next()<cr>
-                nnoremap <silent><leader>; :lua require("harpoon"):list():prev()<cr>
-            ]])
-		end,
-	},
+    -- navigation
 	"christoomey/vim-tmux-navigator",
 	{
 		"junegunn/fzf.vim",
@@ -64,6 +48,7 @@ return {
 						["NvimTreeCursorLine"] = { bg = "#323232", style = { "italic" } },
 						["WinBarNC"] = { bg = "NONE" },
 						["CursorLine"] = { bg = "#343434" },
+                        ["EndOfBuffer"] = { fg = "#464646" },
 						["@ibl.scope.char.1"] = { fg = "#eeeeee" },
 					}
 				end,

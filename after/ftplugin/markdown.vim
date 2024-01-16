@@ -2,7 +2,7 @@ setlocal conceallevel=2
 setlocal linebreak
 setlocal wrap
 setlocal tw=0
-setlocal spell spelllang=es
+" setlocal spell spelllang=es
 
 nnoremap <buffer>k gk
 nnoremap <buffer>j gj
@@ -20,3 +20,12 @@ nnoremap <buffer>$ g$
 
 vnoremap <buffer>^ g^
 vnoremap <buffer>$ g$
+
+function MdOpen()
+    let fn = expand("%:p")
+    let bnumber = bufnr(fn)
+    call jobstart("md-reader " .'"'. fn .'"')
+endfunction
+
+command -buffer MdView call MdOpen()
+nnoremap <buffer><leader>op :MdView<cr>

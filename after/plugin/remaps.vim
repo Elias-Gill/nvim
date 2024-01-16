@@ -14,17 +14,13 @@ nnoremap <leader>qq :q<CR>
 nnoremap <leader>tt :Bw<cr> :qa<cr> 
 
 "file fuzzy searching
-" nnoremap <silent><C-p> :FzfLua files<CR>
-" nnoremap <silent><leader>f :FzfLua live_grep<CR>
-" nnoremap <silent><C-f> :exe ":FzfLua files cwd=".g:terminal_path<CR>
-" nnoremap <silent><C-s> :FzfLua<CR>
-
-"file fuzzy searching
 nnoremap <silent><C-p> :Files<CR>
 nnoremap <silent><leader>f :RG<CR>
 vnoremap <silent><leader>f y:RG <c-r>"<CR>
 nnoremap <silent><C-f> :exe ":Files ".g:terminal_path<CR>
 nnoremap <silent><leader>of :History<cr>
+
+nnoremap <silent><leader>cg :ChatGPT<cr>
 
 "file managers
 nnoremap <silent><leader>rt :Yazi<CR>

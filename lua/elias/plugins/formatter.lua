@@ -18,7 +18,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			-- Conform will run multiple formatters sequentially
-			python = { "isort", "black" },
+			python = { "black", "isort" },
 			bash = { "shfmt" },
 			markdown = { "mdformat" },
 			sh = { "shfmt" },
