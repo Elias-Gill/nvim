@@ -3,9 +3,10 @@ vim.loader.enable() -- lazy load everything
 vim.g.editorconfig = true -- builtin editor config support
 
 ------- configuracion general -----
+vim.g.mapleader = " "
 require("elias/disable_builtins")
 require("elias/options")
--- ~/.config/nvim/after/plugin/remaps.vim  <- remaps file
+-- ./after/plugin/remaps.vim  <- remaps file
 
 --------------- LAZY -----------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

@@ -2,14 +2,34 @@ return {
 	"MeanderingProgrammer/harpoon-core.nvim",
 	config = function()
 		require("harpoon-core").setup({})
-		vim.cmd([[
-            nnoremap <silent><leader>' :lua require("harpoon-core.ui").nav_next()<cr>
-            nnoremap <silent><leader>; :lua require("harpoon-core.ui").nav_prev()<cr>
-            nnoremap <silent><leader>hh :lua require("harpoon-core.mark").add_file()<cr>
-            nnoremap <silent><leader>hu :lua require("harpoon-core.ui").toggle_quick_menu()<cr>
-            ]])
 	end,
 	event = "BufAdd",
+	keys = {
+		{
+			"<leader>'",
+			"<cmd>lua require('harpoon-core.ui').nav_prev()<cr>zz",
+			mode = { "n" },
+			desc = "Harpoon prev",
+		},
+		{
+			"<leader>;",
+			"<cmd>lua require('harpoon-core.ui').nav_next()<cr>zz",
+			mode = { "n" },
+			desc = "Harpoon Next",
+		},
+		{
+			"<leader>hh",
+			"<cmd>lua require('harpoon-core.mark').add_file()<cr>",
+			mode = { "n" },
+			desc = "Harpoon add Mark",
+		},
+		{
+			"<leader>hu",
+			"<cmd>lua require('harpoon-core.ui').toggle_quick_menu()<cr>",
+			mode = { "n" },
+			desc = "Harpoon ui",
+		},
+	},
 }
 
 -- coconut oil navigation

@@ -1,4 +1,3 @@
-let mapleader = " "
 let g:terminal_path = getcwd()
 
 inoremap <C-\> <C-w>
@@ -19,8 +18,6 @@ nnoremap <silent><leader>f :RG<CR>
 vnoremap <silent><leader>f y:RG <c-r>"<CR>
 nnoremap <silent><C-f> :exe ":Files ".g:terminal_path<CR>
 nnoremap <silent><leader>of :History<cr>
-
-nnoremap <silent><leader>cg :ChatGPT<cr>
 
 "file managers
 nnoremap <silent><leader>rt :Yazi<CR>
