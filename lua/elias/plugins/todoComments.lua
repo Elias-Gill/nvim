@@ -23,7 +23,7 @@ return {
 				keyword = "wide_fg",
 				after = "fg",
 				before = "",
-				pattern = [[.*<(KEYWORDS)\s*]], -- pattern or table of patterns
+                pattern = [[.*<(KEYWORDS):\s*]], -- pattern or table of patterns
 				comments_only = true,
 				max_line_len = 400,
 				exclude = {},

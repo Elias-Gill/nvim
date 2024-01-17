@@ -14,10 +14,12 @@ nnoremap <leader>tt :Bw<cr> :qa<cr>
 
 "file fuzzy searching
 nnoremap <silent><C-p> :Files<CR>
-nnoremap <silent><leader>f :RG<CR>
-vnoremap <silent><leader>f y:RG <c-r>"<CR>
-nnoremap <silent><C-f> :exe ":Files ".g:terminal_path<CR>
 nnoremap <silent><leader>of :History<cr>
+nnoremap <silent><leader>f :RG<CR>
+
+" grep functions (they may override when lsp is on)
+nnoremap gr :silent vimgrep! <c-r><c-w> **<cr>
+vnoremap gr y:silent vimgrep! <c-r>" **<cr>
 
 "file managers
 nnoremap <silent><leader>rt :Yazi<CR>
