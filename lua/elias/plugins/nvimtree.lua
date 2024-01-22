@@ -36,74 +36,76 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts("CD"))
 end
 
+local function conf_nvimtree()
+	require("nvim-tree").setup({
+		-- BEGIN_DEFAULT_OPTS
+		hijack_cursor = true,
+		disable_netrw = false,
+		hijack_netrw = false,
+		open_on_tab = false,
+		sync_root_with_cwd = true,
+		reload_on_bufenter = false,
+		auto_reload_on_write = true,
+		respect_buf_cwd = true,
+		update_focused_file = {
+			enable = true,
+			update_root = true,
+		},
+		view = {
+			width = 32,
+			signcolumn = "no",
+		},
+		renderer = {
+			indent_markers = { enable = false },
+			icons = {
+				glyphs = {
+					git = {
+						unstaged = "✗",
+						staged = "✓",
+						unmerged = "",
+						renamed = "➜",
+						untracked = "👀",
+						deleted = "",
+						ignored = "? ",
+					},
+				},
+			},
+			special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+		},
+		filters = { dotfiles = true },
+		filesystem_watchers = { enable = false },
+		git = { enable = false }, -- PERFORMANCE issues
+		actions = {
+			use_system_clipboard = true,
+			change_dir = {
+				enable = true,
+				global = true,
+				restrict_above_cwd = false,
+			},
+			expand_all = {
+				max_folder_discovery = 50,
+			},
+		},
+		trash = {
+			cmd = "trash",
+			require_confirm = true,
+		},
+		-- mappings
+		on_attach = on_attach,
+	})
+
+	-- autoclose on quit
+	vim.api.nvim_create_autocmd("BufEnter", {
+		command = "if winnr('$') == 1 && bufname() =~ 'NvimTree_' . tabpagenr() | quit | endif",
+		nested = true,
+	})
+	-- Open on setup
+	require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
+end
+
 return {
 	"kyazdani42/nvim-tree.lua",
 	event = "UIEnter",
 	-- cmd = "NvimTreeFindFileToggle",
-	config = function()
-		require("nvim-tree").setup({
-			-- BEGIN_DEFAULT_OPTS
-			hijack_cursor = true,
-			disable_netrw = false,
-			hijack_netrw = false,
-			open_on_tab = false,
-			sync_root_with_cwd = true,
-			reload_on_bufenter = false,
-			auto_reload_on_write = true,
-			respect_buf_cwd = true,
-			update_focused_file = {
-				enable = true,
-				update_root = true,
-			},
-			view = {
-				width = 32,
-				signcolumn = "no",
-			},
-			renderer = {
-				indent_markers = { enable = false },
-				icons = {
-					glyphs = {
-						git = {
-							unstaged = "✗",
-							staged = "✓",
-							unmerged = "",
-							renamed = "➜",
-							untracked = "👀",
-							deleted = "",
-							ignored = "? ",
-						},
-					},
-				},
-				special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
-			},
-			filters = { dotfiles = true },
-			filesystem_watchers = { enable = false },
-			git = { enable = false }, -- PERFORMANCE issues
-			actions = {
-				use_system_clipboard = true,
-				change_dir = {
-					enable = true,
-					global = true,
-					restrict_above_cwd = false,
-				},
-				expand_all = {
-					max_folder_discovery = 50,
-				},
-			},
-			trash = {
-				cmd = "trash",
-				require_confirm = true,
-			},
-			-- mappings
-			on_attach = on_attach,
-		})
-
-		-- autoclose on quit
-		vim.api.nvim_create_autocmd("BufEnter", {
-			command = "if winnr('$') == 1 && bufname() =~ 'NvimTree_' . tabpagenr() | quit | endif",
-			nested = true,
-		})
-		-- Open on setup
-		require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
-	end,
+	config = conf_nvimtree,
 }

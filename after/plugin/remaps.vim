@@ -12,11 +12,6 @@ nnoremap <leader>qq :q<CR>
 "save all buffers, format and quit
 nnoremap <leader>tt :Bw<cr> :qa<cr> 
 
-"file fuzzy searching
-nnoremap <silent><C-p> :Files<CR>
-nnoremap <silent><leader>of :History<cr>
-nnoremap <silent><leader>f :RG<CR>
-
 " grep functions (they may override when lsp is on)
 nnoremap gr :silent vimgrep! <c-r><c-w> **<cr>
 vnoremap gr y:silent vimgrep! <c-r>" **<cr>
@@ -108,7 +103,7 @@ nnoremap <leader>ut :UndotreeToggle<cr>
 "git
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>do :DiffviewOpen<CR>
-nnoremap <leader>dO :DiffviewClose<CR>
+nnoremap <leader>DO :DiffviewClose<CR>
 
 "block the arrow keys
 nnoremap <up> <nop>

@@ -15,20 +15,6 @@ return {
 		end,
 	},
 
-    -- navigation
-	"christoomey/vim-tmux-navigator",
-	{
-		"junegunn/fzf.vim",
-		cmd = { "Files", "References", "Implementations", "History", "RG", "Helptags" },
-		dependencies = {
-			{
-				"junegunn/fzf",
-				build = "./install --all",
-			},
-			"gfanto/fzf-lsp.nvim",
-		},
-	},
-
 	-- VISUALS --
 	-- colorschemes
 	{
@@ -48,7 +34,7 @@ return {
 						["NvimTreeCursorLine"] = { bg = "#323232", style = { "italic" } },
 						["WinBarNC"] = { bg = "NONE" },
 						["CursorLine"] = { bg = "#343434" },
-                        ["EndOfBuffer"] = { fg = "#464646" },
+						["EndOfBuffer"] = { fg = "#464646" },
 						["@ibl.scope.char.1"] = { fg = "#eeeeee" },
 					}
 				end,
@@ -61,6 +47,7 @@ return {
 	"nvim-tree/nvim-web-devicons",
 
 	--     Utilities    --
+	"christoomey/vim-tmux-navigator",
 	{ "DreamMaoMao/yazi.nvim", cmd = "Yazi" },
 	{ "kevinhwang91/nvim-bqf", ft = "qf" }, -- better quickfixList
 	{ "tpope/vim-repeat", event = "InsertEnter" },
