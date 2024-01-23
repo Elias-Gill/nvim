@@ -1,3 +1,4 @@
+-- TELESCOPICK JOHNSON --
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.5",
@@ -16,6 +17,28 @@ return {
 
 	config = function()
 		require("telescope").setup({
+			defaults = {
+				layout_strategy = "horizontal",
+				layout_config = {
+					horizontal = {
+						prompt_position = "top",
+                        preview_width = 0.4
+					},
+					height = 0.7,
+				},
+				sorting_strategy = "ascending",
+
+                mappings = {
+                    i = {
+                        ["<C-h>"] = "which_key",
+                        ["<C-k>"] = "move_selection_previous",
+                        ["<C-j>"] = "move_selection_next",
+                    },
+                },
+
+                file_ignore_patterns = { ".git", "go/", "*.class", "VirtualBox/", "node_modules/" },
+			},
+
 			extensions = {
 				fzf = {
 					fuzzy = true, -- false will only do exact matching
@@ -42,7 +65,7 @@ return {
 	end,
 
 	keys = {
-		{ "<C-p>", "<cmd>Telescope find_files<cr>", mode = "n", desc = "Open fuzzy finder" },
+		{ "<C-p>", "<cmd>Telescope find_files theme=ivy<cr>", mode = "n", desc = "Open fuzzy finder" },
 		{ "<C-s-p>", "<cmd>Telescope<cr>", mode = "n", desc = "Open telescope menu" },
 		{ "<leader>of", "<cmd>Telescope oldfiles<cr>", mode = "n", desc = "Search files history" },
 		{ "<leader>f", "<cmd>Telescope live_grep<cr>", mode = "n", desc = "Live grep files" },
@@ -53,30 +76,11 @@ return {
 			mode = "n",
 			desc = "List git worktree files",
 		},
-        {
-            "<leader>nw",
-            "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>",
-            mode = "n",
-            desc = "Create a new git worktree",
-        },
-
+		{
+			"<leader>nw",
+			"<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>",
+			mode = "n",
+			desc = "Create a new git worktree",
+		},
 	},
 }
-
---[[ return {
-    "junegunn/fzf.vim",
-    cmd = { "Files", "References", "Implementations", "History", "RG", "Helptags" },
-    dependencies = {
-        {
-            "junegunn/fzf",
-            build = "./install --all",
-        },
-        "gfanto/fzf-lsp.nvim",
-    },
-    vim.cmd([[
-        nnoremap <silent><C-p> :Telescope find_files<CR>
-        nnoremap <silent><C-s-p> :Telescope<CR>
-        nnoremap <silent><leader>of :Telescope oldfiles<cr>
-        nnoremap <silent><leader>f :Telescope live_grep<CR>
-    )
-} ]]

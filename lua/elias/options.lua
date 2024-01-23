@@ -6,8 +6,10 @@ let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key=','
 
 " good looking yank
-au TermOpen * setlocal nonumber norelativenumber
 au TextYankPost * silent! lua vim.highlight.on_yank()
+
+" some quickfix things
+au TermOpen * setlocal nonumber norelativenumber
 au QuickFixCmdPost *grep* cwindow
 ]])
 

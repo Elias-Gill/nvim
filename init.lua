@@ -5,7 +5,7 @@ vim.g.editorconfig = true -- builtin editor config support
 ------- configuracion general -----
 vim.g.mapleader = " "
 require("elias/disable_builtins")
-    require("elias/options") 
+require("elias/options")
 -- ./after/plugin/remaps.vim  <- remaps file
 
 --------------- LAZY -----------
@@ -24,10 +24,18 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("elias/plugins", {
+require("lazy").setup({
 	ui = { border = "single" },
 	change_detection = {
 		enabled = false,
 		notify = false,
+	},
+
+	spec = {
+		{ import = "elias.plugins.devtools" },
+		{ import = "elias.plugins.lsp" },
+		{ import = "elias.plugins.navigation" },
+		{ import = "elias.plugins.ui" },
+		{ import = "elias.plugins" },
 	},
 })
