@@ -88,7 +88,7 @@ nnoremap <silent><C-w>- :split<cr>
 "Archivos de configuracion
 nnoremap <leader>cd :cd %:h <CR>
 nnoremap <silent><leader>sm :e $XGD_CONFIG_HOME/nvim/after/plugin/remaps.vim<CR>
-nnoremap <silent><leader>sp :e $XGD_CONFIG_HOME/nvim/lua/elias/plugins/init.lua<CR>
+nnoremap <silent><leader>sp :e $XGD_CONFIG_HOME/nvim/lua/elias/plugins<CR>
 nnoremap <silent><leader>SO :e $MYVIMRC<CR>
 nnoremap <silent><leader>so :so $MYVIMRC<CR>
 

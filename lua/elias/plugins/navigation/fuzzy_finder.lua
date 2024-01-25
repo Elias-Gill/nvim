@@ -18,25 +18,30 @@ return {
 	config = function()
 		require("telescope").setup({
 			defaults = {
+				path_display = {
+					truncate = 1,
+				},
+
 				layout_strategy = "horizontal",
+
 				layout_config = {
 					horizontal = {
 						prompt_position = "top",
-                        preview_width = 0.4
+						preview_width = 0.4,
 					},
 					height = 0.7,
 				},
 				sorting_strategy = "ascending",
 
-                mappings = {
-                    i = {
-                        ["<C-h>"] = "which_key",
-                        ["<C-k>"] = "move_selection_previous",
-                        ["<C-j>"] = "move_selection_next",
-                    },
-                },
+				mappings = {
+					i = {
+						["<C-h>"] = "which_key",
+						["<C-k>"] = "move_selection_previous",
+						["<C-j>"] = "move_selection_next",
+					},
+				},
 
-                file_ignore_patterns = { ".git", "go/", "*.class", "VirtualBox/", "node_modules/" },
+				file_ignore_patterns = { ".git", "go/", "*.class", "VirtualBox/", "node_modules/" },
 			},
 
 			extensions = {
@@ -65,7 +70,7 @@ return {
 	end,
 
 	keys = {
-		{ "<C-p>", "<cmd>Telescope find_files theme=ivy<cr>", mode = "n", desc = "Open fuzzy finder" },
+		{ "<C-p>", "<cmd>Telescope find_files<cr>", mode = "n", desc = "Open fuzzy finder" },
 		{ "<C-s-p>", "<cmd>Telescope<cr>", mode = "n", desc = "Open telescope menu" },
 		{ "<leader>of", "<cmd>Telescope oldfiles<cr>", mode = "n", desc = "Search files history" },
 		{ "<leader>f", "<cmd>Telescope live_grep<cr>", mode = "n", desc = "Live grep files" },
