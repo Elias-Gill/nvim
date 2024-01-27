@@ -4,10 +4,6 @@ return {
 	tag = "0.1.5",
 	dependencies = {
 		{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-		},
-		{
 			"ThePrimeagen/git-worktree.nvim",
 			config = function()
 				require("git-worktree").setup({})
@@ -65,7 +61,6 @@ return {
 		})
 
 		-- extensions loading
-		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("git_worktree")
 	end,
 
