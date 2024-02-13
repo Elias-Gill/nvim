@@ -28,9 +28,13 @@ nnoremap ]b :bnext<CR>
 nnoremap <leader>lp :%s/
 vnoremap <leader>lp :s/
 
+" rename utils
+nnoremap <leader>rr yiw:%s/<c-r>"//g<left><left>
+vnoremap <leader>rr y:%s/<c-r>"//g<left><left>
+
 "todo comments
 nnoremap <silent><leader>tg :TodoQuickFix<CR>
-nnoremap <silent><leader>co :copen<CR>
+nnoremap <expr><silent><leader>co empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 nnoremap <silent><leader>lo :lopen<CR>
 
 "cambiar pestanas
@@ -43,7 +47,6 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap <C-t> <C-t>zz
 nnoremap <C-o> <C-o>zz
-"bug with alacritty when using C-i (does not work with tmux)
 nnoremap <C-i> <C-i>zz
 
 " scroll

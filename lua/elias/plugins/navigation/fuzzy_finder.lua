@@ -72,6 +72,8 @@ return {
 	keys = {
 		{ "<C-p>", "<cmd>Telescope find_files<cr>", mode = "n", desc = "Open fuzzy finder" },
 		{ "<C-s-p>", "<cmd>Telescope<cr>", mode = "n", desc = "Open telescope menu" },
+        { "<leader>tr", "<cmd>Telescope resume<cr>", mode = "n", desc = "Resume telescope find" },
+        { "<C-s-p>", "<cmd>Telescope<cr>", mode = "n", desc = "Open telescope menu" },
 		{ "<leader>of", "<cmd>Telescope oldfiles<cr>", mode = "n", desc = "Search files history" },
 		{ "<leader>f", "<cmd>Telescope live_grep<cr>", mode = "n", desc = "Live grep files" },
 

@@ -57,6 +57,7 @@ local function conf_nvimtree()
 		},
 		renderer = {
 			indent_markers = { enable = false },
+            group_empty = true,
 			icons = {
 				glyphs = {
 					git = {

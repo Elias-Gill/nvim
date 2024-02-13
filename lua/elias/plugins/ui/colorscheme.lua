@@ -17,6 +17,7 @@ return {
 						["WinBarNC"] = { bg = "NONE" },
 						["CursorLine"] = { bg = "#343434" },
 						["EndOfBuffer"] = { fg = "#464646" },
+                        ["TelescopeBorder"] = { fg = "#999999" },
 						["@ibl.scope.char.1"] = { fg = "#eeeeee" },
 					}
 				end,

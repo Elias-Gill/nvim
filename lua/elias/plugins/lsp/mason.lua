@@ -27,6 +27,7 @@ local function configureServers()
 		-- Actions
 		nmap("<leader>rr", vim.lsp.buf.rename, "[R]e[n]ame")
 		nmap("co", vim.lsp.buf.code_action, "[C]ode [A]ction")
+        vim.keymap.set("v", "<leader>rr", "<nop>", { buffer = bufnr, desc = "Disable visual renaming" })
 
         -- fzf integrations
 		nmap("gR", "<cmd>References<cr>", "[G]oto [R]eferences")
@@ -111,6 +112,8 @@ return {
 			automatic_installation = false,
 			ensure_installed = { "lua_ls", "bashls", "vimls" },
 		})
+
+        require('lspconfig.ui.windows').default_options.border = 'single'
 
         -- configure server just after mason is loaded
 		configureServers()

@@ -47,7 +47,7 @@ vim.o.splitright = true
 vim.o.splitkeep = "screen"
 
 --- folding ---
-vim.o.nofoldenable = true
+vim.o.foldenable = false
 vim.o.foldlevelstart = 99
 vim.o.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
@@ -86,7 +86,7 @@ vim.cmd([[
 set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
 set diffopt+=vertical
 set shortmess+=c
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 
 set fillchars=fold:\ 
 set fillchars+=diff:╱
