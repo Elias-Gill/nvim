@@ -49,14 +49,20 @@ local function diffviewConfig()
 	})
 end
 
+-- Git inegration, fugitive, diffview, gitsigns
 return {
-	-- " Git inegration, fugitive, diffview, gitsigns
+    -- "lewis6991/gitsigns.nvim",
+    -- "almo7aya/openingh.nvim",
 	{
 		"sindrets/diffview.nvim",
 		cmd = "DiffviewOpen",
 		config = diffviewConfig,
 	},
 	{ "tpope/vim-fugitive", cmd = "G" },
-	-- "lewis6991/gitsigns.nvim",
-	-- "almo7aya/openingh.nvim",
+    {
+        "ThePrimeagen/git-worktree.nvim",
+        config = function()
+            require("git-worktree").setup({})
+        end,
+    },
 }

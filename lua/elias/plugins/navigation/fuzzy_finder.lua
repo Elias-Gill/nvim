@@ -7,12 +7,8 @@ return {
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 		},
-		{
-			"ThePrimeagen/git-worktree.nvim",
-			config = function()
-				require("git-worktree").setup({})
-			end,
-		},
+
+		"ThePrimeagen/git-worktree.nvim",
 	},
 
 	config = function()
@@ -72,8 +68,8 @@ return {
 	keys = {
 		{ "<C-p>", "<cmd>Telescope find_files<cr>", mode = "n", desc = "Open fuzzy finder" },
 		{ "<C-s-p>", "<cmd>Telescope<cr>", mode = "n", desc = "Open telescope menu" },
-        { "<leader>tr", "<cmd>Telescope resume<cr>", mode = "n", desc = "Resume telescope find" },
-        { "<C-s-p>", "<cmd>Telescope<cr>", mode = "n", desc = "Open telescope menu" },
+		{ "<leader>tr", "<cmd>Telescope resume<cr>", mode = "n", desc = "Resume telescope find" },
+		{ "<C-s-p>", "<cmd>Telescope<cr>", mode = "n", desc = "Open telescope menu" },
 		{ "<leader>of", "<cmd>Telescope oldfiles<cr>", mode = "n", desc = "Search files history" },
 		{ "<leader>f", "<cmd>Telescope live_grep<cr>", mode = "n", desc = "Live grep files" },
 
