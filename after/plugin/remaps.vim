@@ -13,8 +13,8 @@ nnoremap <leader>qq :q<CR>
 nnoremap <leader>tt :Bw<cr> :qa<cr> 
 
 " grep functions (they may override when lsp is on)
-nnoremap gr :silent vimgrep! <c-r><c-w> **<cr>
-vnoremap gr y:silent vimgrep! <c-r>" **<cr>
+" nnoremap gr :silent vimgrep! <c-r><c-w> **<cr>
+" vnoremap gr y:silent vimgrep! <c-r>" **<cr>
 
 "file managers
 nnoremap <silent><leader>rt :Yazi<CR>
