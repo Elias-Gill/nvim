@@ -10,7 +10,7 @@ return {
 	},
 	vim.cmd([[
         nnoremap <silent><C-p> :Telescope find_files<CR>
-        nnoremap <silent><C-s-p> :Telescope<CR>
+        nnoremap <silent><leader>p :Telescope<CR>
         nnoremap <silent><leader>of :Telescope oldfiles<cr>
         nnoremap <silent><leader>f :Telescope live_grep<CR>
         ]]),

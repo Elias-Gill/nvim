@@ -19,4 +19,3 @@ function XdgOpen()
     call jobstart("xdg-open " .'"'. fn .'"')
     execute ":Bw"
 endfunction
-
