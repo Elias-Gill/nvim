@@ -5,6 +5,7 @@ return {
 		cmd = "Makeman",
 		config = function()
 			vim.cmd([[command! Makeman lua require('makeman').run()]])
+            vim.cmd([[nnoremap <leader>mm :Makeman<cr>]])
 		end,
 	},
 
