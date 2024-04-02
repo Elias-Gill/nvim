@@ -5,12 +5,12 @@ return {
 		cmd = "Makeman",
 		config = function()
 			vim.cmd([[command! Makeman lua require('makeman').run()]])
-            vim.cmd([[nnoremap <leader>mm :Makeman<cr>]])
+			vim.cmd([[nnoremap <leader>mm :Makeman<cr>]])
 		end,
 	},
 
-	{ "tpope/vim-repeat", event = "InsertEnter" },
-	{ "tpope/vim-surround", event = { "InsertEnter", "BufEnter" } }, -- surround
+	{ "tpope/vim-repeat", event = "VeryLazy" },
+	{ "tpope/vim-surround", event = { "VeryLazy" } }, -- surround
 	{ "szw/vim-maximizer", cmd = "MaximizerToggle" }, -- maximizer
 	{ "josa42/nvim-gx", keys = { { "gx", "<cmd>lua require('gx').gx()" } } }, -- open urls
 
@@ -59,7 +59,7 @@ return {
 	--comentarios
 	{
 		"numToStr/Comment.nvim",
-		event = "BufEnter",
+		event = "VeryLazy",
 		config = function()
 			---@diagnostic disable-next-line: missing-fields
 			require("Comment").setup({

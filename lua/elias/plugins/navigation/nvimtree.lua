@@ -44,7 +44,7 @@ local function conf_nvimtree()
 		hijack_netrw = false,
 		open_on_tab = false,
 		sync_root_with_cwd = true,
-		reload_on_bufenter = false,
+		reload_on_bufenter = true,
 		auto_reload_on_write = true,
 		respect_buf_cwd = true,
 		update_focused_file = {
