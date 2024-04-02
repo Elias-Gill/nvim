@@ -25,4 +25,5 @@ endfunction
 function! OpenWiki() abort
     call WikiWindow()
     execute(":e ~/Documentos/wiki/index.md")
+    execute(":lcd %:h")
 endfunction

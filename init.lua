@@ -30,7 +30,6 @@ require("lazy").setup({
 		enabled = false,
 		notify = false,
 	},
-
 	spec = {
 		{ import = "elias.plugins.devtools" },
 		{ import = "elias.plugins.lsp" },

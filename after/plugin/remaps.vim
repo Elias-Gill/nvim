@@ -28,14 +28,15 @@ nnoremap ]b :bnext<CR>
 nnoremap <leader>lp :%s/
 vnoremap <leader>lp :s/
 
-" rename utils
+"rename utils
 nnoremap <leader>rr yiw:%s/<c-r>"//g<left><left>
 vnoremap <leader>rr y:%s/<c-r>"//g<left><left>
 
 "todo comments
 nnoremap <silent><leader>tg :TodoQuickFix<CR>
+
+"toggle quickfix
 nnoremap <expr><silent><leader>co empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
-nnoremap <silent><leader>lo :lopen<CR>
 
 "cambiar pestanas
 nnoremap <leader>tn :tabnew<cr>
@@ -89,15 +90,15 @@ nnoremap <silent><C-w>\ :vsplit<cr>
 nnoremap <silent><C-w>- :split<cr>
 
 "Archivos de configuracion
-nnoremap <leader>cd :cd %:h <CR>
-nnoremap <silent><leader>sm :e $XGD_CONFIG_HOME/nvim/after/plugin/remaps.vim<CR>
-nnoremap <silent><leader>sp :e $XGD_CONFIG_HOME/nvim/lua/elias/plugins<CR>
+nnoremap <leader>cd :cd %:h<CR>
+nnoremap <silent><leader>sm :e $XDG_CONFIG_HOME/nvim/after/plugin/remaps.vim<CR>
+nnoremap <silent><leader>sp :e $XDG_CONFIG_HOME/nvim/lua/elias/plugins<CR>
 nnoremap <silent><leader>SO :e $MYVIMRC<CR>
 nnoremap <silent><leader>so :so $MYVIMRC<CR>
 
 "abrir wiki
 nnoremap <silent><leader>ww :call OpenWiki()<cr>
-nnoremap <silent><leader>wo :e ~/Documentos/wiki/index.md<cr>
+nnoremap <silent><leader>wo :tabnew ~/Documentos/wiki/index.md<cr>:lcd %:h<CR>
 
 "function tree
 nnoremap <silent><leader>vf :SymbolsOutline<CR>

@@ -27,9 +27,9 @@ local function configureServers()
 		-- Actions
 		nmap("<leader>rr", vim.lsp.buf.rename, "[R]e[n]ame")
 		nmap("co", vim.lsp.buf.code_action, "[C]ode [A]ction")
-        vim.keymap.set("v", "<leader>rr", "<nop>", { buffer = bufnr, desc = "Disable visual renaming" })
+		vim.keymap.set("v", "<leader>rr", "<nop>", { buffer = bufnr, desc = "Disable visual renaming" })
 
-        -- fzf integrations
+		-- fzf integrations
 		nmap("gR", "<cmd>References<cr>", "[G]oto [R]eferences")
 		nmap("gI", "<cmd>Implementations<cr>", "[G]oto [I]mplementation")
 	end
@@ -52,13 +52,6 @@ local function configureServers()
 		["volar"] = function()
 			require("null-ls").disable({ "prettier" })
 			configurar_server("volar")
-		end,
-
-		["jdtls"] = function()
-			local settings = {
-				signatureHelp = { enabled = true },
-			}
-			configurar_server("jdtls", settings)
 		end,
 
 		["sqlls"] = function()
@@ -113,9 +106,9 @@ return {
 			ensure_installed = { "lua_ls", "bashls", "vimls" },
 		})
 
-        require('lspconfig.ui.windows').default_options.border = 'single'
+		require("lspconfig.ui.windows").default_options.border = "single"
 
-        -- configure server just after mason is loaded
+		-- configure server just after mason is loaded
 		configureServers()
 	end,
 

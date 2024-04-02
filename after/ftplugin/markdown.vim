@@ -1,7 +1,6 @@
-setlocal conceallevel=2
 setlocal linebreak
+setlocal textwidth=95
 setlocal wrap
-setlocal tw=0
 " setlocal spell spelllang=es
 
 nnoremap <buffer>k gk
