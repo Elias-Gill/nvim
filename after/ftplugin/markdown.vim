@@ -20,6 +20,9 @@ nnoremap <buffer>$ g$
 vnoremap <buffer>^ g^
 vnoremap <buffer>$ g$
 
+vnoremap <cr> <Plug>Markdown_CreateLink
+nnoremap <buffer><A-space> <Plug>Markdown_Checkbox
+
 function MdOpen()
     let fn = expand("%:p")
     let bnumber = bufnr(fn)
