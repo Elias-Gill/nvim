@@ -19,6 +19,7 @@ return {
 						["EndOfBuffer"] = { fg = "#464646" },
 						["TelescopeBorder"] = { fg = "#999999" },
 						["@ibl.scope.char.1"] = { fg = "#eeeeee" },
+                        ["@ibl.indent.char.1"] = { fg = "#545454" },
 					}
 				end,
 			})

@@ -53,16 +53,16 @@ end
 return {
     -- "lewis6991/gitsigns.nvim",
     -- "almo7aya/openingh.nvim",
+    -- { "tpope/vim-fugitive", cmd = "G" },
 	{
 		"sindrets/diffview.nvim",
 		cmd = "DiffviewOpen",
 		config = diffviewConfig,
 	},
-	{ "tpope/vim-fugitive", cmd = "G" },
-    {
+    --[[ {
         "ThePrimeagen/git-worktree.nvim",
         config = function()
             require("git-worktree").setup({})
         end,
-    },
+    }, ]]
 }

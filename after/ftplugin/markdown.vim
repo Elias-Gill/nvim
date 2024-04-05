@@ -1,5 +1,6 @@
 setlocal linebreak
 setlocal textwidth=95
+setlocal colorcolumn=95
 setlocal wrap
 " setlocal spell spelllang=es
 

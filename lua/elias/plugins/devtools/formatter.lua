@@ -14,20 +14,26 @@ return {
 			desc = "Format buffer",
 		},
 	},
-	opts = {
-		formatters_by_ft = {
-			lua = { "stylua" },
-			-- Conform will run multiple formatters sequentially
-			python = { "black", "isort" },
-			bash = { "shfmt" },
-			markdown = { "mdformat" },
-			sh = { "shfmt" },
-			-- Use a sub-list to run only the first available formatter
-			javascript = { { "prettierd", "prettier" } },
-			typescript = { { "prettierd", "prettier" } },
-			typescriptreact = { { "prettierd", "prettier" } },
-			javascriptreact = { { "prettierd", "prettier" } },
-			astro = { { "prettierd", "prettier" } },
-		},
-	},
+	config = function()
+        require("conform").setup({
+			formatters_by_ft = {
+				lua = { "stylua" },
+				-- Conform will run multiple formatters sequentially
+				python = { "black", "isort" },
+				bash = { "shfmt" },
+				markdown = { "mdslw" },
+				sh = { "shfmt" },
+				-- Use a sub-list to run only the first available formatter
+				javascript = { { "prettierd", "prettier" } },
+				typescript = { { "prettierd", "prettier" } },
+				typescriptreact = { { "prettierd", "prettier" } },
+				javascriptreact = { { "prettierd", "prettier" } },
+				astro = { { "prettierd", "prettier" } },
+			},
+		})
+
+		require("conform").formatters.mdslw = {
+			prepend_args = { "--max-width", "95" },
+		}
+	end,
 }

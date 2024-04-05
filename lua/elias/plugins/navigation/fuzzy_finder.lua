@@ -62,7 +62,7 @@ return {
 
 		-- extensions loading
 		require("telescope").load_extension("fzf")
-		require("telescope").load_extension("git_worktree")
+		-- require("telescope").load_extension("git_worktree")
 	end,
 
 	keys = {
@@ -74,7 +74,7 @@ return {
 		{ "<leader>f", "y:Telescope grep_string search=<c-r>\"<cr>", mode = "v", desc = "Grep for selection" },
 
         -- git worktree extension
-		{
+		--[[ {
 			"<leader>lw",
 			"<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>",
 			mode = "n",
@@ -85,6 +85,6 @@ return {
 			"<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>",
 			mode = "n",
 			desc = "Create a new git worktree",
-		},
+		}, ]]
 	},
 }
