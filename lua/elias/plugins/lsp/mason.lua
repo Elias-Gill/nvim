@@ -78,6 +78,19 @@ local function configureServers()
 			})
 		end,
 
+		["tailwindcss"] = function()
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			local lspconfig = require("lspconfig")
+			lspconfig["tailwindcss"].setup({
+				capabilities = capabilities,
+				root_dir = function(fname)
+					local root_pattern =
+						lspconfig.util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "postcss.config.js")
+					return root_pattern(fname)
+				end,
+			})
+		end,
+
 		["vtsls"] = function()
 			require("lspconfig.configs").vtsls = require("vtsls").lspconfig
 			configurar_server("vtsls")
