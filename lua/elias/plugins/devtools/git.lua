@@ -51,15 +51,15 @@ end
 
 -- Git inegration, fugitive, diffview, gitsigns
 return {
-    -- "lewis6991/gitsigns.nvim",
-    -- "almo7aya/openingh.nvim",
-    -- { "tpope/vim-fugitive", cmd = "G" },
+	-- "lewis6991/gitsigns.nvim",
+	-- "almo7aya/openingh.nvim",
+	-- { "tpope/vim-fugitive", cmd = "G" },
 	{
 		"sindrets/diffview.nvim",
 		cmd = "DiffviewOpen",
 		config = diffviewConfig,
 	},
-    --[[ {
+	--[[ {
         "ThePrimeagen/git-worktree.nvim",
         config = function()
             require("git-worktree").setup({})

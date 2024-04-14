@@ -95,6 +95,13 @@ local function configureServers()
 			require("lspconfig.configs").vtsls = require("vtsls").lspconfig
 			configurar_server("vtsls")
 		end,
+
+		["jdtls"] = function()
+			local settings = {
+				signatureHelp = { enabled = true },
+			}
+			configurar_server("jdtls", settings)
+		end,
 	})
 end
 

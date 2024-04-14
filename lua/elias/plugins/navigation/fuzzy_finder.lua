@@ -71,9 +71,9 @@ return {
 		{ "<C-s>", "<cmd>Telescope<cr>", mode = "n", desc = "Open telescope menu" },
 		{ "<leader>of", "<cmd>Telescope oldfiles<cr>", mode = "n", desc = "Search files history" },
 		{ "<leader>f", "<cmd>Telescope live_grep<cr>", mode = "n", desc = "Live grep files" },
-		{ "<leader>f", "y:Telescope grep_string search=<c-r>\"<cr>", mode = "v", desc = "Grep for selection" },
+		{ "<leader>f", 'y:Telescope grep_string search=<c-r>"<cr>', mode = "v", desc = "Grep for selection" },
 
-        -- git worktree extension
+		-- git worktree extension
 		--[[ {
 			"<leader>lw",
 			"<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>",

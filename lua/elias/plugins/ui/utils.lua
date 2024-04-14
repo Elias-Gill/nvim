@@ -1,7 +1,7 @@
 return {
 	{
 		"NvChad/nvim-colorizer.lua",
-		event = { "VeryLazy" },
+		event = "VeryLazy",
 		config = function()
 			require("colorizer").setup()
 		end,
@@ -11,7 +11,7 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		event = "BufAdd",
+		event = "VeryLazy",
 		opts = {
 			indent = { char = "┆" },
 			scope = {

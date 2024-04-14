@@ -11,6 +11,6 @@ return {
 		end,
 	},
 
-    -- LUA ALTERNATIVE
-    -- "monkoose/neocodeium"
+	-- LUA ALTERNATIVE
+	-- "monkoose/neocodeium"
 }
