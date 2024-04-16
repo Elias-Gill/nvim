@@ -35,7 +35,9 @@ vnoremap <leader>rr y:%s/<c-r>"//g<left><left>
 "todo comments
 nnoremap <silent><leader>tg :TodoQuickFix<CR>
 
-"toggle quickfix
+"quickfix utils
+nnoremap <leader>] :cnext<cr>
+nnoremap <leader>[ :cprev<cr>
 nnoremap <expr><silent><leader>co empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
 
 "cambiar pestanas
