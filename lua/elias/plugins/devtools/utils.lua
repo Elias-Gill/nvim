@@ -84,6 +84,7 @@ return {
 			"vue",
 			"typescript",
 			"typescriptreact",
+            "php",
 			"astro",
 		},
 		config = function()
