@@ -38,7 +38,8 @@ nnoremap <silent><leader>tg :TodoQuickFix<CR>
 "quickfix utils
 nnoremap <leader>] :cnext<cr>
 nnoremap <leader>[ :cprev<cr>
-nnoremap <expr><silent><leader>co empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>'
+nnoremap <expr><silent><leader>co empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>:lclose<CR>'
+nnoremap <expr><silent><leader>lo empty(filter(getwininfo(), 'v:val.quickfix')) ? ':lopen<CR>' : ':lclose<CR>:cclose<CR>'
 
 "cambiar pestanas
 nnoremap <leader>tn :tabnew<cr>

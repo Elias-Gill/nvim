@@ -22,6 +22,19 @@ return {
 			require("bqf").setup({
 				preview = {
 					winblend = 0,
+					should_preview_cb = function(bufnr, _)
+						local ret = true
+						local bufname = vim.api.nvim_buf_get_name(bufnr)
+						local fsize = vim.fn.getfsize(bufname)
+						if fsize > 100 * 1024 then
+							ret = false
+						elseif bufname:match("^fugitive://") then
+							ret = false
+						elseif bufname:match("^.*%.md$") then
+							ret = false
+						end
+						return ret
+					end,
 				},
 			})
 		end,
@@ -84,7 +97,7 @@ return {
 			"vue",
 			"typescript",
 			"typescriptreact",
-            "php",
+			"php",
 			"astro",
 		},
 		config = function()

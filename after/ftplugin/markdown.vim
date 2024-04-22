@@ -4,6 +4,8 @@ setlocal colorcolumn=95
 setlocal wrap
 " setlocal spell spelllang=es
 
+nnoremap <buffer><expr><silent><leader>co empty(filter(getwininfo(), 'v:val.quickfix')) ? ':Toch<CR>' : ':lclose<CR>'
+
 nnoremap <buffer>k gk
 nnoremap <buffer>j gj
 nnoremap <buffer>gk k

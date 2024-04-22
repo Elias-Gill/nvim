@@ -1,51 +1,32 @@
 return {
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	name = "catppuccin",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		vim.o.background = "dark"
-	-- 		require("catppuccin").setup({
-	-- 			flavour = "mocha", -- latte, frappe, macchiato, mocha
-	-- 			dim_inactive = {
-	-- 				enabled = false,
-	-- 			},
-	-- 			transparent_background = true,
-	-- 			custom_highlights = function(_)
-	-- 				return {
-	-- 					["NvimTreeCursorLine"] = { bg = "#323232", style = { "italic" } },
-	-- 					["WinBarNC"] = { bg = "NONE" },
-	-- 					["CursorLine"] = { bg = "#343434" },
-	-- 					["EndOfBuffer"] = { fg = "#464646" },
-	-- 					["TelescopeBorder"] = { fg = "#999999" },
-	-- 					["@ibl.scope.char.1"] = { fg = "#eeeeee" },
-	-- 					["@ibl.indent.char.1"] = { fg = "#545454" },
-	-- 				}
-	-- 			end,
-	-- 		})
-	-- 		vim.cmd.colorscheme("catppuccin")
-	-- 	end,
-	-- },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			vim.o.background = "dark"
+			require("catppuccin").setup({
+				flavour = "mocha", -- latte, frappe, macchiato, mocha
+				dim_inactive = {
+					enabled = false,
+				},
+				transparent_background = true,
+				custom_highlights = function(_)
+					return {
+						["NvimTreeCursorLine"] = { bg = "#323232", style = { "italic" } },
+						["WinBarNC"] = { bg = "NONE" },
+						["CursorLine"] = { bg = "#343434" },
+						["EndOfBuffer"] = { fg = "#464646" },
+						["TelescopeBorder"] = { fg = "#999999" },
+						["@ibl.scope.char.1"] = { fg = "#eeeeee" },
+						["@ibl.indent.char.1"] = { fg = "#545454" },
+					}
+				end,
+			})
+			vim.cmd.colorscheme("catppuccin")
+		end,
+	},
 
 	-- Fonts and icons
 	"nvim-tree/nvim-web-devicons",
-
-	{
-		"EdenEast/nightfox.nvim",
-		config = function()
-			-- Default options
-			require("nightfox").setup({
-				options = {
-					transparent = true, -- Disable setting background
-				},
-				groups = {
-					all = {
-						WinSeparator = { fg = "#888888" },
-					},
-				},
-			})
-
-			vim.cmd.colorscheme("nordfox")
-		end,
-	}, -- lazy
 }
