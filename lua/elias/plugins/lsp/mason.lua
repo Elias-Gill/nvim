@@ -9,12 +9,22 @@ local function configureServers()
 			vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
 		end
 
-		-- Documentation and movements
-		nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-		nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+		-- go to definition
+		nmap("gd", vim.lsp.buf.definition, "Goto Definition")
+		nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
+
+		-- go to references
+		nmap("gr", vim.lsp.buf.references, "Quick fix references")
+		nmap("gR", "<cmd>References<cr>", "Goto References")
+
+		-- go to type definitions
 		nmap("gy", vim.lsp.buf.type_definition, "Type [D]efinition")
-		nmap("gr", vim.lsp.buf.references, "Quick fix references") -- quickfix referecnes
-		nmap("gi", vim.lsp.buf.implementation, "Quick fix implementations") -- quickfix implementations
+
+		-- go to implementations
+		nmap("gi", vim.lsp.buf.implementation, "Quick fix implementations")
+		nmap("gI", "<cmd>Telescope lsp_implementations<cr>", "Telescope implementations")
+
+		-- documentation
 		nmap("K", vim.lsp.buf.hover, "Hover Documentation")
 
 		-- Diagnostics
@@ -25,13 +35,8 @@ local function configureServers()
 		nmap("]t", vim.diagnostic.open_float, "Line diagnostics")
 
 		-- Actions
-		nmap("<leader>rr", vim.lsp.buf.rename, "[R]e[n]ame")
-		nmap("co", vim.lsp.buf.code_action, "[C]ode [A]ction")
-		vim.keymap.set("v", "<leader>rr", "<nop>", { buffer = bufnr, desc = "Disable visual renaming" })
-
-		-- fzf integrations
-		nmap("gR", "<cmd>References<cr>", "[G]oto [R]eferences")
-		nmap("gI", "<cmd>Implementations<cr>", "[G]oto [I]mplementation")
+		nmap("<leader>rr", vim.lsp.buf.rename, "Rename symbol")
+		nmap("co", vim.lsp.buf.code_action, "Display code actions")
 	end
 
 	local function configurar_server(server, settings)

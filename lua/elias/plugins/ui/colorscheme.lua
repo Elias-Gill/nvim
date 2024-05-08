@@ -36,6 +36,8 @@ return {
 			vim.cmd("hi NormalNC guibg=none")
 			vim.cmd("hi WinBarNC guibg=none guifg=none")
 			vim.cmd("hi WinBar guibg=none guifg=none")
+            vim.cmd("hi NvimTreeCursorLine guibg=#282828")
+            vim.cmd("hi @ibl.scope.char.1 guifg=#dddddd")
 		end,
 	},
 
