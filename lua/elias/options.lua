@@ -76,6 +76,7 @@ vim.o.incsearch = true
 vim.o.showmatch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.o.inccommand = "split"
 
 -- python
 vim.g.python_highlight_all = 1
