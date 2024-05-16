@@ -1,6 +1,11 @@
 local function configureServers()
 	--  This function gets run when an LSP connects to a particular buffer.
-	local on_attach = function(_, bufnr)
+	local on_attach = function(client, bufnr)
+        -- don't mess with treesitter highlights
+		if vim.version().minor >= 9 then
+			client.server_capabilities.semanticTokensProvider = vim.NIL
+		end
+
 		local nmap = function(keys, func, desc)
 			if desc then
 				desc = "LSP: " .. desc
