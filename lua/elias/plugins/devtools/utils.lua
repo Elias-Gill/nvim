@@ -20,6 +20,7 @@ return {
 		ft = "qf",
 		config = function()
 			require("bqf").setup({
+				---@diagnostic disable-next-line: missing-fields
 				preview = {
 					winblend = 0,
 					should_preview_cb = function(bufnr, _)
