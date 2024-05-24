@@ -1,23 +1,73 @@
 {
     "New Title": {
-        "prefix": "tl",
+        "prefix": "tit",
         "body": [
             ".TL",
             "$0"
         ]
     },
+    "Division": {
+        "prefix": "div",
+        "body": [
+            ".\\\" $1",
+            ".\\\" ---",
+            "$0",
+            ".\\\" ---"
+        ]
+    },
     "New Paragraph": {
-        "prefix": "np",
+        "prefix": "parag",
         "body": [
             ".PL",
             "$0"
         ]
     },
     "New Heading": {
-        "prefix": "nh",
+        "prefix": "head",
         "body": [
-            ".NH",
+            ".sh $0",
+            ".(x t",
+            "$0",
+            ".)x"
+        ]
+    },
+    "New section": {
+        "prefix": "section",
+        "body": [
+            ".++ P",
+            ".+c $0"
+        ]
+    },
+    "New Page": {
+        "prefix": "page",
+        "body": [
+            ".tp",
             "$0"
+        ]
+    },
+    "Bold": {
+        "prefix": "bold",
+        "body": [
+            ".b $0"
+        ]
+    },
+    "Center": {
+        "prefix": "center",
+        "body": [
+            ".ce",
+            "$0"
+        ]
+    },
+    "Image": {
+        "prefix": "img",
+        "body": [
+            ".PSPIC $0 [length] [whidth]"
+        ]
+    },
+    "Spacing": {
+        "prefix": "space",
+        "body": [
+            ".sp $0"
         ]
     }
 }

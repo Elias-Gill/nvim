@@ -21,6 +21,10 @@
         "path": "./snippets/c.json"
       },
       {
+          "language": "nroff",
+          "path": "./snippets/nroff.json"
+      },
+      {
         "language": "cpp",
         "path": "./snippets/cpp.json"
       },

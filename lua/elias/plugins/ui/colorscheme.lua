@@ -34,8 +34,6 @@ return {
 		config = function()
 			require("oldworld").setup({
 				integrations = {
-					indent_blankline = false,
-					markdown = false,
 					telescope = false,
 				},
 			})
