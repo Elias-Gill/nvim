@@ -1,14 +1,4 @@
 return {
-	-- Running makefile targets
-	{
-		"elias-gill/makeman",
-		cmd = "Makeman",
-		config = function()
-			vim.cmd([[command! Makeman lua require('makeman').run()]])
-			vim.cmd([[nnoremap <leader>mm :Makeman<cr>]])
-		end,
-	},
-
 	{ "tpope/vim-repeat", event = "VeryLazy" },
 	{ "tpope/vim-surround", event = { "VeryLazy" } }, -- surround
 	{ "szw/vim-maximizer", cmd = "MaximizerToggle" }, -- maximizer
