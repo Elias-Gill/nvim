@@ -26,7 +26,7 @@ return {
 	-- 		vim.cmd.colorscheme("catppuccin")
 	-- 	end,
 	-- },
-    --
+	--
 	{
 		"dgox16/oldworld.nvim",
 		lazy = false,
@@ -43,6 +43,9 @@ return {
 			vim.cmd("hi WinBarNC guibg=none guifg=none")
 			vim.cmd("hi WinBar guibg=none guifg=none")
 			vim.cmd("hi NvimTreeCursorLine guibg=#282828")
+			vim.cmd("hi DiffChange guifg=none guibg=#0d3138")
+			vim.cmd("hi DiffDelete guifg=none guibg=#3c1f1e")
+            vim.cmd("hi DiffAdd guifg=none guibg=#32361a")
 		end,
 	},
 

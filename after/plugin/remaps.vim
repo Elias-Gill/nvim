@@ -8,7 +8,6 @@ nnoremap <leader>wf :w!<CR>
 nnoremap <leader>wa :wa<cr>
 nnoremap <leader>qa :qa<cr>
 nnoremap <leader>qf :q!<CR>
-nnoremap <leader>qq :q<CR>
 "save all buffers, format and quit
 nnoremap <leader>tt :Bw<cr> :qa<cr> 
 
@@ -25,26 +24,24 @@ nnoremap [b :bprevious<CR>
 nnoremap ]b :bnext<CR>
 
 "renombrar buffer usar arg y argdo para refactor completo
-nnoremap <leader>lp :%s/
-vnoremap <leader>lp :s/
+nnoremap <leader>rn :%s/
+vnoremap <leader>rn :s/
 
 "rename utils
-nnoremap <leader>rr yiw:%s/<c-r>"//g<left><left>
-vnoremap <leader>rr y:%s/<c-r>"//g<left><left>
+nnoremap <leader>rw yiw:%s/<c-r>"//g<left><left>
+vnoremap <leader>rw y:%s/<c-r>"//g<left><left>
 
 "todo comments
 nnoremap <silent><leader>tg :TodoQuickFix<CR>
 
 "quickfix utils
-nnoremap <leader>] :cnext<cr>
-nnoremap <leader>[ :cprev<cr>
+nnoremap ]q :cnext<cr>
+nnoremap [q :cprev<cr>
 nnoremap <expr><silent><leader>co empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<CR>' : ':cclose<CR>:lclose<CR>'
 nnoremap <expr><silent><leader>lo empty(filter(getwininfo(), 'v:val.quickfix')) ? ':lopen<CR>' : ':lclose<CR>:cclose<CR>'
 
 "cambiar pestanas
 nnoremap <leader>tn :tabnew<cr>
-nnoremap t[ :tabprevious<cr>
-nnoremap t] :tabnext<cr>
 
 "centrar en saltos
 nnoremap n nzzzv
@@ -95,22 +92,11 @@ nnoremap <silent><C-w>- :split<cr>
 "Archivos de configuracion
 nnoremap <leader>cd :lcd %:h<CR>
 nnoremap <silent><leader>sm :e $XDG_CONFIG_HOME/nvim/after/plugin/remaps.vim<CR>
-nnoremap <silent><leader>sp :e $XDG_CONFIG_HOME/nvim/lua/elias/plugins<CR>
-nnoremap <silent><leader>SO :e $MYVIMRC<CR>
-nnoremap <silent><leader>so :so $MYVIMRC<CR>
+nnoremap <silent><leader>so :e $MYVIMRC<CR>
 
 "abrir wiki
 nnoremap <silent><leader>ww :call OpenWiki()<cr>
 nnoremap <silent><leader>wo :tabnew ~/Documentos/wiki/index.md<cr>:lcd %:h<CR>
-
-"function tree
-nnoremap <silent><leader>vf :SymbolsOutline<CR>
-nnoremap <leader>ut :UndotreeToggle<cr>
-
-"git
-nnoremap <leader>gs :G<CR>
-nnoremap <leader>do :DiffviewOpen<CR>
-nnoremap <leader>DO :DiffviewClose<CR>
 
 "block the arrow keys
 nnoremap <up> <nop>

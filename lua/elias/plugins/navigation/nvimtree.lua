@@ -73,7 +73,10 @@ local function conf_nvimtree()
 			},
 			special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
 		},
-		filters = { dotfiles = true },
+		filters = {
+			dotfiles = true,
+			custom = {"node_modules"},
+		},
 		filesystem_watchers = { enable = false },
 		git = { enable = false }, -- PERFORMANCE issues
 		actions = {

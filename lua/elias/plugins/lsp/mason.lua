@@ -59,11 +59,6 @@ local function configureServers()
 			configurar_server(server_name)
 		end,
 
-		["volar"] = function()
-			require("null-ls").disable({ "prettier" })
-			configurar_server("volar")
-		end,
-
 		["sqlls"] = function()
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			local lspconfig = require("lspconfig")

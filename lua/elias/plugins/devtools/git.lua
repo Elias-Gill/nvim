@@ -56,7 +56,10 @@ return {
 	-- { "tpope/vim-fugitive", cmd = "G" },
 	{
 		"sindrets/diffview.nvim",
-		cmd = "DiffviewOpen",
+		keys = {
+			{ "<leader>do", "<cmd>DiffviewOpen<CR>", des = "Diff repo" },
+            { "<leader>DO", "<cmd>DiffviewClose<CR>", des = "Close diff" },
+		},
 		config = diffviewConfig,
 	},
 	--[[ {

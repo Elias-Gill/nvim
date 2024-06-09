@@ -63,8 +63,8 @@
     "description": "Code snippet for struct"
   },
   "typedef struct": {
-    "prefix": "structt",
-    "body": ["typedef struct {", "\t$0", "} ${1:MyStruct};"],
+    "prefix": "tys",
+    "body": ["typedef struct ${1:MyStruct} {", "\t$0", "} ${1};"],
     "description": "Code snippet to define a type with struct"
   },
   "switch": {

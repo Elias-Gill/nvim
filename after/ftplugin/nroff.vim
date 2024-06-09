@@ -17,7 +17,7 @@ setlocal colorcolumn=95
 setlocal wrap
 setlocal foldmethod=manual
 colorscheme retrobox
-" setlocal spell spelllang=es
+setlocal spell spelllang=es
 
 nnoremap <buffer>k gk
 nnoremap <buffer>j gj
