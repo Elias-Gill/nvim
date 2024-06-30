@@ -68,9 +68,10 @@ return {
 	keys = {
 		{ "<C-p>", "<cmd>Telescope find_files<cr>", mode = "n", desc = "Open fuzzy finder" },
 		{ "<leader>fr", "<cmd>Telescope resume<cr>", mode = "n", desc = "Resume telescope find" },
-		{ "<leader>ff", "<cmd>Telescope<cr>", mode = "n", desc = "Open telescope menu" },
+		{ "<leader>ff", "<cmd>Telescope live_grep<cr>", mode = "n", desc = "Live grep" },
 		{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", mode = "n", desc = "Search files history" },
-		{ "<leader>fg", "<cmd>Telescope live_grep<cr>", mode = "n", desc = "Live grep files" },
+		{ "<leader>fm", "<cmd>Telescope<cr>", mode = "n", desc = "Telescope Menu" },
+        { "<leader>fh", "<cmd>Telescope help_tags<cr>", mode = "n", desc = "Help tags" },
 		{ "<leader>f", 'y:Telescope grep_string search=<c-r>"<cr>', mode = "v", desc = "Grep for selection" },
 
 		-- git worktree extension

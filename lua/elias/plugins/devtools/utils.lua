@@ -81,14 +81,15 @@ return {
 		"mattn/emmet-vim",
 		ft = {
 			"html",
+			"xml",
 			"css",
 			"svelte",
-			"javascript",
 			"javascriptreact",
-			"vue",
-			"typescript",
 			"typescriptreact",
+			"vue",
 			"php",
+			"javascript",
+			"typescript",
 			"astro",
 		},
 		config = function()

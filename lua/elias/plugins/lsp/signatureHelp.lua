@@ -5,6 +5,7 @@ return {
 		config = function()
 			require("lsp_signature").setup({
 				bind = false,
+				max_height = 12,
 				floating_window_above_cur_line = false,
 				noice = false, -- render markdown
 				transparency = nil,

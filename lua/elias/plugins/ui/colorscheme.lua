@@ -40,6 +40,8 @@ return {
 
 			vim.cmd.colorscheme("oldworld")
 			vim.cmd("hi NormalNC guibg=none")
+            vim.cmd("hi colorcolumn guibg=#333333")
+            vim.cmd("hi colorcolumn guibg=#202020")
 			vim.cmd("hi WinBarNC guibg=none guifg=none")
 			vim.cmd("hi WinBar guibg=none guifg=none")
 			vim.cmd("hi NvimTreeCursorLine guibg=#282828")
