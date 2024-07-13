@@ -5,7 +5,8 @@ return {
 		config = function()
 			require("lsp_signature").setup({
 				bind = false,
-				max_height = 12,
+				max_height = 8,
+                max_width = 60,
 				floating_window_above_cur_line = false,
 				noice = false, -- render markdown
 				transparency = nil,
@@ -18,7 +19,7 @@ return {
 				-- hi_parameter = "LspSignatureActiveParameter",
 				hi_parameter = "IncSearch",
 				handler_opts = {
-					border = "single", -- double, rounded, single, shadow, none, or a table of borders
+					border = "rounded", -- double, rounded, single, shadow, none, or a table of borders
 				},
 
 				always_trigger = true,

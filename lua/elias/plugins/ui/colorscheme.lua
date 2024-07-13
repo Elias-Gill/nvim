@@ -27,6 +27,9 @@ return {
 	-- 	end,
 	-- },
 	--
+
+	"p00f/alabaster.nvim",
+
 	{
 		"dgox16/oldworld.nvim",
 		lazy = false,
@@ -40,14 +43,14 @@ return {
 
 			vim.cmd.colorscheme("oldworld")
 			vim.cmd("hi NormalNC guibg=none")
-            vim.cmd("hi colorcolumn guibg=#333333")
-            vim.cmd("hi colorcolumn guibg=#202020")
+			vim.cmd("hi colorcolumn guibg=#333333")
+			vim.cmd("hi colorcolumn guibg=#202020")
 			vim.cmd("hi WinBarNC guibg=none guifg=none")
 			vim.cmd("hi WinBar guibg=none guifg=none")
 			vim.cmd("hi NvimTreeCursorLine guibg=#282828")
 			vim.cmd("hi DiffChange guifg=none guibg=#0d3138")
 			vim.cmd("hi DiffDelete guifg=none guibg=#3c1f1e")
-            vim.cmd("hi DiffAdd guifg=none guibg=#32361a")
+			vim.cmd("hi DiffAdd guifg=none guibg=#32361a")
 		end,
 	},
 

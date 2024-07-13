@@ -12,12 +12,11 @@ return {
 			require("render-markdown").setup({
 				bullets = { "•", "‣", "◆", "◇" },
 				conceal = {
-					default = 2,
+					default = 1,
 					rendered = 2,
 				},
 				highlights = {
 					code = "",
-
 					heading = {
 						backgrounds = { "" },
 					},

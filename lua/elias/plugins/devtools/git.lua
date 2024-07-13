@@ -57,8 +57,8 @@ return {
 	{
 		"sindrets/diffview.nvim",
 		keys = {
-			{ "<leader>do", "<cmd>DiffviewOpen<CR>", des = "Diff repo" },
-            { "<leader>DO", "<cmd>DiffviewClose<CR>", des = "Close diff" },
+			{ "<leader>do", "<cmd>DiffviewOpen<CR>", desc = "Diff repo" },
+            { "<leader>DO", "<cmd>DiffviewClose<CR>", desc = "Close diff" },
 		},
 		config = diffviewConfig,
 	},
