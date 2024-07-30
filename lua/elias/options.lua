@@ -11,10 +11,16 @@ au TextYankPost * silent! lua vim.highlight.on_yank()
 " some quickfix things
 au TermOpen * setlocal nonumber norelativenumber
 au QuickFixCmdPost *grep* cwindow
+
+" grep alias
+cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
+cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
+
+colorscheme oldworld
 ]])
 
 --- grep command ---
-vim.o.grepprg = "rg --vimgrep"
+vim.o.grepprg = "rg --vimgrep --no-heading --smart-case"
 vim.o.grepformat = "%f:%l:%c:%m,%f|%l col %c|%m"
 
 --- indentation ---

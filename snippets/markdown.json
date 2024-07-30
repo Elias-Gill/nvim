@@ -69,13 +69,8 @@
     "body": "> ${1}",
     "description": "Insert quoted text"
   },
-  "Insert code": {
-    "prefix": "code",
-    "body": "`${1}` $0",
-    "description": "Insert code"
-  },
   "Insert code block": {
-    "prefix": "codeblock",
+    "prefix": "code",
     "body": ["```${1:language}", "$0", "```"],
     "description": "Insert fenced code block"
   },

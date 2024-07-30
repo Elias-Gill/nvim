@@ -50,6 +50,9 @@ nnoremap <C-t> <C-t>zz
 nnoremap <C-o> <C-o>zz
 nnoremap <C-i> <C-i>zz
 
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+
 " scroll
 nnoremap <C-y> <C-e>
 nnoremap <C-b> <C-y>

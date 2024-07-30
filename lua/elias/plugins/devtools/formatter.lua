@@ -25,12 +25,12 @@ return {
 				sh = { "shfmt" },
 				ocaml = { "ocamlformat" },
 				-- Use a sub-list to run only the first available formatter
-				javascript = { { "prettierd", "prettier" } },
-                html = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
-				typescriptreact = { { "prettierd", "prettier" } },
-				javascriptreact = { { "prettierd", "prettier" } },
-				astro = { { "prettierd", "prettier" } },
+				javascript = { "prettier" },
+				html = { "djlint" },
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
+				javascriptreact = { "prettier" },
+				astro = { "prettier" },
 			},
 		})
 

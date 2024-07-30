@@ -1,14 +1,30 @@
 -- TELESCOPICK JOHNSON --
 return {
 	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
+	tag = "0.1.8",
 	dependencies = {
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 		},
 
-		"ThePrimeagen/git-worktree.nvim",
+		-- git worktree extension
+		{
+			"ThePrimeagen/git-worktree.nvim",
+			config = function()
+				vim.api.nvim_create_user_command(
+					"WorkTreeList",
+					require("telescope").extensions.git_worktree.git_worktrees,
+					{}
+				)
+
+				vim.api.nvim_create_user_command(
+					"WorkTreeNew",
+					require("telescope").extensions.git_worktree.create_git_worktree,
+					{}
+				)
+			end,
+		},
 	},
 
 	config = function()
@@ -62,7 +78,7 @@ return {
 
 		-- extensions loading
 		require("telescope").load_extension("fzf")
-		-- require("telescope").load_extension("git_worktree")
+		require("telescope").load_extension("git_worktree")
 	end,
 
 	keys = {
@@ -71,21 +87,7 @@ return {
 		{ "<leader>ff", "<cmd>Telescope live_grep<cr>", mode = "n", desc = "Live grep" },
 		{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", mode = "n", desc = "Search files history" },
 		{ "<leader>fm", "<cmd>Telescope<cr>", mode = "n", desc = "Telescope Menu" },
-        { "<leader>fh", "<cmd>Telescope help_tags<cr>", mode = "n", desc = "Help tags" },
+		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", mode = "n", desc = "Help tags" },
 		{ "<leader>f", 'y:Telescope grep_string search=<c-r>"<cr>', mode = "v", desc = "Grep for selection" },
-
-		-- git worktree extension
-		--[[ {
-			"<leader>lw",
-			"<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>",
-			mode = "n",
-			desc = "List git worktree files",
-		},
-		{
-			"<leader>nw",
-			"<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>",
-			mode = "n",
-			desc = "Create a new git worktree",
-		}, ]]
 	},
 }
