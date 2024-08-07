@@ -54,7 +54,7 @@ return {
 	htmlTagName = { fg = p.red }, -- tag text
 
 	-- Diff
-	DiffAdd = c.nano_salient,
+	DiffAdd = { fg = p.bright_green, bg = "#1c1c1c" },
 	DiffChange = c.nano_popout,
 	DiffDelete = c.nano_faded,
 	DiffText = { bg = c.nano_subtle_color },

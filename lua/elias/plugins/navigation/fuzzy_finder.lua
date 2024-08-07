@@ -53,7 +53,7 @@ return {
 					},
 				},
 
-				file_ignore_patterns = { ".git", "go/", "*.class", "VirtualBox/", "node_modules/" },
+				file_ignore_patterns = { "go/", "*.class", "VirtualBox/", "node_modules/" },
 			},
 
 			extensions = {

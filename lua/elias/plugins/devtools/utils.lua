@@ -81,6 +81,7 @@ return {
 		"mattn/emmet-vim",
 		ft = {
 			"html",
+            "htmldjango",
 			"xml",
 			"css",
 			"svelte",
