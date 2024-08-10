@@ -16,8 +16,11 @@ nnoremap <leader>tt :Bw<cr> :qa<cr>
 " vnoremap gr y:silent vimgrep! <c-r>" **<cr>
 
 "file managers
-nnoremap <silent><leader>rt :Yazi<CR>
-nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
+nnoremap <silent><leader>nt :Yazi<CR>
+nnoremap <silent> - :Fex<CR>
+nnoremap <silent> _ :split \| Fex<CR>
+" nnoremap <silent>- :Fex<CR>
+" nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
 
 "cicling buffers
 nnoremap [b :bprevious<CR>
@@ -75,8 +78,8 @@ vnoremap y ygv<esc>
 nnoremap p p=`]
 
 "increments a decrements
-nnoremap + <C-a>
-nnoremap - <C-x>
+" nnoremap + <C-a>
+" nnoremap - <C-x>
 
 "teclas arriba y abajo en insert mode
 inoremap <C-j> <down>

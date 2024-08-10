@@ -8,9 +8,8 @@ return {
 	opts = {
 		-- Your setup opts here
 		outline_window = {
-			-- Where to open the split window: right/left
-			position = "right",
-            width = 15,
+			position = "left", -- right/left
+			width = 18,
 			wrap = false,
 		},
 		outline_items = {
@@ -19,7 +18,7 @@ return {
 			auto_update_events = {
 				follow = {},
 				-- :OutlineRefresh command.
-				items = { "InsertLeave", "WinEnter", "BufEnter", "BufWinEnter", "TabEnter", "BufWritePost" },
+				items = {},
 			},
 		},
 		providers = {
