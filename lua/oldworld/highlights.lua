@@ -6,23 +6,14 @@ local terminal = require("oldworld.terminal")
 local M = {}
 
 local integrations_highlights = {
-	alpha = require("oldworld.groups.integrations.alpha"),
 	cmp = require("oldworld.groups.integrations.cmp"),
-	flash = require("oldworld.groups.integrations.flash"),
+    bqf = require("oldworld.groups.integrations.bqf"),
 	gitsigns = require("oldworld.groups.integrations.gitsigns"),
-	hop = require("oldworld.groups.integrations.hop"),
 	indent_blankline = require("oldworld.groups.integrations.indent_blankline"),
 	lazy = require("oldworld.groups.integrations.lazy"),
 	lsp = require("oldworld.groups.integrations.lsp"),
 	markdown = require("oldworld.groups.integrations.markdown"),
 	mason = require("oldworld.groups.integrations.mason"),
-	mini = require("oldworld.groups.integrations.mini"),
-	navic = require("oldworld.groups.integrations.navic"),
-	neo_tree = require("oldworld.groups.integrations.neo_tree"),
-	neorg = require("oldworld.groups.integrations.neorg"),
-	noice = require("oldworld.groups.integrations.noice"),
-	notify = require("oldworld.groups.integrations.notify"),
-	rainbow_delimiters = require("oldworld.groups.integrations.rainbow_delimiters"),
 	telescope = require("oldworld.groups.integrations.telescope"),
 	treesitter = require("oldworld.groups.integrations.treesitter"),
 }
