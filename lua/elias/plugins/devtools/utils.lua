@@ -10,7 +10,8 @@ return {
 		ft = "qf",
 		config = function()
 			require("bqf").setup({
-				---@diagnostic disable-next-line: missing-fields
+				auto_enable = false,
+                ---@diagnostic disable-next-line: missing-fields
 				preview = {
 					winblend = 0,
 					should_preview_cb = function(bufnr, _)
@@ -81,7 +82,7 @@ return {
 		"mattn/emmet-vim",
 		ft = {
 			"html",
-            "htmldjango",
+			"htmldjango",
 			"xml",
 			"css",
 			"svelte",
