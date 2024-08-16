@@ -16,11 +16,10 @@ nnoremap <leader>tt :Bw<cr> :qa<cr>
 " vnoremap gr y:silent vimgrep! <c-r>" **<cr>
 
 "file managers
-nnoremap <silent><leader>nt :Yazi<CR>
 nnoremap <silent> - :Fex<CR>
 nnoremap <silent> _ :split \| Fex<CR>
-" nnoremap <silent>- :Fex<CR>
-" nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
+nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
+" nnoremap <silent><leader>rt :Yazi<CR>
 
 "cicling buffers
 nnoremap [b :bprevious<CR>

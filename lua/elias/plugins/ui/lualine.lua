@@ -154,7 +154,7 @@ return {
 
 		ins_right({
 			"progress",
-			padding = { left = 0, right = 0 }, -- We don't need space before this
+			padding = { left = 1, right = 0 }, -- We don't need space before this
 			color = { fg = colors.fg, gui = "bold" },
 		})
 

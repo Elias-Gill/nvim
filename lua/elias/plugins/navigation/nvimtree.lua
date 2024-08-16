@@ -49,7 +49,7 @@ local function conf_nvimtree()
 		respect_buf_cwd = true,
 		update_focused_file = {
 			enable = true,
-			update_root = true,
+			update_root = false,
 		},
 		view = {
 			width = 32,
@@ -110,6 +110,5 @@ end
 return {
 	"kyazdani42/nvim-tree.lua",
 	event = "UIEnter",
-	-- cmd = "NvimTreeFindFileToggle",
 	config = conf_nvimtree,
 }

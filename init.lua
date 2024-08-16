@@ -39,13 +39,3 @@ require("lazy").setup({
 		{ import = "elias.plugins" },
 	},
 })
-
--- autoclose on quit if quickfix or NvimTree_ or outline
-vim.api.nvim_create_autocmd("BufEnter", {
-	command = "if winnr('$') == 1 && bufname() =~ 'NvimTree_' . tabpagenr() | quit | endif",
-	nested = true,
-})
-vim.api.nvim_create_autocmd("BufEnter", {
-	command = "if winnr('$') == 1 && bufname() =~ 'Outline_' . tabpagenr() | quit | endif",
-	nested = true,
-})
