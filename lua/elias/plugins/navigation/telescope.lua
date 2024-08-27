@@ -9,22 +9,7 @@ return {
 		},
 
 		-- git worktree extension
-		{
-			"ThePrimeagen/git-worktree.nvim",
-			config = function()
-				vim.api.nvim_create_user_command(
-					"WorkTreeList",
-					require("telescope").extensions.git_worktree.git_worktrees,
-					{}
-				)
-
-				vim.api.nvim_create_user_command(
-					"WorkTreeNew",
-					require("telescope").extensions.git_worktree.create_git_worktree,
-					{}
-				)
-			end,
-		},
+		"mgierada/git-worktree.nvim",
 	},
 
 	config = function()
@@ -79,15 +64,38 @@ return {
 		-- extensions loading
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("git_worktree")
+
+		-- Mapeos de teclas en Neovim usando Lua
+		local keymaps = {
+			{ "<C-p>", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true, desc = "Open fuzzy finder" } },
+			{
+				"<leader>fr",
+				"<cmd>Telescope resume<cr>",
+				{ noremap = true, silent = true, desc = "Resume telescope find" },
+			},
+			{ "<leader>ff", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true, desc = "Live grep" } },
+			{
+				"<leader>fo",
+				"<cmd>Telescope oldfiles<cr>",
+				{ noremap = true, silent = true, desc = "Search files history" },
+			},
+			{ "<leader>fm", "<cmd>Telescope builtin include_extensions=true<cr>", { noremap = true, silent = true, desc = "Telescope Menu" } },
+			{ "<leader>fh", "<cmd>Telescope help_tags<cr>", { noremap = true, silent = true, desc = "Help tags" } },
+			{
+				"<leader>f",
+				'<cmd>lua require("telescope.builtin").grep_string({ search = vim.fn.getreg(""") })<cr>',
+				{ noremap = true, silent = true, desc = "Grep for selection" },
+				mode = "v",
+			},
+		}
+
+		-- Configurar los mapeos
+		for _, keymap in ipairs(keymaps) do
+			local key, cmd, opts = unpack(keymap)
+			local mode = opts.mode or "n"
+			vim.api.nvim_set_keymap(mode, key, cmd, opts)
+		end
 	end,
 
-	keys = {
-		{ "<C-p>", "<cmd>Telescope find_files<cr>", mode = "n", desc = "Open fuzzy finder" },
-		{ "<leader>fr", "<cmd>Telescope resume<cr>", mode = "n", desc = "Resume telescope find" },
-		{ "<leader>ff", "<cmd>Telescope live_grep<cr>", mode = "n", desc = "Live grep" },
-		{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", mode = "n", desc = "Search files history" },
-		{ "<leader>fm", "<cmd>Telescope<cr>", mode = "n", desc = "Telescope Menu" },
-		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", mode = "n", desc = "Help tags" },
-		{ "<leader>f", 'y:Telescope grep_string search=<c-r>"<cr>', mode = "v", desc = "Grep for selection" },
-	},
+	event = "VeryLazy",
 }

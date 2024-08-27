@@ -88,26 +88,19 @@ return {
 		end
 
 		ins_left({
-			function()
-				return "▊"
-			end,
-			color = { fg = colors.blue }, -- Sets highlighting of component
-			padding = { left = 0, right = 1 }, -- We don't need space before this
-		})
-
-		ins_left({
 			-- mode component
 			function()
-				return ""
+				return "▊"
+				-- return ""
 			end,
 			color = function()
 				-- auto change color according to neovims mode
 				local mode_color = {
-					n = colors.red,
+					n = colors.blue,
 					i = colors.green,
-					v = colors.blue,
-					[""] = colors.blue,
-					V = colors.blue,
+					v = colors.red,
+					[""] = colors.red,
+					V = colors.red,
 					c = colors.magenta,
 					no = colors.red,
 					s = colors.orange,
@@ -127,43 +120,6 @@ return {
 				return { fg = mode_color[vim.fn.mode()] }
 			end,
 			padding = { right = 1 },
-		})
-
-		ins_left({
-			-- filesize component
-			"filesize",
-			cond = conditions.buffer_not_empty,
-		})
-
-		ins_right({
-			"branch",
-			icon = "",
-			color = { fg = colors.violet, gui = "bold" },
-		})
-
-		ins_left({
-			"filename",
-			cond = conditions.buffer_not_empty,
-			color = { fg = "#eeeeee", gui = "bold" },
-		})
-
-		ins_right({
-			"location",
-			padding = { left = 0, right = 0 }, -- We don't need space before this
-		})
-
-		ins_right({
-			"progress",
-			padding = { left = 1, right = 0 }, -- We don't need space before this
-			color = { fg = colors.fg, gui = "bold" },
-		})
-
-		-- Insert mid section. You can make any number of sections in neovim :)
-		-- for lualine it's any number greater then 2
-		ins_left({
-			function()
-				return "%="
-			end,
 		})
 
 		ins_left({
@@ -202,20 +158,43 @@ return {
 			},
 		})
 
-		-- -- Add components to right sections
-		-- ins_right({
-		-- 	"o:encoding", -- option component same as &encoding in viml
-		-- 	fmt = string.upper, -- I'm not sure why it's upper case either ;)
-		-- 	cond = conditions.hide_in_width,
-		-- 	color = { fg = colors.green, gui = "bold" },
-		-- })
-		--
-		-- ins_right({
-		-- 	"fileformat",
-		-- 	fmt = string.upper,
-		-- 	icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-		-- 	color = { fg = colors.green, gui = "bold" },
-		-- })
+		--- Insert mid section. ---
+		ins_left({
+			function()
+				return "%="
+			end,
+		})
+
+		ins_left({
+			"filename",
+			cond = conditions.buffer_not_empty,
+			path = 1, -- 1: Relative path
+			color = { fg = "#eeeeee", gui = "bold" },
+		})
+
+		--- right status ---
+		ins_right({
+			"branch",
+			icon = "",
+			color = { fg = colors.violet, gui = "bold" },
+		})
+
+		ins_right({
+			"location",
+			padding = { left = 0, right = 0 }, -- We don't need space before this
+		})
+
+		ins_right({
+			"progress",
+			padding = { left = 1, right = 0 }, -- We don't need space before this
+			color = { fg = colors.fg, gui = "bold" },
+		})
+
+		ins_right({
+			-- filesize component
+			"filesize",
+			cond = conditions.buffer_not_empty,
+		})
 
 		ins_right({
 			function()

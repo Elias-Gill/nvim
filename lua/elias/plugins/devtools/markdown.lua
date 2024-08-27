@@ -1,6 +1,5 @@
 return {
 	"OXY2DEV/markview.nvim",
-	lazy = false,
 	ft = "markdown",
 	dependencies = {
 		-- You will not need this if you installed the
@@ -30,10 +29,11 @@ return {
 						direction = "left",
 						hl = { "special" },
 						repeat_amount = function()
-							local w = vim.api.nvim_win_get_width(0)
-							local l = vim.api.nvim_buf_line_count(0)
-							l = vim.fn.strchars(tostring(l)) + 4
-							return math.floor((w - (l + 3)) / 2)
+							-- local w = vim.api.nvim_win_get_width(0)
+							-- local l = vim.api.nvim_buf_line_count(0)
+							-- l = vim.fn.strchars(tostring(l)) + 4
+							-- return math.floor((w - (l + 3)) / 2)
+                            return 46
 						end,
 					},
 					{
@@ -46,10 +46,11 @@ return {
 						direction = "right",
 						hl = { "special" },
 						repeat_amount = function()
-							local w = vim.api.nvim_win_get_width(0)
-							local l = vim.api.nvim_buf_line_count(0)
-							l = vim.fn.strchars(tostring(l)) + 4
-							return math.ceil((w - (l + 3)) / 2)
+							-- local w = vim.api.nvim_win_get_width(0)
+							-- local l = vim.api.nvim_buf_line_count(0)
+							-- l = vim.fn.strchars(tostring(l)) + 4
+							-- return math.ceil((w - (l + 3)) / 2)
+                            return 46
 						end,
 					},
 				},
@@ -57,8 +58,8 @@ return {
 
 			list_items = {
 				enable = true,
-				shift_width = 4,
-				indent_size = 0,
+				shift_width = 1,
+				indent_size = 1,
 				marker_minus = {
 					text = "•",
 				},

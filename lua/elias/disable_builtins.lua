@@ -20,5 +20,5 @@ vim.g.loaded_tutor_mode_plugin = 1
 
 -- explorador por defecto
 -- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
--- vim.g.loaded_netrwSettings = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrwSettings = 1

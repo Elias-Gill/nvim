@@ -12,8 +12,8 @@ nnoremap <leader>qf :q!<CR>
 nnoremap <leader>tt :Bw<cr> :qa<cr> 
 
 " grep functions (they may override when lsp is on)
-" nnoremap gr :silent vimgrep! <c-r><c-w> **<cr>
-" vnoremap gr y:silent vimgrep! <c-r>" **<cr>
+nnoremap <leader>fw :silent grep! <c-r><c-w> **<cr>
+vnoremap <leader>fw y:silent grep! <c-r>" **<cr>
 
 "file managers
 nnoremap <silent> - :Fex<CR>

@@ -66,9 +66,9 @@ vim.o.scrolloff = 4
 vim.o.termguicolors = true
 vim.o.signcolumn = "yes"
 vim.o.laststatus = 3
-vim.o.winbar = "%=%f%m"
 vim.o.showbreak = "| "
 vim.o.background = "dark"
+-- vim.o.winbar = "%=%f%m"
 
 --- Tabs to spaces ---
 vim.o.tabstop = 4

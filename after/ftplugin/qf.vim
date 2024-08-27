@@ -4,3 +4,5 @@ nnoremap <buffer> q :q<cr>
 nnoremap <buffer> <esc> :q<cr>
 nnoremap <buffer> [q :colder<cr>
 nnoremap <buffer> ]q :cnewer<cr>
+nnoremap <buffer> f :Cfilter 
+nnoremap <buffer> F :Cfilter! 
