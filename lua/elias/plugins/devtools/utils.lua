@@ -10,9 +10,9 @@ return {
 		ft = "qf",
 		config = function()
 			require("bqf").setup({
-                ---@diagnostic disable-next-line: missing-fields
+				---@diagnostic disable-next-line: missing-fields
 				preview = {
-                    auto_preview = false,
+					auto_preview = false,
 					winblend = 0,
 					should_preview_cb = function(bufnr, _)
 						local ret = true

@@ -17,7 +17,7 @@ return {
 
 			-- hybrid_modes = { "n" }, -- Uses this feature on
 			-- normal mode
-			Checkboxes = {
+			checkboxes = {
 				enable = false,
 			},
 
