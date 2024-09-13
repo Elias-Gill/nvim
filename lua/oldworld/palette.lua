@@ -29,6 +29,7 @@ local palette = {
     gray2 = "#2a2a2c",
     gray3 = "#313134",
     gray4 = "#3b3b3e",
+    gray5 = "#5b5b5b",
     -- Special
     none = "NONE",
 }

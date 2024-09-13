@@ -9,8 +9,9 @@ function M.colorscheme()
     vim.o.termguicolors = true
     vim.g.colors_name = "oldworld"
     require("oldworld.highlights").setup()
-end
 
-M.setup = require("oldworld.config").setup
+    -- descomentar si es que necesito usar solo termcolors
+    --require("oldworld.terminal").setup()
+end
 
 return M

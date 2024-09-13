@@ -17,6 +17,25 @@ cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? '
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
 colorscheme oldworld
+
+set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
+set diffopt+=vertical
+set shortmess+=c
+set clipboard=unnamedplus
+
+set fillchars=fold:\ 
+set fillchars+=diff:╱
+set completeopt=menuone,noselect
+
+" Borrar buffers sin usar
+command Bw :wa | BWipeout hidden
+command W :w
+command Q :q
+
+"-- cursor
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
 ]])
 
 --- grep command ---
@@ -55,9 +74,9 @@ vim.o.splitkeep = "screen"
 --- folding ---
 vim.o.foldenable = false
 vim.o.foldlevelstart = 99
-vim.o.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
--- vim.opt.foldtext = 'v:lua.vim.treesitter.foldtext()'
+vim.o.foldmethod = "indent"
+-- vim.o.foldmethod = "expr"
+-- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 --- Visuals ---
 vim.o.showcmd = true
@@ -87,25 +106,3 @@ vim.o.inccommand = "split"
 -- python
 vim.g.python_highlight_all = 1
 vim.g.python_highlight_space_errors = 0
-
--- Cosas que no me animo a cambiar
-vim.cmd([[
-set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
-set diffopt+=vertical
-set shortmess+=c
-set clipboard=unnamedplus
-
-set fillchars=fold:\ 
-set fillchars+=diff:╱
-set completeopt=menuone,noselect
-
-" Borrar buffers sin usar
-command Bw :wa | BWipeout hidden
-command W :w
-command Q :q
-
-"-- cursor
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
-]])
