@@ -3,7 +3,6 @@ return {
 	ft = "markdown",
 	dependencies = {
 		"ixru/nvim-markdown",
-		{ "nvim-tree/nvim-web-devicons", lazy = true },
 	},
 	opts = {
 		modes = { "n", "no", "c" }, -- Change these modes

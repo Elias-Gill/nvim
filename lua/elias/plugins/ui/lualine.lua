@@ -4,7 +4,6 @@ end
 
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
 	event = "VeryLazy",
 	config = function()
 		-- Eviline config for lualine
