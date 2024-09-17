@@ -104,8 +104,8 @@ return {
 		config = tsConfig,
 		build = ":TSUpdate",
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			"JoosepAlviste/nvim-ts-context-commentstring",
+			{ "nvim-treesitter/nvim-treesitter-textobjects", lazy = true },
+			{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
 		},
 	},
 }
