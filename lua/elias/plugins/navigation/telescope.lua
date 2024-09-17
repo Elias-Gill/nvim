@@ -2,14 +2,16 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.8",
+	event = "VeryLazy",
 	dependencies = {
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+			lazy = true,
 		},
 
 		-- git worktree extension
-		"mgierada/git-worktree.nvim",
+		{ "mgierada/git-worktree.nvim", lazy = true },
 	},
 
 	config = function()
@@ -79,7 +81,11 @@ return {
 				"<cmd>Telescope oldfiles<cr>",
 				{ noremap = true, silent = true, desc = "Search files history" },
 			},
-			{ "<leader>fm", "<cmd>Telescope builtin include_extensions=true<cr>", { noremap = true, silent = true, desc = "Telescope Menu" } },
+			{
+				"<leader>fm",
+				"<cmd>Telescope builtin include_extensions=true<cr>",
+				{ noremap = true, silent = true, desc = "Telescope Menu" },
+			},
 			{ "<leader>fh", "<cmd>Telescope help_tags<cr>", { noremap = true, silent = true, desc = "Help tags" } },
 			{
 				"<leader>f",
@@ -96,6 +102,4 @@ return {
 			vim.api.nvim_set_keymap(mode, key, cmd, opts)
 		end
 	end,
-
-	event = "VeryLazy",
 }

@@ -1,5 +1,6 @@
-local function config()
-	require("dressing").setup({
+return {
+	"stevearc/dressing.nvim",
+	opts = {
 		input = {
 			-- Can be 'left', 'right', or 'center'
 			title_pos = "center",
@@ -19,9 +20,5 @@ local function config()
 			},
 			trim_prompt = false,
 		},
-	})
-end
-return {
-	"stevearc/dressing.nvim",
-	config = config,
+	},
 }

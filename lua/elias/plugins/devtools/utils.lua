@@ -36,9 +36,6 @@ return {
 	{
 		"kazhala/close-buffers.nvim",
 		cmd = "BWipeout",
-		config = function()
-			require("close_buffers").setup()
-		end,
 	},
 
 	-- undotree
@@ -54,11 +51,9 @@ return {
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
-		config = function()
-			require("nvim-autopairs").setup({
-				enable_check_bracket_line = false,
-			})
-		end,
+		opts = {
+			enable_check_bracket_line = false,
+		},
 	},
 
 	--comentarios

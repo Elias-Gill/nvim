@@ -75,7 +75,7 @@ local function conf_nvimtree()
 		},
 		filters = {
 			dotfiles = true,
-			custom = {"node_modules"},
+			custom = { "node_modules" },
 		},
 		filesystem_watchers = { enable = false },
 		git = { enable = false }, -- PERFORMANCE issues
