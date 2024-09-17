@@ -7,7 +7,6 @@ vim.cmd("packadd cfilter") -- filter quickfix results with CFilter
 vim.g.mapleader = " "
 require("elias/disable_builtins")
 require("elias/options")
-require("elias/remaps")
 -- ./after/plugin/remaps.vim  <- remaps file
 
 --------------- LAZY -----------

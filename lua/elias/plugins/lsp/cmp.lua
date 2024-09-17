@@ -36,15 +36,6 @@ local function cmpConfig()
 				-- buff
 				before = function(_, vim_item)
 					vim_item.kind = string.format("%s", vim_item.kind)
-					--[[ vim_item.menu = ({
-                    nvim_lsp = "[LSP]",
-                    luasnip = "[Snp]",
-                    buffer = "[Buf]",
-                    nvim_lua = "[]",
-                    path = "[]",
-                    -- cmp_tabnine = "[📠]",
-
-                })[entry.source.name] ]]
 					return vim_item
 				end,
 			}),
@@ -100,10 +91,12 @@ return {
 			-- {'tzachar/cmp-tabnine', build = './install.sh'}
 		},
 		config = function()
-			require("luasnip.loaders.from_vscode").lazy_load() -- to load vscode-like snippets from plugins
+			-- to load vscode-like snippets from plugins
+			require("luasnip.loaders.from_vscode").lazy_load()
+			local luasnip = require("luasnip")
 			-- require'luasnip'.filetype_extend("ruby", {"rails"})
 
-			--config
+			-- luasnips config
 			local types = require("luasnip.util.types")
 			require("luasnip").config.set_config({
 				history = false,
@@ -120,6 +113,14 @@ return {
 					},
 				},
 			})
+
+			-- Luasnips keymaps
+			vim.cmd([[
+            inoremap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+            inoremap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+            snoremap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+            ]])
+
 			cmpConfig()
 		end,
 	},

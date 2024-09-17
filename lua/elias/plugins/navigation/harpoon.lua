@@ -1,5 +1,6 @@
 return {
 	"MeanderingProgrammer/harpoon-core.nvim",
+	commit = "d79ac59",
 	config = function()
 		require("harpoon-core").setup({})
 	end,
