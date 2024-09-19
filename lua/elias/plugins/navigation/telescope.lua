@@ -19,9 +19,15 @@ return {
 				path_display = {
 					truncate = 1,
 				},
+				sorting_strategy = "descending",
+
+				preview = {
+					treesitter = {
+						enable = false,
+					},
+				},
 
 				layout_strategy = "horizontal",
-
 				layout_config = {
 					horizontal = {
 						prompt_position = "bottom",
@@ -29,7 +35,6 @@ return {
 					},
 					height = 0.7,
 				},
-				sorting_strategy = "descending",
 
 				mappings = {
 					i = {
@@ -56,6 +61,10 @@ return {
 					disable_devicons = true,
 				},
 
+				fd = {
+					disable_devicons = true,
+				},
+
 				live_grep = {
 					disable_devicons = true,
 				},
@@ -68,7 +77,7 @@ return {
 
 		-- Mapeos de teclas en Neovim usando Lua
 		local keymaps = {
-			{ "<C-p>", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true, desc = "Open fuzzy finder" } },
+			{ "<C-p>", "<cmd>Telescope fd<cr>", { noremap = true, silent = true, desc = "Open fuzzy finder" } },
 			{
 				"<leader>fr",
 				"<cmd>Telescope resume<cr>",
