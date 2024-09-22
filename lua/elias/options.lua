@@ -89,6 +89,10 @@ vim.o.showbreak = "| "
 vim.o.background = "dark"
 -- vim.o.winbar = "%=%f%m"
 
+-- This is nice to have for markdown
+vim.o.conceallevel = 2
+vim.o.concealcursor = "c"
+
 --- Tabs to spaces ---
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
