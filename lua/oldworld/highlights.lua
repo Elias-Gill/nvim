@@ -7,6 +7,7 @@ local M = {}
 local integrations = {
 	cmp = require("oldworld.groups.integrations.cmp"),
 	bqf = require("oldworld.groups.integrations.bqf"),
+    telescope = require("oldworld.groups.integrations.telescope"),
 	indent_blankline = require("oldworld.groups.integrations.indent_blankline"),
 	lazy = require("oldworld.groups.integrations.lazy"),
 	lsp = require("oldworld.groups.integrations.lsp"),

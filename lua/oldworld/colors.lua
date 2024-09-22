@@ -7,15 +7,6 @@
 local M = {}
 
 function M.get()
-	local base0 = "#191C25"
-	local base1 = "#242832"
-	local base2 = "#2C333F"
-	local base3 = "#373E4C"
-	local base4 = "#434C5E"
-	local base5 = "#4C566A"
-	local base6 = "#9099AB"
-	local base7 = "#D8DEE9"
-
 	local nano_foreground_color = "#ECEFF4"
 	local nano_background_color = "#2E3440"
 	local nano_highlight_color = "#3B4252"
