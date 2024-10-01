@@ -6,7 +6,7 @@ return {
     Cursor = { fg = p.black, bg = p.fg }, -- the character under the cursor
     lCursor = { fg = p.black, bg = p.fg }, -- the character under the cursor
     CursorIM = { fg = p.black, bg = p.fg }, -- the character under the cursor
-    CursorLine = { bg = p.gray1 }, -- the screen line that the cursor is in when 'cursorline' is set
+    CursorLine = { bg = p.gray2 }, -- the screen line that the cursor is in when 'cursorline' is set
     Directory = { fg = p.purple }, -- directory names (and other special names in listings)
     DiffAdd = { bg = p.green, fg = p.black }, -- diff mode: Added line
     DiffChange = { fg = p.yellow, underline = true }, -- diff mode: Changed line
@@ -15,7 +15,7 @@ return {
     EndOfBuffer = { fg = p.bg },
     ErrorMsg = { fg = p.orange }, -- error messages on the command line
     VertSplit = { fg = p.gray2 }, -- the column separating vertically split windows
-    WinSeparator = { fg = p.gray2 }, -- the column separating vertically split windows
+    WinSeparator = { fg = p.gray3 }, -- the column separating vertically split windows
     Folded = { fg = p.gray5 }, -- line used for closed folds
     FoldColumn = { bg = p.bg, fg = p.subtext4 }, -- column where folds are displayed
     SignColumn = { bg = p.bg, fg = p.subtext4 }, -- column where signs are displayed
@@ -28,7 +28,7 @@ return {
     MoreMsg = { fg = p.bright_magenta }, -- more-prompt
     NonText = { fg = p.subtext4 }, --'~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., > displayed when a double-wide character doesn't fit at the end of the line).
     Normal = { fg = p.fg, bg = p.bg }, -- normal text
-    NormalNC = { fg = p.fg, bg = p.bg_dark }, -- normal text
+    NormalNC = { fg = p.fg, bg = p.bg }, -- normal text
     NormalFloat = { fg = p.fg, bg = p.gray0 }, -- Normal text in floating windows.
     FloatBorder = { fg = p.gray3, bg = p.bg }, -- Border of floating windows.
     Pmenu = { fg = p.fg, bg = p.black }, -- Popup menu: normal item.

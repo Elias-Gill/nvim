@@ -28,6 +28,7 @@ return {
 				},
 
 				layout_strategy = "horizontal",
+				borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 				layout_config = {
 					horizontal = {
 						prompt_position = "bottom",

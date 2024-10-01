@@ -18,7 +18,7 @@ return {
 			-- hi_parameter = "LspSignatureActiveParameter",
 			hi_parameter = "IncSearch",
 			handler_opts = {
-				border = "rounded", -- double, rounded, single, shadow, none, or a table of borders
+				border = "single", -- double, rounded, single, shadow, none, or a table of borders
 			},
 
 			always_trigger = true,

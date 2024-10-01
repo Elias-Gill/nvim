@@ -12,6 +12,7 @@ nnoremap <leader>qf :q!<CR>
 nnoremap <leader>tt :Bw<cr> :qa<cr> 
 
 " grep functions (they may override when lsp is on)
+nnoremap <leader>g :silent grep! 
 nnoremap <leader>fw :silent grep! <c-r><c-w> **<cr>
 vnoremap <leader>fw y:silent grep! <c-r>" **<cr>
 

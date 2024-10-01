@@ -1,5 +1,5 @@
 local palette = {
-    bg = "#161617",
+    bg = "#1c1c1c",
     fg = "#c9c7cd",
     subtext1 = "#b4b1ba",
     subtext2 = "#9f9ca6",

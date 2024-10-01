@@ -35,6 +35,7 @@ return {
 	Underlined = { underline = true }, -- text that stands out, HTML links
 	Error = { fg = p.orange }, -- any erroneous construct
 	Todo = { fg = p.yellow }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+
 	-- HTML
 	htmlArg = { fg = p.bright_purple, italic = true }, -- attributes
 	htmlEndTag = { fg = p.subtext1 }, -- end tag />
@@ -53,10 +54,4 @@ return {
 	diffNewFile = c.nano_strong,
 	diffOldFile = c.nano_strong,
 	diffRemoved = c.nano_faded,
-
-	-- cosas mias
-	WinSeparator = { fg = "#2b2b2b" },
-	NormalNc = { bg = "none" },
-	WinBarNc = { bg = "none", italic = true },
-	WinBar = { bg = "none", italic = true },
 }
