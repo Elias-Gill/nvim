@@ -1,7 +1,7 @@
 local p = require("oldworld.palette")
 
 return {
-    ColorColumn = { bg = p.gray1 }, -- used for the columns set with 'colorcolumn'
+    ColorColumn = { bg = p.gray3 }, -- used for the columns set with 'colorcolumn'
     Conceal = { fg = p.gray1 }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = { fg = p.black, bg = p.fg }, -- the character under the cursor
     lCursor = { fg = p.black, bg = p.fg }, -- the character under the cursor
@@ -32,7 +32,7 @@ return {
     NormalFloat = { fg = p.fg, bg = p.gray0 }, -- Normal text in floating windows.
     FloatBorder = { fg = p.gray3, bg = p.bg }, -- Border of floating windows.
     Pmenu = { fg = p.fg, bg = p.black }, -- Popup menu: normal item.
-    PmenuSel = { fg = p.white, bg = p.gray3 }, -- Popup menu: selected item.
+    PmenuSel = { fg = p.white, bg = p.gray4 }, -- Popup menu: selected item.
     PmenuSbar = { bg = p.gray2 }, -- Popup menu: scrollbar.
     PmenuThumb = { bg = p.gray3 }, -- Popup menu: Thumb of the scrollbar.
     Question = { fg = p.purple }, -- hit-enter prompt and yes/no questions

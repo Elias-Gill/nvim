@@ -4,19 +4,20 @@ highlight FoldColumn guifg=#636363
 highlight Cursor guifg=#ebfcfb guibg=#031120
 highlight TermCursor guibg=NONE guifg=NONE gui=NONE guisp=NONE
 highlight CursorColumn guibg=#15222F
-highlight CursorLine guibg=#252525
-highlight CursorLineNr guifg=#C492b1
+highlight CursorLine guibg=#252525 term=NONE cterm=NONE
+highlight CursorLineNr guifg=#C492b1 term=NONE cterm=NONE
 highlight lCursor guifg=#C492b1 guibg=#031120
-highlight EndOfBuffer guifg=#303030 guibg=none
-highlight MatchParen guibg=#4a4a4a
+highlight EndOfBuffer guifg=#585858 guibg=NONE
+highlight MatchParen guibg=#585858
 highlight Substitute guifg=#031120 guibg=#C492b1
 highlight IncSearch guibg=NONE guifg=NONE gui=reverse
-highlight Search guifg=#ebfcfb guibg=#4a4a4a
-highlight CurSearch guifg=#97D7BD guibg=NONE gui=reverse
+highlight CurSearch guifg=#ebfcfb guibg=#4a4a4a
+highlight Search guibg=#252525 guifg=#e6b99d
 
-highlight Normal guifg=#ebfcfb guibg=#191919
+highlight Normal guifg=#ebfcfb guibg=#1b1b1b
+highlight NormalNc guifg=#ebfcfb guibg=#1b1b1b
 highlight NormalFloat guifg=#ebfcfb guibg=#191919
-highlight Visual guibg=#323232
+highlight Visual guibg=#3b3b3e
 highlight VisualNOS guifg=#031120 guibg=#4F345a
 
 highlight ErrorMsg guifg=#BC2c1A
@@ -68,17 +69,18 @@ highlight dirType guifg=#C492b1
 
 highlight StatusLine guifg=#ebfcfb guibg=#0C1A28
 highlight StatusLineNC guifg=#7d7d7d guibg=#031120
-highlight TabLine guifg=#ebfcfb guibg=#031120
-highlight TabLineFill guibg=#031120
+highlight TabLine guibg=NONE gui=NONE term=NONE cterm=NONE
+highlight TabLineFill guibg=NONE gui=NONE term=NONE cterm=NONE
 highlight TabLineSel guifg=#ebfcfb guibg=#031120
 highlight WinBar guifg=#ebfcfb
 highlight WinBarNC guifg=#7d7d7d
-highlight WinSeparator guifg=#636363 guibg=none
+highlight WinSeparator guifg=#636363 guibg=NONE
+highlight VertSplit guifg=#585858
 
 highlight Title guifg=#C492b1
 
 " Syntax
-highlight Comment guifg=#636363
+highlight Comment guifg=#9a9290
 
 highlight Constant guifg=#C492b1
 highlight String guifg=#C492b1
@@ -120,6 +122,8 @@ highlight Underlined gui=underline
 highlight Ignore guifg=NONE guibg=NONE
 highlight Error guifg=#BC2c1A
 highlight Todo guifg=#4B8CCD guibg=#031120
+
+highlight pythonSpaceError guibg=NONE
 
 " Diagnostics
 highlight DiagnosticError guifg=#BC2c1A
