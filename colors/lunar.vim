@@ -20,7 +20,7 @@ highlight NormalFloat guifg=#ebfcfb guibg=#191919
 highlight Visual guibg=#3b3b3e
 highlight VisualNOS guifg=#031120 guibg=#4F345a
 
-highlight ErrorMsg guifg=#BC2c1A
+highlight ErrorMsg guifg=#d64040 guibg=NONE
 highlight MsgArea guifg=#dbcfb0
 highlight ModeMsg guifg=#4B8CCD
 highlight MoreMsg guifg=#698F3F
@@ -39,7 +39,7 @@ highlight PmenuExtraSel guifg=#7d7d7d guibg=#181818
 highlight PmenuKind guifg=#BC2c1A
 highlight PmenuKindSel guifg=#BC2c1A
 highlight PmenuSbar guibg=NONE guifg=NONE
-highlight PmenuSel guifg=#97D7BD guibg=#282828
+highlight PmenuSel guifg=#97D7BD guibg=#1f1f1f
 highlight PmenuThumb guibg=#979797
 
 highlight Question guifg=#ebfcfb
@@ -69,9 +69,9 @@ highlight dirType guifg=#C492b1
 
 highlight StatusLine guifg=#ebfcfb guibg=#0C1A28
 highlight StatusLineNC guifg=#7d7d7d guibg=#031120
-highlight TabLine guibg=NONE gui=NONE term=NONE cterm=NONE
+highlight TabLine guifg=#dddddd guibg=#1b1b1b cterm=NONE gui=NONE
+highlight TabLineSel guifg=#e6b99d guibg=#2f2f2f
 highlight TabLineFill guibg=NONE gui=NONE term=NONE cterm=NONE
-highlight TabLineSel guifg=#ebfcfb guibg=#031120
 highlight WinBar guifg=#ebfcfb
 highlight WinBarNC guifg=#7d7d7d
 highlight WinSeparator guifg=#636363 guibg=NONE
@@ -123,7 +123,9 @@ highlight Ignore guifg=NONE guibg=NONE
 highlight Error guifg=#BC2c1A
 highlight Todo guifg=#4B8CCD guibg=#031120
 
+" python
 highlight pythonSpaceError guibg=NONE
+highlight pythonDecorator guifg=#ebfcfb
 
 " Diagnostics
 highlight DiagnosticError guifg=#BC2c1A

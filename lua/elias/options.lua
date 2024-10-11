@@ -91,7 +91,7 @@ vim.o.background = "dark"
 
 -- This is nice to have for markdown
 vim.o.conceallevel = 2
-vim.o.concealcursor = "c"
+vim.o.concealcursor = ""
 
 --- Tabs to spaces ---
 vim.o.tabstop = 4
