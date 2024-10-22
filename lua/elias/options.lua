@@ -85,7 +85,7 @@ vim.o.scrolloff = 4
 vim.o.termguicolors = true
 vim.o.signcolumn = "yes"
 vim.o.laststatus = 3
-vim.o.showbreak = "| "
+vim.o.showbreak = "⤷  "
 vim.o.background = "dark"
 -- vim.o.winbar = "%=%f%m"
 
