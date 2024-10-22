@@ -13,11 +13,13 @@ nnoremap <leader>tt :Bw<cr> :qa<cr>
 
 " grep functions (they may override when lsp is on)
 nnoremap <leader>g :silent grep! 
-nnoremap <leader>fw :silent grep! <c-r><c-w> **<cr>
-vnoremap <leader>fw y:silent grep! <c-r>" **<cr>
+nnoremap gr :silent grep! <c-r><c-w> **<cr>
+vnoremap gr y:silent grep! <c-r>" **<cr>
 
 "file managers
 nnoremap <silent> - :Explore<CR>
+nnoremap <silent><leader>nt :Lexplore \| vertical resize 40<CR>
+nnoremap <silent><c-p> :lua FindFiles()<cr>
 
 "cicling buffers
 nnoremap [b :bprevious<CR>
