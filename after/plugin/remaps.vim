@@ -17,10 +17,7 @@ nnoremap <leader>fw :silent grep! <c-r><c-w> **<cr>
 vnoremap <leader>fw y:silent grep! <c-r>" **<cr>
 
 "file managers
-nnoremap <silent> - :Fex<CR>
-nnoremap <silent> _ :split \| Fex<CR>
-nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
-" nnoremap <silent><leader>rt :Yazi<CR>
+nnoremap <silent> - :Explore<CR>
 
 "cicling buffers
 nnoremap [b :bprevious<CR>
@@ -86,23 +83,14 @@ inoremap <C-j> <down>
 inoremap <C-k> <up>
 
 "Moverse entre splits
-nnoremap <silent><C-j> :TmuxNavigateDown<cr>
-nnoremap <silent><C-k> :TmuxNavigateUp<cr>
-nnoremap <silent><C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent><C-l> :TmuxNavigateRight<cr>
+nnoremap <silent><C-j> <c-w>j
+nnoremap <silent><C-k> <c-w>k
+nnoremap <silent><C-h> <c-w>h
+nnoremap <silent><C-l> <c-w>l
 
 "Crear splits unificado con Tmux
 nnoremap <silent><C-w>\ :vsplit<cr>
 nnoremap <silent><C-w>- :split<cr>
-
-"Archivos de configuracion
-nnoremap <leader>cd :lcd %:h<CR>
-nnoremap <silent><leader>sm :e $XDG_CONFIG_HOME/nvim/after/plugin/remaps.vim<CR>
-nnoremap <silent><leader>so :e $MYVIMRC<CR>
-
-"abrir wiki
-nnoremap <silent><leader>ww :call OpenWiki()<cr>
-nnoremap <silent><leader>wo :tabnew ~/Documentos/wiki/index.md<cr>:lcd %:h<CR>
 
 "block the arrow keys
 nnoremap <up> <nop>
@@ -115,21 +103,3 @@ nnoremap <silent><up> :resize +5<CR>
 nnoremap <silent><down> :resize -5<CR>
 nnoremap <silent><left> :vertical resize -5<CR>
 nnoremap <silent><right> :vertical resize +5<CR>
-"maximizer
-nnoremap <leader>mt :MaximizerToggle<cr>
-
-"Debug
-nnoremap <silent><leader>db :DapContinue<Cr>
-nnoremap <silent><F7> :lua require'dap'.step_into()<cr>
-nnoremap <silent><F6> :lua require'dap'.step_over()<cr>
-nnoremap <silent><leader>du :lua require'dap'.toggle_breakpoint()<Cr>
-nnoremap <silent><leader>ds :lua require'dap'.terminate()<Cr>
-nnoremap <silent><leader>df :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>
-nnoremap <silent><leader>dc :lua require'dap'.run_to_cursor()<Cr>
-
-"Luasnips snippets
-inoremap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
-
-" --- For changing choices in choiceNodes --- 
-inoremap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-snoremap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'

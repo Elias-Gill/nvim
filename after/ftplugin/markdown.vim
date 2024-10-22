@@ -2,9 +2,6 @@ setlocal linebreak
 setlocal textwidth=95
 setlocal colorcolumn=95
 setlocal wrap
-" setlocal spell spelllang=es
-
-nnoremap <buffer><silent><leader>co :Outline<cr>
 
 nnoremap <buffer>k gk
 nnoremap <buffer>j gj
@@ -22,15 +19,3 @@ nnoremap <buffer>$ g$
 
 vnoremap <buffer>^ g^
 vnoremap <buffer>$ g$
-
-vnoremap <cr> <Plug>Markdown_CreateLink
-nnoremap <buffer><A-space> <Plug>Markdown_Checkbox
-
-function MdOpen()
-    let fn = expand("%:p")
-    let bnumber = bufnr(fn)
-    call jobstart("md-reader " .'"'. fn .'"')
-endfunction
-
-command -buffer MdView call MdOpen()
-nnoremap <buffer><leader>op :MdView<cr>

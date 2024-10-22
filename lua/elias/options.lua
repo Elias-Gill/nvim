@@ -16,7 +16,7 @@ au QuickFixCmdPost *grep* cwindow
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
-colorscheme oldworld
+colorscheme default
 
 set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
 set diffopt+=vertical
