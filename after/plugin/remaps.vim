@@ -109,6 +109,7 @@ nnoremap <up> <nop>
 nnoremap <right> <nop>
 nnoremap <left> <nop>
 nnoremap <down> <nop>
+
 "resize splits with arrow keys
 nnoremap <silent><up> :resize +5<CR>
 nnoremap <silent><down> :resize -5<CR>
