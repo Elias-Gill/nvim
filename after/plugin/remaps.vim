@@ -17,8 +17,6 @@ nnoremap <leader>fw :silent grep! <c-r><c-w> **<cr>
 vnoremap <leader>fw y:silent grep! <c-r>" **<cr>
 
 "file managers
-nnoremap <silent> - :Fex<CR>
-nnoremap <silent> _ :split \| Fex<CR>
 nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
 " nnoremap <silent><leader>rt :Yazi<CR>
 
