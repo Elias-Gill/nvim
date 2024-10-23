@@ -15,7 +15,7 @@ return {
 			golang = { "golangcilint" },
 			go = { "golangcilint" },
 			git = { "gitlint" },
-            python = { "pylint" },
+            -- python = { "pylint" },
 		}
 
 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
