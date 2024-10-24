@@ -10,7 +10,13 @@ au TextYankPost * silent! lua vim.highlight.on_yank()
 
 " some quickfix things
 au TermOpen * setlocal nonumber norelativenumber
-au QuickFixCmdPost *grep* cwindow
+
+" auto open quickfix on population
+augroup myvimrc
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow | redraw!
+    autocmd QuickFixCmdPost l*    lwindow | redraw!
+augroup END
 
 " grep alias
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
