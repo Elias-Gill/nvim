@@ -57,6 +57,8 @@ nnoremap <C-d> <C-d>zz
 " scroll
 nnoremap <C-y> <C-e>
 nnoremap <C-b> <C-y>
+nnoremap <S-ScrollWheelUp> zH
+nnoremap <S-ScrollWheelDown> zL
 
 "primeagen cool remap to move lines
 vnoremap J :m '>+1<CR>gv=gv

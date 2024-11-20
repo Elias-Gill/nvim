@@ -49,9 +49,10 @@ return {
 	DiffChange = c.nano_popout,
 	DiffDelete = c.nano_faded,
 	DiffText = { bg = c.nano_subtle_color },
-	diffAdded = c.nano_salient,
+
+	diffAdded = { fg = p.bright_green, bg = "#1c1c1c" },
 	diffChanged = c.nano_popout,
 	diffNewFile = c.nano_strong,
 	diffOldFile = c.nano_strong,
-	diffRemoved = c.nano_faded,
+    diffRemoved = c.nano_faded,
 }

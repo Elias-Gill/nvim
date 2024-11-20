@@ -6,10 +6,14 @@ return {
 	},
 	opts = {
 		modes = { "n", "no", "c" }, -- Change these modes
-        -- hybrid_modes = { "n" }, -- Uses this feature on
+		-- hybrid_modes = { "n" }, -- Uses this feature on
 		-- to what you need
 		-- normal mode
 		checkboxes = {
+			enable = false,
+		},
+
+		links = {
 			enable = false,
 		},
 
@@ -59,7 +63,7 @@ return {
 				text = "‣",
 			},
 			marker_star = {
-				text = "◆",
+				text = "",
 			},
 			marker_dot = {
 				text = "◇",
