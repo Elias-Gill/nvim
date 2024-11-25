@@ -13,7 +13,7 @@ return {
 			vue = { "eslint" },
 			lua = { "luacheck" },
 			golang = { "golangcilint" },
-			go = { "golangcilint" },
+			-- go = { "golangcilint" },
 			git = { "gitlint" },
             -- python = { "pylint" },
 		}

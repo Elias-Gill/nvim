@@ -26,7 +26,7 @@ return {
 				ocaml = { "ocamlformat" },
 				-- Use a sub-list to run only the first available formatter
 				javascript = { "prettier" },
-				html = { "djlint" },
+				html = { "htmlbeautifier" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
 				javascriptreact = { "prettier" },
