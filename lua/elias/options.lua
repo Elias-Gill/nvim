@@ -92,11 +92,9 @@ vim.o.signcolumn = "yes"
 vim.o.laststatus = 3
 vim.o.showbreak = "⤷  "
 vim.o.background = "dark"
--- vim.o.winbar = "%=%f%m"
-
--- This is nice to have for markdown
-vim.o.conceallevel = 2
+vim.o.conceallevel = 0
 vim.o.concealcursor = ""
+-- vim.o.winbar = "%=%f%m"
 
 --- Tabs to spaces ---
 vim.o.tabstop = 4
