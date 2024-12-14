@@ -124,18 +124,16 @@ return {
 		ins_left({
 			-- Lsp server name .
 			function()
-				local msg = "No Active Lsp"
 				local prompt = ""
-				local buf_ft = vim.api.nvim_get_option_value(0, "filetype")
+				local buf_nb = vim.api.nvim_get_current_buf()
 				local clients = vim.lsp.get_clients()
 
 				if next(clients) == nil then
-					return msg
+					return "No Active Lsp"
 				end
 
 				for _, client in ipairs(clients) do
-					local filetypes = client.config.filetypes
-					if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+					if client.attached_buffers[buf_nb] then
 						prompt = prompt .. " " .. client.name
 					end
 				end
