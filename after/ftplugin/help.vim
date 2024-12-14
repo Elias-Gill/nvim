@@ -1,2 +1,2 @@
-lua vim.treesitter.start()
+" lua vim.treesitter.start()
 nnoremap <buffer> q :q<cr>
