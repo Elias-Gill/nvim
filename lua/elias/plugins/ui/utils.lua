@@ -1,7 +1,7 @@
 return {
 	{
-		"NvChad/nvim-colorizer.lua",
-		event = "VeryLazy",
+		"chrisbra/colorizer",
+        cmd = "ColorToggle",
 	},
 
 	--ayudas de indentacion

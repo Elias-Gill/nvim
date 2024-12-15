@@ -4,7 +4,7 @@ return {
 		"neovim/nvim-lspconfig",
 		event = "VeryLazy",
 		config = function()
-			-- change lsp default icons to be better
+			-- change lsp default borders
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 
 			vim.lsp.handlers["textDocument/signatureHelp"] =
