@@ -28,6 +28,7 @@ return {
 				-- Use a sub-list to run only the first available formatter
 				javascript = { "prettier" },
 				html = { "htmlbeautifier" },
+				xml = { "xmlformatter" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
 				javascriptreact = { "prettier" },

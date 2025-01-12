@@ -1,7 +1,7 @@
 " Colors directly applied to highlights
 highlight ColorColumn guibg=#303030
 highlight FoldColumn guifg=#636363
-highlight Cursor guifg=#ebfcfb guibg=#031120
+highlight Cursor guifg=#ebfcfb guibg=#031120 gui=reverse
 highlight TermCursor guibg=NONE guifg=NONE gui=NONE guisp=NONE
 highlight CursorColumn guibg=#15222F
 highlight CursorLine guibg=#252525 term=NONE cterm=NONE
@@ -14,8 +14,8 @@ highlight IncSearch guibg=NONE guifg=NONE gui=reverse
 highlight CurSearch guifg=#ebfcfb guibg=#4a4a4a
 highlight Search guibg=#252525 guifg=#e6b99d
 
-highlight Normal guifg=#ebfcfb guibg=#1b1b1b
-highlight NormalNc guifg=#ebfcfb guibg=#1b1b1b
+highlight Normal guifg=#ebdbff guibg=#222323
+highlight NormalNc guifg=#ebdbff guibg=#222323
 highlight NormalFloat guifg=#ebfcfb guibg=#191919
 highlight Visual guibg=#3b3b3e
 highlight VisualNOS guifg=#031120 guibg=#4F345a
@@ -80,7 +80,8 @@ highlight VertSplit guifg=#585858
 highlight Title guifg=#C492b1
 
 " Syntax
-highlight Comment guifg=#9a9290
+"highlight Comment guifg=#9a9290
+highlight Comment guifg=#fabd2f
 
 highlight Constant guifg=#C492b1
 highlight String guifg=#C492b1
@@ -162,9 +163,9 @@ highlight GitSignsDeleteInline guifg=#4F345a guibg=NONE
 highlight fugitiveStagedHeading guifg=#97D7BD
 highlight fugitiveStagedModifier guifg=#97D7BD
 highlight fugitiveUnstagedHeading guifg=#C492b1
-highlight fugitiveUnstagedModifier guifg=#BC2c1A
+highlight fugitiveUnstagedModifier guifg=#C79F4B
 highlight fugitiveUntrackedHeading guifg=#C492b1
-highlight fugitiveUntrackedModifier guifg=#BC2c1A
+highlight fugitiveUntrackedModifier guifg=#C79F4B
 highlight gitHashAbbrev guifg=#C79F4B
 
 " CMP

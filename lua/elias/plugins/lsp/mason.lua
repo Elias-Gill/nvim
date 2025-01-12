@@ -30,7 +30,7 @@ local function configureServers()
 		nmap("gI", "<cmd>Telescope lsp_implementations<cr>", "Telescope implementations")
 
 		-- documentation
-		nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+		nmap("K", "<cmd>lua vim.lsp.buf.hover({border = 'single'})<cr>", "Hover Documentation")
 
 		-- Diagnostics
 		nmap("<leader>to", vim.diagnostic.setqflist, "Proyect diagnostics")
@@ -104,6 +104,7 @@ local function configureServers()
 		["jdtls"] = function()
 			local settings = {
 				signatureHelp = { enabled = true },
+				semanticTokensProvider = nil,
 			}
 			configurar_server("jdtls", settings)
 		end,
