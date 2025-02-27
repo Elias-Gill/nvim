@@ -5,7 +5,7 @@ local function cmpConfig()
 	end
 
 	-- configuracion de vim y lspkind
-	vim.opt.completeopt = "menuone,noselect"
+	vim.opt.completeopt = "menu,menuone,noinsert,noselect"
 	local lspkind = require("lspkind")
 
 	-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -43,8 +43,10 @@ local function cmpConfig()
 		-- mappings
 		mapping = {
 			["<C-Space>"] = cmp.mapping.complete(),
-			["<C-k>"] = cmp.mapping.select_prev_item(),
-			["<C-j>"] = cmp.mapping.select_next_item(),
+			["<C-p>"] = cmp.mapping.select_prev_item(),
+			["<C-n>"] = cmp.mapping.select_next_item(),
+            -- ["<C-k>"] = cmp.mapping.select_prev_item(),
+            -- ["<C-j>"] = cmp.mapping.select_next_item(),
 			["<UP>"] = cmp.mapping.select_prev_item(),
 			["<DOWN>"] = cmp.mapping.select_next_item(),
 			["<C-e>"] = cmp.mapping.close(),
@@ -118,7 +120,6 @@ return {
 			vim.cmd([[
             inoremap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
             inoremap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-            snoremap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
             ]])
 
 			cmpConfig()

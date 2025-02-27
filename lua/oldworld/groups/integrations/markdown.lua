@@ -2,11 +2,19 @@ local p = require("oldworld.palette")
 
 return {
     markdownH1 = { fg = p.bright_blue, bold = true },
-    markdownH2 = { fg = p.bright_cyan, bold = true },
+    markdownH2 = { fg = p.bright_orange, bold = true },
     markdownH3 = { fg = p.bright_green, bold = true },
-    markdownH4 = { fg = p.bright_orange, bold = true },
+    markdownH4 = { fg = p.bright_cyan, bold = true },
     markdownH5 = { fg = p.bright_magenta, bold = true },
-    markdownH6 = { fg = p.bright_magenta, bold = true },
+    markdownH6 = { fg = p.bright_red, bold = true },
+
+    ["@markup.heading.1"] = { fg = p.bright_blue, bold = true },
+    ["@markup.heading.2"] = { fg = p.bright_orange, bold = true },
+    ["@markup.heading.3"] = { fg = p.bright_green, bold = true },
+    ["@markup.heading.4"] = { fg = p.bright_cyan, bold = true },
+    ["@markup.heading.5"] = { fg = p.bright_magenta, bold = true },
+    ["@markup.heading.6"] = { fg = p.bright_red, bold = true },
+
     markdownHeadingDelimiter = { fg = p.subtext4 },
     markdownHeadingRule = { fg = p.subtext4 },
     markdownId = { fg = p.fg },
@@ -30,7 +38,7 @@ return {
     MarkViewHeading3 = { fg = p.bright_green, bold = true },
     MarkViewHeading4 = { fg = p.bright_cyan, bold = true },
     MarkViewHeading5 = { fg = p.bright_magenta, bold = true },
-    MarkViewHeading6 = { fg = p.bright_magenta, bold = true },
+    MarkViewHeading6 = { fg = p.bright_red, bold = true },
 
     MarkViewHyperLink = { fg = p.fg, bold = true },
     MarkViewImageLink = { fg = p.bright_green, bold = true },

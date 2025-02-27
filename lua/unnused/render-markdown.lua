@@ -25,6 +25,9 @@ return {
 						rendered = "",
 					},
 				},
+                pipe_table = {
+                    enable = false,
+                },
 				code = {
 					enabled = true,
 					--  none: disables all rendering

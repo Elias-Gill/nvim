@@ -2,7 +2,7 @@ setlocal linebreak
 setlocal textwidth=95
 setlocal colorcolumn=95
 setlocal wrap
-setlocal conceallevel=2
+setlocal conceallevel=0
 " setlocal spell spelllang=es
 
 nnoremap <buffer><silent><leader>tc :Outline<cr>

@@ -82,8 +82,8 @@ nnoremap p p=`]
 " nnoremap - <C-x>
 
 "teclas arriba y abajo en insert mode
-inoremap <C-j> <down>
-inoremap <C-k> <up>
+" inoremap <C-j> <down>
+" inoremap <C-k> <up>
 
 "Moverse entre splits
 nnoremap <silent><C-j> :TmuxNavigateDown<cr>

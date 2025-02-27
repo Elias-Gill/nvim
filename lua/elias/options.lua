@@ -68,8 +68,8 @@ vim.opt.numberwidth = 4
 vim.o.cursorline = true
 
 --- wraping ---
-vim.o.tw = 110
-vim.o.wrap = true
+vim.o.tw = 95
+vim.o.wrap = false
 vim.o.linebreak = true
 vim.o.colorcolumn = "80"
 vim.o.splitbelow = true
