@@ -4,10 +4,8 @@ inoremap <C-\> <C-w>
 nnoremap U <C-r> 
 
 "saving files and exit vim
-nnoremap <leader>wf :w!<CR> 
 nnoremap <leader>wa :wa<cr>
-nnoremap <leader>qa :qa<cr>
-nnoremap <leader>qf :q!<CR>
+nnoremap ZZ :qa<cr>
 "save all buffers, format and quit
 nnoremap <leader>tt :Bw<cr> :qa<cr> 
 
@@ -17,7 +15,8 @@ nnoremap <leader>fw :silent grep! <c-r><c-w> **<cr>
 vnoremap <leader>fw y:silent grep! <c-r>" **<cr>
 
 "file managers
-nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
+" nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
+nnoremap <silent><leader>nt :Lexplore<CR>
 " nnoremap <silent><leader>rt :Yazi<CR>
 
 "cicling buffers
