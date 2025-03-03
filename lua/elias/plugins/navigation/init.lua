@@ -11,6 +11,7 @@ return {
 	"Mohammed-Taher/AdvancedNewFile.nvim",
 	{
 		"tpope/vim-vinegar",
+        event = "VeryLazy",
 		config = function()
 			vim.cmd([[
                 " netrw options
