@@ -93,7 +93,7 @@ vim.o.laststatus = 3
 vim.o.showbreak = "⤷  "
 vim.o.background = "dark"
 vim.o.conceallevel = 0
-vim.o.concealcursor = ""
+vim.o.concealcursor = "c"
 -- vim.o.winbar = "%=%f%m"
 
 --- Tabs to spaces ---
