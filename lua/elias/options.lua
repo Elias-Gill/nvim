@@ -41,6 +41,16 @@ command Q :q
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
+
+" netrw options
+let g:netrw_keepdir = 1
+
+"let g:netrw_liststyle = 3
+let g:netrw_hide = 1
+let g:netrw_list_hide = '^\.'
+let g:netrw_browse_split = 0
+let g:netrw_winsize = 20
+let g:netrw_banner = 0
 ]])
 
 --- grep command ---
