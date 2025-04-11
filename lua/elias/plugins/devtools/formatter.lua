@@ -33,6 +33,7 @@ return {
 				typescriptreact = { "prettier" },
 				javascriptreact = { "prettier" },
 				astro = { "prettier" },
+                sql = { "sqlfmt" },
 			},
 		})
 
