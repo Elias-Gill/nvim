@@ -1,5 +1,4 @@
 local p = require("oldworld.palette")
-local c = require("oldworld.colors").get()
 
 return {
 	Comment = { fg = p.subtext3 },
@@ -46,13 +45,14 @@ return {
 
 	-- Diff
 	DiffAdd = { fg = p.bright_green, bg = "#1c1c1c" },
-	DiffChange = c.nano_popout,
-	DiffDelete = c.nano_faded,
-	DiffText = { bg = c.nano_subtle_color },
 
-	diffAdded = { fg = p.bright_green, bg = "#1c1c1c" },
-	diffChanged = c.nano_popout,
-	diffNewFile = c.nano_strong,
-	diffOldFile = c.nano_strong,
-    diffRemoved = c.nano_faded,
+	DiffChange = { fg = p.orange },
+	DiffDelete = { fg = p.gray5 },
+	DiffText = { bg = p.gray2 },
+
+	diffAdded = { fg = p.bright_green, bg = p.bg_dark },
+	diffChanged = { fg = p.orange },
+	diffNewFile = { fg = p.bright_blue, bold = true },
+	diffOldFile = { fg = p.bright_blue, bold = true },
+	diffRemoved = { fg = p.gray5 },
 }
