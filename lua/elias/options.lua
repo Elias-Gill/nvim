@@ -37,6 +37,9 @@ command Bw :wa | BWipeout hidden
 command W :w
 command Q :q
 
+"cd al pwd de tmux
+command! TmuxCd execute 'cd' system('tmux display-message -p -F "#{session_path}"')
+
 "-- cursor
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
@@ -105,6 +108,8 @@ vim.o.background = "dark"
 vim.o.conceallevel = 0
 vim.o.concealcursor = "c"
 -- vim.o.winbar = "%=%f%m"
+vim.o.winborder = "single"
+-- vim.o.guioptions = "mlrb"
 
 --- Tabs to spaces ---
 vim.o.tabstop = 4

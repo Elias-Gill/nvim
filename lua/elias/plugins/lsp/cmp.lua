@@ -21,7 +21,7 @@ local function cmpConfig()
 			end,
 		},
 		window = {
-			-- completion = cmp.config.window.bordered(),
+			completion = { scrollbar = false },
 			documentation = cmp.config.window.bordered(),
 		},
 		-- lsp symbols and decorators for completation
@@ -45,8 +45,8 @@ local function cmpConfig()
 			["<C-Space>"] = cmp.mapping.complete(),
 			["<C-p>"] = cmp.mapping.select_prev_item(),
 			["<C-n>"] = cmp.mapping.select_next_item(),
-            -- ["<C-k>"] = cmp.mapping.select_prev_item(),
-            -- ["<C-j>"] = cmp.mapping.select_next_item(),
+			-- ["<C-k>"] = cmp.mapping.select_prev_item(),
+			-- ["<C-j>"] = cmp.mapping.select_next_item(),
 			["<UP>"] = cmp.mapping.select_prev_item(),
 			["<DOWN>"] = cmp.mapping.select_next_item(),
 			["<C-e>"] = cmp.mapping.close(),
