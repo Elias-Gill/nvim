@@ -43,7 +43,7 @@ return {
     SpellCap = { fg = p.yellow }, -- Word that should start with a capital. This will be combined with the highlighting used otherwise.
     SpellLocal = { fg = p.yellow }, -- Word that is recognized by the spellchecker as one that is used in another region. This will be combined with the highlighting used otherwise.
     SpellRare = { fg = p.yellow }, -- Word that is recognized by the spellchecker as one that is hardly ever used. spell This will be combined with the highlighting used otherwise.
-    StatusLine = { fg = p.fg, bg = p.gray1 }, -- status line of current window
+    StatusLine = { fg = p.fg, bg = p.gray3 }, -- status line of current window
     StatusLineNC = { fg = p.bg_dark }, -- status lines of not-current windows Note = if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     StatusLineTerm = { fg = p.fg, bg = p.gray1 }, -- status line of current :terminal window
     StatusLineTermNC = { fg = p.subtext4 }, -- status line of non-current  =terminal window

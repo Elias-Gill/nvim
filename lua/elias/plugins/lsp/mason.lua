@@ -14,7 +14,8 @@ local function setup_keymaps(client, bufnr)
 
 	-- go to
 	nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
-	nmap("gry", vim.lsp.buf.type_definition, "Type [D]efinition")
+    nmap("gd", vim.lsp.buf.definition, "Goto Definition")
+	nmap("gy", vim.lsp.buf.type_definition, "Type Definition")
 
 	-- Diagnostics
 	nmap("<leader>to", vim.diagnostic.setqflist, "Proyect diagnostics")
