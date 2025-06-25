@@ -14,15 +14,19 @@ local function setup_keymaps(client, bufnr)
 
 	-- go to
 	nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
-    nmap("gd", vim.lsp.buf.definition, "Goto Definition")
+	nmap("gd", vim.lsp.buf.definition, "Goto Definition")
 	nmap("gy", vim.lsp.buf.type_definition, "Type Definition")
 
 	-- Diagnostics
 	nmap("<leader>to", vim.diagnostic.setqflist, "Proyect diagnostics")
 	nmap("<leader>tO", vim.diagnostic.setloclist, "Local buffer diagnostics")
-	nmap("[e", vim.diagnostic.goto_prev, "Jump to next diagnostic")
-	nmap("]e", vim.diagnostic.goto_next, "Jump to next diagnostic")
 	nmap("]t", vim.diagnostic.open_float, "Line diagnostics")
+	nmap("[e", function()
+		vim.diagnostic.jump({ count = -1, float = true })
+	end, "Jump to next diagnostic")
+	nmap("]e", function()
+		vim.diagnostic.jump({ count = 1, float = true })
+	end, "Jump to next diagnostic")
 
 	-- Actions
 	nmap("co", vim.lsp.buf.code_action, "Display code actions")

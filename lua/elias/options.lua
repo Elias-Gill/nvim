@@ -28,6 +28,8 @@ set diffopt+=vertical
 set shortmess+=c
 set clipboard=unnamedplus
 
+set smoothscroll " enhance wrap scrolling
+
 set fillchars=fold:\ 
 set fillchars+=diff:╱
 set completeopt=menuone,noselect
