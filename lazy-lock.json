@@ -20,6 +20,7 @@
   "luatab.nvim": { "branch": "master", "commit": "7ac54b014b542f02a73b62fcae65db7a2382a378" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "60eaff7a470b8e78ddff09d847d17a011f560759" },
   "mason.nvim": { "branch": "main", "commit": "8024d64e1330b86044fed4c8494ef3dcd483a67c" },
+  "nano-theme.nvim": { "branch": "main", "commit": "710c86bb90f963a7cf95f3dc15d287b59bc06b59" },
   "nvim-autopairs": { "branch": "master", "commit": "4d74e75913832866aa7de35e4202463ddf6efd1b" },
   "nvim-bqf": { "branch": "main", "commit": "e20417d5e589e03eaaaadc4687904528500608be" },
   "nvim-cmp": { "branch": "perf", "commit": "6c3d595f3223c1ae7392d4fde1626355439af6c1" },
