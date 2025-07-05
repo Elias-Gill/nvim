@@ -21,6 +21,16 @@ return {
 					update_in_insert = true,
 				})
 
+            -- Set max size to lsp-hover window
+			local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+			function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+				opts = opts or {}
+				opts.border = opts.border or "single"
+				opts.max_width = opts.max_width or 90
+				return orig_util_open_floating_preview(contents, syntax, opts, ...)
+			end
+
+            -- Change diagnostic icons and colors
 			vim.diagnostic.config({
 				float = { border = "single" },
 				severity_sort = true,
