@@ -52,10 +52,15 @@ return {
 			ensure_installed = { "lua_ls", "bashls", "vimls" },
 		})
 
+		---- jdtls (java lsp) config -----
 		vim.lsp.config("jdtls", {
 			settings = {
 				signatureHelp = { enabled = true },
 				semanticTokensProvider = nil,
+			},
+			cmd = {
+				"jdtls",
+				"--jvm-arg=" .. string.format("-javaagent:%s", vim.fn.expand("$MASON/share/jdtls/lombok.jar")),
 			},
 		})
 

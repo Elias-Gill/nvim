@@ -12,7 +12,7 @@ return {
 			FIX = { icon = " ", color = "error", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
 			TODO = { icon = " ", color = "info", alt = { "TAREA" } },
 			HACK = { icon = " ", color = "warning", alt = { "VER", "LOOK" } },
-			WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+			WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX", "REFACTOR" } },
 			PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
 			NOTE = { icon = " ", color = "hint", alt = { "INFO", "NOTE", "HINT" } },
 			FUTURE = { icon = "🚀", color = "future", alt = { "FUTURE", "COMING", "HINT" } },
