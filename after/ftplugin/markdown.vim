@@ -5,6 +5,7 @@ setlocal wrap
 setlocal conceallevel=0
 " setlocal spell spelllang=es
 
+nnoremap <buffer> p p
 nnoremap <buffer><silent><leader>tc :Outline<cr>
 
 nnoremap <buffer>k gk

@@ -1,6 +1,7 @@
 local p = require("oldworld.palette")
 
 return {
+    -- Headings (consistentes, vibrantes, jerárquicos)
     markdownH1 = { fg = p.bright_blue, bold = true },
     markdownH2 = { fg = p.bright_orange, bold = true },
     markdownH3 = { fg = p.bright_green, bold = true },
@@ -15,24 +16,35 @@ return {
     ["@markup.heading.5"] = { fg = p.bright_magenta, bold = true },
     ["@markup.heading.6"] = { fg = p.bright_red, bold = true },
 
+    -- Delimiters, Rules, Markers (neutros, sobrios)
     markdownHeadingDelimiter = { fg = p.subtext4 },
     markdownHeadingRule = { fg = p.subtext4 },
-    markdownId = { fg = p.fg },
-    markdownIdDeclaration = { fg = p.purple },
-    markdownIdDelimiter = { fg = p.red },
-    markdownLinkDelimiter = { fg = p.subtext4 },
-    markdownLinkText = { fg = p.purple, italic = true },
+    markdownLineStart = { fg = p.subtext4 },
+    markdownRule = { fg = p.subtext4 },
     markdownListMarker = { fg = p.subtext4 },
     markdownOrderedListMarker = { fg = p.subtext4 },
-    markdownRule = { fg = p.subtext4 },
-    markdownUrl = { fg = p.green, bg = p.none },
+
+    -- Identifiers (ligeramente distintos)
+    markdownId = { fg = p.fg },
+    markdownIdDeclaration = { fg = p.bright_magenta },
+    markdownIdDelimiter = { fg = p.red },
+
+    -- Links (claros, accesibles)
+    markdownLinkDelimiter = { fg = p.subtext4 },
+    markdownLinkText = { fg = p.purple, italic = true },
+    markdownUrl = { fg = p.green },
+
+    -- Code / Blockquote (resaltados)
     markdownBlockquote = { fg = p.fg },
-    markdownBold = { fg = p.bright_red, bg = p.none, bold = true },
-    markdownItalic = { fg = p.bright_cyan, bg = p.none, italic = true },
     markdownCode = { fg = p.yellow },
     markdownCodeBlock = { fg = p.yellow },
     markdownCodeDelimiter = { fg = p.subtext4 },
 
+    -- Inline Styles
+    markdownBold = { fg = p.bright_red, bold = true },
+    markdownItalic = { fg = p.bright_cyan, italic = true },
+
+    -- MarkView Plugin (consistentes con los headers y links)
     MarkViewHeading1 = { fg = p.bright_blue, bold = true },
     MarkViewHeading2 = { fg = p.bright_orange, bold = true },
     MarkViewHeading3 = { fg = p.bright_green, bold = true },

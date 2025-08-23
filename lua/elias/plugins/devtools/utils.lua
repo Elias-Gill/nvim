@@ -47,14 +47,14 @@ return {
 		end,
 	},
 
-	-- auto closing pairs
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		opts = {
-			enable_check_bracket_line = false,
-		},
-	},
+	-- -- auto closing pairs
+	-- {
+	-- 	"windwp/nvim-autopairs",
+	-- 	event = "InsertEnter",
+	-- 	opts = {
+	-- 		enable_check_bracket_line = false,
+	-- 	},
+	-- },
 
 	--comentarios
 	{

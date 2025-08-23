@@ -7,7 +7,7 @@ return {
 			max_height = 8,
 			max_width = 60,
 			floating_window_above_cur_line = false,
-			noice = false, -- render markdown
+			noice = true, -- render markdown
 			transparency = nil,
 
 			-- hint_prefix = "🐼 ",
