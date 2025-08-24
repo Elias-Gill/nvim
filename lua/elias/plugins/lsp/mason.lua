@@ -31,7 +31,7 @@ local function setup_keymaps(client, bufnr)
 	-- Actions
 	nmap("co", vim.lsp.buf.code_action, "Display code actions")
 	nmap("<leader>li", function()
-		vim.lsp.inlay_hint.enable(vim.lsp.inlay_hint.is_enabled())
+		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 	end, "Toggle display inlay hints")
 end
 
