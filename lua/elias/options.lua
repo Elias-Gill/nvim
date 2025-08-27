@@ -24,7 +24,7 @@ cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? '
 colorscheme oldworld
 
 set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
-set diffopt+=vertical
+set diffopt=vertical,internal,filler,closeoff,inline:simple,linematch:40
 set shortmess+=c
 set clipboard=unnamedplus
 
