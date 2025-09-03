@@ -28,8 +28,8 @@ nnoremap <leader>rn :%s/
 vnoremap <leader>rn :s/
 
 "rename utils
-nnoremap <leader>rw yiw:%s/<c-r>"//g<left><left>
-vnoremap <leader>rw y:%s/<c-r>"//g<left><left>
+nnoremap grn yiw:%s/<c-r>"//g<left><left>
+vnoremap grn y:%s/<c-r>"//g<left><left>
 
 "todo comments
 nnoremap <silent><leader>tg :TodoQuickFix<CR>
@@ -110,8 +110,8 @@ nnoremap <left> <nop>
 nnoremap <down> <nop>
 
 "resize splits with arrow keys
-nnoremap <silent><up> :resize +5<CR>
-nnoremap <silent><down> :resize -5<CR>
+nnoremap <silent><up> :resize +2<CR>
+nnoremap <silent><down> :resize -2<CR>
 nnoremap <silent><left> :vertical resize -5<CR>
 nnoremap <silent><right> :vertical resize +5<CR>
 "maximizer
