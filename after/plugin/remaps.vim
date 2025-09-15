@@ -16,7 +16,7 @@ vnoremap <leader>fw y:silent grep! <c-r>" **<cr>
 
 "file managers
 " nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
-" nnoremap <silent><leader>nt :Lexplore<CR>
+nnoremap <silent><leader>nt :Lexplore<CR>
 " nnoremap <silent><leader>rt :Yazi<CR>
 
 "cicling buffers

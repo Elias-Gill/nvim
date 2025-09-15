@@ -1,7 +1,7 @@
 local function setup_keymaps(client, bufnr)
 	-- don't mess with treesitter highlights
 	if vim.version().minor >= 9 then
-		client.server_capabilities.semanticTokensProvider = vim.NIL
+		client.server_capabilities.semanticTokensProvider = nil
 	end
 
 	local nmap = function(keys, func, desc)
