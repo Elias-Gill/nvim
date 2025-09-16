@@ -26,11 +26,11 @@ colorscheme oldworld
 set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
 set diffopt=vertical,internal,filler,closeoff,inline:simple,linematch:40
 set shortmess+=c
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 set smoothscroll " enhance wrap scrolling
 
-set fillchars=fold:\ 
+set fillchars+=fold:\ 
 set fillchars+=diff:╱
 set completeopt=menuone,noselect
 
@@ -39,7 +39,7 @@ command Bw :wa | BWipeout hidden
 command W :w
 command Q :q
 
-"cd al pwd de tmux
+"Change dir to tmux pwd
 command! TmuxCd execute 'cd' system('tmux display-message -p -F "#{session_path}"')
 
 "-- cursor
@@ -71,7 +71,7 @@ vim.opt.autoindent = true
 vim.opt.confirm = true
 vim.opt.hidden = true
 vim.opt.undofile = true
-vim.opt.jumpoptions = "stack"
+vim.opt.jumpoptions = ""
 vim.opt.cmdheight = 1
 
 --- mouse ands line numbers ---
@@ -95,6 +95,17 @@ vim.o.splitkeep = "screen"
 vim.o.foldenable = false
 vim.o.foldlevelstart = 99
 vim.o.foldmethod = "indent"
+vim.cmd([[
+    function! CustomFoldText()
+        let indentation = indent(v:foldstart - 1)
+        let linetext = substitute(getline(v:foldstart),"^ *","",0)
+        let foldSize = 1 + v:foldend - v:foldstart
+        let foldSizeStr = " " . foldSize . " lines "
+        let foldLevelStr = repeat("+--", v:foldlevel)
+        let expansionString = repeat(" ", indentation)
+        return expansionString . foldLevelStr . linetext . foldSizeStr
+    endfunction
+]])
 -- vim.o.foldmethod = "expr"
 -- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
@@ -109,8 +120,8 @@ vim.o.showbreak = "⤷  "
 vim.o.background = "dark"
 vim.o.conceallevel = 0
 vim.o.concealcursor = "c"
--- vim.o.winbar = "%=%f%m"
 vim.o.winborder = "single"
+-- vim.o.winbar = "%=%f%m"
 -- vim.o.guioptions = "mlrb"
 
 --- Tabs to spaces ---

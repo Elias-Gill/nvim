@@ -11,8 +11,8 @@ nnoremap <leader>tt :Bw<cr> :qa<cr>
 
 " grep functions (they may override when lsp is on)
 nnoremap <leader>g :silent grep! 
-nnoremap <leader>fw :silent grep! <c-r><c-w> **<cr>
-vnoremap <leader>fw y:silent grep! <c-r>" **<cr>
+nnoremap grr :silent grep! <c-r><c-w> **<cr>
+vnoremap grr y:silent grep! <c-r>" **<cr>
 
 "file managers
 " nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
