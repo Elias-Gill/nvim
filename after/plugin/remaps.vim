@@ -72,6 +72,7 @@ vnoremap <leader>p "_dP
 nnoremap <leader>p "_dP
 vnoremap <leader>d "_dD
 nnoremap x "_x
+
 "copy and paste with center and indent
 vnoremap y ygv<esc>
 nnoremap p p=`]

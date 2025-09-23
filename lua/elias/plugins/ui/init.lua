@@ -21,7 +21,7 @@ return {
 				show_start = false,
 				show_end = false,
 			},
-			exclude = { filetypes = { "dashboard", "vim", "markdown", "txt" } },
+			exclude = { filetypes = { "dashboard", "vim", "markdown", "txt", "text" } },
 		},
 	},
 }
