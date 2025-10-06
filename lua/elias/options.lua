@@ -48,9 +48,9 @@ let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
 " netrw options
-let g:netrw_keepdir = 1
 
 "let g:netrw_liststyle = 3
+let g:netrw_keepdir = 1
 let g:netrw_hide = 1
 let g:netrw_list_hide = '^\.'
 let g:netrw_browse_split = 0

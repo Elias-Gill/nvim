@@ -44,15 +44,14 @@ return {
 	htmlTagName = { fg = p.red }, -- tag text
 
 	-- Diff
-	DiffAdd = { fg = p.bright_green, bg = "#1c1c1c" },
-
-	DiffChange = { fg = p.orange },
-	DiffDelete = { fg = p.gray5 },
+	DiffAdd = { fg = p.bright_green, bg = p.bright_black },
+	DiffChange = { fg = p.bright_blue, bg = p.bright_black },
+	DiffDelete = { fg = p.bright_red, bg = p.bright_black },
 	DiffText = { bg = p.gray2 },
 
-	diffAdded = { fg = p.bright_green, bg = p.bg_dark },
-	diffChanged = { fg = p.orange },
+	diffAdded = { fg = p.bright_green, bg = p.bright_black },
+	diffChanged = { fg = p.orange, bg = p.bright_black },
 	diffNewFile = { fg = p.bright_blue, bold = true },
 	diffOldFile = { fg = p.bright_blue, bold = true },
-	diffRemoved = { fg = p.gray5 },
+	diffRemoved = { fg = p.bright_red, bg = p.bright_black },
 }
