@@ -1,7 +1,7 @@
 setlocal linebreak
 setlocal textwidth=95
 setlocal colorcolumn=95
-setlocal wrap
+setlocal wrap " me temo que necesario para el lsp hover
 setlocal conceallevel=0
 " setlocal spell spelllang=es
 
