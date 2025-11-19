@@ -258,13 +258,13 @@ end
 
 function M.up()
 	local ctx = ctx_from(api.nvim_get_current_buf(), api.nvim_get_current_win())
-	local root = current_meta(ctx) and current_meta(ctx).root
+	local root = ctx.options.lines and ctx.options.lines[1] or current_meta(ctx).root
 	if not root then
 		return
 	end
-	local dir = paths.directory(root.name)
-	local parent = paths.directory(dir)
-	show(ctx, parent, paths.name(dir))
+
+	local parent = paths.directory(root.name)
+	show(ctx, parent, paths.name(root.name))
 end
 
 function M.create()
