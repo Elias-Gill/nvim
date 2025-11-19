@@ -16,8 +16,10 @@ vnoremap grr y:silent grep! <c-r>" **<cr>
 
 "file managers
 " nnoremap <silent><leader>nt :NvimTreeFindFileToggle<CR>
-nnoremap <silent><leader>nt :Lexplore<CR>
+" nnoremap <silent><leader>nt :Lexplore<CR>
 " nnoremap <silent><leader>rt :Yazi<CR>
+nnoremap <silent><leader>nt :lua require'fex'.open_split_explorer()<CR>
+nnoremap <silent>- :lua require'fex'.open()<CR>
 
 "cicling buffers
 nnoremap [b :bprevious<CR>
