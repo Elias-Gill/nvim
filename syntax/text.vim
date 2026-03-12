@@ -11,11 +11,15 @@ syntax match AllCaps /\<[A-Z]\{2,}\>/
 highlight def link AllCaps WarningMsg
 
 " 3. Resaltar texto entre __ (doble subrayado)
-syntax match Underscore /_[^_]\+_\(\s\|$\)/
-highlight def link Underscore DivisionLine 
+syntax match Underscore /_[^_]\+_/
+highlight def link Underscore DivisionLine
 
 " 4. Resaltar texto entre ** (doble asterisco)
 syntax match DoubleAsterisk /\*[^*]\+\*/
 highlight def link DoubleAsterisk Constant
+
+" 5. Resaltar texto entre `` (backticks)
+syntax match Backticks /`[^`]\+`/
+highlight def link Backticks Keyword
 
 let b:current_syntax = "divisiontxt"

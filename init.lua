@@ -6,6 +6,7 @@ vim.cmd("packadd cfilter") -- filter quickfix results with CFilter
 vim.g.mapleader = " "
 require("elias/disable_builtins")
 require("elias/options")
+require("elias/mappings")
 
 --------------- LAZY -----------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

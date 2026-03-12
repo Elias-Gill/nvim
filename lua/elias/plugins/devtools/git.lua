@@ -1,7 +1,7 @@
 return {
-	"rbong/vim-flog",
+	"junegunn/gv.vim",
 	lazy = true,
-	cmd = { "Flog", "Flogsplit", "Floggit" },
+	cmd = { "GV" },
 	dependencies = {
 		{
 			"tpope/vim-fugitive",

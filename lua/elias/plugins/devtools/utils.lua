@@ -72,29 +72,29 @@ return {
 		end,
 	},
 
-	--emmet (hyper html)
-	{
-		"mattn/emmet-vim",
-		ft = {
-			"html",
-			"htmldjango",
-			"xml",
-			"css",
-			"svelte",
-			"javascriptreact",
-			"typescriptreact",
-			"vue",
-			"php",
-			"javascript",
-			"typescript",
-			"astro",
-		},
-		config = function()
-			vim.cmd(
-				[[
-                execute 'EmmetInstall'
-                autocmd FileType svelte,html,css,javascript,javascriptreact,vue,typescript,typescriptreact,astro EmmetInstall]]
-			)
-		end,
-	},
+	-- --emmet (hyper html) currently breaks on this version of treesitter
+	-- {
+	-- 	"mattn/emmet-vim",
+	-- 	ft = {
+	-- 		"html",
+	-- 		"htmldjango",
+	-- 		"xml",
+	-- 		"css",
+	-- 		"svelte",
+	-- 		"javascriptreact",
+	-- 		"typescriptreact",
+	-- 		"vue",
+	-- 		"php",
+	-- 		"javascript",
+	-- 		"typescript",
+	-- 		"astro",
+	-- 	},
+	-- 	config = function()
+	-- 		vim.cmd(
+	-- 			[[
+ --                execute 'EmmetInstall'
+ --                autocmd FileType svelte,html,css,javascript,javascriptreact,vue,typescript,typescriptreact,astro EmmetInstall]]
+	-- 		)
+	-- 	end,
+	-- },
 }

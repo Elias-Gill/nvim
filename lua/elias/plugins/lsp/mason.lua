@@ -17,6 +17,7 @@ local function setup_keymaps(client, bufnr)
 	nmap("gd", vim.lsp.buf.definition, "Goto Definition")
 	nmap("gy", vim.lsp.buf.type_definition, "Type Definition")
     nmap("grn", vim.lsp.buf.rename, "Rename symbol")
+    nmap("grr", vim.lsp.buf.references, "Rename symbol")
 
 	-- Diagnostics
 	nmap("<leader>to", vim.diagnostic.setqflist, "Proyect diagnostics")

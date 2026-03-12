@@ -1,17 +1,17 @@
 local function treeSitterConfig()
 	-- Install some default parsers
-	require("nvim-treesitter").install({
-		"yaml",
-		"json",
-		"toml",
-		"markdown",
-		"vimdoc",
-		"markdown_inline",
-		"lua",
-		"javascript",
-		"go",
-		"bash",
-	})
+	-- require("nvim-treesitter").install({
+	-- 	"yaml",
+	-- 	"json",
+	-- 	"toml",
+	-- 	"markdown",
+	-- 	"vimdoc",
+	-- 	"markdown_inline",
+	-- 	"lua",
+	-- 	"javascript",
+	-- 	"go",
+	-- 	"bash",
+	-- })
 
 	--vim.g.skip_ts_context_commentstring_module = true
 	require("ts_context_commentstring").setup({})
@@ -120,12 +120,12 @@ local function treeSitterConfig()
 		select("@block.inner", "textobjects")
 	end)
 
-	-- tags
+	-- tags (tecnicamente en html son "functions" tambien)
 	vim.keymap.set({ "x", "o" }, "at", function()
-		select("@tag.outer", "textobjects")
+		select("@function.outer", "textobjects")
 	end)
 	vim.keymap.set({ "x", "o" }, "it", function()
-		select("@tag.inner", "textobjects")
+		select("@function.inner", "textobjects")
 	end)
 
 	-- parameters
