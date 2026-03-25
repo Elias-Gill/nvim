@@ -1,16 +1,10 @@
+-- FILE: lua/fex/render.lua  (sin cambios)
 local api = vim.api
 local paths = require("fex.paths")
 
 local M = {}
 
-function M.get_current_entry(buf)
-	local win = api.nvim_get_current_win()
-	local cursor = api.nvim_win_get_cursor(win)
-	local lines = api.nvim_buf_get_var(buf, "lines") or {}
-	return lines[cursor[1]]
-end
-
-function M.render(ctx, path)
+function M.render(ctx, path, selectName)
 	local lines = {}
 	local entries = {}
 
@@ -34,7 +28,6 @@ function M.render(ctx, path)
 		return a.name < b.name
 	end)
 
-	-- línea raíz (directorio actual)
 	table.insert(lines, {
 		name = path,
 		isRoot = true,
@@ -56,7 +49,6 @@ function M.render(ctx, path)
 	api.nvim_buf_set_lines(buf, 0, -1, false, vim.tbl_map(function(l) return l.text end, lines))
 	api.nvim_buf_set_option(buf, "modifiable", false)
 
-	-- aplicar resaltado básico: carpetas en azul (Directory)
 	api.nvim_buf_clear_namespace(buf, ctx.ns, 0, -1)
 	for i, entry in ipairs(lines) do
 		if entry.isDir then
@@ -65,6 +57,15 @@ function M.render(ctx, path)
 	end
 
 	api.nvim_buf_set_var(buf, "lines", lines)
+
+	if selectName and selectName ~= "" then
+		for i, entry in ipairs(lines) do
+			if not entry.isRoot and paths.name(entry.name) == selectName then
+				api.nvim_win_set_cursor(ctx.win, { i, 0 })
+				break
+			end
+		end
+	end
 
 	return lines
 end
