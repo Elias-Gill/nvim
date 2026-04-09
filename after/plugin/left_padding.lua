@@ -22,6 +22,26 @@ local function is_padding(win)
     return vim.b[buf].left_padding == true
 end
 
+local function is_empty_buffer(win)
+    local buf = vim.api.nvim_win_get_buf(win)
+
+    if vim.bo[buf].buftype ~= "" then
+        return false
+    end
+
+    if vim.api.nvim_buf_get_name(buf) ~= "" then
+        return false
+    end
+
+    if vim.bo[buf].modified then
+        return false
+    end
+
+    local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+
+    return #lines == 1 and lines[1] == ""
+end
+
 local function find_padding()
     for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
         if is_padding(win) then
@@ -83,21 +103,24 @@ local function remove_padding()
         return
     end
 
-    local ok = pcall(function()
+    -- ignore errors like "cannot close last window"
+    pcall(function()
         vim.api.nvim_win_call(win, function()
             vim.cmd("quit")
         end)
     end)
-
-    if not ok then
-        -- ignore errors like "cannot close last window"
-    end
 end
 
 local function update()
     local wins = real_windows()
 
     if #wins == 1 then
+        -- if the only window has an empty buffer, do not create padding
+        if is_empty_buffer(wins[1]) then
+            remove_padding()
+            return
+        end
+
         create_padding()
     else
         remove_padding()
