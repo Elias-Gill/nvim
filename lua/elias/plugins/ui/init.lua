@@ -24,4 +24,7 @@ return {
             exclude = { filetypes = { "dashboard", "vim", "markdown", "txt", "text" } },
         },
     },
+
+    -- Colores muy god:
+    --  * Ember neovim
 }
