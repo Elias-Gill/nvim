@@ -22,3 +22,6 @@ vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrwSettings = 1
+
+-- explorador nuevo por defecto (jodidamente bueno, en algun futuro podria ver para pasarme, pero malardo con el tema de buftype="nofile")
+vim.g.loaded_nvim_dir_plugin = 1

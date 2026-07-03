@@ -1,260 +1,268 @@
--- FILE: lua/fex/init.lua
 local api = vim.api
-local paths = require("fex.paths")
-local render = require("fex.render")
+local fn = vim.fn
+local uv = vim.uv -- Más moderno que vim.loop
 
 local M = {}
+local ns = api.nvim_create_namespace("fex")
 
-local function ensure_ns()
-	return api.nvim_create_namespace("fex")
+-- =========================
+-- PATH HELPERS
+-- =========================
+
+local function full(p)
+    return fn.fnamemodify(p, ":p")
 end
 
-local function ctx_from(buf, win)
-	return {
-		buf = buf,
-		win = win,
-		ns = ensure_ns(),
-	}
+local function name(p)
+    return fn.fnamemodify(p, ":t")
+end
+
+local function directory(p)
+    return fn.fnamemodify(p, ":h")
+end
+
+local function current_file()
+    return fn.expand("%:p")
+end
+
+local function add_path(p, part)
+    p = full(p)
+    if p:sub(-1) ~= "/" then
+        p = p .. "/"
+    end
+    return p .. part
 end
 
 local function normalize_path(p)
-	if p == nil or p == "" then
-		return vim.loop.cwd() .. "/"
-	end
-	if vim.startswith(p, "/") then
-		return p
-	end
-	return "/" .. p
+    if not p or p == "" then
+        return uv.cwd() .. "/"
+    end
+    return vim.startswith(p, "/") and p or "/" .. p
 end
 
-local function current_meta(ctx)
-	local ln = api.nvim_win_get_cursor(ctx.win)[1]
-	local lines = api.nvim_buf_get_var(ctx.buf, "lines") or {}
-	local m = lines[ln]
-	if not m then
-		return nil
-	end
+-- =========================
+-- CONTEXT
+-- =========================
 
-	local root
-	for _, L in ipairs(lines) do
-		if L.isRoot then
-			root = L
-			break
-		end
-	end
-	m.root = root
-
-	if m.isRoot then
-		m.fullPath = normalize_path(m.name)
-	else
-		m.fullPath = normalize_path(paths.add(root.name, paths.name(m.name)))
-	end
-
-	m._line = ln
-	return m
+local function ctx()
+    return {
+        buf = api.nvim_get_current_buf(),
+        win = api.nvim_get_current_win(),
+    }
 end
 
-local function show(ctx, path, selectName)
-	render.render(ctx, path, selectName)
+local function current_meta(c)
+    local ln = api.nvim_win_get_cursor(c.win)[1]
+    local lines = vim.b[c.buf].lines or {} -- Uso moderno de vim.b
+    local m = lines[ln]
+
+    if not m then return nil end
+
+    local root
+    for _, L in ipairs(lines) do
+        if L.isRoot then
+            root = L
+            break
+        end
+    end
+
+    m.root = root
+    m.fullPath = m.isRoot and normalize_path(m.name) or add_path(root.name, name(m.name))
+    m._line = ln
+
+    return m
 end
 
-local function set_keymaps(ctx)
-	local buf = ctx.buf
-	local function bm(lhs, rhs, desc)
-		api.nvim_buf_set_keymap(
-			buf,
-			"n",
-			lhs,
-			'<cmd>lua require("fex")' .. rhs .. "<CR>",
-			{ noremap = true, silent = true, desc = desc }
-		)
-	end
+-- =========================
+-- RENDER
+-- =========================
 
-	bm("<CR>", ".enter()", "Enter (abrir archivo o entrar en carpeta)")
-	bm("-", ".up()", "Subir al directorio padre")
-	bm("a", ".create()", "Crear archivo/carpeta")
-	bm("d", ".delete()", "Eliminar")
-	bm("r", ".rename()", "Renombrar")
-	bm("y", ".yank()", "Copiar ruta al portapapeles")
-	bm("i", ".information()", "Información del archivo")
-	bm("q", ".close()", "Cerrar explorador")
+local function render(c, path, selectName)
+    local lines = {}
+    local entries = {}
+
+    local handle = uv.fs_scandir(path)
+    if not handle then return end
+
+    while true do
+        local n, t = uv.fs_scandir_next(handle)
+        if not n then break end
+        table.insert(entries, { name = n, isDir = (t == "directory") })
+    end
+
+    table.sort(entries, function(a, b)
+        if a.isDir ~= b.isDir then return a.isDir end
+        return a.name < b.name
+    end)
+
+    table.insert(lines, { name = path, isRoot = true, isDir = true, text = path })
+
+    for _, e in ipairs(entries) do
+        table.insert(lines, {
+            name = add_path(path, e.name),
+            isDir = e.isDir,
+            text = e.name .. (e.isDir and "/" or ""),
+        })
+    end
+
+    -- Uso moderno de vim.bo para manipular opciones del buffer
+    vim.bo[c.buf].modifiable = true
+
+    api.nvim_buf_set_lines(c.buf, 0, -1, false, vim.tbl_map(function(l) return l.text end, lines))
+
+    vim.bo[c.buf].modifiable = false
+    vim.bo[c.buf].modified = false -- FIX: Evita el mensaje de "guardar untitled"
+
+    api.nvim_buf_clear_namespace(c.buf, ns, 0, -1)
+
+    for i, e in ipairs(lines) do
+        if e.isDir then
+            api.nvim_buf_add_highlight(c.buf, ns, "Directory", i - 1, 0, -1)
+        end
+    end
+
+    vim.b[c.buf].lines = lines -- Guardado limpio en el buffer
+
+    if selectName then
+        for i, e in ipairs(lines) do
+            if not e.isRoot and name(e.name) == selectName then
+                api.nvim_win_set_cursor(c.win, { i, 0 })
+                break
+            end
+        end
+    end
+end
+
+-- =========================
+-- CORE ACTIONS
+-- =========================
+
+function M.open(path)
+    local input = path or current_file()
+    local fullp = full(input)
+
+    if fn.getftype(fullp) == "" then
+        fullp = uv.cwd() .. "/"
+    end
+
+    local dir = fullp
+    local select = nil
+
+    if name(fullp) ~= "" then
+        select = name(fullp)
+        dir = directory(fullp)
+    end
+
+    local buf = api.nvim_create_buf(false, true)
+
+    -- Configuración directa y limpia del buffer
+    vim.bo[buf].buftype = ""
+    vim.bo[buf].bufhidden = "wipe"
+    vim.bo[buf].undofile = false
+    vim.bo[buf].filetype = "fex"
+
+    M._set_keymaps(buf)
+
+    local win = api.nvim_get_current_win()
+    api.nvim_win_set_buf(win, buf)
+
+    render(ctx(), dir, select)
 end
 
 function M.enter()
-	local ctx = ctx_from(api.nvim_get_current_buf(), api.nvim_get_current_win())
-	local curr = current_meta(ctx)
-	if not curr then
-		return
-	end
+    local c = ctx()
+    local m = current_meta(c)
+    if not m then return end
 
-	if curr.isDir then
-		show(ctx, curr.fullPath)
-	else
-		-- Reemplaza el buffer directamente
-		vim.cmd("edit " .. vim.fn.fnameescape(curr.fullPath))
-	end
+    if m.isDir then
+        render(c, m.fullPath)
+    else
+        vim.cmd("edit " .. fn.fnameescape(m.fullPath))
+    end
 end
 
 function M.up()
-	local ctx = ctx_from(api.nvim_get_current_buf(), api.nvim_get_current_win())
-	local curr = current_meta(ctx)
-	if not curr or not curr.root then
-		return
-	end
-	local parent = paths.directory(curr.root.name)
-	show(ctx, parent, paths.name(curr.root.name))
+    local c = ctx()
+    local m = current_meta(c)
+    if not m or not m.root then return end
+
+    render(c, directory(m.root.name), name(m.root.name))
 end
 
 function M.create()
-	local ctx = ctx_from(api.nvim_get_current_buf(), api.nvim_get_current_win())
-	local curr = current_meta(ctx)
-	if not curr or not curr.root then
-		return
-	end
-	local root = curr.root
+    local c = ctx()
+    local m = current_meta(c)
+    if not m or not m.root then return end
 
-	local name = vim.fn.input("Create (append / for dir): ")
-	if name == "" then
-		return
-	end
+    local name_input = fn.input("Create (append / for dir): ")
+    if name_input == "" then return end
 
-	local is_dir = name:sub(-1) == "/"
-	local target = paths.add(root.name, name)
+    local is_dir = name_input:sub(-1) == "/"
+    local target = add_path(m.root.name, name_input)
+    local select = name_input:find("/") and name_input:match("^([^/]+)") or name_input
 
-	local select_name = name:find("/") and name:match("^([^/]+)") or name
+    if is_dir then
+        fn.mkdir(target:gsub("/$", ""), "p")
+    else
+        fn.mkdir(directory(target), "p")
+        local f = io.open(target, "w")
+        if f then f:close() end
+    end
 
-	if is_dir then
-		local dir_to_create = target:gsub("/$", "")
-		vim.fn.mkdir(dir_to_create, "p")
-	else
-		local parent_dir = paths.directory(target)
-		vim.fn.mkdir(parent_dir, "p")
-
-		local fd = io.open(target, "w")
-		if fd then
-			fd:close()
-		end
-	end
-
-	show(ctx, root.name, select_name)
+    render(c, m.root.name, select)
 end
 
 function M.delete()
-	local ctx = ctx_from(api.nvim_get_current_buf(), api.nvim_get_current_win())
-	local curr = current_meta(ctx)
-	if not curr then
-		return
-	end
+    local c = ctx()
+    local m = current_meta(c)
+    if not m then return end
 
-	local flags = curr.isDir and "d" or ""
-	local c = vim.fn.confirm("Delete " .. curr.fullPath .. "?", "&Yes\n&No")
-	if c == 1 then
-		vim.fn.delete(curr.fullPath, flags)
-		show(ctx, curr.root.name)
-	end
+    if fn.confirm("Delete " .. m.fullPath .. "?", "&Yes\n&No") == 1 then
+        fn.delete(m.fullPath, m.isDir and "d" or "")
+        render(c, m.root.name)
+    end
 end
 
 function M.rename()
-	local ctx = ctx_from(api.nvim_get_current_buf(), api.nvim_get_current_win())
-	local curr = current_meta(ctx)
-	if not curr then
-		return
-	end
+    local c = ctx()
+    local m = current_meta(c)
+    if not m then return end
 
-	local to = vim.fn.input("Rename to: ", curr.fullPath)
-	if to == "" then
-		return
-	end
+    local to = fn.input("Rename to: ", m.fullPath)
+    if to == "" then return end
 
-	vim.fn.rename(curr.fullPath, to)
-	show(ctx, curr.root.name)
+    fn.rename(m.fullPath, to)
+    render(c, m.root.name)
 end
 
 function M.yank()
-	local ctx = ctx_from(api.nvim_get_current_buf(), api.nvim_get_current_win())
-	local curr = current_meta(ctx)
-	if not curr then
-		return
-	end
-	vim.fn.setreg("+", curr.fullPath)
-	print(curr.fullPath)
-end
+    local c = ctx()
+    local m = current_meta(c)
+    if not m then return end
 
-function M.information()
-	local ctx = ctx_from(api.nvim_get_current_buf(), api.nvim_get_current_win())
-	local curr = current_meta(ctx)
-	if not curr then
-		return
-	end
-
-	local out = {}
-	for line in io.popen("file " .. vim.fn.shellescape(curr.fullPath)):lines() do
-		table.insert(out, line)
-	end
-
-	local b = api.nvim_create_buf(false, true)
-	api.nvim_buf_set_lines(b, 0, -1, false, out)
-	api.nvim_buf_set_option(b, "modifiable", false)
-	api.nvim_buf_set_option(b, "buftype", "nofile")
-	api.nvim_buf_set_option(b, "bufhidden", "wipe")
-	api.nvim_buf_set_keymap(b, "n", "q", "<cmd>bwipeout!<cr>", { silent = true, noremap = true })
-
-	local opts = {
-		relative = "cursor",
-		row = 1,
-		col = 0,
-		width = 60,
-		height = math.min(10, #out),
-		border = "single",
-		noautocmd = true,
-	}
-
-	api.nvim_open_win(b, true, opts)
+    fn.setreg("+", m.fullPath)
+    print(m.fullPath)
 end
 
 function M.close()
-	pcall(vim.cmd, "bwipeout!")
+    pcall(vim.cmd, "bwipeout!")
 end
 
-function M.open(path)
-	local input = path or paths.currentFile()
-	local full = paths.full(input)
-	if vim.fn.getftype(full) == "" then
-		full = vim.fn.getcwd() .. "/"
-	end
+-- =========================
+-- KEYMAPS
+-- =========================
 
-	local directory = full
-	local filename = nil
-	if paths.name(full) ~= "" then
-		filename = paths.name(full)
-		directory = paths.directory(full)
-	end
+function M._set_keymaps(buf)
+    -- Pasamos funciones Lua puras, no más cadenas de strings horribles
+    local opts = { buffer = buf, noremap = true, silent = true }
 
-	-- Creamos el buffer del explorador
-	vim.cmd("enew")
-	local buf = api.nvim_get_current_buf()
-
-	-- Configuración clave para que sea reemplazable y no moleste
-	api.nvim_buf_set_option(buf, "buftype", "")           -- buffer normal (permite :edit)
-	api.nvim_buf_set_option(buf, "bufhidden", "wipe")     -- se borra al reemplazar
-	api.nvim_buf_set_option(buf, "buflisted", false)      -- no aparece en :ls
-	api.nvim_buf_set_option(buf, "swapfile", false)
-	api.nvim_buf_set_option(buf, "undofile", false)
-	api.nvim_buf_set_option(buf, "filetype", "fex")
-
-	-- ← ESTO es lo nuevo que soluciona el prompt de "guardar"
-	api.nvim_buf_set_option(buf, "modifiable", true)
-	-- Forzamos que no esté marcado como modificado
-	api.nvim_buf_set_option(buf, "modified", false)
-
-	local win = api.nvim_get_current_win()
-	local ctx = ctx_from(buf, win)
-
-	set_keymaps(ctx)
-	show(ctx, directory, filename)
-
-	-- Extra seguridad: después del render también forzamos modified = false
-	api.nvim_buf_set_option(buf, "modified", false)
+    vim.keymap.set("n", "<CR>", M.enter, opts)
+    vim.keymap.set("n", "-", M.up, opts)
+    vim.keymap.set("n", "a", M.create, opts)
+    vim.keymap.set("n", "d", M.delete, opts)
+    vim.keymap.set("n", "r", M.rename, opts)
+    vim.keymap.set("n", "y", M.yank, opts)
+    vim.keymap.set("n", "q", M.close, opts)
 end
 
 return M
