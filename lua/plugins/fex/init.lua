@@ -1,6 +1,6 @@
 local api = vim.api
 local fn = vim.fn
-local uv = vim.uv -- Más moderno que vim.loop
+local uv = vim.uv
 
 local M = {}
 local ns = api.nvim_create_namespace("fex")
@@ -53,7 +53,7 @@ end
 
 local function current_meta(c)
     local ln = api.nvim_win_get_cursor(c.win)[1]
-    local lines = vim.b[c.buf].lines or {} -- Uso moderno de vim.b
+    local lines = vim.b[c.buf].lines or {}
     local m = lines[ln]
 
     if not m then return nil end
@@ -105,13 +105,12 @@ local function render(c, path, selectName)
         })
     end
 
-    -- Uso moderno de vim.bo para manipular opciones del buffer
     vim.bo[c.buf].modifiable = true
 
     api.nvim_buf_set_lines(c.buf, 0, -1, false, vim.tbl_map(function(l) return l.text end, lines))
 
     vim.bo[c.buf].modifiable = false
-    vim.bo[c.buf].modified = false -- FIX: Evita el mensaje de "guardar untitled"
+    vim.bo[c.buf].modified = false
 
     api.nvim_buf_clear_namespace(c.buf, ns, 0, -1)
 
@@ -121,7 +120,7 @@ local function render(c, path, selectName)
         end
     end
 
-    vim.b[c.buf].lines = lines -- Guardado limpio en el buffer
+    vim.b[c.buf].lines = lines
 
     if selectName then
         for i, e in ipairs(lines) do
@@ -153,13 +152,20 @@ function M.open(path)
         dir = directory(fullp)
     end
 
-    local buf = api.nvim_create_buf(false, true)
+    -- FIX: Guardamos el buffer que el usuario estaba editando antes de abrir Fex
+    local previous_buf = api.nvim_get_current_buf()
 
-    -- Configuración directa y limpia del buffer
+    -- FIX: Cambiado a `scratch = false` para que Neovim registre este buffer en el historial
+    local buf = api.nvim_create_buf(false, false)
+
     vim.bo[buf].buftype = ""
+    vim.bo[buf].buflisted = false -- Evita que ensucie el :ls
     vim.bo[buf].bufhidden = "wipe"
     vim.bo[buf].undofile = false
     vim.bo[buf].filetype = "fex"
+
+    -- Guardamos el buffer anterior dentro de las variables del nuevo buffer
+    vim.b[buf].fex_previous_buf = previous_buf
 
     M._set_keymaps(buf)
 
@@ -244,8 +250,17 @@ function M.yank()
     print(m.fullPath)
 end
 
+-- FIX: Ahora el cierre es inteligente. Si hay un buffer previo válido, vuelve a él.
+-- Si no lo encuentra, hace un wipeout limpio.
 function M.close()
-    pcall(vim.cmd, "bwipeout!")
+    local c = ctx()
+    local prev = vim.b[c.buf].fex_previous_buf
+
+    if prev and api.nvim_buf_is_valid(prev) then
+        api.nvim_win_set_buf(c.win, prev)
+    else
+        pcall(vim.cmd, "bwipeout!")
+    end
 end
 
 -- =========================
@@ -253,7 +268,6 @@ end
 -- =========================
 
 function M._set_keymaps(buf)
-    -- Pasamos funciones Lua puras, no más cadenas de strings horribles
     local opts = { buffer = buf, noremap = true, silent = true }
 
     vim.keymap.set("n", "<CR>", M.enter, opts)
@@ -262,7 +276,10 @@ function M._set_keymaps(buf)
     vim.keymap.set("n", "d", M.delete, opts)
     vim.keymap.set("n", "r", M.rename, opts)
     vim.keymap.set("n", "y", M.yank, opts)
+    
+    -- Mapeos de salida
     vim.keymap.set("n", "q", M.close, opts)
+    vim.keymap.set("n", "<C-o>", M.close, opts)
 end
 
 return M
