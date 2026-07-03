@@ -1,4 +1,4 @@
-local p = require("oldworld.palette")
+local p = require("plugins.oldworld.palette")
 
 return {
     -- LSP Semantic Token Groups

@@ -1,1 +1,1 @@
-require("oldworld").colorscheme()
+require("plugins.oldworld").colorscheme()

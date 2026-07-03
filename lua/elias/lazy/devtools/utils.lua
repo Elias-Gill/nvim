@@ -5,32 +5,32 @@ return {
 	{ "josa42/nvim-gx", keys = { { "gx", "<cmd>lua require('gx').gx()" } } }, -- open urls
 
 	-- better quickfixList
-	{
-		"kevinhwang91/nvim-bqf",
-		ft = "qf",
-		config = function()
-			require("bqf").setup({
-				---@diagnostic disable-next-line: missing-fields
-				preview = {
-					auto_preview = false,
-					winblend = 0,
-					should_preview_cb = function(bufnr, _)
-						local ret = true
-						local bufname = vim.api.nvim_buf_get_name(bufnr)
-						local fsize = vim.fn.getfsize(bufname)
-						if fsize > 100 * 1024 then
-							ret = false
-						elseif bufname:match("^fugitive://") then
-							ret = false
-						elseif bufname:match("^.*%.md$") then
-							ret = false
-						end
-						return ret
-					end,
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	"kevinhwang91/nvim-bqf",
+	-- 	ft = "qf",
+	-- 	config = function()
+	-- 		require("bqf").setup({
+	-- 			---@diagnostic disable-next-line: missing-fields
+	-- 			preview = {
+	-- 				auto_preview = false,
+	-- 				winblend = 0,
+	-- 				should_preview_cb = function(bufnr, _)
+	-- 					local ret = true
+	-- 					local bufname = vim.api.nvim_buf_get_name(bufnr)
+	-- 					local fsize = vim.fn.getfsize(bufname)
+	-- 					if fsize > 100 * 1024 then
+	-- 						ret = false
+	-- 					elseif bufname:match("^fugitive://") then
+	-- 						ret = false
+	-- 					elseif bufname:match("^.*%.md$") then
+	-- 						ret = false
+	-- 					end
+	-- 					return ret
+	-- 				end,
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 
 	-- cleaning buffers
 	{

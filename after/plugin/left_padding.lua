@@ -1,3 +1,5 @@
+local enabled = true
+
 local function padding_width()
     return math.floor(vim.o.columns * 0.20)
 end
@@ -10,6 +12,11 @@ end
 local function is_quickfix(win)
     local buf = vim.api.nvim_win_get_buf(win)
     return vim.bo[buf].buftype == "quickfix"
+end
+
+local function is_fugitive(win)
+    local buf = vim.api.nvim_win_get_buf(win)
+    return vim.bo[buf].filetype == "fugitive"
 end
 
 local function is_help(win)
@@ -58,6 +65,7 @@ local function real_windows()
             and not is_quickfix(win)
             and not is_help(win)
             and not is_padding(win)
+            and not is_fugitive(win)
         then
             table.insert(real, win)
         end
@@ -99,11 +107,11 @@ end
 
 local function remove_padding()
     local win = find_padding()
+
     if not win then
         return
     end
 
-    -- ignore errors like "cannot close last window"
     pcall(function()
         vim.api.nvim_win_call(win, function()
             vim.cmd("quit")
@@ -112,10 +120,14 @@ local function remove_padding()
 end
 
 local function update()
+    if not enabled then
+        remove_padding()
+        return
+    end
+
     local wins = real_windows()
 
     if #wins == 1 then
-        -- if the only window has an empty buffer, do not create padding
         if is_empty_buffer(wins[1]) then
             remove_padding()
             return
@@ -126,6 +138,16 @@ local function update()
         remove_padding()
     end
 end
+
+vim.api.nvim_create_user_command("TogglePadding", function()
+    enabled = not enabled
+
+    if enabled then
+        update()
+    else
+        remove_padding()
+    end
+end, {})
 
 vim.api.nvim_create_autocmd(
     { "WinNew", "WinClosed", "BufWinEnter", "VimResized" },

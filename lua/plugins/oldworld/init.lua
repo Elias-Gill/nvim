@@ -9,17 +9,17 @@ local function setup_highlights()
     end
 
     -- Cargar y aplicar todos los grupos directamente
-    load_syntax(require("oldworld.groups.editor"))
-    load_syntax(require("oldworld.groups.syntax"))
-    load_syntax(require("oldworld.groups.cmp"))
-    load_syntax(require("oldworld.groups.bqf"))
-    load_syntax(require("oldworld.groups.telescope"))
-    load_syntax(require("oldworld.groups.indent_blankline"))
-    load_syntax(require("oldworld.groups.lazy"))
-    load_syntax(require("oldworld.groups.lsp"))
-    load_syntax(require("oldworld.groups.markdown"))
-    load_syntax(require("oldworld.groups.mason"))
-    load_syntax(require("oldworld.groups.treesitter"))
+    load_syntax(require("plugins.oldworld.groups.editor"))
+    load_syntax(require("plugins.oldworld.groups.syntax"))
+    load_syntax(require("plugins.oldworld.groups.cmp"))
+    load_syntax(require("plugins.oldworld.groups.bqf"))
+    load_syntax(require("plugins.oldworld.groups.telescope"))
+    load_syntax(require("plugins.oldworld.groups.indent_blankline"))
+    load_syntax(require("plugins.oldworld.groups.lazy"))
+    load_syntax(require("plugins.oldworld.groups.lsp"))
+    load_syntax(require("plugins.oldworld.groups.markdown"))
+    load_syntax(require("plugins.oldworld.groups.mason"))
+    load_syntax(require("plugins.oldworld.groups.treesitter"))
 end
 
 function M.colorscheme()

@@ -31,10 +31,10 @@ require("lazy").setup({
         notify = false,
     },
     spec = {
-        { import = "elias.plugins.devtools" },
-        { import = "elias.plugins.lsp" },
-        { import = "elias.plugins.navigation" },
-        { import = "elias.plugins.ui" },
-        { import = "elias.plugins" },
+        { import = "elias.lazy.devtools" },
+        { import = "elias.lazy.lsp" },
+        { import = "elias.lazy.navigation" },
+        { import = "elias.lazy.ui" },
+        { import = "elias.lazy" },
     },
 })

@@ -1,4 +1,4 @@
-local p = require("oldworld.palette")
+local p = require("plugins.oldworld.palette")
 
 return {
     ColorColumn = { bg = p.gray3 }, -- used for the columns set with 'colorcolumn'
