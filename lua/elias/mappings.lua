@@ -17,7 +17,8 @@ map("n", "grr", ":silent grep! <c-r><c-w> **<cr>")
 map("v", "grr", "y:silent grep! <c-r>\" **<cr>")
 
 -- file managers
-map("n", "-", function() require("fex").open() end, { silent = true })
+-- map("n", "-", function() require("fex").open() end, { silent = true })
+-- map("n", "-", ":Explore<cr>")
 
 -- cycling buffers
 -- map("n", "[b", ":bprevious<CR>")
