@@ -8,6 +8,13 @@ return {
         cmd = "ColorToggle",
     },
 
+    {
+        "wtfox/luna.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+
     --ayudas de indentacion
     {
         "lukas-reineke/indent-blankline.nvim",

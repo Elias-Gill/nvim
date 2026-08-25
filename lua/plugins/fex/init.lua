@@ -133,6 +133,31 @@ local function render(c, path, selectName)
 end
 
 -- =========================
+-- BUFFER HELPERS
+-- =========================
+
+--- Busca un buffer por su ruta absoluta y le aplica un wipeout forzado si existe.
+--- @param target_path string Ruta absoluta del archivo a limpiar.
+function M._wipeout_buffer_by_path(target_path)
+    -- Normalizamos la ruta para asegurar una comparación exacta
+    local target_full = fn.fnamemodify(target_path, ":p")
+
+    -- Iteramos sobre todos los buffers válidos en Neovim
+    for _, buf in ipairs(api.nvim_list_bufs()) do
+        if api.nvim_buf_is_valid(buf) then
+            local buf_name = api.nvim_buf_get_name(buf)
+            local buf_full = fn.fnamemodify(buf_name, ":p")
+
+            if buf_full == target_full then
+                -- bwipeout! elimina el buffer, sus marcas, opciones y lo saca de la memoria
+                pcall(api.nvim_buf_delete, buf, { force = true })
+                break -- Encontrado y eliminado, podemos salir del bucle
+            end
+        end
+    end
+end
+
+-- =========================
 -- CORE ACTIONS
 -- =========================
 
@@ -152,19 +177,17 @@ function M.open(path)
         dir = directory(fullp)
     end
 
-    -- FIX: Guardamos el buffer que el usuario estaba editando antes de abrir Fex
+    -- save the buffer from which the user calls the file manager
     local previous_buf = api.nvim_get_current_buf()
 
-    -- FIX: Cambiado a `scratch = false` para que Neovim registre este buffer en el historial
+    -- create the new file manager buffer
     local buf = api.nvim_create_buf(false, false)
-
     vim.bo[buf].buftype = ""
     vim.bo[buf].buflisted = false -- Evita que ensucie el :ls
     vim.bo[buf].bufhidden = "wipe"
     vim.bo[buf].undofile = false
     vim.bo[buf].filetype = "fex"
 
-    -- Guardamos el buffer anterior dentro de las variables del nuevo buffer
     vim.b[buf].fex_previous_buf = previous_buf
 
     M._set_keymaps(buf)
@@ -224,7 +247,11 @@ function M.delete()
     if not m then return end
 
     if fn.confirm("Delete " .. m.fullPath .. "?", "&Yes\n&No") == 1 then
+        -- Wipe the buffer atached to the removed file
+        M._wipeout_buffer_by_path(m.fullPath)
+
         fn.delete(m.fullPath, m.isDir and "d" or "")
+
         render(c, m.root.name)
     end
 end
@@ -238,6 +265,10 @@ function M.rename()
     if to == "" then return end
 
     fn.rename(m.fullPath, to)
+
+    -- Wipe the buffer atached to the old file
+    M._wipeout_buffer_by_path(m.fullPath)
+
     render(c, m.root.name)
 end
 
@@ -250,8 +281,6 @@ function M.yank()
     print(m.fullPath)
 end
 
--- FIX: Ahora el cierre es inteligente. Si hay un buffer previo válido, vuelve a él.
--- Si no lo encuentra, hace un wipeout limpio.
 function M.close()
     local c = ctx()
     local prev = vim.b[c.buf].fex_previous_buf
@@ -276,7 +305,7 @@ function M._set_keymaps(buf)
     vim.keymap.set("n", "d", M.delete, opts)
     vim.keymap.set("n", "r", M.rename, opts)
     vim.keymap.set("n", "y", M.yank, opts)
-    
+
     -- Mapeos de salida
     vim.keymap.set("n", "q", M.close, opts)
     vim.keymap.set("n", "<C-o>", M.close, opts)

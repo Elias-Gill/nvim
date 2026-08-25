@@ -10,7 +10,21 @@ local augroup = api.nvim_create_augroup("LeftPaddingLayout", { clear = true })
 -- ================================
 
 local function padding_width()
-    return math.floor(vim.o.columns * 0.20)
+    local cols = vim.o.columns
+    local percentage
+
+    if cols >= 220 then
+        -- Monitor Grande: 20% de padding
+        percentage = 0.20
+    elseif cols <= 160 then
+        -- Laptop: 10% de padding
+        percentage = 0.12
+    else
+        -- Interpolación lineal entre 160 y 220 columnas para tamanos intermedios
+        percentage = 0.12 + ((cols - 160) / (220 - 160)) * (0.20 - 0.12)
+    end
+
+    return math.floor(cols * percentage)
 end
 
 -- Revisa de forma segura si una ventana contiene el buffer de padding
