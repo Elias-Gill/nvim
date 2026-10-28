@@ -39,6 +39,9 @@ command Bw :wa | BWipeout hidden
 command W :w
 command Q :q
 
+" Format Tables in markdown
+command -range FormatTable :'<,'>!column -t -s '|' -o '|'
+
 "Change dir to tmux pwd
 command! TmuxCd execute 'cd' system('tmux display-message -p -F "#{session_path}"')
 

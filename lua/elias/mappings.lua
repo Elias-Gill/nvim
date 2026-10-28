@@ -11,6 +11,8 @@ map("n", "ZZ", ":qa<cr>")
 -- save all buffers, format and quit
 map("n", "<leader>tt", ":Bw<cr>:qa<cr>")
 
+map("n", "Q", "@q")
+
 -- grep functions
 map("n", "<leader>g", ":silent grep! ")
 map("n", "grr", ":silent grep! <c-r><c-w> **<cr>")
