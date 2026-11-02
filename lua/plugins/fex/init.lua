@@ -136,22 +136,21 @@ end
 -- BUFFER HELPERS
 -- =========================
 
---- Busca un buffer por su ruta absoluta y le aplica un wipeout forzado si existe.
---- @param target_path string Ruta absoluta del archivo a limpiar.
-function M._wipeout_buffer_by_path(target_path)
-    -- Normalizamos la ruta para asegurar una comparación exacta
-    local target_full = fn.fnamemodify(target_path, ":p")
+--- Wipe buffers attached to a path. With recursive, also wipes nested files.
+--- @param target_path string Absolute path of the file or directory.
+--- @param recursive boolean Wipe buffers under the directory recursively.
+function M._wipeout_buffer_by_path(target_path, recursive)
+    local target = fn.fnamemodify(target_path, ":p"):gsub("/+$", "")
+    local prefix = target .. "/"
 
-    -- Iteramos sobre todos los buffers válidos en Neovim
     for _, buf in ipairs(api.nvim_list_bufs()) do
         if api.nvim_buf_is_valid(buf) then
-            local buf_name = api.nvim_buf_get_name(buf)
-            local buf_full = fn.fnamemodify(buf_name, ":p")
+            local buf_full = fn.fnamemodify(api.nvim_buf_get_name(buf), ":p"):gsub("/+$", "")
+            local matches = buf_full == target
+                or (recursive and vim.startswith(buf_full, prefix))
 
-            if buf_full == target_full then
-                -- bwipeout! elimina el buffer, sus marcas, opciones y lo saca de la memoria
+            if matches then
                 pcall(api.nvim_buf_delete, buf, { force = true })
-                break -- Encontrado y eliminado, podemos salir del bucle
             end
         end
     end
@@ -230,6 +229,11 @@ function M.create()
     local target = add_path(m.root.name, name_input)
     local select = name_input:find("/") and name_input:match("^([^/]+)") or name_input
 
+    if not is_dir and fn.getftype(target) ~= "" then
+        local choice = fn.confirm("File already exists:\n" .. target .. "\nOverwrite?", "&Yes\n&No")
+        if choice ~= 1 then return end
+    end
+
     if is_dir then
         fn.mkdir(target:gsub("/$", ""), "p")
     else
@@ -246,11 +250,21 @@ function M.delete()
     local m = current_meta(c)
     if not m then return end
 
-    if fn.confirm("Delete " .. m.fullPath .. "?", "&Yes\n&No") == 1 then
-        -- Wipe the buffer atached to the removed file
-        M._wipeout_buffer_by_path(m.fullPath)
+    if m.isRoot then
+        vim.notify("fex: cannot delete the current root directory", vim.log.levels.WARN)
+        return
+    end
 
-        fn.delete(m.fullPath, m.isDir and "d" or "")
+    local message = m.isDir
+        and ("Delete directory " .. m.fullPath .. " and all its contents?")
+        or ("Delete " .. m.fullPath .. "?")
+
+    if fn.confirm(message, "&Yes\n&No") == 1 then
+        -- Wipe the buffers attached to the removed file or its children
+        M._wipeout_buffer_by_path(m.fullPath, m.isDir)
+
+        -- "rf" deletes directories recursively
+        fn.delete(m.fullPath, m.isDir and "rf" or "")
 
         render(c, m.root.name)
     end
