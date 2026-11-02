@@ -25,8 +25,7 @@ local function current_file()
     return fn.expand("%:p")
 end
 
-local function add_path(p, part)
-    p = full(p)
+local function join(p, part)
     if p:sub(-1) ~= "/" then
         p = p .. "/"
     end
@@ -58,16 +57,9 @@ local function current_meta(c)
 
     if not m then return nil end
 
-    local root
-    for _, L in ipairs(lines) do
-        if L.isRoot then
-            root = L
-            break
-        end
-    end
-
-    m.root = root
-    m.fullPath = m.isRoot and normalize_path(m.name) or add_path(root.name, name(m.name))
+    -- Root is always the first line, inserted by render
+    m.root = lines[1]
+    m.fullPath = m.isRoot and normalize_path(m.name) or m.name
     m._line = ln
 
     return m
@@ -78,7 +70,6 @@ end
 -- =========================
 
 local function render(c, path, selectName)
-    local lines = {}
     local entries = {}
 
     local handle = uv.fs_scandir(path)
@@ -95,36 +86,43 @@ local function render(c, path, selectName)
         return a.name < b.name
     end)
 
-    table.insert(lines, { name = path, isRoot = true, isDir = true, text = path })
+    local lines = { { name = path, isRoot = true, isDir = true, text = path } }
+    local texts = { path }
+    local last_dir_row = 0
 
     for _, e in ipairs(entries) do
+        local text = e.name .. (e.isDir and "/" or "")
         table.insert(lines, {
-            name = add_path(path, e.name),
+            name = join(path, e.name),
             isDir = e.isDir,
-            text = e.name .. (e.isDir and "/" or ""),
+            text = text,
+            base = e.name,
         })
+        table.insert(texts, text)
+        if e.isDir then last_dir_row = #lines - 1 end
     end
 
     vim.bo[c.buf].modifiable = true
 
-    api.nvim_buf_set_lines(c.buf, 0, -1, false, vim.tbl_map(function(l) return l.text end, lines))
+    api.nvim_buf_set_lines(c.buf, 0, -1, false, texts)
 
     vim.bo[c.buf].modifiable = false
     vim.bo[c.buf].modified = false
 
     api.nvim_buf_clear_namespace(c.buf, ns, 0, -1)
 
-    for i, e in ipairs(lines) do
-        if e.isDir then
-            api.nvim_buf_add_highlight(c.buf, ns, "Directory", i - 1, 0, -1)
-        end
-    end
+    -- Directories are sorted first, so a single extmark covers all of them
+    api.nvim_buf_set_extmark(c.buf, ns, 0, 0, {
+        end_row = last_dir_row,
+        end_col = -1,
+        hl_group = "Directory",
+    })
 
     vim.b[c.buf].lines = lines
 
     if selectName then
         for i, e in ipairs(lines) do
-            if not e.isRoot and name(e.name) == selectName then
+            if not e.isRoot and e.base == selectName then
                 api.nvim_win_set_cursor(c.win, { i, 0 })
                 break
             end
@@ -140,12 +138,12 @@ end
 --- @param target_path string Absolute path of the file or directory.
 --- @param recursive boolean Wipe buffers under the directory recursively.
 function M._wipeout_buffer_by_path(target_path, recursive)
-    local target = fn.fnamemodify(target_path, ":p"):gsub("/+$", "")
+    local target = full(target_path):gsub("/+$", "")
     local prefix = target .. "/"
 
     for _, buf in ipairs(api.nvim_list_bufs()) do
         if api.nvim_buf_is_valid(buf) then
-            local buf_full = fn.fnamemodify(api.nvim_buf_get_name(buf), ":p"):gsub("/+$", "")
+            local buf_full = api.nvim_buf_get_name(buf):gsub("/+$", "")
             local matches = buf_full == target
                 or (recursive and vim.startswith(buf_full, prefix))
 
@@ -226,7 +224,7 @@ function M.create()
     if name_input == "" then return end
 
     local is_dir = name_input:sub(-1) == "/"
-    local target = add_path(m.root.name, name_input)
+    local target = join(m.root.name, name_input)
     local select = name_input:find("/") and name_input:match("^([^/]+)") or name_input
 
     if not is_dir and fn.getftype(target) ~= "" then
