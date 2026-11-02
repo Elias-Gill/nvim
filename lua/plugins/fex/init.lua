@@ -114,7 +114,7 @@ local function render(c, path, selectName)
     -- Directories are sorted first, so a single extmark covers all of them
     api.nvim_buf_set_extmark(c.buf, ns, 0, 0, {
         end_row = last_dir_row,
-        end_col = -1,
+        end_col = #texts[last_dir_row + 1],
         hl_group = "Directory",
     })
 
