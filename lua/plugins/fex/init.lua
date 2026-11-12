@@ -155,6 +155,81 @@ function M._wipeout_buffer_by_path(target_path, recursive)
 end
 
 -- =========================
+-- LSP NOTIFICATIONS
+-- =========================
+
+local FileChangeType = vim.lsp.protocol.FileChangeType
+
+local function path_under(root, path)
+    root = root:gsub("/+$", "")
+    return path == root or vim.startswith(path, root .. "/")
+end
+
+local function client_covers(client, path)
+    local folders = client.workspace_folders
+    if not folders or #folders == 0 then
+        return true
+    end
+
+    for _, folder in ipairs(folders) do
+        if path_under(vim.uri_to_fname(folder.uri), path) then
+            return true
+        end
+    end
+
+    return false
+end
+
+--- Return the path plus every file under it when it is a directory.
+--- @param path string
+--- @return string[]
+local function collect_paths(path)
+    path = vim.fs.normalize(path)
+
+    local paths = { path }
+    if fn.isdirectory(path) == 0 then
+        return paths
+    end
+
+    local files = vim.fs.find(function() return true end, {
+        path = path,
+        type = "file",
+        limit = math.huge,
+    })
+
+    vim.list_extend(paths, files)
+    return paths
+end
+
+--- Notify clients about external filesystem changes.
+--- Clients with a dynamic watcher are skipped: Neovim already reports those.
+--- @param changes table[] List of { path: string, type: integer }
+local function notify_watched(changes)
+    if #changes == 0 then return end
+
+    for _, client in ipairs(vim.lsp.get_clients()) do
+        local has_watcher = client.dynamic_capabilities
+            and client.dynamic_capabilities:get("workspace/didChangeWatchedFiles")
+
+        if not has_watcher then
+            local events = {}
+            for _, change in ipairs(changes) do
+                if client_covers(client, change.path) then
+                    table.insert(events, {
+                        uri = vim.uri_from_fname(change.path),
+                        type = change.type,
+                    })
+                end
+            end
+
+            if #events > 0 then
+                client:notify("workspace/didChangeWatchedFiles", { changes = events })
+            end
+        end
+    end
+end
+
+-- =========================
 -- CORE ACTIONS
 -- =========================
 
@@ -226,8 +301,9 @@ function M.create()
     local is_dir = name_input:sub(-1) == "/"
     local target = join(m.root.name, name_input)
     local select = name_input:find("/") and name_input:match("^([^/]+)") or name_input
+    local exists = fn.getftype(target) ~= ""
 
-    if not is_dir and fn.getftype(target) ~= "" then
+    if not is_dir and exists then
         local choice = fn.confirm("File already exists:\n" .. target .. "\nOverwrite?", "&Yes\n&No")
         if choice ~= 1 then return end
     end
@@ -237,7 +313,15 @@ function M.create()
     else
         fn.mkdir(directory(target), "p")
         local f = io.open(target, "w")
-        if f then f:close() end
+        if f then
+            f:close()
+            notify_watched({
+                {
+                    path = target,
+                    type = exists and FileChangeType.Changed or FileChangeType.Created,
+                },
+            })
+        end
     end
 
     render(c, m.root.name, select)
@@ -258,11 +342,19 @@ function M.delete()
         or ("Delete " .. m.fullPath .. "?")
 
     if fn.confirm(message, "&Yes\n&No") == 1 then
+        local removed = collect_paths(m.fullPath)
+
         -- Wipe the buffers attached to the removed file or its children
         M._wipeout_buffer_by_path(m.fullPath, m.isDir)
 
         -- "rf" deletes directories recursively
-        fn.delete(m.fullPath, m.isDir and "rf" or "")
+        if fn.delete(m.fullPath, m.isDir and "rf" or "") == 0 then
+            local changes = {}
+            for _, path in ipairs(removed) do
+                table.insert(changes, { path = path, type = FileChangeType.Deleted })
+            end
+            notify_watched(changes)
+        end
 
         render(c, m.root.name)
     end
@@ -276,10 +368,24 @@ function M.rename()
     local to = fn.input("Rename to: ", m.fullPath)
     if to == "" then return end
 
-    fn.rename(m.fullPath, to)
+    local old_path = vim.fs.normalize(m.fullPath)
+    local new_path = vim.fs.normalize(full(to))
+    local old_paths = collect_paths(old_path)
 
-    -- Wipe the buffer atached to the old files
-    M._wipeout_buffer_by_path(m.fullPath, m.isDir)
+    -- Renames open buffers in place and sends didClose/didOpen to clients
+    local ok = pcall(vim.lsp.util.rename, old_path, new_path, { overwrite = true })
+    if not ok then return end
+
+    -- Drop stale buffers that rename could not move (usually unloaded ones)
+    M._wipeout_buffer_by_path(old_path, true)
+
+    local changes = {}
+    for _, path in ipairs(old_paths) do
+        local suffix = path:sub(#old_path + 1)
+        table.insert(changes, { path = path, type = FileChangeType.Deleted })
+        table.insert(changes, { path = new_path .. suffix, type = FileChangeType.Created })
+    end
+    notify_watched(changes)
 
     render(c, m.root.name)
 end
