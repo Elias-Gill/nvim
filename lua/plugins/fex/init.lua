@@ -278,8 +278,8 @@ function M.rename()
 
     fn.rename(m.fullPath, to)
 
-    -- Wipe the buffer atached to the old file
-    M._wipeout_buffer_by_path(m.fullPath)
+    -- Wipe the buffer atached to the old files
+    M._wipeout_buffer_by_path(m.fullPath, m.isDir)
 
     render(c, m.root.name)
 end
